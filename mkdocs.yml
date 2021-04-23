@@ -5,12 +5,11 @@ nav:
     - Home: index.md
     - Introduction: introduction.md
     - Prerequisites: prerequisites.md
-    - Build and Deploy Pet Store:
+    - Build and Deploy Pet Clinic:
       - Section Overview: build-and-deploy/overview.md
-      - Building and Testing Application: build-and-deploy/build.md
-      - Deploying Application: build-and-deploy/deploy.md
-      - Running and Checking Pipeline: build-and-deploy/running.md
-    - Test and Promote Pet Store:
+      - PetClinic Up and Running: build-and-deploy/upandrunning.md
+      - PetClinic Meets OpenShift Pipelines: build-and-deploy/pipeline.md
+    - Test and Promote Pet Clinic:
       - Section Overview: application-promotion/overview.md
       - Testing Application: application-promotion/test.md
       - Promoting Application: application-promotion/promote.md

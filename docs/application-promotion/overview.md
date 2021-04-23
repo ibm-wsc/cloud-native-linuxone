@@ -1,14 +1,13 @@
-# It's time to get your pet store ready for its public dayview
+# It's time to get your pet clinic ready for its public dayview
 
-In this section, you will bring your petstore from development to staging for the grand opening (production).
+In this section, you will bring PetClinic from development to staging for the grand opening of your pet clinic (production).
 
-- [Testing Tasks](test.md)
+1. [Testing Tasks](test.md)
     - Testing that the app runs successfully on the development cluster
     - Testing that the app runs successfully on the staging cluster
-- [Promotion Tasks](promote.md)
-    - Adding Trigger to promote changes from source code to running applicaiton
-    - Deploying PetStore to the staging cluster
-- [Running Pipeline](action.md)
-    - Update the PetStore app with changes and push to GitHub
+2. [Promotion Tasks](promote.md)
+    - Deploying PetClinic to the staging cluster
+3. [Running Pipeline](action.md)
+    - Update PetClinic with changes and push to GitHub
     - Trigger build pipeline and watch app move from staging to dev seamlessly
     - Discussing ways to integrate OpenShift on LinuxONE as part of a greater multi-cloud ecosystem

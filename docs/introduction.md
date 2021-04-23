@@ -11,5 +11,5 @@ This lab will see you open up an example virtual pet store running on LinuxONE u
 
 This lab is broken into two parts:
 
-1. Build and Deploying PetStore Java Application
-2. Promoting PetStore from development to staging with GitHub integration
+1. Build and Deploying PetClinic Java Application
+2. Promoting PetClinic from development to staging with GitHub integration

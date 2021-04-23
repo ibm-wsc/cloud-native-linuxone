@@ -4,11 +4,18 @@ Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift
 
 ## Agenda
 * [Introduction to Cloud Native Workshop](introduction.md)
-* [Deploy Pet Store via OpenShift Pipelines](build-and-deploy/overview.md)
+* [Deploy Pet Clinic via OpenShift Pipelines](build-and-deploy/overview.md)
 * [Extend Pipeline to Upgrade from Delopment to Staging](application-promotion/overview.md)
 
 ## Acknowledgements
-* Thanks to the following contributors: will be added as appropriate
+* Thanks to the following contributors:
+
+    - Chee Yee for setting up the LinuxONE Community Cloud for the OpenShift Pipelines workflow
+
+    - `redhat-developer-demos` for sharing the `spring-petclinic` sample application, specifically Burr Sutter who did most of the development on the sample application
+
+
+
 
 ## Workshop owners
 * [Barry Silliman](mailto:silliman@us.ibm.com)
