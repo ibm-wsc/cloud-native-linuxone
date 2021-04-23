@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#its-time-to-open-up-your-petstore-for-testing" class="md-skip">
+        <a href="#its-time-to-open-up-your-pet-clinic-for-testing" class="md-skip">
           Skip to content
         </a>
       
@@ -252,13 +252,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
-        Build and Deploy Pet Store
+        Build and Deploy Pet Clinic
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Build and Deploy Pet Store" data-md-level="1">
+      <nav class="md-nav" aria-label="Build and Deploy Pet Clinic" data-md-level="1">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          Build and Deploy Pet Store
+          Build and Deploy Pet Clinic
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -288,8 +288,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../build/" class="md-nav__link">
-        Building and Testing Application
+      <a href="../upandrunning/" class="md-nav__link">
+        PetClinic Up and Running
       </a>
     </li>
   
@@ -300,20 +300,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deploy/" class="md-nav__link">
-        Deploying Application
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../running/" class="md-nav__link">
-        Running and Checking Pipeline
+      <a href="../pipeline/" class="md-nav__link">
+        PetClinic Meets OpenShift Pipelines
       </a>
     </li>
   
@@ -339,13 +327,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       <label class="md-nav__link" for="__nav_5">
-        Test and Promote Pet Store
+        Test and Promote Pet Clinic
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Test and Promote Pet Store" data-md-level="1">
+      <nav class="md-nav" aria-label="Test and Promote Pet Clinic" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          Test and Promote Pet Store
+          Test and Promote Pet Clinic
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -481,25 +469,27 @@
                   </a>
                 
                 
-                <h1 id="its-time-to-open-up-your-petstore-for-testing">It's time to open up your PetStore for testing<a class="headerlink" href="#its-time-to-open-up-your-petstore-for-testing" title="Permanent link">&para;</a></h1>
-<p>In this section, we will build and deploy the PetStore Java application. This involves the following tasks:</p>
+                <h1 id="its-time-to-open-up-your-pet-clinic-for-testing">It's time to open up your pet clinic for testing<a class="headerlink" href="#its-time-to-open-up-your-pet-clinic-for-testing" title="Permanent link">&para;</a></h1>
+<p>In this section, we will build, test and deploy the Java web application for our pet clinic (PetClinic) and then automate the process using OpenShift Pipelines. This involves the following tasks:</p>
+<ol>
+<li>
+<p><a href="../upandrunning/">Get Your Pet Clinic Up and Running on OpenShift</a></p>
 <ul>
-<li><a href="../build/">Build Tasks</a><ul>
-<li>Building an application container for the PetStore</li>
-<li>Running automated tests on the build</li>
+<li>Deploying MySQL database</li>
+<li>Building PetClinic with automated testing</li>
+<li>Accessing PetClinic and adding your pet</li>
 </ul>
 </li>
-<li><a href="../deploy/">Deploy Tasks</a><ul>
-<li>Setting up an backend database</li>
-<li>Deploying PetStore to OpenShift Container Platform</li>
+<li>
+<p><a href="../pipeline/">PetClinic Continuous Integration using OpenShift Pipelines</a></p>
+<ul>
+<li>Automate PetClinic and MySQL deployment</li>
+<li>Adding GitHub Integration and tag images</li>
+<li>Make clean image from S2I build</li>
+<li>Trigger pipeline with empty commit</li>
 </ul>
 </li>
-<li><a href="../running/">Running Pipeline</a><ul>
-<li>Running build pipeline to carry out the <code>build</code> and `deploy tasks</li>
-<li>Accessing your virtual pet store for the first time</li>
-</ul>
-</li>
-</ul>
+</ol>
                 
               
               
@@ -532,13 +522,13 @@
         </a>
       
       
-        <a href="../build/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../upandrunning/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Building and Testing Application
+              PetClinic Up and Running
             </div>
           </div>
           <div class="md-footer__button md-icon">
