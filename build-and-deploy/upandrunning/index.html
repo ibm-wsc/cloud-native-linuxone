@@ -317,8 +317,35 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fork-the-petclinic-repo-to-your-own-github-account" class="md-nav__link">
+    Fork the PetClinic repo to your own GitHub account
+  </a>
+  
+    <nav class="md-nav" aria-label="Fork the PetClinic repo to your own GitHub account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#place-holder" class="md-nav__link">
+    Place holder
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#building-and-deploying-petclinic-application" class="md-nav__link">
     Building and Deploying PetClinic Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interacting-with-your-petclinic-application-and-mysql-database" class="md-nav__link">
+    Interacting with Your PetClinic Application and MySQL database
   </a>
   
 </li>
@@ -505,8 +532,35 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fork-the-petclinic-repo-to-your-own-github-account" class="md-nav__link">
+    Fork the PetClinic repo to your own GitHub account
+  </a>
+  
+    <nav class="md-nav" aria-label="Fork the PetClinic repo to your own GitHub account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#place-holder" class="md-nav__link">
+    Place holder
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#building-and-deploying-petclinic-application" class="md-nav__link">
     Building and Deploying PetClinic Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interacting-with-your-petclinic-application-and-mysql-database" class="md-nav__link">
+    Interacting with Your PetClinic Application and MySQL database
   </a>
   
 </li>
@@ -531,7 +585,7 @@
                 <h1 id="getting-your-petclinic-open-with-a-shift-title-placeholder-for-something-less-cheesy">Getting your PetClinic Open with a Shift (Title Placeholder for something less cheesy)<a class="headerlink" href="#getting-your-petclinic-open-with-a-shift-title-placeholder-for-something-less-cheesy" title="Permanent link">&para;</a></h1>
 <p>For this workshop we will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. <a href="https://github.com/spring-projects/spring-petclinic">The official version of PetClinic</a> demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. </p>
 <p>For this workshop, we will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud-native application and a DevOps pipeline for the application.</p>
-<p>We will start by building our PetClinic application from the source code and connecting it to a mysql database.</p>
+<p>We will start by building our PetClinic application from the source code and connecting it to a MySQL database.</p>
 <h2 id="deploying-mysql-database">Deploying MySQL database<a class="headerlink" href="#deploying-mysql-database" title="Permanent link">&para;</a></h2>
 <p><strong>1.</strong> First, we need to setup our mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options.</p>
 <p><img alt="Add DB" src="../upandrunningimages/devselectdatabase.png" /></p>
@@ -546,13 +600,15 @@
 <p>In a production system, you will most likely be using a permanent MySQL instance. This stores the data in a Persistent Volume (basically a virtual hard drive), meaning the MySQL pod can be destroyed and replaced with the data remaining intact.</p>
 <p>A minute or two later, in the <code>Topology</code> view of your OpenShift Console, you should see <code>mysql</code> in running state.</p>
 <p><img alt="DB running" src="../upandrunningimages/mysqlrunning.png" /></p>
+<h2 id="fork-the-petclinic-repo-to-your-own-github-account">Fork the PetClinic repo to your own GitHub account<a class="headerlink" href="#fork-the-petclinic-repo-to-your-own-github-account" title="Permanent link">&para;</a></h2>
+<h3 id="place-holder">Place holder<a class="headerlink" href="#place-holder" title="Permanent link">&para;</a></h3>
 <h2 id="building-and-deploying-petclinic-application">Building and Deploying PetClinic Application<a class="headerlink" href="#building-and-deploying-petclinic-application" title="Permanent link">&para;</a></h2>
 <p>There are multiple ways OpenShift enables cloud-native application developers to package up their applications and deploy them. For PetClinic, we will be building our application image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows us to quickly test the building, packaging, and deployment of our application, and gives us the option to create a DevOps pipeline from this workflow. It's a good way to start to  understand how OpenShift Pipelines work.</p>
 <p><strong>1.</strong> Start with choosing Add From Git:</p>
 <p><img alt="from git" src="../upandrunningimages/fromgit.png" /></p>
 <p><strong>2.</strong> Enter <code>https://github.com/ibm-wsc/spring-petclinic</code> in the <code>Git Repo URL</code> field. Expand the <code>Show Advanced Git Options</code> section, and type in <code>main</code> for the <code>Git Reference</code>. This tells OpenShift which GitHub repo and branch to pull the source code from.</p>
 <p><img alt="git url" src="../upandrunningimages/giturl.png" /></p>
-<p><strong>3.</strong> Scroll down to the Builder section. Select the <code>OpenJ9</code> tile and select <code>openj9-11-el8</code> as the builder image version. As you can see OpenShift offers many different builder images to help you build images from a variety of programming languages. For Java on Z, the recommended JVM is <code>OpenJ9</code> because it has built-in s390x optimizations as well as container optimizations.</p>
+<p><strong>3.</strong> Scroll down to the Builder section. Select the <code>OpenJ9</code> tile and select <code>openj9-11-el8</code> as the builder image version. As you can see OpenShift offers many different builder images to help you build images from a variety of programming languages. Your list of builder images might differ from the screen shot. For Java on Z, the recommended JVM is <code>OpenJ9</code> because it has built-in s390x optimizations as well as container optimizations.</p>
 <p><img alt="builder image" src="../upandrunningimages/builderimage.png" /></p>
 <p><strong>4.</strong> In the General section, put in the following entries for Application Name and Name. </p>
 <p><img alt="app name" src="../upandrunningimages/applicationname.png" /></p>
@@ -562,7 +618,35 @@
 <p><img alt="open routing panel" src="../upandrunningimages/routinglink.png" /></p>
 <p><strong>7.</strong> In the Routing options section, only fill out the Security options as follows. You can leave the rest alone. These options will enable only TLS access to your PetClinic application.</p>
 <p><img alt="routing options" src="../upandrunningimages/routingpanel.png" /></p>
-<p><strong>8.</strong> </p>
+<p><strong>8.</strong> Finally, we need to pass a build environment variable to tell the build process to run the application unit tests before building the application image. By default, the <code>OpenJ9</code> builder image skips the tests during the build process, but we want to automatically run the tests as part of our build pipeline to ensure its validity. Scroll to the bottom and select the <code>Build Configuration</code> link to expand that section.</p>
+<p><img alt="build link" src="../upandrunningimages/buildconfiglink.png" /></p>
+<p><strong>9.</strong> Now, enter the following environment variable as shown in the diagram: <code>MAVEN_ARGS=-e -Dcom.redhat.xpaas.repo.redhatga</code></p>
+<p><img alt="build env" src="../upandrunningimages/buildenv.png" /></p>
+<p><strong>10.</strong> Finally, you are done with setting up the build. Hit the <code>Create</code> button to start your build and deploy process.</p>
+<p><strong>11.</strong> You will now be taken back to the Topology view. After a few seconds you should see the icon for build look like the following diagram, and you should then at this point click on the circle.</p>
+<p><img alt="build running" src="../upandrunningimages/buildrunning.png" /></p>
+<p><strong>12.</strong> You will now be taken into the Logs section of your build, where you should begin to see the logs streaming from the progress of your build. Towards the end, you should see log messages similar to the following diagram, letting you know that the tests have all passed (39 unit tests are run, with 1 skipped, 0 failed). Please note, the logs will be easier to view if you Expand them.</p>
+<p><img alt="test output" src="../upandrunningimages/sampletestoutput.png" /></p>
+<p><strong>13.</strong> The build will take several minutes to run. In the end, after the unit tests have been successfully run, you should see success messages that indicate a successful build, and push to the image registry.</p>
+<p><img alt="build output" src="../upandrunningimages/buildlog.png" /></p>
+<p><strong>14.</strong> Now if you go back to the Topology view, you should see the application has been successfully deployed to OpenShift as well. From here you can click on the <code>open URL</code> circle, and a new browser tab should open to lead you to your PetClinic's front page.</p>
+<p><img alt="open URL" src="../upandrunningimages/openurl.png" /></p>
+<h2 id="interacting-with-your-petclinic-application-and-mysql-database">Interacting with Your PetClinic Application and MySQL database<a class="headerlink" href="#interacting-with-your-petclinic-application-and-mysql-database" title="Permanent link">&para;</a></h2>
+<p>In this section, you will add a new owner to the Pet Clinic application, and then go into your MySQL container to see if that owner was successfully added. </p>
+<p><strong>1.</strong> You Pet Clinic should look something similar to this. Go to the Find Owners tab, and create a new owner.</p>
+<p><img alt="find owners" src="../upandrunningimages/findowners.png" /></p>
+<p><strong>2.</strong> Click on the <code>Add Owner</code> button, and add an owner of your own, for example:</p>
+<p><img alt="add owner" src="../upandrunningimages/addowner.png" /></p>
+<p><strong>3.</strong> Now let's check the MySQL database to make sure that the new owner you just added is in there.</p>
+<p>Return to your OpenShift console, from the Topology view, click on the <code>mysql</code> icon. This will bring up a side panel, and then click on the <code>mysql</code> pod (your pod name will be different than the picture):</p>
+<p><img alt="mysql pod access" src="../upandrunningimages/mysqlpod.png" /></p>
+<p>In the pod panel, go to the Terminal tab.</p>
+<p><img alt="mysql terminal" src="../upandrunningimages/mysqlterminal.png" /></p>
+<p>Now type in the following commands in your <code>mysql</code> terminal:</p>
+<p><img alt="mysql access" src="../upandrunningimages/mysqlaccess.png" /></p>
+<p>Let's run a SQL command now to verify that the owner that we added through the application is indeed in the database:</p>
+<p><img alt="mysql owner check" src="../upandrunningimages/mysqlowners.png" /></p>
+<p>Please let the instructors know, if you don't see your owner listed.</p>
                 
               
               
