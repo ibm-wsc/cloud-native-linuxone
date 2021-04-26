@@ -533,21 +533,13 @@
 <p>For this workshop, we will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud-native application and a DevOps pipeline for the application.</p>
 <p>We will start by building our PetClinic application from the source code and connecting it to a mysql database.</p>
 <h2 id="deploying-mysql-database">Deploying MySQL database<a class="headerlink" href="#deploying-mysql-database" title="Permanent link">&para;</a></h2>
-<ol>
-<li>First, we need to setup our mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options.</li>
-</ol>
+<p><strong>1.</strong> First, we need to setup our mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options.</p>
 <p><img alt="Add DB" src="../upandrunningimages/devselectdatabase.png" /></p>
-<ol>
-<li>Next, select the <code>MySQL (Ephemeral)</code> tile. Note we are choosing the ephemeral option because at this point we do not care to persist the database beyond the life of the container.</li>
-</ol>
+<p><strong>2.</strong> Next, select the <code>MySQL (Ephemeral)</code> tile. Note we are choosing the ephemeral option because at this point we do not care to persist the database beyond the life of the container.</p>
 <p><img alt="Select MySQL" src="../upandrunningimages/selectmqephemeral.png" /></p>
-<ol>
-<li>Click on instantiate template.</li>
-</ol>
+<p><strong>3.</strong> Click on instantiate template.</p>
 <p><img alt="Select DB" src="../upandrunningimages/instantiatetemplate.png" /></p>
-<ol>
-<li>Fill the wizard with the parameters as shown in the image below:</li>
-</ol>
+<p><strong>4.</strong> Fill the wizard with the parameters as shown in the image below:</p>
 <p><img alt="DB parameters" src="../upandrunningimages/mysqlparameters.png" /></p>
 <p>Click the <code>Create</code> button. </p>
 <p>Again, we are using the <strong>Ephemeral</strong> implementation because this a short-lived demo and we do not need to retain the data.  </p>
@@ -556,10 +548,21 @@
 <p><img alt="DB running" src="../upandrunningimages/mysqlrunning.png" /></p>
 <h2 id="building-and-deploying-petclinic-application">Building and Deploying PetClinic Application<a class="headerlink" href="#building-and-deploying-petclinic-application" title="Permanent link">&para;</a></h2>
 <p>There are multiple ways OpenShift enables cloud-native application developers to package up their applications and deploy them. For PetClinic, we will be building our application image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows us to quickly test the building, packaging, and deployment of our application, and gives us the option to create a DevOps pipeline from this workflow. It's a good way to start to  understand how OpenShift Pipelines work.</p>
-<ol>
-<li>Start with choosing Add From Git:</li>
-</ol>
+<p><strong>1.</strong> Start with choosing Add From Git:</p>
 <p><img alt="from git" src="../upandrunningimages/fromgit.png" /></p>
+<p><strong>2.</strong> Enter <code>https://github.com/ibm-wsc/spring-petclinic</code> in the <code>Git Repo URL</code> field. Expand the <code>Show Advanced Git Options</code> section, and type in <code>main</code> for the <code>Git Reference</code>. This tells OpenShift which GitHub repo and branch to pull the source code from.</p>
+<p><img alt="git url" src="../upandrunningimages/giturl.png" /></p>
+<p><strong>3.</strong> Scroll down to the Builder section. Select the <code>OpenJ9</code> tile and select <code>openj9-11-el8</code> as the builder image version. As you can see OpenShift offers many different builder images to help you build images from a variety of programming languages. For Java on Z, the recommended JVM is <code>OpenJ9</code> because it has built-in s390x optimizations as well as container optimizations.</p>
+<p><img alt="builder image" src="../upandrunningimages/builderimage.png" /></p>
+<p><strong>4.</strong> In the General section, put in the following entries for Application Name and Name. </p>
+<p><img alt="app name" src="../upandrunningimages/applicationname.png" /></p>
+<p><strong>5.</strong> Scroll down to the  Pipelines section, and check off the box next to <code>Add pipeline</code>. You can also expand the <code>Show pipeline visualization</code> section to see a visual of the build pipeline.</p>
+<p><img alt="add pipe" src="../upandrunningimages/addpipelines.png" /></p>
+<p><strong>6.</strong> We are almost there! We will need to configure a couple of Advanced Options. First, click on <code>Routing</code> in the Advanced Options section to expand the Routing options.</p>
+<p><img alt="open routing panel" src="../upandrunningimages/routinglink.png" /></p>
+<p><strong>7.</strong> In the Routing options section, only fill out the Security options as follows. You can leave the rest alone. These options will enable only TLS access to your PetClinic application.</p>
+<p><img alt="routing options" src="../upandrunningimages/routingpanel.png" /></p>
+<p><strong>8.</strong> </p>
                 
               
               
