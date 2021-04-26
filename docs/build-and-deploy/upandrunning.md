@@ -66,6 +66,19 @@ There are multiple ways OpenShift enables cloud-native application developers to
 
 ![routing options](upandrunningimages/routingpanel.png)
 
-**8.** 
+**8.** Finally, we need to pass a build environment variable to tell the build process to run the application unit tests before building the application image. By default, the `OpenJ9` builder image skips the tests during the build process, but we want to automatically run the tests as part of our build pipeline to ensure its validity. Scroll to the bottom and select the `Build Configuration` link to expand that section.
+
+![build link](upandrunningimages/buildconfiglink.png)
+
+**9.** Now, enter the following environment variable as shown in the diagram: ```MAVEN_ARGS=-e -Dcom.redhat.xpaas.repo.redhatga```
+
+![build env](upandrunningimages/buildenv.png)
+
+**10.** Finally, you are done with setting up the build. Hit the `Create` button to start your build and deploy process.
+
+**11.** You will now be taken back to the Topology view. After a few seconds you should see the icon for build look like the following diagram, and you should then at this point click on the circle.
+
+![build running](upandrunningimages/buildrunning.png)
+
 
 
