@@ -1,10 +1,16 @@
-# Getting your PetClinic Open with a Shift (Title Placeholder for something less cheesy)
+# Getting Your PetClinic Up and Running
 
 For this workshop we will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. [The official version of PetClinic](https://github.com/spring-projects/spring-petclinic) demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. 
 
-For this workshop, we will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud-native application and a DevOps pipeline for the application.
+We will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud-native application and a DevOps pipeline for the application.
 
 We will start by building our PetClinic application from the source code and connecting it to a MySQL database.
+
+!!! info
+    Because you are using the LinuxONE Community Cloud OpenShift trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.
+
+!!! note
+    For this lab the green arrows or boxes denote something to look at, the red arrows or boxes denote something to click on or type.
 
 ## Deploying MySQL database
 
@@ -30,22 +36,43 @@ Again, we are using the **Ephemeral** implementation because this a short-lived 
 
 In a production system, you will most likely be using a permanent MySQL instance. This stores the data in a Persistent Volume (basically a virtual hard drive), meaning the MySQL pod can be destroyed and replaced with the data remaining intact.
 
-A minute or two later, in the `Topology` view of your OpenShift Console, you should see `mysql` in running state.
+A minute or two later, in the `Topology` view of your OpenShift Console, you should see `mysql` in running state. (Click on the Topology icon for `mysql` to bring up the side panel)
 
 ![DB running](upandrunningimages/mysqlrunning.png)
 
 ## Fork the PetClinic repo to your own GitHub account
-### Place holder 
+
+For this workshop, you will be using the PetClinic application from your own GitHub account so that you can enable integrations with it later. 
+
+To make a copy of the PetClinic application into your GitHub account, navigate to the following from your browser:
+
+```https://github.com/ibm-wsc/spring-petclinic```
+
+Then click on the `fork` button on the upper right corner.
+
+![repofork](upandrunningimages/gitrepofork.png)
+
+At this point you might need to log into GitHub if you weren't logged in already.
+
+Next, you might be presented with a screen to ask you to select where to fork to. Select your own user account to fork to.
+
+![reposelect](upandrunningimages/forkselection.png)
+
+Please make a note of your repo URL for later, it should be something like:
+
+```https://github.com/<your-github-username>/spring-petclinic```
+
+That's it! You are ready to move on to the next section.
 
 ## Building and Deploying PetClinic Application
 
-There are multiple ways OpenShift enables cloud-native application developers to package up their applications and deploy them. For PetClinic, we will be building our application image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows us to quickly test the building, packaging, and deployment of our application, and gives us the option to create a DevOps pipeline from this workflow. It's a good way to start to  understand how OpenShift Pipelines work.
+There are multiple ways OpenShift enables cloud-native application developers to package up their applications and deploy them. For PetClinic, we will be building our application image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows us to quickly test the building, packaging, and deployment of our application, and gives us the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how OpenShift Pipelines work.
 
 **1.** Start with choosing Add From Git:
 
 ![from git](upandrunningimages/fromgit.png)
 
-**2.** Enter `https://github.com/ibm-wsc/spring-petclinic` in the `Git Repo URL` field. Expand the `Show Advanced Git Options` section, and type in `main` for the `Git Reference`. This tells OpenShift which GitHub repo and branch to pull the source code from.
+**2.** Enter `https://github.com/<your-github-ID>/spring-petclinic` in the `Git Repo URL` field. Expand the `Show Advanced Git Options` section, and type in `main` for the `Git Reference`. This tells OpenShift which GitHub repo and branch to pull the source code from.
 
 ![git url](upandrunningimages/giturl.png)
 
@@ -69,29 +96,34 @@ There are multiple ways OpenShift enables cloud-native application developers to
 
 ![routing options](upandrunningimages/routingpanel.png)
 
-**8.** Finally, we need to pass a build environment variable to tell the build process to run the application unit tests before building the application image. By default, the `OpenJ9` builder image skips the tests during the build process, but we want to automatically run the tests as part of our build pipeline to ensure its validity. Scroll to the bottom and select the `Build Configuration` link to expand that section.
+**8.** You are done with configurations of this panel. Scroll all the way down and hit the `Create` button which will kick off the pipeline build of your PetClinic application. In a few seconds you will see your Topology with the new application icon. Hit the little pipeline icon in the diagram below to view the build logs.
 
-![build link](upandrunningimages/buildconfiglink.png)
+![pipeline icon](upandrunningimages/pipelineicon.png)
 
-**9.** Now, enter the following environment variable as shown in the diagram: ```MAVEN_ARGS=-e -Dcom.redhat.xpaas.repo.redhatga```
+!!! note
+    PLEASE BEWARE that if you are using the LinuxONE Community Cloud OpenShift Trial you might see lagginess with the log streaming. If it stops streaming you might want to go back out to the Topology view and once the pipeline completes, come back to the log view to see the logs.
 
-![build env](upandrunningimages/buildenv.png)
+**9.** The pipeline will go through three tasks:
+    
+&nbsp;&nbsp;&nbsp; 1. <b>fetch-repository</b> - this will clone your Git PetClinic repo for the build task.
 
-**10.** Finally, you are done with setting up the build. Hit the `Create` button to start your build and deploy process.
+&nbsp;&nbsp;&nbsp; 2. <b>build</b> - this is the build process which itself is broken down into a few sub-steps. This is the longest task in the pipeline, and can take up to 15 minutes. The steps that it goes through are as follows:
 
-**11.** You will now be taken back to the Topology view. After a few seconds you should see the icon for build look like the following diagram, and you should then at this point click on the circle.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STEP-GEN-ENV-FILE: this step generates the environment file to be used during the build process
 
-![build running](upandrunningimages/buildrunning.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STEP-GENERATE: this step generates the Dockerfile that will be used to create the OCI image later on during the build step
 
-**12.** You will now be taken into the Logs section of your build, where you should begin to see the logs streaming from the progress of your build. Towards the end, you should see log messages similar to the following diagram, letting you know that the tests have all passed (39 unit tests are run, with 1 skipped, 0 failed). Please note, the logs will be easier to view if you Expand them.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STEP-BUILD: this is the multi-step build process of creating an OCI image. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the OCI image. If the tests fail, this step will not complete.
 
-![test output](upandrunningimages/sampletestoutput.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STEP-PUSH: this last step pushes the built OCI image to the OpenShift image registry.
 
-**13.** The build will take several minutes to run. In the end, after the unit tests have been successfully run, you should see success messages that indicate a successful build, and push to the image registry.
+&nbsp;&nbsp;&nbsp; 3. <b>deploy</b> - this will deploy the newly built image as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.
+
+Below is an image of the log of a successful build task: 
 
 ![build output](upandrunningimages/buildlog.png)
 
-**14.** Now if you go back to the Topology view, you should see the application has been successfully deployed to OpenShift as well. From here you can click on the `open URL` circle, and a new browser tab should open to lead you to your PetClinic's front page.
+**10.** Now if you go back to the Topology view, you should see the application has been successfully deployed to OpenShift as well. From here you can click on the `open URL` circle, and a new browser tab should open to lead you to your PetClinic's front page.
 
 ![open URL](upandrunningimages/openurl.png)
 
@@ -107,7 +139,11 @@ In this section, you will add a new owner to the Pet Clinic application, and the
 
 ![add owner](upandrunningimages/addowner.png)
 
-**3.** Now let's check the MySQL database to make sure that the new owner you just added is in there.
+**3.** You can then go back to `Find Owners` and try searching for the owner that you just added. It should come back with the search results similar to the following.
+
+![search results](upandrunningimages/searchresults.png)
+
+**4.** Now let's check the MySQL database to make sure that the new owner you just added is in there.
 
 Return to your OpenShift console, from the Topology view, click on the `mysql` icon. This will bring up a side panel, and then click on the `mysql` pod (your pod name will be different than the picture):
 
