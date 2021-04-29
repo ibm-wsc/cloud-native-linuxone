@@ -9,7 +9,7 @@ Now that PetClinic is up and running on our OpenShift cluster, it's time to add 
 
     - Configurable: Can tailor overall pipeline and individual tasks to needs of your enterprise/organization 
     
-    - Ease of Use: Pipeline Builder UI and built-in cluster resources enable you to easily create a pipeline and export the yaml files with minimal knowledge
+    - Ease of Use: Pipeline Builder UI and built-in cluster resources (i.e. `ClusterTasks`, ClusterTriggerBindings`, etc.) enable you to easily create a pipeline and export the yaml files with minimal knowledge
 
 ## PetClinic Pipeline
 
@@ -86,6 +86,11 @@ The `s2i-java-11` image is very convenient for making an image from source code.
 
     ![Buildah Task Values](../images/Part1/ProducingCleanImageBuildah2.png)
 
+    DISPLAY NAME:
+    ```
+    producing-clean-image
+    ```
+
     IMAGE:
     ```
     $(params.FINAL_IMAGE):$(params.COMMIT_SHA)
@@ -155,6 +160,9 @@ The `s2i-java-11` image is very convenient for making an image from source code.
     latest
     ```
 
+    !!! Tip
+        Save parameters when done with entry before moving onto step 4.
+
 4. Add workspace to `producing-clean-image` task 
 
     Save current pipeline edit and switch to `yaml` from pipeline menu.
@@ -178,6 +186,8 @@ The `s2i-java-11` image is very convenient for making an image from source code.
 
     ![Save Pipeline Edit Yaml](../images/Part1/PipelineUpdatedYaml.png)
 
+    !!! note
+        After the save message above appears you can then proceed to `Cancel` back to the pipeline menu.
 
 ## Manage resource across environments with Kustomize
 
@@ -201,9 +211,9 @@ Since there is no `ClusterTask` defined for Kustomize, we will create a custom t
     apiVersion: tekton.dev/v1beta1
     kind: Task
     metadata:
-    name: kustomize-deploy-resources
+      name: kustomize-deploy-resources
     spec:
-    description: >-
+      description: >-
         This task runs commands against the cluster where the task run is being
         executed.
 
@@ -211,46 +221,46 @@ Since there is no `ClusterTask` defined for Kustomize, we will create a custom t
         introduces a template-free way to customize application configuration that
         simplifies the use of off-the-shelf applications.  Now, built into kubectl
         as apply -k and oc as oc apply -k.
-    params:
-        - default: /workspace/source/ocp-files
+      params:
+      - default: /workspace/source/ocp-files
         description: The directory where the kustomization yaml file(s) reside
         name: KUSTOMIZE_DIR
         type: string
-        - default: base
+      - default: base
         description: subdirectory of KUSTOMIZE_DIR used for extra configuration of current resources
         name: EDIT_SUDBDIR
         type: string
-        - default: overlay/dev
+      - default: overlay/dev
         description: subdirectory of KUSTOMIZE_DIR used for specifying resources for a specific release such as dev or staging
         name: RELEASE_SUBDIR
         type: string
-        - default: kustomize edit set image $(params.APP_NAME)=$(params.FINAL_IMAGE):$(params.COMMIT_SHA)
+      - default: kustomize edit set image $(params.APP_NAME)=$(params.FINAL_IMAGE):$(params.COMMIT_SHA)
         description: The Kustomize CLI arguments to run
         name: SCRIPT
         type: string
-    steps:
-        - image: 'docker.io/gmoney23/kustomize-s390x:v4.1.2'
+      steps:
+      - image: 'docker.io/gmoney23/kustomize-s390x:v4.1.2'
         name: kustomize
         resources:
-            limits:
+          limits:
             cpu: 200m
             memory: 200Mi
-            requests:
+          requests:
             cpu: 200m
             memory: 200Mi
         script: cd $(params.KUSTOMIZE_DIR)/$(params.EDIT_SUDBDIR) && $(params.SCRIPT)
-        - image: 'image-registry.openshift-image-registry.svc:5000/openshift/cli:latest'
+      - image: 'image-registry.openshift-image-registry.svc:5000/openshift/cli:latest'
         name: apply-oc-files
         resources:
-            limits:
+          limits:
             cpu: 200m
             memory: 200Mi
-            requests:
+          requests:
             cpu: 200m
             memory: 200Mi
         script: oc apply -k $(params.KUSTOMIZE_DIR)/$(params.RELEASE_SUBDIR)
-    workspaces:
-        - name: source
+      workspaces:
+      - name: source
         description: The git source code
     ```
 
@@ -260,7 +270,7 @@ Since there is no `ClusterTask` defined for Kustomize, we will create a custom t
 
     b. Paste the `kustomize-deploy-resources` Task into the box
     
-    c. Click create to create the `kustomize-deploy-resources` Task 
+    c. Scroll down and click create to create the `kustomize-deploy-resources` Task 
 
     ![Create Kustomize Task](../images/Part1/CreateKustomizeTask.png)
 
@@ -303,32 +313,60 @@ You should now see the created `kustomize-deploy-resources` Task and navigate ba
 
     ![Save Pipeline Edit Yaml](../images/Part1/PipelineUpdatedYaml.png)
 
+    !!! note
+        After the save message above appears you can then proceed to `Cancel` back to the pipeline menu.
+
 ## Clean Old PetClinic Instances at the Beginning of a Run
 
-Add an task named `cleanup-resources` sequentially at the beginning of the pipeline before `fetch-repository` (using the `openshift-client` ClusterTask).
+1. Add an task named `cleanup-resources` sequentially at the beginning of the pipeline before `fetch-repository` (using the `openshift-client` ClusterTask).
 
-![add cleanup sequential](../images/Part1/AddSequentialTask.png)
+    ![add cleanup sequential](../images/Part1/AddSequentialTask.png)
 
-Configure the task with a `SCRIPT` value of:
+2. Configure the task with a `SCRIPT` value of:
 
-``` bash
-oc delete deployment,svc,route -l app=$(params.APP_NAME) --ignore-not-found
-```
+    ``` bash
+    oc delete deployment,svc,route -l app=$(params.APP_NAME) --ignore-not-found
+    ```
 
-and an empty `ARGS` value.
+    and an empty `ARGS` value.
 
-![cleanup resources](../images/Part1/CleanupResourcesTask.png)
+    ![cleanup resources](../images/Part1/CleanupResourcesTask.png)
+
+    !!! warning "No help please!"
+        Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). 
 
 ## Update Deploy Task to deploy-dev
 
-Change the name of the task at the end of the pipeline to `deploy-dev` and change the last `ARG` from `deploy/$(params.APP_NAME)` to:
+1. Change the name of the task at the end of the pipeline to `deploy-dev` and change the last `ARG` from `deploy/$(params.APP_NAME)` to:
 
-``` bash
-deploy/$(params.APP_NAME)-dev
-```
+    ``` bash
+    deploy/$(params.APP_NAME)-dev
+    ```
+
+2. `Save` your pipeline!
 
 ## Run the Updated Pipeline
 
-It should run successfully and create an image with the `manual` tag like the example below.
+1. Go to `Actions` -> `Start` in the right hand corner of the pipeline menu
 
-:thumbsup
+    ![Actions Start Pipeline](../images/Part1/StartPipelineManually.png)
+
+2. Manually trigger a `PipelineRun` by accepting the default values and clicking on `Start`.
+
+    !!! Note "Persistent Volume Claim Note"
+        Please select a `PersistentVolumeClaim` if it is not already filled out for you to complete your pipeline. If it is already filled out for you then jump right to starting the pipeline.
+
+    ![Trigger Pipeline Manual](../images/Part1/PipelineExampleManualParameters.png)
+
+3. Watch the results of your build. It should run successfully as in the pictures below.
+
+    **PipelineRun Success View Perspective:**
+
+    ![PipelineRun View](../images/Part1/PipelineRolloutRunView.png)
+
+    **PipelineRun Success Logs Perspective:**
+
+    ![PipelineRun Logs](../images/Part1/PipelineRolloutLogsView.png)
+
+
+:thumbsup:
