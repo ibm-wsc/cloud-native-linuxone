@@ -652,7 +652,7 @@
 <p>Configurable: Can tailor overall pipeline and individual tasks to needs of your enterprise/organization </p>
 </li>
 <li>
-<p>Ease of Use: Pipeline Builder UI and built-in cluster resources enable you to easily create a pipeline and export the yaml files with minimal knowledge</p>
+<p>Ease of Use: Pipeline Builder UI and built-in cluster resources (i.e. <code>ClusterTasks</code>, ClusterTriggerBindings`, etc.) enable you to easily create a pipeline and export the yaml files with minimal knowledge</p>
 </li>
 </ul>
 </div>
@@ -722,6 +722,9 @@
 <p>Each value that we need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match image)</p>
 </div>
 <p><img alt="Buildah Task Values" src="../../images/Part1/ProducingCleanImageBuildah2.png" /></p>
+<p>DISPLAY NAME:
+<div class="highlight"><pre><span></span><code>producing-clean-image
+</code></pre></div></p>
 <p>IMAGE:
 <div class="highlight"><pre><span></span><code>$(params.FINAL_IMAGE):$(params.COMMIT_SHA)
 </code></pre></div></p>
@@ -768,6 +771,10 @@
 <code>COMMIT_SHA</code> Parameter Default Value:
 <div class="highlight"><pre><span></span><code>latest
 </code></pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Save parameters when done with entry before moving onto step 4.</p>
+</div>
 </li>
 <li>
 <p>Add workspace to <code>producing-clean-image</code> task </p>
@@ -785,6 +792,10 @@
 <p><img alt="Producing Clean Image Workspace" src="../../images/Part1/AddWorspaceProducingCleanImage.png" /></p>
 <p>Save the update</p>
 <p><img alt="Save Pipeline Edit Yaml" src="../../images/Part1/PipelineUpdatedYaml.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the save message above appears you can then proceed to <code>Cancel</code> back to the pipeline menu.</p>
+</div>
 </li>
 </ol>
 <h2 id="manage-resource-across-environments-with-kustomize">Manage resource across environments with Kustomize<a class="headerlink" href="#manage-resource-across-environments-with-kustomize" title="Permanent link">&para;</a></h2>
@@ -804,9 +815,9 @@
     <div class="highlight"><pre><span></span><code>apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-name: kustomize-deploy-resources
+  name: kustomize-deploy-resources
 spec:
-description: &gt;-
+  description: &gt;-
     This task runs commands against the cluster where the task run is being
     executed.
 
@@ -814,46 +825,46 @@ description: &gt;-
     introduces a template-free way to customize application configuration that
     simplifies the use of off-the-shelf applications.  Now, built into kubectl
     as apply -k and oc as oc apply -k.
-params:
-    - default: /workspace/source/ocp-files
+  params:
+  - default: /workspace/source/ocp-files
     description: The directory where the kustomization yaml file<span class="o">(</span>s<span class="o">)</span> reside
     name: KUSTOMIZE_DIR
     type: string
-    - default: base
+  - default: base
     description: subdirectory of KUSTOMIZE_DIR used <span class="k">for</span> extra configuration of current resources
     name: EDIT_SUDBDIR
     type: string
-    - default: overlay/dev
+  - default: overlay/dev
     description: subdirectory of KUSTOMIZE_DIR used <span class="k">for</span> specifying resources <span class="k">for</span> a specific release such as dev or staging
     name: RELEASE_SUBDIR
     type: string
-    - default: kustomize edit <span class="nb">set</span> image <span class="k">$(</span>params.APP_NAME<span class="k">)</span><span class="o">=</span><span class="k">$(</span>params.FINAL_IMAGE<span class="k">)</span>:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
+  - default: kustomize edit <span class="nb">set</span> image <span class="k">$(</span>params.APP_NAME<span class="k">)</span><span class="o">=</span><span class="k">$(</span>params.FINAL_IMAGE<span class="k">)</span>:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
     description: The Kustomize CLI arguments to run
     name: SCRIPT
     type: string
-steps:
-    - image: <span class="s1">&#39;docker.io/gmoney23/kustomize-s390x:v4.1.2&#39;</span>
+  steps:
+  - image: <span class="s1">&#39;docker.io/gmoney23/kustomize-s390x:v4.1.2&#39;</span>
     name: kustomize
     resources:
-        limits:
+      limits:
         cpu: 200m
         memory: 200Mi
-        requests:
+      requests:
         cpu: 200m
         memory: 200Mi
     script: <span class="nb">cd</span> <span class="k">$(</span>params.KUSTOMIZE_DIR<span class="k">)</span>/<span class="k">$(</span>params.EDIT_SUDBDIR<span class="k">)</span> <span class="o">&amp;&amp;</span> <span class="k">$(</span>params.SCRIPT<span class="k">)</span>
-    - image: <span class="s1">&#39;image-registry.openshift-image-registry.svc:5000/openshift/cli:latest&#39;</span>
+  - image: <span class="s1">&#39;image-registry.openshift-image-registry.svc:5000/openshift/cli:latest&#39;</span>
     name: apply-oc-files
     resources:
-        limits:
+      limits:
         cpu: 200m
         memory: 200Mi
-        requests:
+      requests:
         cpu: 200m
         memory: 200Mi
     script: oc apply -k <span class="k">$(</span>params.KUSTOMIZE_DIR<span class="k">)</span>/<span class="k">$(</span>params.RELEASE_SUBDIR<span class="k">)</span>
-workspaces:
-    - name: <span class="nb">source</span>
+  workspaces:
+  - name: <span class="nb">source</span>
     description: The git <span class="nb">source</span> code
 </code></pre></div></p>
 </li>
@@ -861,7 +872,7 @@ workspaces:
 <p>Create the <code>kustomize-deploy-resources</code> Task</p>
 <p>a. Click <code>Import YAML</code> to bring up the box where you can create Kubernetes resource definitions from yaml</p>
 <p>b. Paste the <code>kustomize-deploy-resources</code> Task into the box</p>
-<p>c. Click create to create the <code>kustomize-deploy-resources</code> Task </p>
+<p>c. Scroll down and click create to create the <code>kustomize-deploy-resources</code> Task </p>
 <p><img alt="Create Kustomize Task" src="../../images/Part1/CreateKustomizeTask.png" /></p>
 </li>
 </ol>
@@ -894,23 +905,64 @@ workspaces:
 <p><img alt="Kustomize Dev Add Workspace" src="../../images/Part1/AddWorkspaceKustomizeDev.png" /></p>
 <p>Save the update</p>
 <p><img alt="Save Pipeline Edit Yaml" src="../../images/Part1/PipelineUpdatedYaml.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the save message above appears you can then proceed to <code>Cancel</code> back to the pipeline menu.</p>
+</div>
 </li>
 </ol>
 <h2 id="clean-old-petclinic-instances-at-the-beginning-of-a-run">Clean Old PetClinic Instances at the Beginning of a Run<a class="headerlink" href="#clean-old-petclinic-instances-at-the-beginning-of-a-run" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
 <p>Add an task named <code>cleanup-resources</code> sequentially at the beginning of the pipeline before <code>fetch-repository</code> (using the <code>openshift-client</code> ClusterTask).</p>
 <p><img alt="add cleanup sequential" src="../../images/Part1/AddSequentialTask.png" /></p>
+</li>
+<li>
 <p>Configure the task with a <code>SCRIPT</code> value of:</p>
 <div class="highlight"><pre><span></span><code>oc delete deployment,svc,route -l <span class="nv">app</span><span class="o">=</span><span class="k">$(</span>params.APP_NAME<span class="k">)</span> --ignore-not-found
 </code></pre></div>
 <p>and an empty <code>ARGS</code> value.</p>
 <p><img alt="cleanup resources" src="../../images/Part1/CleanupResourcesTask.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">No help please!</p>
+<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
+</div>
+</li>
+</ol>
 <h2 id="update-deploy-task-to-deploy-dev">Update Deploy Task to deploy-dev<a class="headerlink" href="#update-deploy-task-to-deploy-dev" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
 <p>Change the name of the task at the end of the pipeline to <code>deploy-dev</code> and change the last <code>ARG</code> from <code>deploy/$(params.APP_NAME)</code> to:</p>
 <div class="highlight"><pre><span></span><code>deploy/<span class="k">$(</span>params.APP_NAME<span class="k">)</span>-dev
 </code></pre></div>
+</li>
+<li>
+<p><code>Save</code> your pipeline!</p>
+</li>
+</ol>
 <h2 id="run-the-updated-pipeline">Run the Updated Pipeline<a class="headerlink" href="#run-the-updated-pipeline" title="Permanent link">&para;</a></h2>
-<p>It should run successfully and create an image with the <code>manual</code> tag like the example below.</p>
-<p>:thumbsup</p>
+<ol>
+<li>
+<p>Go to <code>Actions</code> -&gt; <code>Start</code> in the right hand corner of the pipeline menu</p>
+<p><img alt="Actions Start Pipeline" src="../../images/Part1/StartPipelineManually.png" /></p>
+</li>
+<li>
+<p>Manually trigger a <code>PipelineRun</code> by accepting the default values and clicking on <code>Start</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Persistent Volume Claim Note</p>
+<p>Please select a <code>PersistentVolumeClaim</code> if it is not already filled out for you to complete your pipeline. If it is already filled out for you then jump right to starting the pipeline.</p>
+</div>
+<p><img alt="Trigger Pipeline Manual" src="../../images/Part1/PipelineExampleManualParameters.png" /></p>
+</li>
+<li>
+<p>Watch the results of your build. It should run successfully as in the pictures below.</p>
+<p><strong>PipelineRun Success View Perspective:</strong></p>
+<p><img alt="PipelineRun View" src="../../images/Part1/PipelineRolloutRunView.png" /></p>
+<p><strong>PipelineRun Success Logs Perspective:</strong></p>
+<p><img alt="PipelineRun Logs" src="../../images/Part1/PipelineRolloutLogsView.png" /></p>
+</li>
+</ol>
+<p><img alt="👍" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f44d.svg" title=":thumbsup:" /></p>
                 
               
               
