@@ -127,8 +127,11 @@ The `s2i-java-11` image is very convenient for making an image from source code.
     ```
     `FINAL_IMAGE` Parameter Default Value:
     ```
-    image-registry.openshift-image-registry.svc:5000/1619589196769/spring-petclinic-git-minimal
+    IMAGE_NAME-minimal
     ```
+
+    !!! caution
+        Replace IMAGE_NAME with the value of that parameter above. Don't leave IMAGE_NAME as-is
 
     **GIT_MESSAGE**
 
