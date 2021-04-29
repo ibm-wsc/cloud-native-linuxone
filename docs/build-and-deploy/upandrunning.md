@@ -6,15 +6,15 @@ We will not be focusing on the ins and outs of the PetClinic application itself,
 
 We will start by building our PetClinic application from the source code and connecting it to a MySQL database.
 
-!!! info
+!!! info "Using LinuxONE Community Cloud"
     Because you are using the LinuxONE Community Cloud OpenShift trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.
 
-!!! note
-    For this lab the green arrows or boxes denote something to look at, the red arrows or boxes denote something to click on or type.
+!!! note "Lab Guide"
+    For this lab the <span style="color:green">green</span> arrows or boxes denote something to look at, the <span style="color:red">red</span> arrows or boxes denote something to click on or type.
 
 ## Deploying MySQL database
 
-**1.** First, we need to setup our mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options.
+**1.** First, we need to setup our mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)
 
 ![Add DB](upandrunningimages/devselectdatabase.png)
 
@@ -26,15 +26,14 @@ We will start by building our PetClinic application from the source code and con
 
 ![Select DB](upandrunningimages/instantiatetemplate.png)
 
-**4.** Fill the wizard with the parameters as shown in the image below:
+**4.** Fill the wizard with the parameters as shown in the image below (your namespace will be different from the image below):
 
 ![DB parameters](upandrunningimages/mysqlparameters.png)
 
 Click the `Create` button. 
 
-Again, we are using the **Ephemeral** implementation because this a short-lived demo and we do not need to retain the data.  
-
-In a production system, you will most likely be using a permanent MySQL instance. This stores the data in a Persistent Volume (basically a virtual hard drive), meaning the MySQL pod can be destroyed and replaced with the data remaining intact.
+!!! info "Why Ephemeral?"
+    We are using the **Ephemeral** implementation because this a short-lived demo and we do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the container.
 
 A minute or two later, in the `Topology` view of your OpenShift Console, you should see `mysql` in running state. (Click on the Topology icon for `mysql` to bring up the side panel)
 
@@ -42,11 +41,13 @@ A minute or two later, in the `Topology` view of your OpenShift Console, you sho
 
 ## Fork the PetClinic repo to your own GitHub account
 
-For this workshop, you will be using the PetClinic application from your own GitHub account so that you can enable integrations with it later. 
+For this workshop, you will be using the PetClinic application from your own GitHub account so that you can enable integrations with it later.
 
 To make a copy of the PetClinic application into your GitHub account, navigate to the following from your browser:
 
-```https://github.com/ibm-wsc/spring-petclinic```
+```bash
+https://github.com/ibm-wsc/spring-petclinic
+```
 
 Then click on the `fork` button on the upper right corner.
 
@@ -58,7 +59,7 @@ Next, you might be presented with a screen to ask you to select where to fork to
 
 ![reposelect](upandrunningimages/forkselection.png)
 
-Please make a note of your repo URL for later, it should be something like:
+Please make a note of your repo URL for later. It should be something like:
 
 ```https://github.com/<your-github-username>/spring-petclinic```
 
@@ -100,22 +101,20 @@ There are multiple ways OpenShift enables cloud-native application developers to
 
 ![pipeline icon](upandrunningimages/pipelineicon.png)
 
-!!! note
+!!! warning "Log Streaming Gotcha in the LinuxONE CC"
     PLEASE BEWARE that if you are using the LinuxONE Community Cloud OpenShift Trial you might see lagginess with the log streaming. If it stops streaming you might want to go back out to the Topology view and once the pipeline completes, come back to the log view to see the logs.
 
 **9.** The pipeline will go through three tasks:
     
-&nbsp;&nbsp;&nbsp; 1. <b>fetch-repository</b> - this will clone your Git PetClinic repo for the build task.
+&nbsp;&nbsp;&nbsp; 1. <b>fetch-repository</b> - this Pipeline task will clone your Git PetClinic repo for the build task.
 
-&nbsp;&nbsp;&nbsp; 2. <b>build</b> - this is the build process which itself is broken down into a few sub-steps. This is the longest task in the pipeline, and can take up to 15 minutes. The steps that it goes through are as follows:
+&nbsp;&nbsp;&nbsp; 2. <b>build</b> - this Pipeline task is the build process which itself is broken down into a few sub-steps. This is the longest task in the pipeline, and can take up to 15 minutes. The steps that it goes through are as follows:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STEP-GEN-ENV-FILE: this step generates the environment file to be used during the build process
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STEP-GENERATE: this step generates the Dockerfile that will be used to create the OCI image later on during the build step
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STEP-BUILD: this is the multi-step build process of creating an OCI image. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the OCI image. If the tests fail, this step will not complete.
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STEP-PUSH: this last step pushes the built OCI image to the OpenShift image registry.
+!!! info "build steps"
+    - STEP-GEN-ENV-FILE: this step generates the environment file to be used during the build process
+    - STEP-GENERATE: this step generates the Dockerfile that will be used to create the OCI image later on during the build step
+    - STEP-BUILD: this is the multi-step build process of creating an OCI image out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the OCI image. If the tests fail, this step will not complete.
+    - STEP-PUSH: this final task pushes the built OCI image to the OpenShift image registry.
 
 &nbsp;&nbsp;&nbsp; 3. <b>deploy</b> - this will deploy the newly built image as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.
 
@@ -161,4 +160,6 @@ Let's run a SQL command now to verify that the owner that we added through the a
 
 ![mysql owner check](upandrunningimages/mysqlowners.png)
 
-Please let the instructors know, if you don't see your owner listed.
+Please let the instructors know, if you don't see your owner listed. 
+
+Congratulations, you have completed this part of the workshop! You may move on to the next part, [PetClinic + OpenShift Pipelines = CI](pipeline.md).
