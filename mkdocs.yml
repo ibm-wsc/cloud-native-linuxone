@@ -8,11 +8,11 @@ nav:
     - Build and Deploy Pet Clinic:
       - Section Overview: build-and-deploy/overview.md
       - PetClinic Up and Running: build-and-deploy/upandrunning.md
-      - PetClinic Meets OpenShift Pipelines: build-and-deploy/pipeline.md
+      - PetClinic + OpenShift Pipelines = CI: build-and-deploy/pipeline.md
     - Test and Promote Pet Clinic:
       - Section Overview: application-promotion/overview.md
-      - Testing Application: application-promotion/test.md
       - Promoting Application: application-promotion/promote.md
+      - Integrating Git: application-promotion/git.md
       - Full pipeline in Action: application-promotion/action.md
     - Glossary of terms: glossary.md
     - Other resources: resources.md

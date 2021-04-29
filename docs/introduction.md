@@ -1,15 +1,16 @@
 # Cloud Native Workshop Introduction
-In this workshop, we will go over the Cloud Native way to setup and deploy an application using Openshift Container Platform and it's CI/CD workflow Openshift Pipelines.
+We will setup and deploy an application (the cloud-native way) using OpenShift Container Platform and it's CI/CD workflow Openshift Pipelines.
 
 ## Overall Architecture Image
 
-Put finished picture here...
+One day an architecture image will sit here. Until then, enjoy this text.
 
 ## Lab Overview
 
-This lab will see you open up an example virtual pet store running on LinuxONE using some source code on GitHub and OpenShift Pipelines to seamlessly update, test, and deploy your store.
+You will set up a virtual pet clinic (based on the classic spring boot demo referenced in the main [documentation](https://projects.spring.io/spring-petclinic/){target="_blank" rel="noopener noreferrer"} running on LinuxONE using source code on GitHub and OpenShift Pipelines to seamlessly update, test, and deploy your clinic.
 
 This lab is broken into two parts:
 
-1. Build and Deploying PetClinic Java Application
+1. Automating build and deploy of PetClinic Java application with OpenShift Pipelines
+
 2. Promoting PetClinic from development to staging with GitHub integration
