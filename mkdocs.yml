@@ -1,6 +1,6 @@
 site_name: Cloud Native LinuxONE Workshop
 repo_url: https://github.com/ibm-wsc/cloud-native-linuxone
-edit_uri: edit/master/docs
+edit_uri: edit/main/docs
 nav:
     - Home: index.md
     - Introduction: introduction.md
