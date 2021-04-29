@@ -10,7 +10,9 @@ We will start by building our PetClinic application from the source code and con
     Because you are using the LinuxONE Community Cloud OpenShift trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.
 
 !!! note "Lab Guide"
-    For this lab the <span style="color:green">green</span> arrows or boxes denote something to look at, the <span style="color:red">red</span> arrows or boxes denote something to click on or type.
+    For the images in this lab:
+    - the <span style="color:green">green</span> arrows or boxes denote something to look at or reference 
+    - the <span style="color:red">red</span> arrows or boxes denote something to click on or type.
 
 ## Deploying MySQL database
 
@@ -114,9 +116,9 @@ There are multiple ways OpenShift enables cloud-native application developers to
     - STEP-GEN-ENV-FILE: this step generates the environment file to be used during the build process
     - STEP-GENERATE: this step generates the Dockerfile that will be used to create the OCI image later on during the build step
     - STEP-BUILD: this is the multi-step build process of creating an OCI image out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the OCI image. If the tests fail, this step will not complete.
-    - STEP-PUSH: this final task pushes the built OCI image to the OpenShift image registry.
+    - STEP-PUSH: this final step pushes the built OCI image to the OpenShift image registry.
 
-&nbsp;&nbsp;&nbsp; 3. <b>deploy</b> - this will deploy the newly built image as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.
+&nbsp;&nbsp;&nbsp; 3. <b>deploy</b> - this Pipeline task will deploy the newly built image as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.
 
 Below is an image of the log of a successful build task: 
 
