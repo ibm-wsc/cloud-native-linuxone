@@ -154,13 +154,29 @@ In the pod panel, go to the Terminal tab.
 
 ![mysql terminal](upandrunningimages/mysqlterminal.png)
 
-Now type in the following commands in your `mysql` terminal:
+Now type in the following commands in your `mysql` terminal (copy and paste box below image):
 
 ![mysql access](upandrunningimages/mysqlaccess.png)
 
-Let's run a SQL command now to verify that the owner that we added through the application is indeed in the database:
+``` bash
+mysql -u root -h mysql -p
+```
+
+``` mysql
+use petclinic;
+```
+
+``` mysql
+show tables;
+```
+
+Let's run a SQL command now to verify that the owner that we added through the application is indeed in the database (copy and paste box below image):
 
 ![mysql owner check](upandrunningimages/mysqlowners.png)
+
+``` mysql
+select * from owners;
+```
 
 Please let the instructors know, if you don't see your owner listed. 
 
