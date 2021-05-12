@@ -413,6 +413,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#successfully-run-pipeline-via-github" class="md-nav__link">
+    Successfully Run Pipeline via GitHub
+  </a>
+  
+    <nav class="md-nav" aria-label="Successfully Run Pipeline via GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#see-changes-in-application" class="md-nav__link">
+    See Changes in Application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -510,6 +537,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#successfully-run-pipeline-via-github" class="md-nav__link">
+    Successfully Run Pipeline via GitHub
+  </a>
+  
+    <nav class="md-nav" aria-label="Successfully Run Pipeline via GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#see-changes-in-application" class="md-nav__link">
+    See Changes in Application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -534,44 +588,115 @@
 <p>Navigate to your GitHub fork</p>
 </li>
 <li>
-<p>Choose to go to file</p>
+<p>Choose to <code>Go to file</code></p>
 <p><img alt="Go to file" src="../../images/Part2/GoToFile.png" /></p>
 </li>
 <li>
-<p>Choose a file such as the following:</p>
+<p>Choose the following file (copy and paste box below image):</p>
+<p><img alt="Choose File" src="../../images/Part2/ChooseFile.png" /></p>
 <div class="highlight"><pre><span></span><code>src/main/resources/db/mysql/data.sql
 </code></pre></div>
 </li>
 <li>
-<p>Change the file</p>
+<p>Select to edit the file</p>
+<p><img alt="Edit File" src="../../images/Part2/EditGitFile.png" /></p>
+</li>
+<li>
+<p>Change the file to add the pet field of your choice and commit it to your GitHub fork (description and copy and paste box are below image)</p>
 <p><img alt="Change File" src="../../images/Part2/ChangeFile.png" /></p>
+<ol>
+<li>
+<p>Make change using the pet type you want to add (example is a turtle)</p>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="k">types</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;turtle&#39;</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">I want to add Willow, an awesome armadillo, not Yertle the turtle!</p>
+<p>If you want to add something other than a turtle as an option, please change <code>turtle</code> to that animal (i.e. <code>armadillo</code>) in the mysql statement above. For the armadillo example, the statement becomes:</p>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="k">types</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;armadillo&#39;</span><span class="p">);</span>
+</code></pre></div>
+</div>
 </li>
 <li>
-<p>Commit the change to your GitHub fork</p>
-<p><img alt="Github Fork commit" src="../../images/Part2/CommitChange.png" /></p>
+<p>Type in a commit message (you can make this whatever you want) and commit the change</p>
+</li>
+</ol>
 </li>
 <li>
-<p>See the commit hash and message</p>
+<p>Take note of the git commit message and hash</p>
 <p><img alt="Github Hash and Message" src="../../images/Part2/SeeCommitHash.png" /></p>
 </li>
 </ol>
 <h2 id="continuous-integration-via-openshift-pipelines">Continuous Integration via OpenShift Pipelines<a class="headerlink" href="#continuous-integration-via-openshift-pipelines" title="Permanent link">&para;</a></h2>
+<h2 id="successfully-run-pipeline-via-github">Successfully Run Pipeline via GitHub<a class="headerlink" href="#successfully-run-pipeline-via-github" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>View the newly triggered PipelineRun</p>
-<p><img alt="PipelineRun Triggered" src="../../images/Part2/PipelineTriggered.png" /></p>
-<p>We can see the event listener has triggered the <code>PipelineRun</code> instead of a user this time.</p>
+<p>Visit the newly triggered pipeline run in the <code>Pipelines</code> menu in the UI</p>
+<p><img alt="Newly Triggered PipelineRun" src="../../images/Part2/ViewGitPipelineRun.png" /></p>
 </li>
 <li>
-<p>We can see the variables populated with the correct values from Github</p>
+<p>View the pipeline run from the <code>Details</code> view</p>
+<p><img alt="PipelineRun Triggered" src="../../images/Part2/PipelineTriggered.png" /></p>
+<p>You can see the event listener has triggered the <code>PipelineRun</code> instead of a user this time.</p>
+</li>
+<li>
+<p>You can see the variables populated with the correct values from Github in the <code>YAML</code> view of the pipeline run.</p>
 <p><img alt="Git Variables Populated" src="../../images/Part2/GitVariablesExist.png" /></p>
 </li>
 <li>
-<p>The PipelineRun successfully completes</p>
+<p>Watch the results of your build pipeline run. It should complete successfully as in the pictures below.</p>
+<p><strong>Pipeline Run Success View Perspective:</strong></p>
+<p><img alt="Successful PipelineRun Details View" src="../../images/Part2/PipelineSucceeded.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Pipeline Run Details View</p>
+<p>In the pipeline run <code>Details</code> view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, observe that the event listener has triggered the <code>PipelineRun</code> instead of a user this time.</p>
+</div>
+<p><strong>Pipeline Run Success Logs Perspective:</strong></p>
+<p><img alt="Successful PipelineRun Logs View 1" src="../../images/Part2/PipelineRunLogsSucceeded.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Pipeline Run Logs View 1</p>
+<p>In the pipeline run <code>Logs</code> view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task you can see that the that the external connection check worked and the <code>spring-petclinic</code> application is available at the route printed in the logs. Additionally, you can see via the series of tasks marked with green checks that the dev deployment ran successfully and the system cleaned it up and ran the staging deployment successfully to complete the pipeline.</p>
+</div>
+<p><img alt="Succeesful PipelineRun Logs View 2" src="../../images/Part2/PipelineRunCommitLogs.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Pipeline Run Logs View 2</p>
+<p>When you switch to the <code>deploy-staging</code> task logs by clicking on the <code>task</code> on the left hand side of the <code>Logs</code> view of the pipeline run, you see this was an automated build from git since the task prints out the <code>GIT_MESSAGE</code> that you typed in your commit word for word. (<em>Note: If you chose a different commit message that will show instead of the one displayed in the image above.</em>).</p>
+</div>
 <p><img alt="Successful PipelineRun" src="../../images/Part2/PipelineSucceeded.png" /></p>
 </li>
 </ol>
-<p><img alt="😄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f604.svg" title=":smile:" /></p>
+<h3 id="see-changes-in-application">See Changes in Application<a class="headerlink" href="#see-changes-in-application" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Navigate to the <code>Topology</code> view and open a new tab with your recently deployed <code>spring-petclinic</code> application.</p>
+<p><img alt="PetClinic Visit Time" src="../../images/Part2/PetclinicTimeAgain.png" /></p>
+</li>
+<li>
+<p>Navigate to the <code>Find Owners</code> tab</p>
+<p><img alt="PetClinic Initial View" src="../../images/Part2/InitialViewPetClinic.png" /></p>
+</li>
+<li>
+<p>Choose to add a new owner</p>
+<p><img alt="Add Owner" src="../../images/Part2/AddOwner.png" /></p>
+</li>
+<li>
+<p>Add the owner with details of your choice</p>
+<p><img alt="Dr. Seuss Owner Add" src="../../images/Part2/AddSeus.png" /></p>
+</li>
+<li>
+<p>Choose to add one of the owner's pets</p>
+<p><img alt="Add Pet" src="../../images/Part2/AddNewPet.png" /></p>
+</li>
+<li>
+<p>Fill in the pet's details and select the new type of pet you added (turtle for the example)</p>
+<p><img alt="Add Yertle the Turtle" src="../../images/Part2/AddYertleTheTurtle.png" /></p>
+</li>
+<li>
+<p>View the newly created pet of the new type (Yertle the turtle for the example)</p>
+<p><img alt="Long Live Yertle" src="../../images/Part2/LongLiveYertle.png" /></p>
+</li>
+</ol>
+<h2 id="summary">Summary <img alt="🎆" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f386.svg" title=":fireworks:" /><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>In this section, you made a change to your <code>spring-petclinic</code> application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displaying the commit message explaining the change the build was implementing. Your pipeline then deployed this change to OpenShift in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). After everything was done, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with CI/CD for your application!</p>
                 
               
               

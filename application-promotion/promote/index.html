@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#from-dev-to-staging" class="md-skip">
+        <a href="#automatically-testing-and-promoting-your-application" class="md-skip">
           Skip to content
         </a>
       
@@ -376,15 +376,96 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deploy-staging" class="md-nav__link">
-    Deploy Staging
+  <a href="#testing-your-application-in-the-wild" class="md-nav__link">
+    Testing your application in the wild
   </a>
+  
+    <nav class="md-nav" aria-label="Testing your application in the wild">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internally-within-kubernetesopenshift" class="md-nav__link">
+    Internally (Within Kubernetes/OpenShift)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-external-connections" class="md-nav__link">
+    Testing External Connections
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing External Connections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-external-route-test-task" class="md-nav__link">
+    Create External Route Test Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-external-route-test-task-to-pipeline" class="md-nav__link">
+    Add External Route Test Task to Pipeline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#deploy-staging" class="md-nav__link">
+    Deploy Staging
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploy Staging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remove-dev" class="md-nav__link">
+    Remove Dev
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-staging" class="md-nav__link">
+    Add Staging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#rollout-staging" class="md-nav__link">
     Rollout Staging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-external-route-test-task-to-pipeline_1" class="md-nav__link">
+    Add External Route Test Task to Pipeline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
   </a>
   
 </li>
@@ -497,15 +578,96 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deploy-staging" class="md-nav__link">
-    Deploy Staging
+  <a href="#testing-your-application-in-the-wild" class="md-nav__link">
+    Testing your application in the wild
   </a>
+  
+    <nav class="md-nav" aria-label="Testing your application in the wild">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internally-within-kubernetesopenshift" class="md-nav__link">
+    Internally (Within Kubernetes/OpenShift)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-external-connections" class="md-nav__link">
+    Testing External Connections
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing External Connections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-external-route-test-task" class="md-nav__link">
+    Create External Route Test Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-external-route-test-task-to-pipeline" class="md-nav__link">
+    Add External Route Test Task to Pipeline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#deploy-staging" class="md-nav__link">
+    Deploy Staging
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploy Staging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remove-dev" class="md-nav__link">
+    Remove Dev
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-staging" class="md-nav__link">
+    Add Staging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#rollout-staging" class="md-nav__link">
     Rollout Staging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-external-route-test-task-to-pipeline_1" class="md-nav__link">
+    Add External Route Test Task to Pipeline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
   </a>
   
 </li>
@@ -527,18 +689,268 @@
                   </a>
                 
                 
-                <h1 id="from-dev-to-staging">From dev to staging<a class="headerlink" href="#from-dev-to-staging" title="Permanent link">&para;</a></h1>
-<h2 id="deploy-staging">Deploy Staging<a class="headerlink" href="#deploy-staging" title="Permanent link">&para;</a></h2>
+                <h1 id="automatically-testing-and-promoting-your-application">Automatically testing and promoting your application<a class="headerlink" href="#automatically-testing-and-promoting-your-application" title="Permanent link">&para;</a></h1>
+<p>Here you will edit your pipeline to test your application in development, clean up your development resources, promote your application to staging, and test it in staging.</p>
+<h2 id="testing-your-application-in-the-wild">Testing your application in the wild<a class="headerlink" href="#testing-your-application-in-the-wild" title="Permanent link">&para;</a></h2>
+<p>During the build stage of your pipeline, you tested two things:</p>
+<ol>
+<li>That the pieces of your application worked (unit testing)</li>
+<li>That they worked together (integration testing)</li>
+</ol>
+<p>Now, it's time to go a step further and automate testing that your application is working when deployed in a real environment both:</p>
+<ol>
+<li>Internally (within Kubernetes)</li>
+<li>Externally (for the outside world)</li>
+</ol>
+<h3 id="internally-within-kubernetesopenshift">Internally (Within Kubernetes/OpenShift)<a class="headerlink" href="#internally-within-kubernetesopenshift" title="Permanent link">&para;</a></h3>
+<p>The first thing we need to test is that the application is alive and available from within your cluster (Kubernetes environment). This is important not only for the CI/CD pipeline, but for any time your application is running  (downtime is detrimental, especially in production). </p>
+<p>This functionality is available in Kubernetes via <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/" rel="noopener noreferrer" target="_blank">probes</a>. There are 3 different types of probes to test the different aspects of your application's availability:</p>
+<div class="admonition info">
+<p class="admonition-title">Kubernetes Probes in Spring</p>
+<p>In Spring there are built-in endpoints for Kubernetes probes. If you are interested in learning how to program these into a Spring application of yours in the feature, please take a look at <a href="https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot" rel="noopener noreferrer" target="_blank">Spring's official blog</a></p>
+</div>
 <ol>
 <li>
-<p>We will use our existing <code>kustomize-deploy-resources</code> task to deploy the <code>staging</code> version of our 
-OpenShift files in a new task.</p>
+<p>Startup probes:</p>
+<ol>
+<li>
+<p>Activate first</p>
+</li>
+<li>
+<p>Make sure an application is up and running (started up) </p>
+</li>
+<li>
+<p>Free startup concerns/constraints from other probes</p>
+</li>
+</ol>
+<p>Here is the <code>startupProbe</code> for the container running the PetClinicapplication:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">startupProbe</span><span class="p">:</span>
+    <span class="nt">httpGet</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/actuator/health/liveness</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+    <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+    <span class="nt">failureThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+</code></pre></div>
+<p>It is simply a query (via localhost) to PetClinic's liveness health endpoint. Once this returns successfully, you can be confident the application has started up and begin to monitor the liveness and readiness of each container of each replica (pod) of your application throughout its lifecycle.</p>
+</li>
+<li>
+<p>Liveness probes:</p>
+<ol>
+<li>
+<p>Make sure an application is actually running and not caught in a deadlock (it's alive)</p>
+</li>
+<li>
+<p>Restart "dead" <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/" rel="noopener noreferrer" target="_blank">kubelet</a> containers automatically</p>
+</li>
+<li>
+<p>Fix problems that may arise in long-running containers</p>
+</li>
+</ol>
+<p>Here is the <code>livenessProbe</code> for the container running the PetClinicapplication:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">livenessProbe</span><span class="p">:</span>
+    <span class="nt">httpGet</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/actuator/health/liveness</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+    <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+    <span class="nt">failureThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+</code></pre></div>
+<p>This looks almost identical to the <code>startupProbe</code> above other than having a much lower <code>failureThreshold</code>. The <code>startupProbe</code> is making sure the container of a given pod of our application's deployment is alive when it first starts up. This, it is allowing time for that startup to occur. Conversely, the <code>liveness</code> probe above is making sure our application stays alive throughout its lifecycle. Therefore, it has a much lower <code>failureThreshold</code> to enable <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/" rel="noopener noreferrer" target="_blank">kubelet</a> to quickly respond (restart the container) when the container becomes deadlocked.</p>
+</li>
+<li>
+<p>Readiness probes:</p>
+<ol>
+<li>
+<p>Check if each copy (replica) of an application is ready</p>
+</li>
+<li>
+<p>Makes sure traffic goes only to replicas that are ready for it</p>
+</li>
+<li>
+<p>Prevents user's from interacting with unready replicas (getting unnecessary errors)</p>
+</li>
+</ol>
+<p>Here is the <code>readinessProbe</code> for the container running PetClinic:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">readinessProbe</span><span class="p">:</span>
+    <span class="nt">httpGet</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/actuator/health/readiness</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+    <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+</code></pre></div>
+<p>It is simply a query (via localhost) to PetClinic's readiness health endpoint. This probe will let Kubernetes know when send traffic to a PetClinic replica. When we send traffic to the application, only the available replicas will receive it. This means that replicas which aren't ready for traffic don't accidentally get it, causing errors for the user.</p>
+</li>
+</ol>
+<p>These 3 probes serve to declare to Kubernetes the way your application (and the replicas that make it up) should behave, enabling the system to monitor and take action on your behalf (restarting the container or removing it's pod's endpoint from service) when the current state (the status) does not meet the desired state (your specification).</p>
+<p>The rollout task we created before as <code>deploy-dev</code> will only complete once all desired replicas are ready, implying that both the <code>startup</code> (initial liveness) and <code>readiness</code> probes have successfully passed and all replicas of your application are initially alive and ready for business. </p>
+<h3 id="testing-external-connections">Testing External Connections<a class="headerlink" href="#testing-external-connections" title="Permanent link">&para;</a></h3>
+<p>While making sure your application is internally up and running is important, at the end of the day you want to provide access to your users externally<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
+<p>This means it is important to also test the OpenShift route (the component providing the external connection) as part of your CI/CD pipeline to ensure it is correctly servicing web traffic external to your cluster<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">2</a></sup>.</p>
+<h4 id="create-external-route-test-task">Create External Route Test Task<a class="headerlink" href="#create-external-route-test-task" title="Permanent link">&para;</a></h4>
+<p>You will create a task to check the connection to your external route as part of your CI/CD pipeline.</p>
+<ol>
+<li>
+<p>Copy the <code>connection-test</code> task using the following definition (copy by clicking on the copy icon in the top right of the box below):</p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tekton.dev/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="nt">metadata</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">connection-test</span>
+<span class="nt">spec</span><span class="p">:</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">&gt;-</span>
+      <span class="no">&quot;This task runs a bash script to determine if a given application</span>
+      <span class="no">is accessible to the outside world via its route.&quot;</span>
+    <span class="nt">params</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ROUTE_NAME</span>
+      <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;The</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OpenShift</span><span class="nv"> </span><span class="s">route</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">application.&quot;</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">APP_PATH</span>
+      <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;/&quot;</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;The</span><span class="nv"> </span><span class="s">path</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">reach</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">application</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">it&#39;s</span><span class="nv"> </span><span class="s">hostname&quot;</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EXPECTED_STATUS</span>
+      <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;200&quot;</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;The</span><span class="nv"> </span><span class="s">expected</span><span class="nv"> </span><span class="s">http(s)</span><span class="nv"> </span><span class="s">status</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">querying</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">application.&quot;</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TIMEOUT</span>
+      <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;30&quot;</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;The</span><span class="nv"> </span><span class="s">number</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">seconds</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">try</span><span class="nv"> </span><span class="s">before</span><span class="nv"> </span><span class="s">giving</span><span class="nv"> </span><span class="s">up</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">successful</span><span class="nv"> </span><span class="s">connection.&quot;</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SECURE_CONNECTION</span>
+      <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;true</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">secure</span><span class="nv"> </span><span class="s">route</span><span class="nv"> </span><span class="s">(https),</span><span class="nv"> </span><span class="s">false</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">insecure</span><span class="nv"> </span><span class="s">(http)</span><span class="nv"> </span><span class="s">route.&quot;</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="nt">steps</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">route-connection-test</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;image-registry.openshift-image-registry.svc:5000/openshift/cli:latest&#39;</span>
+        <span class="nt">resources</span><span class="p">:</span>
+          <span class="nt">limits</span><span class="p">:</span>
+            <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
+            <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+          <span class="nt">requests</span><span class="p">:</span>
+            <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
+            <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+        <span class="nt">script</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+            <span class="no">#!/usr/bin/env bash</span>
+            <span class="no"># Make parameters into variables for clarity</span>
+            <span class="no">export route_name=&quot;$(params.ROUTE_NAME)&quot;</span>
+            <span class="no">export expected_status=&quot;$(params.EXPECTED_STATUS)&quot;</span>
+            <span class="no">export app_path=&quot;$(params.APP_PATH)&quot;</span>
+            <span class="no">export timeout=&quot;$(params.TIMEOUT)&quot;</span>
+            <span class="no">export secure_connection=&quot;$(params.SECURE_CONNECTION)&quot;</span>
+
+            <span class="no"># If true, http(s), if false (or otherwise) http</span>
+            <span class="no">if [ &quot;${secure_connection}&quot; == &quot;true&quot; ]</span>
+            <span class="no">then</span>
+                <span class="no">export header=&quot;https://&quot;</span>
+                <span class="no">echo &quot;Using secure https connection...&quot;</span>
+            <span class="no">else</span>
+                <span class="no">export header=&quot;http://&quot;</span>
+                <span class="no">echo &quot;Using insecure http connection...&quot;</span>
+            <span class="no">fi</span>
+            <span class="no"># Start timer at 0</span>
+            <span class="no">SECONDS=0</span>
+            <span class="no"># Once timeout reached, stop retrying</span>
+            <span class="no">while [ &quot;${SECONDS}&quot; -lt &quot;${timeout}&quot; ];</span>
+            <span class="no">do</span>
+                <span class="no"># Get hostname of route</span>
+                <span class="no">hostname=&quot;$(oc get route ${route_name} -o jsonpath=&#39;{.spec.host}&#39;)&quot;</span>
+                <span class="no"># Get http(s) status of web page via external connection (route)</span>
+                <span class="no">status=$(curl -s -o /dev/null -w &quot;%{http_code}&quot; &quot;${header}${hostname}${app_path}&quot;)</span>
+                <span class="no"># Print test completion message if expected status code received</span>
+                <span class="no">if [ &quot;${status}&quot; -eq &quot;${expected_status}&quot; ]</span>
+                <span class="no">then</span>
+                    <span class="no">echo &quot;---------------------------TESTS COMPLETE---------------------------&quot;</span>
+                    <span class="no">echo &quot;Congratulations on a successful test!&quot;</span>
+                    <span class="no">echo &quot;Please visit the application at:&quot;</span>
+                    <span class="no">echo</span>
+                    <span class="no">echo &quot;${header}${hostname}${app_path}&quot;</span>
+                    <span class="no">exit 0</span>
+                <span class="no"># Print failure message if incorrect status code received + retry</span>
+                <span class="no">else</span>
+                    <span class="no">echo &quot;The application is unexpectedly returning http(s) code ${status}...&quot;</span>
+                    <span class="no">echo &quot;It is not available to outside traffic yet...&quot;</span>
+                    <span class="no">echo &quot;Retrying in 5s at:&quot;</span>
+                    <span class="no">echo</span>
+                    <span class="no">echo &quot;${header}${hostname}${app_path}&quot;</span>
+                    <span class="no">sleep 5</span>
+                <span class="no">fi</span>
+            <span class="no">done</span>
+            <span class="no"># Redirect output to standard error, print message, and exit with error after timeout</span>
+            <span class="no">&gt;&amp;2 echo &quot;Error, failed after ${timeout} seconds of trying...&quot;</span>
+            <span class="no">&gt;&amp;2 echo &quot;The application was never accessible to the outside world :(&quot;</span>
+            <span class="no">exit 1</span>
+</code></pre></div>
+2. Create the <code>connection-test</code> Task</p>
+<p>a. Click <code>Import YAML</code> to bring up the box where you can create Kubernetes resource definitions from yaml</p>
+<p>b. Paste the <code>connection-test</code> Task into the box</p>
+<p>c. Scroll down and click create to create the <code>connection-test</code> Task </p>
+<p><img alt="Create route-test Task" src="../../images/Part2/CreateTestRouteTask.png" /></p>
+</li>
+</ol>
+<p>You should now see the created <code>route-test</code> Task. Navigate back to the <code>Pipelines</code> section of the OpenShift UI and go back to editing your pipeline.</p>
+<p><img alt="Back to Pipelines" src="../../images/Part2/BackToPipelines.png" /></p>
+<h4 id="add-external-route-test-task-to-pipeline">Add External Route Test Task to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Add a sequential task after <code>deploy-dev</code>. When you <code>Select Task</code>, choose the <code>connection-test</code> task. </p>
+<p><img alt="Add Connection Test task to Pipeline Dev" src="../../images/Part2/ChooseConnectionTest.png" /></p>
+</li>
+<li>
+<p>Configure <code>connection-test</code> task</p>
+<p>The only values you need to change are the <code>Display Name</code> and the <code>ROUTE_NAME</code>:</p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>connect-dev
+</code></pre></div>
+<p><strong>ROUTE_NAME</strong></p>
+<div class="highlight"><pre><span></span><code>spring-petclinic-dev
+</code></pre></div>
+<p><img alt="Connection Test Configure 1" src="../../images/Part2/ConnectionTestConfigureDev.png" /></p>
+</li>
+<li>
+<p>Save pipeline</p>
+</li>
+</ol>
+<p>Your current pipeline builds and test your application, creates a docker image for it, deploys it to the development environment, and ensures that the application is working both internally and externally. In other words, once your application successfully completes the current pipeline, you can be confident in it and be ready to move to staging<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup>. </p>
+<h2 id="deploy-staging">Deploy Staging<a class="headerlink" href="#deploy-staging" title="Permanent link">&para;</a></h2>
+<p>Moving to the staging environment means spinning up your application in that environment (with parameters relevant for it) and testing it there. Given that this is all using containers, you can easily free up the development resources that have successfully completed and then spin up the new resources in your staging environment.</p>
+<h3 id="remove-dev">Remove Dev<a class="headerlink" href="#remove-dev" title="Permanent link">&para;</a></h3>
+<p>Your first <code>Task</code> will mirror the <code>cleanup-resources</code> task at the beginning of your pipeline. </p>
+<ol>
+<li>
+<p>Go back to editing your pipeline via <code>Actions -&gt; Edit Pipeline</code></p>
+<p><img alt="Actions Edit Pipeline" src="../../images/Part1/ActionsEditPipeline.png" /></p>
+</li>
+<li>
+<p>Add a <code>Task</code> sequentially at the end of the pipeline (after <code>connect-dev</code>) using the <code>openshift-client</code> ClusterTask.  </p>
+<p><img alt="add cleanup sequential" src="../../images/Part2/AddSequentialCleanup.png" /></p>
+</li>
+<li>
+<p>Configure the <code>Task</code> with the following values(copy and paste boxes below image):</p>
+<p><img alt="cleanup dev" src="../../images/Part2/CleanupDevTask.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>cleanup-dev
+</code></pre></div>
+<p><strong>SCRIPT</strong></p>
+<div class="highlight"><pre><span></span><code>oc delete deployment,cm,svc,route -l <span class="nv">app</span><span class="o">=</span>spring-petclinic,env<span class="o">=</span>dev --ignore-not-found
+</code></pre></div>
+<p>and an <strong>empty</strong> <code>ARGS</code> value.</p>
+<div class="admonition warning">
+<p class="admonition-title">No help please!</p>
+<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
+</div>
+</li>
+</ol>
+<h3 id="add-staging">Add Staging<a class="headerlink" href="#add-staging" title="Permanent link">&para;</a></h3>
+<p>You will use your existing <code>kustomize</code> task to deploy the <code>staging</code> version of your 
+OpenShift files in a new task. <a href="https://github.com/ibm-wsc/spring-petclinic/blob/main/ocp-files/overlay/staging/kustomization.yaml" rel="noopener noreferrer" target="_blank">Customizations for staging PetClinic</a> include adding a staging environment label, name suffix, and change cause. You could deploy to a separate project or cluster altogether as well as change replicas or add pod autoscalers in a similar manner (depending on your use case) for different environments. </p>
+<ol>
+<li>
+<p>Add a <code>kustomize</code> task sequentially to the end of your current pipeline (after <code>cleanup-dev</code>)</p>
 <p><img alt="StagingAdd" src="../../images/Part2/AddStaging.png" /> </p>
 </li>
 <li>
-<p>The only changes to make are</p>
+<p>Configure the <code>Task</code> with the following values(copy and paste boxes below image):</p>
 <p>Display Name:
-<div class="highlight"><pre><span></span><code>kustomize-deploy-resources-staging
+<div class="highlight"><pre><span></span><code>kustomize-staging
 </code></pre></div></p>
 <p>and</p>
 <p>RELEASE_SUBDIR
@@ -548,41 +960,93 @@ OpenShift files in a new task.</p>
 <p><img alt="Kustomize Staging Task" src="../../images/Part2/KustomizeStaging.png" /></p>
 </li>
 <li>
-<p>Add workspace to <code>kustomize-deploy-resources</code> task </p>
-<p>Save current pipeline edit and switch to <code>yaml</code> from pipeline menu.</p>
+<p><code>Save</code> current pipeline edit and then switch to <code>YAML</code> from pipeline menu.</p>
 <p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png" /></p>
 <div class="admonition info">
-<p class="admonition-title">Why are we editing yaml directly?</p>
-<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why we are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so we have to do it directly in the yaml for now.</p>
+<p class="admonition-title">Why are you editing yaml directly?</p>
+<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.</p>
 </div>
-<p>Find the <code>kustomize-deploy-resources</code> and add the following workspace definition:</p>
+</li>
+<li>
+<p>Add workspace to <code>kustomize-staging</code> task </p>
+<p>Find the <code>kustomize-staging</code> and add the following workspace definition:</p>
 <div class="highlight"><pre><span></span><code>      workspaces:
       - name: source
         workspace: workspace
 </code></pre></div>
-<p><img alt="Kustomize Dev Add Workspace" src="../../images/Part2/KustomizeStagingWorkspace.png" /></p>
+<p><img alt="Kustomize Staging Add Workspace" src="../../images/Part2/KustomizeStagingWorkspace.png" /></p>
 <p>Save the update</p>
-<p><img alt="Save Pipeline Edit Yaml" src="../../images/Part1/PipelineUpdatedYaml.png" /></p>
+<p><img alt="Save Pipeline Edit Yaml" src="../../images/Part2/PipelineUpdatedYaml.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>After the save message above appears you can then proceed to <code>Cancel</code> back to the pipeline menu.</p>
 </div>
 </li>
 </ol>
-<h2 id="rollout-staging">Rollout Staging<a class="headerlink" href="#rollout-staging" title="Permanent link">&para;</a></h2>
+<h3 id="rollout-staging">Rollout Staging<a class="headerlink" href="#rollout-staging" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Edit the pipeline again and add a <code>deploy-staging</code> task with the openshift-client <code>ClusterTask</code></p>
+<p>Edit the pipeline again and add a <code>deploy-staging</code> task with the <code>openshift-client</code> <code>ClusterTask</code></p>
 <p><img alt="Deploy Staging Task" src="../../images/Part2/DeployStagingTask.png" /></p>
 </li>
 <li>
-<p>Give the task the following parameters to mirror that of the dev-deploy task which waits for the dev release to rollout to complete:</p>
+<p>Configure the task with the following parameters<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> (copy and paste boxes below image):</p>
 <p><img alt="Staging Rollout" src="../../images/Part2/DeployStagingParameters.png" /></p>
-</li>
-<li>
-<p>Save task</p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>deploy-staging
+</code></pre></div>
+<p><strong>SCRIPT</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>params.GIT_MESSAGE<span class="k">)</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> oc rollout status deploy/spring-petclinic-staging
+</code></pre></div>
 </li>
 </ol>
+<h3 id="add-external-route-test-task-to-pipeline_1">Add External Route Test Task to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Add a sequential task after <code>deploy-staging</code>. When you <code>Select Task</code>, choose the <code>connection-test</code> task. </p>
+<p><img alt="Add Connection Test task to Pipeline Dev" src="../../images/Part2/ChooseCTestStaging.png" /></p>
+</li>
+<li>
+<p>Configure <code>connection-test</code> task</p>
+<p>The only values you need to change are the <code>Display Name</code> and the <code>ROUTE_NAME</code>:</p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>connect-staging
+</code></pre></div>
+<p><strong>ROUTE_NAME</strong></p>
+<div class="highlight"><pre><span></span><code>spring-petclinic-staging
+</code></pre></div>
+<p><img alt="Connection Test Configure 1" src="../../images/Part2/ConnectionTestConfigureStaging.png" /></p>
+</li>
+<li>
+<p>Save pipeline</p>
+<p><img alt="Save Pipeline" src="../../images/Part2/SavePipeline.png" /></p>
+</li>
+</ol>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>Congratulations! You have built a pipeline that tests your <code>PetClinic</code> application, creates a docker image for it, deploys it to the development environment with dev configuration, ensures that the application is working both internally and externally, cleans up the development environment, deploys it to the staging environment with staging configuration and then makes sure it is working both internally and externally<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. tl;dr you have the <code>I/D</code> (Integration/Deployment) in <code>CI/CD</code><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>For different environments like dev and test, this may be different groups external to our Kubernetes environment (cluster), though internal to the organization itself and accessing the endpoints via a VPN or internal network. Production is likely when external connection via an organization's real website would happen. This networking doesn't actually affect you (it just matters that the route you are testing is available to you from where you are).&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>You may think to yourself that you can't test an external connection from inside your cluster. However, by using the route you are causing the traffic to go "outside" the cluster's networking to reach the load balancer and then back "inside" via the route, explicitly testing the external connection and making sure that it indeed works. This just tests that the route works, not that the dns/hostname is available generally on the internet or private enterprise subnet (depending on environment), which is a different more general problem for your networking team (or cloud) to ensure for all of your applications using that network.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>You could create more extensive tests to make sure that the pages are rendering correctly (besides just returning a proper status code). However, that is beyond the scope of the lab and this at least makes sure requests are successfully sent and returned via an external route, which is good enough for the lab's purposes.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>This mirrors the <code>dev-deploy</code> task which waits for the dev release to rollout but uses the <code>SCRIPT</code> field for everything vs. <code>ARGS</code>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>You could clean up the staging environment at the end of the run but choose not to so that the user can interact with it between runs. You could also clean up or use a separate MySQL instance for staging but due to limited resources in our environment we have chosen not to add this extra component.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>You'll add the double <code>C</code>s in the next section by connecting it to GitHub.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
               
               

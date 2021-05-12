@@ -638,7 +638,7 @@
                 
                 
                 <h1 id="petclinic-openshift-pipelines-ci">PetClinic + OpenShift Pipelines = CI<a class="headerlink" href="#petclinic-openshift-pipelines-ci" title="Permanent link">&para;</a></h1>
-<p>Now that PetClinic is up and running on our OpenShift cluster, it's time to add functionality to our pipeline to achieve basic continuous integration. The OpenShift pipeline we created in the <a href="../upandrunning/">PetClinic Up and Running</a> uses <a href="https://tekton.dev" rel="noopener noreferrer" target="_blank">Tekton</a> to run a series of tasks (each with one or more steps) to accomplish a workflow (pipeline). We will use the Pipeline Builder UI built into OpenShift to quickly and easily craft a pipeline for our project.</p>
+<p>Now that PetClinic is up and running on your OpenShift cluster, it's time to add functionality to your pipeline to achieve basic continuous integration. The OpenShift pipeline you created in the <a href="../upandrunning/">PetClinic Up and Running</a> uses <a href="https://tekton.dev" rel="noopener noreferrer" target="_blank">Tekton</a> to run a series of tasks (each with one or more steps) to accomplish a workflow (pipeline). You will use the Pipeline Builder UI built into OpenShift to quickly and easily craft a pipeline for your project.</p>
 <div class="admonition info">
 <p class="admonition-title">Why OpenShift Pipelines?</p>
 <ul>
@@ -657,10 +657,10 @@
 </ul>
 </div>
 <h2 id="petclinic-pipeline">PetClinic Pipeline<a class="headerlink" href="#petclinic-pipeline" title="Permanent link">&para;</a></h2>
-<p>When we deployed the PetClinic application using the <code>From Git</code> option in the <a href="../upandrunning/">PetClinic Up and Running</a> section, we chose to create a basic pipeline. We'll start with this pipeline and edit it to add new functionality for our use case. </p>
+<p>When you deployed the PetClinic application using the <code>From Git</code> option in the <a href="../upandrunning/">PetClinic Up and Running</a> section, you chose to create a basic pipeline. You'll start with this pipeline and edit it to add new functionality for your use case. </p>
 <p>Navigate to the <code>Pipelines</code> tab in the <code>Developer</code> perspective on the left and then click the three dots to the right of the pipeline name (<code>spring-petclinic</code>) and choose <code>Edit Pipeline</code>. <img alt="Pipeline Image" src="../../images/Part1/EditNewPipeline.png" /> </p>
 <h2 id="ensure-mysql-database-deployed-for-each-run">Ensure MySQL Database Deployed for each Run<a class="headerlink" href="#ensure-mysql-database-deployed-for-each-run" title="Permanent link">&para;</a></h2>
-<p>This will bring us to the Pipeline Builder UI where we can edit our pipeline. Here we will make sure the MySQL database is configured according to our specification before the <code>build</code> task.</p>
+<p>This will bring you to the Pipeline Builder UI where you can edit your pipeline. Here you will make sure the MySQL database is configured according to your specification before the <code>build</code> task.</p>
 <ol>
 <li>
 <p>Add a <code>mysql-deploy</code> task in parallel to the <code>git-fetch</code> task. 
@@ -669,11 +669,18 @@
 <p class="admonition-title">Why MySQL Parallel?</p>
 <p>This ensures MySQL is in place for each <code>PetClinic</code> application build (which would fail without it).  </p>
 </div>
-<p>Click on the middle of the bubble of the new task and choose the <code>openshift-client</code> task from the dropdown menu. </p>
+<p>Click <code>Select Task</code> in the middle of the rectangle of the new task and choose the <code>openshift-client</code> task from the dropdown menu. </p>
 <p><img alt="ChooseOpenShift Client" src="../../images/Part1/Choose_OpenShiftClientTask.png" /></p>
+<p>Click on the middle of the oval of the <code>openshift-client</code> task to enter values for it.</p>
+<p><img alt="Click OpenShift Client" src="../../images/Part1/OpenShiftClientOval.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Once you add a specific task (i.e. openshift-client), clicking on the oval of the task will enable you to edit its default values for your needs.</p>
+</div>
 <p>Enter the following command into the script field to ensure the MySQL database is available with the necessary configuration:</p>
 <div class="highlight"><pre><span></span><code>oc process openshift//mysql-ephemeral -p <span class="nv">MYSQL_USER</span><span class="o">=</span>petclinic -p <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>petclinic -p <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>petclinic -p <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>petclinic <span class="p">|</span> oc apply -f -
 </code></pre></div>
+<p><img alt="MySQL Task" src="../../images/Part1/MySQLTemplateTask.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Simply Click Away</p>
 <p>Once you have entered the string into the <code>SCRIPT</code> section, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.</p>
@@ -682,7 +689,6 @@
 <p class="admonition-title">What is <code>oc process</code> doing?</p>
 <p><code>oc process</code> is processing the <a href="https://docs.openshift.com/container-platform/4.7/openshift_images/using-templates.html#templates-overview_using-templates" rel="noopener noreferrer" target="_blank">OpenShift template</a> for the <code>mysql-ephemeral</code> database with the parameters given via a series of <code>-p</code> arguments and finally <code>oc apply -f -</code> ensures that any missing components will be recreated.</p>
 </div>
-<p><img alt="MySQL Task" src="../../images/Part1/MySQLTemplateTask.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">No help please!</p>
 <p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
@@ -690,25 +696,29 @@
 </li>
 <li>
 <p>Add a <code>mysql-rollout-wait</code> task</p>
-<p>We need to make sure that <code>mysql</code> is not only on its way to deploying but actually deployed before our <code>build</code> task begins. In order to achieve this, we will use the OpenShift Client again and wait for the <code>rollout</code> of the <code>mysql</code> <code>deploymentConfig</code> to complete after the <code>mysql-deploy</code> task. Add a sequential task after <code>mysql-deploy</code>:</p>
+<p>You need to make sure that <code>mysql</code> is not only on its way to deploying but actually deployed before your <code>build</code> task begins. In order to achieve this, you will use the OpenShift Client again and wait for the <code>rollout</code> of the <code>mysql</code> <code>deploymentConfig</code> to complete after the <code>mysql-deploy</code> task. Add a sequential task after <code>mysql-deploy</code>:</p>
 <p><img alt="mysql sequential task" src="../../images/Part1/mySQL_SequentialTask.png" /></p>
-<p>Fill out the task with the following parameters:</p>
+<p><code>Select Task</code> as <code>openshift-client</code> like before and then fill out the task with the following parameters:</p>
 <p><img alt="mysql-check task" src="../../images/Part1/MySQLRolloutWait.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">How did you get 3 ARGS fields?</p>
+<p>Using <code>Add another value</code> adds another row to the <code>ARGS</code> section. Please <code>Add another value</code> twice to have the 3 rows required for the <code>mysql-rollout-wait</code> task as shown above.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">No help please!</p>
 <p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running).</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">What the ARGS?</p>
-<p>You may be wondering why we used the <code>SCRIPT</code> section in the <code>mysql-deploy</code> task for the entire command, but now are using the <code>ARGS</code> to individually list each argument of the command? Both work and so we are going through both methods here. On the one hand, the <code>SCRIPT</code> method is easier to copy and paste and looks the same as it would entered on the command line. On the other hand, the <code>ARGS</code> method adds readability to the task. Choose whichever method you prefer, though beware of input errors  with the <code>ARGS</code> method for long commands. <em>FYI: The equivalent <code>SCRIPT</code> command for the <code>mysql-rollout-wait</code> task is</em>:</p>
+<p>You may be wondering why you used the <code>SCRIPT</code> section in the <code>mysql-deploy</code> task for the entire command, but now are using the <code>ARGS</code> to individually list each argument of the command? Both work and so you are going through both methods here. On the one hand, the <code>SCRIPT</code> method is easier to copy and paste and looks the same as it would entered on the command line. On the other hand, the <code>ARGS</code> method adds readability to the task. Choose whichever method you prefer, though beware of input errors  with the <code>ARGS</code> method for long commands. <em>FYI: The equivalent <code>SCRIPT</code> command for the <code>mysql-rollout-wait</code> task is</em>:</p>
 <div class="highlight"><pre><span></span><code>oc rollout status dc/mysql
 </code></pre></div>
 </div>
-<p><img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /> Now our build step will have <code>MySQL</code>  alive and well for it to use during the <code>build</code> step as required!</p>
 </li>
 </ol>
+<p><img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /> Now your <code>mysql-deploy</code> and <code>mysql-rollout</code> tasks will have <code>MySQL</code> alive and well for the <code>build</code> task!</p>
 <h2 id="make-clean-image-from-s2i-build">Make Clean Image from S2I build<a class="headerlink" href="#make-clean-image-from-s2i-build" title="Permanent link">&para;</a></h2>
-<p>The <code>s2i-java-11</code> image is very convenient for making an image from source code. However, the simplicity that gives it value, can make it fail at meeting the needs of many organizations by itself. In our case, we will take the artifacts from the s2i image and copy them to a new Docker image that can meet all our needs to get the best of both worlds. We'll create an optimized image starting from a compact <code>openj9</code> java 11 base and employing <a href="https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1#layered-jars" rel="noopener noreferrer" target="_blank">the advanced layers feature in spring</a> that optimizes Docker image caching with the <a href="https://raw.githubusercontent.com/ibm-wsc/spring-petclinic/main/final-Dockerfile" rel="noopener noreferrer" target="_blank">final-Dockerfile</a> in the <a href="https://github.com/ibm-wsc/spring-petclinic" rel="noopener noreferrer" target="_blank">ibm-wsc/spring-petclinic</a> git repository we forked. </p>
+<p>The <code>s2i-java-11</code> image is very convenient for making an image from source code. However, the simplicity that gives it value, can make it fail at meeting the needs of many organizations by itself. In your case, you will take the artifacts from the s2i image and copy them to a new Docker image that can meet all your needs to get the best of both worlds. You'll create an optimized image starting from a compact <code>openj9</code> java 11 base and employing <a href="https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1#layered-jars" rel="noopener noreferrer" target="_blank">the advanced layers feature in spring</a> that optimizes Docker image caching with the <a href="https://raw.githubusercontent.com/ibm-wsc/spring-petclinic/main/final-Dockerfile" rel="noopener noreferrer" target="_blank">final-Dockerfile</a> in the <a href="https://github.com/ibm-wsc/spring-petclinic" rel="noopener noreferrer" target="_blank">ibm-wsc/spring-petclinic</a> git repository you forked. </p>
 <ol>
 <li>
 <p>Add <code>Buildah</code> task</p>
@@ -719,14 +729,14 @@
 <p>Configure <code>buildah</code> task</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Each value that we need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match image)</p>
+<p>Each value that you need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match image)</p>
 </div>
 <p><img alt="Buildah Task Values" src="../../images/Part1/ProducingCleanImageBuildah2.png" /></p>
 <p>DISPLAY NAME:
-<div class="highlight"><pre><span></span><code>producing-clean-image
+<div class="highlight"><pre><span></span><code>clean-image
 </code></pre></div></p>
 <p>IMAGE:
-<div class="highlight"><pre><span></span><code>$(params.FINAL_IMAGE):$(params.COMMIT_SHA)
+<div class="highlight"><pre><span></span><code>$(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
 </code></pre></div></p>
 <p>DOCKERFILE:
 <div class="highlight"><pre><span></span><code>./final-Dockerfile
@@ -739,22 +749,11 @@
 </code></pre></div></p>
 </li>
 <li>
-<p>Add <code>FINAL_IMAGE</code>, <code>GIT_MESSAGE</code>, and <code>COMMIT_SHA</code> parameters to the pipeline</p>
+<p>Add <code>GIT_MESSAGE</code>, and <code>COMMIT_SHA</code> parameters to the pipeline</p>
+<p>Click <code>Add Parameter</code> twice ...</p>
+<p><img alt="Add Parameter" src="../../images/Part1/AddParameter.png" /></p>
+<p>and then fill in the parameter details for <code>GIT_MESSAGE</code> and <code>COMMIT_SHA</code> (copy and paste boxes below image)</p>
 <p><img alt="Add Image and Git Parameters" src="../../images/Part1/AddParameters.png" /></p>
-<p><strong>FINAL_IMAGE</strong></p>
-<p><code>FINAL_IMAGE</code> Parameter Name:
-<div class="highlight"><pre><span></span><code>FINAL_IMAGE
-</code></pre></div>
-<code>FINAL_IMAGE</code> Parameter Description:
-<div class="highlight"><pre><span></span><code>Image Repository for Final Image
-</code></pre></div>
-<code>FINAL_IMAGE</code> Parameter Default Value:
-<div class="highlight"><pre><span></span><code>IMAGE_NAME-minimal
-</code></pre></div></p>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>Replace IMAGE_NAME with the value of that parameter above. Don't leave IMAGE_NAME as-is</p>
-</div>
 <p><strong>GIT_MESSAGE</strong></p>
 <p><code>GIT_MESSAGE</code> Parameter Name:
 <div class="highlight"><pre><span></span><code>GIT_MESSAGE
@@ -773,27 +772,27 @@
 <div class="highlight"><pre><span></span><code>SHA of Git commit if triggered by Git, otherwise just update manual tag
 </code></pre></div>
 <code>COMMIT_SHA</code> Parameter Default Value:
-<div class="highlight"><pre><span></span><code>latest
+<div class="highlight"><pre><span></span><code>manual
 </code></pre></div></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Save parameters when done with entry before moving onto step 4.</p>
+<p>Save parameters when done with entry by clicking on blue <code>SAVE</code> box before moving onto step 4. If blue <code>SAVE</code> box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the <code>-</code>.</p>
 </div>
 </li>
 <li>
-<p>Add workspace to <code>producing-clean-image</code> task </p>
-<p>Save current pipeline edit and switch to <code>yaml</code> from pipeline menu.</p>
+<p>Add workspace to <code>clean-image</code> task </p>
+<p>Save current pipeline edit and switch to <code>YAML</code> from pipeline menu.</p>
 <p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png" /></p>
 <div class="admonition info">
-<p class="admonition-title">Why are we editing yaml directly?</p>
-<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why we are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so we have to do it directly in the yaml for now.</p>
+<p class="admonition-title">Why are you editing yaml directly?</p>
+<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.</p>
 </div>
-<p>Find the <code>producing-clean-image-task</code> and add the following workspace definition:</p>
-<div class="highlight"><pre><span></span><code>      workspaces:
-      - name: source
-        workspace: workspace
+<p>Find the <code>clean-image-task</code> and add the following workspace definition:</p>
+<div class="highlight"><pre><span></span><code>      <span class="nt">workspaces</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
+        <span class="nt">workspace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
 </code></pre></div>
-<p><img alt="Producing Clean Image Workspace" src="../../images/Part1/AddWorspaceProducingCleanImage.png" /></p>
+<p><img alt="Clean Image Workspace" src="../../images/Part1/AddWorspaceProducingCleanImage.png" /></p>
 <p>Save the update</p>
 <p><img alt="Save Pipeline Edit Yaml" src="../../images/Part1/PipelineUpdatedYaml.png" /></p>
 <div class="admonition note">
@@ -806,105 +805,115 @@
 <p><a href="https://kustomize.io" rel="noopener noreferrer" target="_blank">Kustomize</a> is a tool for customizing Kubernetes resource configuration.</p>
 <div class="admonition note">
 <p class="admonition-title">From the documentation overview</p>
-<p>Kustomize traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl.</p>
+<p>Kustomize traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the <a href="https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/{target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;}">Introducing Kustomize Kubernetes Blog Post</a> for a more in-depth overview of Kustomize and its purpose.</p>
 </div>
-<p>As part of doing things the "cloud-native way", we will be using Kustomize to manage resource changes across our <code>dev</code> and <code>staging</code> environments as well as injecting information from our pipeline (such as newly created image information with git commits) into our Kubernetes (OpenShift) resources. </p>
-<p>See our Kustomize configuration in our GitHub code in the subdirectories of the <a href="https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files" rel="noopener noreferrer" target="_blank">ocp-files directory</a></p>
-<p>See the <a href="https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/" rel="noopener noreferrer" target="_blank">kubectl documentation</a> for more information about how to use Kustomize via kubectl / oc.</p>
+<p>As part of doing things the "cloud-native way", you will be using Kustomize to manage resource changes across your <code>dev</code> and <code>staging</code> environments as well as injecting information from your pipeline (such as newly created image information with git commits) into your Kubernetes (OpenShift) resources. </p>
+<p>To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the <a href="https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files" rel="noopener noreferrer" target="_blank">ocp-files directory</a></p>
+<p>For more information on how kubectl (and oc through kubectl) integrates Kustomize, see the <a href="https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/" rel="noopener noreferrer" target="_blank">kubectl documentation</a>.</p>
 <h3 id="creating-custom-task-for-kustomize">Creating Custom Task for Kustomize<a class="headerlink" href="#creating-custom-task-for-kustomize" title="Permanent link">&para;</a></h3>
-<p>Since there is no <code>ClusterTask</code> defined for Kustomize, we will create a custom task for this purpose. It will change into the Kustomize directory, run a Kustomize command on the directory, and then apply the files from the directory using the built-in Kustomize functionality of the oc command line tool (via kubectl's Kustomize support)</p>
+<p>Since there is no <code>ClusterTask</code> defined for Kustomize, you will create a custom task for this purpose. It will change into the Kustomize directory, run a Kustomize command on the directory, and then apply the files from the directory using the built-in Kustomize functionality of the oc command line tool (via kubectl's Kustomize support)</p>
 <ol>
 <li>
-<p>Copy the <code>kustomize-deploy-resources</code> Task using the following definition (copy by clicking on the copy icon in the top right of the box below):
-    <div class="highlight"><pre><span></span><code>apiVersion: tekton.dev/v1beta1
-kind: Task
-metadata:
-  name: kustomize-deploy-resources
-spec:
-  description: &gt;-
-    This task runs commands against the cluster where the task run is being
-    executed.
+<p>Copy the <code>kustomize</code> task using the following definition (copy by clicking on the copy icon in the top right of the box below):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tekton.dev/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kustomize</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">&gt;-</span>
+    <span class="no">This task runs commands against the cluster where the task run is being</span>
+    <span class="no">executed.</span>
 
-    Kustomize is a tool <span class="k">for</span> Kubernetes native configuration management.  It
-    introduces a template-free way to customize application configuration that
-    simplifies the use of off-the-shelf applications.  Now, built into kubectl
-    as apply -k and oc as oc apply -k.
-  params:
-  - default: /workspace/source/ocp-files
-    description: The directory where the kustomization yaml file<span class="o">(</span>s<span class="o">)</span> reside
-    name: KUSTOMIZE_DIR
-    type: string
-  - default: base
-    description: subdirectory of KUSTOMIZE_DIR used <span class="k">for</span> extra configuration of current resources
-    name: EDIT_SUDBDIR
-    type: string
-  - default: overlay/dev
-    description: subdirectory of KUSTOMIZE_DIR used <span class="k">for</span> specifying resources <span class="k">for</span> a specific release such as dev or staging
-    name: RELEASE_SUBDIR
-    type: string
-  - default: kustomize edit <span class="nb">set</span> image <span class="k">$(</span>params.APP_NAME<span class="k">)</span><span class="o">=</span><span class="k">$(</span>params.FINAL_IMAGE<span class="k">)</span>:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
-    description: The Kustomize CLI arguments to run
-    name: SCRIPT
-    type: string
-  steps:
-  - image: <span class="s1">&#39;docker.io/gmoney23/kustomize-s390x:v4.1.2&#39;</span>
-    name: kustomize
-    resources:
-      limits:
-        cpu: 200m
-        memory: 200Mi
-      requests:
-        cpu: 200m
-        memory: 200Mi
-    script: <span class="nb">cd</span> <span class="k">$(</span>params.KUSTOMIZE_DIR<span class="k">)</span>/<span class="k">$(</span>params.EDIT_SUDBDIR<span class="k">)</span> <span class="o">&amp;&amp;</span> <span class="k">$(</span>params.SCRIPT<span class="k">)</span>
-  - image: <span class="s1">&#39;image-registry.openshift-image-registry.svc:5000/openshift/cli:latest&#39;</span>
-    name: apply-oc-files
-    resources:
-      limits:
-        cpu: 200m
-        memory: 200Mi
-      requests:
-        cpu: 200m
-        memory: 200Mi
-    script: oc apply -k <span class="k">$(</span>params.KUSTOMIZE_DIR<span class="k">)</span>/<span class="k">$(</span>params.RELEASE_SUBDIR<span class="k">)</span>
-  workspaces:
-  - name: <span class="nb">source</span>
-    description: The git <span class="nb">source</span> code
-</code></pre></div></p>
+    <span class="no">Kustomize is a tool for Kubernetes native configuration management.  It</span>
+    <span class="no">introduces a template-free way to customize application configuration that</span>
+    <span class="no">simplifies the use of off-the-shelf applications.  Now, built into kubectl</span>
+    <span class="no">as apply -k and oc as oc apply -k.</span>
+  <span class="nt">params</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ocp-files</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The directory where the kustomization yaml file(s) reside in the git directory</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">KUSTOMIZE_DIR</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+  <span class="p p-Indicator">-</span> <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">base</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subdirectory of KUSTOMIZE_DIR used for extra configuration of current resources</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EDIT_SUDBDIR</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+  <span class="p p-Indicator">-</span> <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">overlay/dev</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subdirectory of KUSTOMIZE_DIR used for specifying resources for a specific release such as dev or staging</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RELEASE_SUBDIR</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+  <span class="p p-Indicator">-</span> <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kustomize --help</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The Kustomize CLI command to run</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SCRIPT</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+  <span class="nt">steps</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;docker.io/gmoney23/kustomize-s390x:v4.1.2&#39;</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kustomize</span>
+    <span class="nt">resources</span><span class="p">:</span>
+      <span class="nt">limits</span><span class="p">:</span>
+        <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
+        <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+      <span class="nt">requests</span><span class="p">:</span>
+        <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
+        <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+    <span class="nt">workingDir</span><span class="p">:</span> <span class="s">&quot;$(workspaces.source.path)/$(params.KUSTOMIZE_DIR)/$(params.EDIT_SUDBDIR)&quot;</span>
+    <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$(params.SCRIPT)</span>
+  <span class="p p-Indicator">-</span> <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;image-registry.openshift-image-registry.svc:5000/openshift/cli:latest&#39;</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apply-oc-files</span>
+    <span class="nt">resources</span><span class="p">:</span>
+      <span class="nt">limits</span><span class="p">:</span>
+        <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
+        <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+      <span class="nt">requests</span><span class="p">:</span>
+        <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
+        <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+    <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">oc apply -k &quot;$(workspaces.source.path)/$(params.KUSTOMIZE_DIR)/$(params.RELEASE_SUBDIR)&quot;</span>
+  <span class="nt">workspaces</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The git source code</span>
+</code></pre></div>
 </li>
 <li>
-<p>Create the <code>kustomize-deploy-resources</code> Task</p>
+<p>Create the <code>kustomize</code> Task</p>
 <p>a. Click <code>Import YAML</code> to bring up the box where you can create Kubernetes resource definitions from yaml</p>
-<p>b. Paste the <code>kustomize-deploy-resources</code> Task into the box</p>
-<p>c. Scroll down and click create to create the <code>kustomize-deploy-resources</code> Task </p>
+<p>b. Paste the <code>kustomize</code> Task into the box</p>
+<p>c. Scroll down and click create to create the <code>kustomize</code> Task </p>
 <p><img alt="Create Kustomize Task" src="../../images/Part1/CreateKustomizeTask.png" /></p>
 </li>
 </ol>
-<p>You should now see the created <code>kustomize-deploy-resources</code> Task and navigate back to the Pipelines section of OpenShift and go back to editing your pipeline.</p>
+<p>You should now see the created <code>kustomize</code> Task. Navigate back to the <code>Pipelines</code> section of the OpenShift UI and go back to editing your pipeline.</p>
 <p><img alt="Back to Pipelines" src="../../images/Part1/BackToPipelines.png" /></p>
 <h3 id="add-kustomize-task-to-pipeline">Add Kustomize Task to Pipeline<a class="headerlink" href="#add-kustomize-task-to-pipeline" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Find <code>kustomize-deploy-resources</code> and add it to your pipeline after <code>producing-clean-image</code> </p>
+<p>Add a sequential task after <code>clean-image</code> and when you <code>Select Task</code> choose the <code>kustomize</code> task. </p>
 <p><img alt="Add Kustomize task to Pipeline Dev" src="../../images/Part1/AddKustomizeTaskPipeline.png" /></p>
 </li>
 <li>
-<p>Configure <code>kustomize-deploy-resources</code> task</p>
-<p>Since environment is <code>dev</code> for initial deploy, we can use all of the default values and change the <code>Display Name</code> to <code>kustomize-deploy-resources-dev</code>.</p>
-<p><img alt="Kustomize Configure 1" src="../../images/Part1/KustomizeDefaults.png" /></p>
+<p>Configure <code>kustomize</code> task</p>
+<p>Since your initial deploy will be for the <code>dev</code> environment, the only values you need to change are the <code>Display Name</code> and the <code>SCRIPT</code>:</p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>kustomize-dev
+</code></pre></div>
+<p><strong>SCRIPT</strong></p>
+<div class="highlight"><pre><span></span><code>kustomize edit <span class="nb">set</span> image spring-petclinic<span class="o">=</span><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>-minimal:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
+</code></pre></div>
+<p><img alt="Kustomize Configure 1" src="../../images/Part1/KustomizeDevChoices.png" /></p>
 </li>
 <li>
-<p>Add workspace to <code>kustomize-deploy-resources</code> task </p>
-<p>Save current pipeline edit and switch to <code>yaml</code> from pipeline menu.</p>
+<p>Save pipeline</p>
+</li>
+<li>
+<p>Add workspace to <code>kustomize-dev</code> task </p>
+<p>Save current pipeline edit and switch to <code>YAML</code> from pipeline menu.</p>
 <p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png" /></p>
 <div class="admonition info">
-<p class="admonition-title">Why are we editing yaml directly?</p>
-<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why we are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so we have to do it directly in the yaml for now.</p>
+<p class="admonition-title">Why are you editing yaml directly?</p>
+<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.</p>
 </div>
-<p>Find the <code>kustomize-deploy-resources</code> and add the following workspace definition:</p>
-<div class="highlight"><pre><span></span><code>      workspaces:
-      - name: source
-        workspace: workspace
+<p>Find the <code>kustomize-dev</code> and add the following workspace definition:</p>
+<div class="highlight"><pre><span></span><code>      <span class="nt">workspaces</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
+        <span class="nt">workspace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
 </code></pre></div>
 <p><img alt="Kustomize Dev Add Workspace" src="../../images/Part1/AddWorkspaceKustomizeDev.png" /></p>
 <p>Save the update</p>
@@ -918,12 +927,16 @@ spec:
 <h2 id="clean-old-petclinic-instances-at-the-beginning-of-a-run">Clean Old PetClinic Instances at the Beginning of a Run<a class="headerlink" href="#clean-old-petclinic-instances-at-the-beginning-of-a-run" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Add an task named <code>cleanup-resources</code> sequentially at the beginning of the pipeline before <code>fetch-repository</code> (using the <code>openshift-client</code> ClusterTask).</p>
+<p>Go back to editing your pipeline via <code>Actions -&gt; Edit Pipeline</code></p>
+<p><img alt="Actions Edit Pipeline" src="../../images/Part1/ActionsEditPipeline.png" /></p>
+</li>
+<li>
+<p>Add a <code>Task</code> named <code>cleanup-resources</code> sequentially at the beginning of the pipeline before <code>fetch-repository</code> (using the <code>openshift-client</code> ClusterTask).</p>
 <p><img alt="add cleanup sequential" src="../../images/Part1/AddSequentialTask.png" /></p>
 </li>
 <li>
 <p>Configure the task with a <code>SCRIPT</code> value of:</p>
-<div class="highlight"><pre><span></span><code>oc delete deployment,svc,route -l <span class="nv">app</span><span class="o">=</span><span class="k">$(</span>params.APP_NAME<span class="k">)</span> --ignore-not-found
+<div class="highlight"><pre><span></span><code>oc delete deployment,cm,svc,route -l <span class="nv">app</span><span class="o">=</span><span class="k">$(</span>params.APP_NAME<span class="k">)</span> --ignore-not-found
 </code></pre></div>
 <p>and an empty <code>ARGS</code> value.</p>
 <p><img alt="cleanup resources" src="../../images/Part1/CleanupResourcesTask.png" /></p>
@@ -936,8 +949,17 @@ spec:
 <h2 id="update-deploy-task-to-deploy-dev">Update Deploy Task to deploy-dev<a class="headerlink" href="#update-deploy-task-to-deploy-dev" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Change the name of the task at the end of the pipeline to <code>deploy-dev</code> and change the last <code>ARG</code> from <code>deploy/$(params.APP_NAME)</code> to:</p>
-<div class="highlight"><pre><span></span><code>deploy/<span class="k">$(</span>params.APP_NAME<span class="k">)</span>-dev
+<p>Click on the <code>deploy</code> Task at the end of the pipeline and change the following parameters to the corresponding values (copy and paste boxes below image):</p>
+<p><img alt="Deploy Dev Task Completed" src="../../images/Part1/DeployDevCompleted.png" /></p>
+<p><strong>Display Name</strong>
+<div class="highlight"><pre><span></span><code>deploy-dev
+</code></pre></div></p>
+<p><strong>Script</strong>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>params.GIT_MESSAGE<span class="k">)</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> oc <span class="nv">$@</span>
+</code></pre></div></p>
+<p><strong>Last Arg</strong></p>
+<p>From <code>deploy/$(params.APP_NAME)</code> to:</p>
+<div class="highlight"><pre><span></span><code>deploy/spring-petclinic-dev
 </code></pre></div>
 </li>
 <li>
@@ -959,11 +981,19 @@ spec:
 <p><img alt="Trigger Pipeline Manual" src="../../images/Part1/PipelineExampleManualParameters.png" /></p>
 </li>
 <li>
-<p>Watch the results of your build. It should run successfully as in the pictures below.</p>
-<p><strong>PipelineRun Success View Perspective:</strong></p>
-<p><img alt="PipelineRun View" src="../../images/Part1/PipelineRolloutRunView.png" /></p>
-<p><strong>PipelineRun Success Logs Perspective:</strong></p>
-<p><img alt="PipelineRun Logs" src="../../images/Part1/PipelineRolloutLogsView.png" /></p>
+<p>Watch the results of your build pipeline run. It should complete successfully as in the pictures below.</p>
+<p><strong>Pipeline Run Success View Perspective:</strong></p>
+<p><img alt="Pipeline Run View" src="../../images/Part1/PipelineRolloutRunView.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Pipeline Run Details View</p>
+<p>In the pipeline run <code>Details</code> view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the image was <code>Triggered By</code> a user versus an automated source such as an event listener watching for a GitHub push...</p>
+</div>
+<p><strong>Pipeline Run Success Logs Perspective:</strong></p>
+<p><img alt="Pipeline Run Logs" src="../../images/Part1/PipelineRolloutLogsView.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Pipeline Run Logs View</p>
+<p>In the pipeline run <code>Logs</code> view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task you can see this was a manual build due to your <code>GIT_MESSAGE</code> variable printing out its message in the final (<code>deploy-dev</code>) task.</p>
+</div>
 </li>
 </ol>
 <p><img alt="👍" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f44d.svg" title=":thumbsup:" /></p>

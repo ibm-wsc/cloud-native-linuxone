@@ -556,9 +556,9 @@
                 
                 
                 <h1 id="getting-your-petclinic-up-and-running">Getting Your PetClinic Up and Running<a class="headerlink" href="#getting-your-petclinic-up-and-running" title="Permanent link">&para;</a></h1>
-<p>For this workshop we will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. <a href="https://github.com/spring-projects/spring-petclinic">The official version of PetClinic</a> demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. </p>
-<p>We will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud-native application and a DevOps pipeline for the application.</p>
-<p>We will start by building our PetClinic application from the source code and connecting it to a MySQL database.</p>
+<p>For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. <a href="https://github.com/spring-projects/spring-petclinic">The official version of PetClinic</a> demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. </p>
+<p>You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud-native application and a DevOps pipeline for the application.</p>
+<p>You will start by building your PetClinic application from the source code and connecting it to a MySQL database.</p>
 <div class="admonition info">
 <p class="admonition-title">Using LinuxONE Community Cloud</p>
 <p>Because you are using the LinuxONE Community Cloud OpenShift trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.</p>
@@ -572,9 +572,9 @@
 </ul>
 </div>
 <h2 id="deploying-mysql-database">Deploying MySQL database<a class="headerlink" href="#deploying-mysql-database" title="Permanent link">&para;</a></h2>
-<p><strong>1.</strong> First, we need to setup our mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)</p>
+<p><strong>1.</strong> First, you need to setup your mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)</p>
 <p><img alt="Add DB" src="../upandrunningimages/devselectdatabase.png" /></p>
-<p><strong>2.</strong> Next, select the <code>MySQL (Ephemeral)</code> tile. Note we are choosing the ephemeral option because at this point we do not care to persist the database beyond the life of the container.</p>
+<p><strong>2.</strong> Next, select the <code>MySQL (Ephemeral)</code> tile. Note you are choosing the ephemeral option because at this point you do not care to persist the database beyond the life of the container.</p>
 <p><img alt="Select MySQL" src="../upandrunningimages/selectmqephemeral.png" /></p>
 <p><strong>3.</strong> Click on instantiate template.</p>
 <p><img alt="Select DB" src="../upandrunningimages/instantiatetemplate.png" /></p>
@@ -583,7 +583,7 @@
 <p>Click the <code>Create</code> button. </p>
 <div class="admonition info">
 <p class="admonition-title">Why Ephemeral?</p>
-<p>We are using the <strong>Ephemeral</strong> implementation because this a short-lived demo and we do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the container.</p>
+<p>You are using the <strong>Ephemeral</strong> implementation because this a short-lived demo and you do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the container.</p>
 </div>
 <p>A minute or two later, in the <code>Topology</code> view of your OpenShift Console, you should see <code>mysql</code> in running state. (Click on the Topology icon for <code>mysql</code> to bring up the side panel)</p>
 <p><img alt="DB running" src="../upandrunningimages/mysqlrunning.png" /></p>
@@ -601,7 +601,7 @@
 <p><code>https://github.com/&lt;your-github-username&gt;/spring-petclinic</code></p>
 <p>That's it! You are ready to move on to the next section.</p>
 <h2 id="building-and-deploying-petclinic-application">Building and Deploying PetClinic Application<a class="headerlink" href="#building-and-deploying-petclinic-application" title="Permanent link">&para;</a></h2>
-<p>There are multiple ways OpenShift enables cloud-native application developers to package up their applications and deploy them. For PetClinic, we will be building our application image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows us to quickly test the building, packaging, and deployment of our application, and gives us the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how OpenShift Pipelines work.</p>
+<p>There are multiple ways OpenShift enables cloud-native application developers to package up their applications and deploy them. For PetClinic, you will be building your application image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how OpenShift Pipelines work.</p>
 <p><strong>1.</strong> Start with choosing Add From Git:</p>
 <p><img alt="from git" src="../upandrunningimages/fromgit.png" /></p>
 <p><strong>2.</strong> Enter <code>https://github.com/&lt;your-github-ID&gt;/spring-petclinic</code> in the <code>Git Repo URL</code> field. Expand the <code>Show Advanced Git Options</code> section, and type in <code>main</code> for the <code>Git Reference</code>. This tells OpenShift which GitHub repo and branch to pull the source code from.</p>
@@ -612,7 +612,7 @@
 <p><img alt="app name" src="../upandrunningimages/applicationname.png" /></p>
 <p><strong>5.</strong> Scroll down to the  Pipelines section, and check off the box next to <code>Add pipeline</code>. You can also expand the <code>Show pipeline visualization</code> section to see a visual of the build pipeline.</p>
 <p><img alt="add pipe" src="../upandrunningimages/addpipelines.png" /></p>
-<p><strong>6.</strong> We are almost there! We will need to configure a couple of Advanced Options. First, click on <code>Routing</code> in the Advanced Options section to expand the Routing options.</p>
+<p><strong>6.</strong> You are almost there! You will need to configure a couple of Advanced Options. First, click on <code>Routing</code> in the Advanced Options section to expand the Routing options.</p>
 <p><img alt="open routing panel" src="../upandrunningimages/routinglink.png" /></p>
 <p><strong>7.</strong> In the Routing options section, only fill out the Security options as follows. You can leave the rest alone. These options will enable only TLS access to your PetClinic application.</p>
 <p><img alt="routing options" src="../upandrunningimages/routingpanel.png" /></p>
@@ -652,10 +652,18 @@
 <p><img alt="mysql pod access" src="../upandrunningimages/mysqlpod.png" /></p>
 <p>In the pod panel, go to the Terminal tab.</p>
 <p><img alt="mysql terminal" src="../upandrunningimages/mysqlterminal.png" /></p>
-<p>Now type in the following commands in your <code>mysql</code> terminal:</p>
+<p>Now type in the following commands in your <code>mysql</code> terminal (copy and paste box below image):</p>
 <p><img alt="mysql access" src="../upandrunningimages/mysqlaccess.png" /></p>
-<p>Let's run a SQL command now to verify that the owner that we added through the application is indeed in the database:</p>
+<div class="highlight"><pre><span></span><code>mysql -u root -h mysql -p
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">use</span> <span class="n">petclinic</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">show</span> <span class="k">tables</span><span class="p">;</span>
+</code></pre></div>
+<p>Let's run a SQL command now to verify that the owner that you added through the application is indeed in the database (copy and paste box below image):</p>
 <p><img alt="mysql owner check" src="../upandrunningimages/mysqlowners.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">owners</span><span class="p">;</span>
+</code></pre></div>
 <p>Please let the instructors know, if you don't see your owner listed. </p>
 <p>Congratulations, you have completed this part of the workshop! You may move on to the next part, <a href="../pipeline/">PetClinic + OpenShift Pipelines = CI</a>.</p>
                 
