@@ -1,6 +1,6 @@
 # PetClinic + OpenShift Pipelines = CI
 
-Now that PetClinic is up and running on our OpenShift cluster, it's time to add functionality to our pipeline to achieve basic continuous integration. The OpenShift pipeline we created in the [PetClinic Up and Running](upandrunning.md) uses [Tekton](https://tekton.dev){target="_blank" rel="noopener noreferrer"} to run a series of tasks (each with one or more steps) to accomplish a workflow (pipeline). We will use the Pipeline Builder UI built into OpenShift to quickly and easily craft a pipeline for our project.
+Now that PetClinic is up and running on your OpenShift cluster, it's time to add functionality to your pipeline to achieve basic continuous integration. The OpenShift pipeline you created in the [PetClinic Up and Running](upandrunning.md) uses [Tekton](https://tekton.dev){target="_blank" rel="noopener noreferrer"} to run a series of tasks (each with one or more steps) to accomplish a workflow (pipeline). You will use the Pipeline Builder UI built into OpenShift to quickly and easily craft a pipeline for your project.
 
 !!! info "Why OpenShift Pipelines?"
     - Portable: OpenShift resources defined via yaml files -> portable across OpenShift clusters
@@ -13,13 +13,13 @@ Now that PetClinic is up and running on our OpenShift cluster, it's time to add 
 
 ## PetClinic Pipeline
 
-When we deployed the PetClinic application using the `From Git` option in the [PetClinic Up and Running](upandrunning.md) section, we chose to create a basic pipeline. We'll start with this pipeline and edit it to add new functionality for our use case. 
+When you deployed the PetClinic application using the `From Git` option in the [PetClinic Up and Running](upandrunning.md) section, you chose to create a basic pipeline. You'll start with this pipeline and edit it to add new functionality for your use case. 
 
 Navigate to the `Pipelines` tab in the `Developer` perspective on the left and then click the three dots to the right of the pipeline name (`spring-petclinic`) and choose `Edit Pipeline`. ![Pipeline Image](../images/Part1/EditNewPipeline.png) 
 
 ## Ensure MySQL Database Deployed for each Run
 
-This will bring us to the Pipeline Builder UI where we can edit our pipeline. Here we will make sure the MySQL database is configured according to our specification before the `build` task.
+This will bring you to the Pipeline Builder UI where you can edit your pipeline. Here you will make sure the MySQL database is configured according to your specification before the `build` task.
 
 1. Add a `mysql-deploy` task in parallel to the `git-fetch` task. 
     ![Add Parallel MySQL](../images/Part1/mySQL_ParallelTask.png) 
@@ -57,7 +57,7 @@ This will bring us to the Pipeline Builder UI where we can edit our pipeline. He
 
 2. Add a `mysql-rollout-wait` task
 
-    We need to make sure that `mysql` is not only on its way to deploying but actually deployed before our `build` task begins. In order to achieve this, we will use the OpenShift Client again and wait for the `rollout` of the `mysql` `deploymentConfig` to complete after the `mysql-deploy` task. Add a sequential task after `mysql-deploy`:
+    You need to make sure that `mysql` is not only on its way to deploying but actually deployed before your `build` task begins. In order to achieve this, you will use the OpenShift Client again and wait for the `rollout` of the `mysql` `deploymentConfig` to complete after the `mysql-deploy` task. Add a sequential task after `mysql-deploy`:
 
     ![mysql sequential task](../images/Part1/mySQL_SequentialTask.png)
 
@@ -72,17 +72,17 @@ This will bring us to the Pipeline Builder UI where we can edit our pipeline. He
         Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running).
 
     !!! Tip "What the ARGS?"
-        You may be wondering why we used the `SCRIPT` section in the `mysql-deploy` task for the entire command, but now are using the `ARGS` to individually list each argument of the command? Both work and so we are going through both methods here. On the one hand, the `SCRIPT` method is easier to copy and paste and looks the same as it would entered on the command line. On the other hand, the `ARGS` method adds readability to the task. Choose whichever method you prefer, though beware of input errors  with the `ARGS` method for long commands. _FYI: The equivalent `SCRIPT` command for the `mysql-rollout-wait` task is_:
+        You may be wondering why you used the `SCRIPT` section in the `mysql-deploy` task for the entire command, but now are using the `ARGS` to individually list each argument of the command? Both work and so you are going through both methods here. On the one hand, the `SCRIPT` method is easier to copy and paste and looks the same as it would entered on the command line. On the other hand, the `ARGS` method adds readability to the task. Choose whichever method you prefer, though beware of input errors  with the `ARGS` method for long commands. _FYI: The equivalent `SCRIPT` command for the `mysql-rollout-wait` task is_:
 
         ``` bash
         oc rollout status dc/mysql
         ```
 
-:tada: Now our `mysql-deploy` and `mysql-rollout` tasks will have `MySQL` alive and well for the `build` task!
+:tada: Now your `mysql-deploy` and `mysql-rollout` tasks will have `MySQL` alive and well for the `build` task!
 
 ## Make Clean Image from S2I build
 
-The `s2i-java-11` image is very convenient for making an image from source code. However, the simplicity that gives it value, can make it fail at meeting the needs of many organizations by itself. In our case, we will take the artifacts from the s2i image and copy them to a new Docker image that can meet all our needs to get the best of both worlds. We'll create an optimized image starting from a compact `openj9` java 11 base and employing [the advanced layers feature in spring](https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1#layered-jars){target="_blank" rel="noopener noreferrer"} that optimizes Docker image caching with the [final-Dockerfile](https://raw.githubusercontent.com/ibm-wsc/spring-petclinic/main/final-Dockerfile){target="_blank" rel="noopener noreferrer"} in the [ibm-wsc/spring-petclinic](https://github.com/ibm-wsc/spring-petclinic){target="_blank" rel="noopener noreferrer"} git repository we forked. 
+The `s2i-java-11` image is very convenient for making an image from source code. However, the simplicity that gives it value, can make it fail at meeting the needs of many organizations by itself. In your case, you will take the artifacts from the s2i image and copy them to a new Docker image that can meet all your needs to get the best of both worlds. You'll create an optimized image starting from a compact `openj9` java 11 base and employing [the advanced layers feature in spring](https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1#layered-jars){target="_blank" rel="noopener noreferrer"} that optimizes Docker image caching with the [final-Dockerfile](https://raw.githubusercontent.com/ibm-wsc/spring-petclinic/main/final-Dockerfile){target="_blank" rel="noopener noreferrer"} in the [ibm-wsc/spring-petclinic](https://github.com/ibm-wsc/spring-petclinic){target="_blank" rel="noopener noreferrer"} git repository you forked. 
 
 1. Add `Buildah` task
 
@@ -93,13 +93,13 @@ The `s2i-java-11` image is very convenient for making an image from source code.
 2. Configure `buildah` task
 
     !!! Tip
-        Each value that we need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match image)
+        Each value that you need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match image)
 
     ![Buildah Task Values](../images/Part1/ProducingCleanImageBuildah2.png)
 
     DISPLAY NAME:
     ```
-    producing-clean-image
+    clean-image
     ```
 
     IMAGE:
@@ -165,16 +165,16 @@ The `s2i-java-11` image is very convenient for making an image from source code.
     !!! Tip
         Save parameters when done with entry by clicking on blue `SAVE` box before moving onto step 4. If blue `SAVE` box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the `-`.
 
-4. Add workspace to `producing-clean-image` task 
+4. Add workspace to `clean-image` task 
 
     Save current pipeline edit and switch to `YAML` from pipeline menu.
 
     ![Switch to yaml](../images/Part1/SwitchYaml.png)
 
-    !!! info "Why are we editing yaml directly?"
-        `Workspaces` are more versatile than traditional `PipelineResources` which is why we are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so we have to do it directly in the yaml for now.
+    !!! info "Why are you editing yaml directly?"
+        `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
 
-    Find the `producing-clean-image-task` and add the following workspace definition:
+    Find the `clean-image-task` and add the following workspace definition:
 
     ``` yaml
           workspaces:
@@ -182,7 +182,7 @@ The `s2i-java-11` image is very convenient for making an image from source code.
             workspace: workspace
     ```
 
-    ![Producing Clean Image Workspace](../images/Part1/AddWorspaceProducingCleanImage.png)
+    ![Clean Image Workspace](../images/Part1/AddWorspaceProducingCleanImage.png)
 
     Save the update
 
@@ -198,17 +198,17 @@ The `s2i-java-11` image is very convenient for making an image from source code.
 !!! note "From the documentation overview"
     Kustomize traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the [Introducing Kustomize Kubernetes Blog Post](https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/{target="_blank" rel="noopener noreferrer"}) for a more in-depth overview of Kustomize and its purpose.
 
-As part of doing things the "cloud-native way", we will be using Kustomize to manage resource changes across our `dev` and `staging` environments as well as injecting information from our pipeline (such as newly created image information with git commits) into our Kubernetes (OpenShift) resources. 
+As part of doing things the "cloud-native way", you will be using Kustomize to manage resource changes across your `dev` and `staging` environments as well as injecting information from your pipeline (such as newly created image information with git commits) into your Kubernetes (OpenShift) resources. 
 
-To see how we use Kustomize, see the Kustomize configuration in our GitHub code in the subdirectories of the [ocp-files directory](https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files){target="_blank" rel="noopener noreferrer"}
+To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the [ocp-files directory](https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files){target="_blank" rel="noopener noreferrer"}
 
 For more information on how kubectl (and oc through kubectl) integrates Kustomize, see the [kubectl documentation](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/){target="_blank" rel="noopener noreferrer"}.
 
 ### Creating Custom Task for Kustomize
 
-Since there is no `ClusterTask` defined for Kustomize, we will create a custom task for this purpose. It will change into the Kustomize directory, run a Kustomize command on the directory, and then apply the files from the directory using the built-in Kustomize functionality of the oc command line tool (via kubectl's Kustomize support)
+Since there is no `ClusterTask` defined for Kustomize, you will create a custom task for this purpose. It will change into the Kustomize directory, run a Kustomize command on the directory, and then apply the files from the directory using the built-in Kustomize functionality of the oc command line tool (via kubectl's Kustomize support)
 
-1. Copy the `kustomize` Task using the following definition (copy by clicking on the copy icon in the top right of the box below):
+1. Copy the `kustomize` task using the following definition (copy by clicking on the copy icon in the top right of the box below):
 
     ``` yaml
     apiVersion: tekton.dev/v1beta1
@@ -284,13 +284,13 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
 
 ### Add Kustomize Task to Pipeline
 
-1. Add a sequential task after `producing-clean-image` and when you `Select Task` choose the `kustomize` task. 
+1. Add a sequential task after `clean-image` and when you `Select Task` choose the `kustomize` task. 
 
     ![Add Kustomize task to Pipeline Dev](../images/Part1/AddKustomizeTaskPipeline.png)
 
 2. Configure `kustomize` task
 
-    Since our initial deploy will be for the `dev` environment, the only values we need to change are the `Display Name` and the `SCRIPT`:
+    Since your initial deploy will be for the `dev` environment, the only values you need to change are the `Display Name` and the `SCRIPT`:
 
     **Display Name**
     
@@ -314,8 +314,8 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
 
     ![Switch to yaml](../images/Part1/SwitchYaml.png)
 
-    !!! Info "Why are we editing yaml directly?"
-        `Workspaces` are more versatile than traditional `PipelineResources` which is why we are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so we have to do it directly in the yaml for now.
+    !!! Info "Why are you editing yaml directly?"
+        `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
 
     Find the `kustomize-dev` and add the following workspace definition:
 
@@ -347,7 +347,7 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
 3. Configure the task with a `SCRIPT` value of:
 
     ``` bash
-    oc delete deployment,svc,route -l app=$(params.APP_NAME) --ignore-not-found
+    oc delete deployment,cm,svc,route -l app=$(params.APP_NAME) --ignore-not-found
     ```
 
     and an empty `ARGS` value.
@@ -396,20 +396,20 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
 
     ![Trigger Pipeline Manual](../images/Part1/PipelineExampleManualParameters.png)
 
-3. Watch the results of your build. It should run successfully as in the pictures below.
+3. Watch the results of your build pipeline run. It should complete successfully as in the pictures below.
 
     **Pipeline Run Success View Perspective:**
 
     ![Pipeline Run View](../images/Part1/PipelineRolloutRunView.png)
 
     !!! Success "Pipeline Run Details View"
-        In the pipeline run `Details` view, we can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the image was `Triggered By` a user versus an automated source such as an event listener watching for a GitHub push...
+        In the pipeline run `Details` view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the image was `Triggered By` a user versus an automated source such as an event listener watching for a GitHub push...
 
     **Pipeline Run Success Logs Perspective:**
 
     ![Pipeline Run Logs](../images/Part1/PipelineRolloutLogsView.png)
 
     !!! Success "Pipeline Run Logs View"
-        In the pipeline run `Logs` view, we can also see that the pipeline run tasks all have a green check marks. Looking at the last task we can see this was a manual build due to our `GIT_MESSAGE` variable printing out its message in the final (`deploy-dev`) task.
+        In the pipeline run `Logs` view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task you can see this was a manual build due to your `GIT_MESSAGE` variable printing out its message in the final (`deploy-dev`) task.
 
 :thumbsup:

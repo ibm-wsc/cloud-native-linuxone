@@ -1,10 +1,10 @@
 # Getting Your PetClinic Up and Running
 
-For this workshop we will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. [The official version of PetClinic](https://github.com/spring-projects/spring-petclinic) demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. 
+For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. [The official version of PetClinic](https://github.com/spring-projects/spring-petclinic) demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. 
 
-We will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud-native application and a DevOps pipeline for the application.
+You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud-native application and a DevOps pipeline for the application.
 
-We will start by building our PetClinic application from the source code and connecting it to a MySQL database.
+You will start by building your PetClinic application from the source code and connecting it to a MySQL database.
 
 !!! info "Using LinuxONE Community Cloud"
     Because you are using the LinuxONE Community Cloud OpenShift trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.
@@ -16,11 +16,11 @@ We will start by building our PetClinic application from the source code and con
 
 ## Deploying MySQL database
 
-**1.** First, we need to setup our mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)
+**1.** First, you need to setup your mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)
 
 ![Add DB](upandrunningimages/devselectdatabase.png)
 
-**2.** Next, select the `MySQL (Ephemeral)` tile. Note we are choosing the ephemeral option because at this point we do not care to persist the database beyond the life of the container.
+**2.** Next, select the `MySQL (Ephemeral)` tile. Note you are choosing the ephemeral option because at this point you do not care to persist the database beyond the life of the container.
 
 ![Select MySQL](upandrunningimages/selectmqephemeral.png)
 
@@ -35,7 +35,7 @@ We will start by building our PetClinic application from the source code and con
 Click the `Create` button. 
 
 !!! info "Why Ephemeral?"
-    We are using the **Ephemeral** implementation because this a short-lived demo and we do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the container.
+    You are using the **Ephemeral** implementation because this a short-lived demo and you do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the container.
 
 A minute or two later, in the `Topology` view of your OpenShift Console, you should see `mysql` in running state. (Click on the Topology icon for `mysql` to bring up the side panel)
 
@@ -69,7 +69,7 @@ That's it! You are ready to move on to the next section.
 
 ## Building and Deploying PetClinic Application
 
-There are multiple ways OpenShift enables cloud-native application developers to package up their applications and deploy them. For PetClinic, we will be building our application image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows us to quickly test the building, packaging, and deployment of our application, and gives us the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how OpenShift Pipelines work.
+There are multiple ways OpenShift enables cloud-native application developers to package up their applications and deploy them. For PetClinic, you will be building your application image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how OpenShift Pipelines work.
 
 **1.** Start with choosing Add From Git:
 
@@ -91,7 +91,7 @@ There are multiple ways OpenShift enables cloud-native application developers to
 
 ![add pipe](upandrunningimages/addpipelines.png)
 
-**6.** We are almost there! We will need to configure a couple of Advanced Options. First, click on `Routing` in the Advanced Options section to expand the Routing options.
+**6.** You are almost there! You will need to configure a couple of Advanced Options. First, click on `Routing` in the Advanced Options section to expand the Routing options.
 
 ![open routing panel](upandrunningimages/routinglink.png)
 
@@ -170,7 +170,7 @@ use petclinic;
 show tables;
 ```
 
-Let's run a SQL command now to verify that the owner that we added through the application is indeed in the database (copy and paste box below image):
+Let's run a SQL command now to verify that the owner that you added through the application is indeed in the database (copy and paste box below image):
 
 ![mysql owner check](upandrunningimages/mysqlowners.png)
 

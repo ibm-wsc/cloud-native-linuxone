@@ -1,163 +1,301 @@
-# From dev to staging
+# Automatically testing and promoting your application
 
-Here we will edit our pipeline to add steps to deploy the staging version of our application.
+Here you will edit your pipeline to test your application in development, clean up your development resources, promote your application to staging, and test it in staging.
 
-## How do I know my app is running
+## Testing your application in the wild
 
-### Probes
+During the build stage of your pipeline, you tested two things:
 
-Our app has the following probes defined via Kubernetes [see how to setup probes in the Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/){target="_blank" rel="noopener noreferrer"}
+  1. That the pieces of your application worked (unit testing)
+  2. That they worked together (integration testing)
+  
+Now, it's time to go a step further and automate testing that your application is working when deployed in a real environment both:
 
-3 types of probes. Startup probes activate at first to make sure an application is up and running.
+  1. Internally (within Kubernetes)
+  2. Externally (for the outside world)
 
-``` yaml
-startupProbe:
-    httpGet:
-    path: /actuator/health/liveness
-    port: 8080
-    periodSeconds: 10
-    failureThreshold: 30
-```
+### Internally (Within Kubernetes/OpenShift)
 
-Liveness probes make sure an application is alive. If it's not it can restart it to fix problems that may arise in long-running containers.
+The first thing we need to test is that the application is alive and available from within your cluster (Kubernetes environment). This is important not only for the CI/CD pipeline, but for any time your application is running  (downtime is detrimental, especially in production). 
 
-``` yaml
-livenessProbe:
-    httpGet:
-    path: /actuator/health/liveness
-    port: 8080
-    periodSeconds: 10
-    failureThreshold: 3
-```
+This functionality is available in Kubernetes via [probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/){target="_blank" rel="noopener noreferrer"}. There are 3 different types of probes to test the different aspects of your application's availability:
 
-Readiness probes check if an application is ready. When one replica of an application isn't ready, it can be taken out of the service so that traffic doesn't route to it, instead going to the other replicas.
+!!! info "Kubernetes Probes in Spring"
+    In Spring there are built-in endpoints for Kubernetes probes. If you are interested in learning how to program these into a Spring application of yours in the feature, please take a look at [Spring's official blog](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot){target="_blank" rel="noopener noreferrer"}
 
-```
-readinessProbe:
-    httpGet:
-    path: /actuator/health/readiness
-    port: 8080
-    periodSeconds: 10
-```
+1. Startup probes:
 
-For more information on Kubernetes probes with spring boot see [Spring's official blog](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot){target="_blank" rel="noopener noreferrer"}
+    1. Activate first
+    
+    2. Make sure an application is up and running (started up) 
+    
+    3. Free startup concerns/constraints from other probes
+    
+    Here is the `startupProbe` for the container running the PetClinicapplication:
+
+    ``` yaml
+    startupProbe:
+        httpGet:
+        path: /actuator/health/liveness
+        port: 8080
+        periodSeconds: 10
+        failureThreshold: 30
+    ```
+
+    It is simply a query (via localhost) to PetClinic's liveness health endpoint. Once this returns successfully, you can be confident the application has started up and begin to monitor the liveness and readiness of each container of each replica (pod) of your application throughout its lifecycle.
+
+2. Liveness probes:
+
+    1. Make sure an application is actually running and not caught in a deadlock (it's alive)
+
+    2. Restart "dead" [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/){target="_blank" rel="noopener noreferrer"} containers automatically
+    
+    3. Fix problems that may arise in long-running containers
+    
+    Here is the `livenessProbe` for the container running the PetClinicapplication:
+
+      ``` yaml
+      livenessProbe:
+          httpGet:
+          path: /actuator/health/liveness
+          port: 8080
+          periodSeconds: 10
+          failureThreshold: 3
+      ```
+
+      This looks almost identical to the `startupProbe` above other than having a much lower `failureThreshold`. The `startupProbe` is making sure the container of a given pod of our application's deployment is alive when it first starts up. This, it is allowing time for that startup to occur. Conversely, the `liveness` probe above is making sure our application stays alive throughout its lifecycle. Therefore, it has a much lower `failureThreshold` to enable [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/){target="_blank" rel="noopener noreferrer"} to quickly respond (restart the container) when the container becomes deadlocked.
+
+
+3. Readiness probes:
+
+    1. Check if each copy (replica) of an application is ready
+    
+    2. Makes sure traffic goes only to replicas that are ready for it
+    
+    3. Prevents user's from interacting with unready replicas (getting unnecessary errors)
+    
+    Here is the `readinessProbe` for the container running PetClinic:
+
+    ``` yaml
+    readinessProbe:
+        httpGet:
+        path: /actuator/health/readiness
+        port: 8080
+        periodSeconds: 10
+    ```
+
+    It is simply a query (via localhost) to PetClinic's readiness health endpoint. This probe will let Kubernetes know when send traffic to a PetClinic replica. When we send traffic to the application, only the available replicas will receive it. This means that replicas which aren't ready for traffic don't accidentally get it, causing errors for the user.
+
+These 3 probes serve to declare to Kubernetes the way your application (and the replicas that make it up) should behave, enabling the system to monitor and take action on your behalf (restarting the container or removing it's pod's endpoint from service) when the current state (the status) does not meet the desired state (your specification).
+
+The rollout task we created before as `deploy-dev` will only complete once all desired replicas are ready, implying that both the `startup` (initial liveness) and `readiness` probes have successfully passed and all replicas of your application are initially alive and ready for business. 
 
 
 
-``` yaml
-apiVersion: tekton.dev/v1beta1
-kind: Task
-metadata:
-    name: route-check
-spec:
-    description: >-
-      "This task runs a bash script to determine if a given application
-       is accessible to the outside world via its route."
-    params:
-    - name: ROUTE_NAME
-      default: ""
-      description: "The name of the OpenShift route for the application."
-      type: string
-    - name: APP_PATH
-      default: "/"
-      description: "The path to reach the application from it's hostname"
-      type: string
-    - name: EXPECTED_STATUS
-      default: "200"
-      description: "The expected http(s) status code from querying the application."
-      type: string
-    - name: TIMEOUT
-      default: "30"
-      description: "The number of seconds to try before giving up on a successful connection."
-      type: string
-    - name: SECURE_CONNECTION
-      default: "true"
-      description: "true for a secure route (https), false for an insecure (http) route."
-      type: string
-    steps:
-      - name: check-route
-        image: 'image-registry.openshift-image-registry.svc:5000/openshift/cli:latest'
-        resources:
-          limits:
-            cpu: 200m
-            memory: 200Mi
-          requests:
-            cpu: 200m
-            memory: 200Mi
-        script: |
-            #!/usr/bin/env bash
-            # Make parameters into variables for clarity
-            export route_name="$(params.ROUTE_NAME)"
-            export expected_status="$(params.EXPECTED_STATUS)"
-            export app_path="$(params.APP_PATH)"
-            export timeout="$(params.TIMEOUT)"
+### Testing External Connections
 
-            # If true, http(s), if false (or otherwise) http
-            if [ "${SECURE_CONNECTION}" == "true" ]
-            then
-                export header="https://"
-            else
-                export header="http://"
-            fi
-            # Start timer at 0
-            SECONDS=0
-            # Once timeout reached, stop retrying
-            while [ "${SECONDS}" -lt "${timeout}" ];
-            do
-                # Get hostname of route
-                hostname="$(oc get route ${route_name} -o jsonpath='{.spec.host}')"
-                # Get http(s) status of web page via external connection (route)
-                status=$(curl -s -o /dev/null -w "%{http_code}" "${header}${hostname}${app_path}")
-                # Print test completion message if expected status code received
-                if [ "${status}" -eq "${expected_status}" ]
+While making sure your application is internally up and running is important, at the end of the day you want to provide access to your users externally[^1]. 
+
+[^1]: 
+    For different environments like dev and test, this may be different groups external to our Kubernetes environment (cluster), though internal to the organization itself and accessing the endpoints via a VPN or internal network. Production is likely when external connection via an organization's real website would happen. This networking doesn't actually affect you (it just matters that the route you are testing is available to you from where you are).
+
+This means it is important to also test the OpenShift route (the component providing the external connection) as part of your CI/CD pipeline to ensure it is correctly servicing web traffic external to your cluster[^3].
+[^3]: 
+    You may think to yourself that you can't test an external connection from inside your cluster. However, by using the route you are causing the traffic to go "outside" the cluster's networking to reach the load balancer and then back "inside" via the route, explicitly testing the external connection and making sure that it indeed works. This just tests that the route works, not that the dns/hostname is available generally on the internet or private enterprise subnet (depending on environment), which is a different more general problem for your networking team (or cloud) to ensure for all of your applications using that network.
+
+#### Create External Route Test Task
+
+You will create a task to check the connection to your external route as part of your CI/CD pipeline.
+
+1. Copy the `connection-test` task using the following definition (copy by clicking on the copy icon in the top right of the box below):
+
+    ``` yaml
+    apiVersion: tekton.dev/v1beta1
+    kind: Task
+    metadata:
+        name: connection-test
+    spec:
+        description: >-
+          "This task runs a bash script to determine if a given application
+          is accessible to the outside world via its route."
+        params:
+        - name: ROUTE_NAME
+          default: ""
+          description: "The name of the OpenShift route for the application."
+          type: string
+        - name: APP_PATH
+          default: "/"
+          description: "The path to reach the application from it's hostname"
+          type: string
+        - name: EXPECTED_STATUS
+          default: "200"
+          description: "The expected http(s) status code from querying the application."
+          type: string
+        - name: TIMEOUT
+          default: "30"
+          description: "The number of seconds to try before giving up on a successful connection."
+          type: string
+        - name: SECURE_CONNECTION
+          default: "true"
+          description: "true for a secure route (https), false for an insecure (http) route."
+          type: string
+        steps:
+          - name: route-connection-test
+            image: 'image-registry.openshift-image-registry.svc:5000/openshift/cli:latest'
+            resources:
+              limits:
+                cpu: 200m
+                memory: 200Mi
+              requests:
+                cpu: 200m
+                memory: 200Mi
+            script: |
+                #!/usr/bin/env bash
+                # Make parameters into variables for clarity
+                export route_name="$(params.ROUTE_NAME)"
+                export expected_status="$(params.EXPECTED_STATUS)"
+                export app_path="$(params.APP_PATH)"
+                export timeout="$(params.TIMEOUT)"
+                export secure_connection="$(params.SECURE_CONNECTION)"
+
+                # If true, http(s), if false (or otherwise) http
+                if [ "${secure_connection}" == "true" ]
                 then
-                    echo "---------------------------TESTS COMPLETE---------------------------"
-                    echo "Congratulations on a successful test!"
-                    echo "Please visit the application at ${header}${hostname}${app_path}"
-                    exit 0
-                # Print failure message if incorrect status code received + retry
+                    export header="https://"
+                    echo "Using secure https connection..."
                 else
-                    echo "The application is unexpectedly returning http(s) code ${status}..."
-                    echo "It is not available to outside traffic yet..."
-                    echo "Retrying in 5s"
-                    sleep 5
+                    export header="http://"
+                    echo "Using insecure http connection..."
                 fi
-            done
-            # Redirect output to standard error, print message, and exit with error after timeout
-            >&2 echo "Error, failed after ${timeout} seconds of trying..."
-            >&2 echo "The application was never accessible to the outside world :("
-            exit 1
-```
+                # Start timer at 0
+                SECONDS=0
+                # Once timeout reached, stop retrying
+                while [ "${SECONDS}" -lt "${timeout}" ];
+                do
+                    # Get hostname of route
+                    hostname="$(oc get route ${route_name} -o jsonpath='{.spec.host}')"
+                    # Get http(s) status of web page via external connection (route)
+                    status=$(curl -s -o /dev/null -w "%{http_code}" "${header}${hostname}${app_path}")
+                    # Print test completion message if expected status code received
+                    if [ "${status}" -eq "${expected_status}" ]
+                    then
+                        echo "---------------------------TESTS COMPLETE---------------------------"
+                        echo "Congratulations on a successful test!"
+                        echo "Please visit the application at:"
+                        echo
+                        echo "${header}${hostname}${app_path}"
+                        exit 0
+                    # Print failure message if incorrect status code received + retry
+                    else
+                        echo "The application is unexpectedly returning http(s) code ${status}..."
+                        echo "It is not available to outside traffic yet..."
+                        echo "Retrying in 5s at:"
+                        echo
+                        echo "${header}${hostname}${app_path}"
+                        sleep 5
+                    fi
+                done
+                # Redirect output to standard error, print message, and exit with error after timeout
+                >&2 echo "Error, failed after ${timeout} seconds of trying..."
+                >&2 echo "The application was never accessible to the outside world :("
+                exit 1
+    ```
+2. Create the `connection-test` Task
+    
+    a. Click `Import YAML` to bring up the box where you can create Kubernetes resource definitions from yaml
 
+    b. Paste the `connection-test` Task into the box
+    
+    c. Scroll down and click create to create the `connection-test` Task 
 
-**Display Name**
+    ![Create route-test Task](../images/Part2/CreateTestRouteTask.png)
 
-``` bash
-dev-connection-test
-```
+You should now see the created `route-test` Task. Navigate back to the `Pipelines` section of the OpenShift UI and go back to editing your pipeline.
 
-**ROUTE_NAME**
+![Back to Pipelines](../images/Part2/BackToPipelines.png)
 
-``` bash
-spring-petclinic-dev
-```
+#### Add External Route Test Task to Pipeline
+
+1. Add a sequential task after `deploy-dev`. When you `Select Task`, choose the `connection-test` task. 
+
+    ![Add Connection Test task to Pipeline Dev](../images/Part2/ChooseConnectionTest.png)
+
+2. Configure `connection-test` task
+
+    The only values you need to change are the `Display Name` and the `ROUTE_NAME`:
+
+    **Display Name**
+
+    ``` bash
+    connect-dev
+    ```
+
+    **ROUTE_NAME**
+
+    ``` bash
+    spring-petclinic-dev
+    ```
+
+    ![Connection Test Configure 1](../images/Part2/ConnectionTestConfigureDev.png)
+
+3. Save pipeline
+
+Your current pipeline builds and test your application, creates a docker image for it, deploys it to the development environment, and ensures that the application is working both internally and externally. In other words, once your application successfully completes the current pipeline, you can be confident in it and be ready to move to staging[^2]. 
+
+[^2]: 
+    You could create more extensive tests to make sure that the pages are rendering correctly (besides just returning a proper status code). However, that is beyond the scope of the lab and this at least makes sure requests are successfully sent and returned via an external route, which is good enough for the lab's purposes.
 
 ## Deploy Staging 
 
-1. Go to the `Pipelines` section and choose to `Edit Pipeline` yet again.
+Moving to the staging environment means spinning up your application in that environment (with parameters relevant for it) and testing it there. Given that this is all using containers, you can easily free up the development resources that have successfully completed and then spin up the new resources in your staging environment.
 
-    ![Edit Pipeline Yet Again](../images/Part2/EditPipeline.png)
+### Remove Dev
 
-2. We will use our existing `kustomize` task to deploy the `staging` version of our 
-OpenShift files in a new task.
+Your first `Task` will mirror the `cleanup-resources` task at the beginning of your pipeline. 
+
+1. Go back to editing your pipeline via `Actions -> Edit Pipeline`
+
+    ![Actions Edit Pipeline](../images/Part1/ActionsEditPipeline.png)
+
+2. Add a `Task` sequentially at the end of the pipeline (after `connect-dev`) using the `openshift-client` ClusterTask.  
+
+    ![add cleanup sequential](../images/Part2/AddSequentialCleanup.png)
+
+3. Configure the `Task` with the following values(copy and paste boxes below image):
+
+    ![cleanup dev](../images/Part2/CleanupDevTask.png)
+
+    **Display Name**
+
+    ``` bash
+    cleanup-dev
+    ```
+
+    **SCRIPT**
+
+    ``` bash
+    oc delete deployment,cm,svc,route -l app=spring-petclinic,env=dev --ignore-not-found
+    ``` 
+
+    and an **empty** `ARGS` value.
+
+    !!! warning "No help please!"
+        Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). 
+
+### Add Staging
+
+You will use your existing `kustomize` task to deploy the `staging` version of your 
+OpenShift files in a new task. [Customizations for staging PetClinic](https://github.com/ibm-wsc/spring-petclinic/blob/main/ocp-files/overlay/staging/kustomization.yaml){target="_blank" rel="noopener noreferrer"} include adding a staging environment label, name suffix, and change cause. You could deploy to a separate project or cluster altogether as well as change replicas or add pod autoscalers in a similar manner (depending on your use case) for different environments. 
+
+1. Add a `kustomize` task sequentially to the end of your current pipeline (after `cleanup-dev`)
 
     ![StagingAdd](../images/Part2/AddStaging.png) 
     
-3. The only changes to make are
+2. Configure the `Task` with the following values(copy and paste boxes below image):
 
     Display Name:
     ``` bash
-    kustomize-deploy-resources-staging
+    kustomize-staging
     ```
 
     and
@@ -171,16 +309,16 @@ OpenShift files in a new task.
 
     ![Kustomize Staging Task](../images/Part2/KustomizeStaging.png)
 
-4. Add workspace to `kustomize-deploy-resources` task 
-
-    Save current pipeline edit and switch to `yaml` from pipeline menu.
+3. `Save` current pipeline edit and then switch to `YAML` from pipeline menu.
 
     ![Switch to yaml](../images/Part1/SwitchYaml.png)
 
-    !!! Info "Why are we editing yaml directly?"
-        `Workspaces` are more versatile than traditional `PipelineResources` which is why we are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so we have to do it directly in the yaml for now.
+    !!! Info "Why are you editing yaml directly?"
+        `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
 
-    Find the `kustomize-deploy-resources` and add the following workspace definition:
+4. Add workspace to `kustomize-staging` task 
+
+    Find the `kustomize-staging` and add the following workspace definition:
 
     ```
           workspaces:
@@ -188,24 +326,73 @@ OpenShift files in a new task.
             workspace: workspace
     ```
 
-    ![Kustomize Dev Add Workspace](../images/Part2/KustomizeStagingWorkspace.png)
+    ![Kustomize Staging Add Workspace](../images/Part2/KustomizeStagingWorkspace.png)
 
     Save the update
 
-    ![Save Pipeline Edit Yaml](../images/Part1/PipelineUpdatedYaml.png)
+    ![Save Pipeline Edit Yaml](../images/Part2/PipelineUpdatedYaml.png)
 
     !!! note
         After the save message above appears you can then proceed to `Cancel` back to the pipeline menu.
 
-## Rollout Staging
+### Rollout Staging
 
-1. Edit the pipeline again and add a `deploy-staging` task with the openshift-client `ClusterTask`
+1. Edit the pipeline again and add a `deploy-staging` task with the `openshift-client` `ClusterTask`
 
     ![Deploy Staging Task](../images/Part2/DeployStagingTask.png)
 
-2. Give the task the following parameters to mirror that of the dev-deploy task which waits for the dev release to rollout to complete:
+2. Configure the task with the following parameters[^4] (copy and paste boxes below image):
+  
+    [^4]: This mirrors the `dev-deploy` task which waits for the dev release to rollout but uses the `SCRIPT` field for everything vs. `ARGS`.
 
     ![Staging Rollout](../images/Part2/DeployStagingParameters.png)
 
-3. Save task
+    **Display Name**
 
+    ``` bash
+    deploy-staging
+    ```
+
+    **SCRIPT**
+
+    ``` bash
+    echo "$(params.GIT_MESSAGE)" && oc rollout status deploy/spring-petclinic-staging
+    ```
+
+### Add External Route Test Task to Pipeline
+
+1. Add a sequential task after `deploy-staging`. When you `Select Task`, choose the `connection-test` task. 
+
+    ![Add Connection Test task to Pipeline Dev](../images/Part2/ChooseCTestStaging.png)
+
+2. Configure `connection-test` task
+
+    The only values you need to change are the `Display Name` and the `ROUTE_NAME`:
+
+    **Display Name**
+
+    ``` bash
+    connect-staging
+    ```
+
+    **ROUTE_NAME**
+
+    ``` bash
+    spring-petclinic-staging
+    ```
+
+    ![Connection Test Configure 1](../images/Part2/ConnectionTestConfigureStaging.png)
+
+3. Save pipeline
+
+    ![Save Pipeline](../images/Part2/SavePipeline.png)
+
+## Summary
+
+Congratulations! You have built a pipeline that tests your `PetClinic` application, creates a docker image for it, deploys it to the development environment with dev configuration, ensures that the application is working both internally and externally, cleans up the development environment, deploys it to the staging environment with staging configuration and then makes sure it is working both internally and externally[^5]. tl;dr you have the `I/D` (Integration/Deployment) in `CI/CD`[^6].
+
+[^5]:
+  You could clean up the staging environment at the end of the run but choose not to so that the user can interact with it between runs. You could also clean up or use a separate MySQL instance for staging but due to limited resources in our environment we have chosen not to add this extra component.
+
+[^6]: 
+  You'll add the double `C`s in the next section by connecting it to GitHub.

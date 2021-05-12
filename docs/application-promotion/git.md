@@ -1,12 +1,16 @@
 # Integrating OpenShift Pipelines with GitHub
 
+It's time to add the `C` (continuous) to your CI/CD pipeline.
+
 ## Add a GitHub Trigger
 
 1. Choose add a GitHub Trigger from the pipeline menu
 
-    ![Select GitHub Trigger](../images/Part2/AddTriggerGitPipelines.png)
+    ![Select GitHub Trigger](../images/Part2/GitHubAddTrigger.png)
 
-2. Choose the following parameters for the trigger (leaving others as default picture following)
+2. Configure the trigger as follows (copy and paste boxes below image. Note: `github-push` is in a menu you need to select from):
+
+    ![GitHub Trigger Parameters](../images/Part2/WebhookTriggerParameters.png)
 
     **Git Provider Type**:
     ``` bash
@@ -23,15 +27,11 @@
     $(tt.params.git-revision)
     ```
 
-    **What this looks like:**
-
-    ![GitHub Trigger Parameters](../images/Part2/WebhookTriggerParameters.png)
-
-Now the git commit message as well and the SHA of the git commit will be passed to the build from the GIT webhook that triggers the build.
+You are choosing the `github-push` cluster trigger binding, which is defined out of the box for OpenShift pipelines. This passes information into a number of different variables which you can list by clicking the expand arrow seen in the picture (It will initially say `Show Variables` and then switch to `Hide Variables` when expanded as shown in the picture). You will be using the variables boxed in the picture to pass the git commit message (`git-commit-message`) as well as the SHA of the git commit (`git-revision`) to the build from the GitHub webhook that triggers the build.
 
 ## Setting up Git Webhook
 
-Now, we need to set up a webhook from GitHub. We want this to hit the `event listener` that the OpenShift Pipelines UI set up when we added a trigger. Luckily, we can easily get this trigger when we view our pipeline
+Now, you need to set up a webhook from GitHub. You want this to hit your `event listener`, the pipelines resource which listens for events from outside sources in order to trigger a build. The listener you set up is using the `github-push` trigger binding to trigger a new pipelinerun for your `spring-petclinic` pipeline passing the `github-push` parameters mentioned before. You created this `event-listener` via the OpenShift Pipelines UI when you added a trigger and will see it in the `Topology` section of the OpenShift UI as another application when you travel back there later. In order to setup your webhook to send a message to the `event listener` after a Github Push do the following:
 
 1. Get event listener url from the pipeline view
 
@@ -43,7 +43,7 @@ Now, we need to set up a webhook from GitHub. We want this to hit the `event lis
 
 3. Go to the `settings` page of the repository
 
-4. Go to the Webhooks section and add a webhook with the `event listener URL` as the `PAYLOAD_URL` and `application/json` selected as the `Content type`
+4. Go to the Webhooks section and add a webhook with the `event listener URL` as the `PAYLOAD_URL`, `application/json` selected as the `Content type`, and `Just the push event` selected for `Which events would you like to trigger this webhook?`.
 
     ![Add Webhook](../images/Part2/AddGithubWebhook.png)
 
@@ -53,4 +53,6 @@ Now, we need to set up a webhook from GitHub. We want this to hit the `event lis
 
 ## Summary
 
-We created a GitHub Trigger for our pipeline, which is connected to a TriggerTemplate that will start our pipeline (passing it the git commit SHA hash and the commit message as well as other values we aren't using) when the ClusterTriggerBinding is triggered. Since we selected GitHub push as the ClusterTriggerBinding it will be activated on a push. In order to do the actual activation, we created a GitHub webhook that will reach out to the event listener URL when an action happens in GitHub. Thus, when we make a new GitHub change to our fork, we will start a new pipeline build. We will do this in the next section.
+You created a GitHub webhook for your `spring-petclinic` repository fork that will trigger a new run of your `spring-petclinic` pipeline when new code is pushed to your GitHub repo[^1]. You will do this in the next section.
+
+[^1]: A more detailed explanation is that when new code is pushed to your GitHub repo, the GitHub webhook will send a payload to the event listener which then interacts with a number of OpenShift Pipelines-associated Kubernetes custom resources that you created when you used the `Add Trigger` button in the UI. Namely, the event listener will trigger a new `PipelineRun` of your `spring-petclinic` pipeline based on the `spring-petclinic` `TriggerTemplate` passing it the values for the git commit SHA hash and the commit message using the variables populated via the `github-push` `ClusterTriggerBinding`.
