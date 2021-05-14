@@ -107,7 +107,7 @@ There are multiple ways OpenShift enables cloud-native application developers to
 ![pipeline icon](upandrunningimages/pipelineicon.png)
 
 !!! warning "Log Streaming Gotcha in the LinuxONE CC"
-    **PLEASE BEWARE** that if you are using the LinuxONE Community Cloud OpenShift Trial you might see lagginess with the log streaming. If it stops streaming, you might want to go back out to the `Topology` view. You can always return to the logs view, once the pipeline completes, to see the logs.
+    **PLEASE BEWARE** that if you are using the LinuxONE Community Cloud OpenShift Trial you might see lag with the log streaming. If it stops streaming, you might want to go back out to the `Topology` view. You can always return to the logs view, once the pipeline completes, to see the logs.
 
 **9.** The pipeline will go through three tasks:
     

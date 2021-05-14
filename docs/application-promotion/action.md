@@ -92,7 +92,7 @@
     !!! Success "Pipeline Run Logs View 1"
         In the pipeline run `Logs` view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task, you can see that the that the external connection check worked and the PetClinic application is available at the route printed in the logs. Additionally, you can see via the series of tasks marked with green checks that the dev deployment ran successfully and the system cleaned it up and ran the staging deployment successfully to complete the pipeline.
         
-    ![Succeesful PipelineRun Logs View 2](../images/Part2/PipelineRunCommitLogs.png)
+    ![Successful PipelineRun Logs View 2](../images/Part2/PipelineRunCommitLogs.png)
 
     !!! Success "Pipeline Run Logs View 2"
         When you switch to the `deploy-staging` task logs, by clicking on the `task` on the left hand side of the `Logs` view of the pipeline run, you see this was an automated build from git since the task prints out the `GIT_MESSAGE` that you typed in your commit word for word. (_Note: If you chose a different commit message that will show instead of the one displayed in the image above._).

@@ -1,4 +1,4 @@
-# It's time to get your pet clinic ready for its internal dayview
+# It's time to get your pet clinic ready for its internal debut
 
 In this section, you will bring PetClinic from development to staging for the internal showcase of your pet clinic (staging).
 
