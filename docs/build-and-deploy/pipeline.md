@@ -24,27 +24,35 @@ This will bring you to the Pipeline Builder UI where you can edit your pipeline.
 1. Add a `mysql-deploy` task in parallel to the `git-fetch` task. 
     ![Add Parallel MySQL](../images/Part1/mySQL_ParallelTask.png) 
 
-    !!! info "Why MySQL Parallel?"
+    !!! info "Why is `mysql-deploy` in Parallel?"
         This ensures MySQL is in place for each `PetClinic` application build (which would fail without it).  
 
     Click `Select Task` in the middle of the rectangle of the new task and choose the `openshift-client` task from the dropdown menu. 
 
     ![ChooseOpenShift Client](../images/Part1/Choose_OpenShiftClientTask.png)
 
-    Click on the middle of the oval of the `openshift-client` task to enter values for it.
+    Click on the middle of the oval of the `openshift-client` task to enter values for it (copy and paste boxes below image).
 
     ![Click OpenShift Client](../images/Part1/OpenShiftClientOval.png)
 
     !!! Tip
-        Once you add a specific task (i.e. openshift-client), clicking on the oval of the task will enable you to edit its default values for your needs.
+        Once you add a specific task (i.e. `openshift-client`), clicking on the oval of the task will enable you to edit its default values for your needs.
 
-    Enter the following command into the script field to ensure the MySQL database is available with the necessary configuration:
+    Give the task the following parameters to ensure the MySQL database is available with the necessary configuration:
+
+    ![MySQL Task](../images/Part1/MySQLTemplateTask.png)
+
+    **Display Name**
+
+    ``` bash
+    mysql-deploy
+    ```
+
+    **SCRIPT**
 
     ``` bash
     oc process openshift//mysql-ephemeral -p MYSQL_USER=petclinic -p MYSQL_PASSWORD=petclinic -p MYSQL_ROOT_PASSWORD=petclinic -p MYSQL_DATABASE=petclinic | oc apply -f -
     ```
-    
-    ![MySQL Task](../images/Part1/MySQLTemplateTask.png)
 
     !!! note "Simply Click Away"
         Once you have entered the string into the `SCRIPT` section, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.
@@ -57,16 +65,33 @@ This will bring you to the Pipeline Builder UI where you can edit your pipeline.
 
 2. Add a `mysql-rollout-wait` task
 
-    You need to make sure that `mysql` is not only on its way to deploying but actually deployed before your `build` task begins. In order to achieve this, you will use the OpenShift Client again and wait for the `rollout` of the `mysql` `deploymentConfig` to complete after the `mysql-deploy` task. Add a sequential task after `mysql-deploy`:
+    You need to make sure that `mysql` is fully deployed before your `build` task begins. In order to achieve this, you will use the OpenShift Client again and wait for the `rollout` of the `mysql` `deploymentConfig` to complete after the `mysql-deploy` task. Add a sequential task after `mysql-deploy`:
 
     ![mysql sequential task](../images/Part1/mySQL_SequentialTask.png)
 
-    `Select Task` as `openshift-client` like before and then fill out the task with the following parameters:
+    `Select Task` as `openshift-client` like before and then fill out the task with the following parameters (copy and paste boxes below image for changes):
 
     ![mysql-check task](../images/Part1/MySQLRolloutWait.png)
 
-    !!! note "How did you get 3 ARGS fields?"
-        Using `Add another value` adds another row to the `ARGS` section. Please `Add another value` twice to have the 3 rows required for the `mysql-rollout-wait` task as shown above.
+    **Display Name**
+
+    ``` bash
+    mysql-rollout-wait
+    ```
+
+    **ARGS**
+
+    ``` bash
+    rollout
+    ```
+    
+    ``` bash
+    status
+    ```
+
+    ``` bash
+    dc/mysql
+    ```
 
     !!! warning "No help please!"
         Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running).
@@ -82,7 +107,7 @@ This will bring you to the Pipeline Builder UI where you can edit your pipeline.
 
 ## Make Clean Image from S2I build
 
-The `s2i-java-11` image is very convenient for making an image from source code. However, the simplicity that gives it value, can make it fail at meeting the needs of many organizations by itself. In your case, you will take the artifacts from the s2i image and copy them to a new Docker image that can meet all your needs to get the best of both worlds. You'll create an optimized image starting from a compact `openj9` java 11 base and employing [the advanced layers feature in spring](https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1#layered-jars){target="_blank" rel="noopener noreferrer"} that optimizes Docker image caching with the [final-Dockerfile](https://raw.githubusercontent.com/ibm-wsc/spring-petclinic/main/final-Dockerfile){target="_blank" rel="noopener noreferrer"} in the [ibm-wsc/spring-petclinic](https://github.com/ibm-wsc/spring-petclinic){target="_blank" rel="noopener noreferrer"} git repository you forked. 
+The `s2i-java-11` image is very convenient for making an image from source code. However, the simplicity that gives it value can make it fail at meeting the needs of many organizations by itself. In your case, you will take the artifacts from the s2i image and copy them to a new Docker image that can meet all your needs to get the best of both worlds. You'll create an optimized image starting from a compact `openj9` java 11 base and employing [the advanced layers feature in spring](https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1#layered-jars){target="_blank" rel="noopener noreferrer"} that optimizes Docker image caching with the [final-Dockerfile](https://raw.githubusercontent.com/ibm-wsc/spring-petclinic/main/final-Dockerfile){target="_blank" rel="noopener noreferrer"} in the [ibm-wsc/spring-petclinic](https://github.com/ibm-wsc/spring-petclinic){target="_blank" rel="noopener noreferrer"} git repository you forked. 
 
 1. Add `Buildah` task
 
@@ -93,7 +118,7 @@ The `s2i-java-11` image is very convenient for making an image from source code.
 2. Configure `buildah` task
 
     !!! Tip
-        Each value that you need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match image)
+        Each value that you need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match the image)
 
     ![Buildah Task Values](../images/Part1/ProducingCleanImageBuildah2.png)
 
@@ -167,40 +192,40 @@ The `s2i-java-11` image is very convenient for making an image from source code.
 
 4. Add workspace to `clean-image` task 
 
-    Save current pipeline edit and switch to `YAML` from pipeline menu.
+    1. Save current pipeline edit and switch to `YAML` from pipeline menu.
 
-    ![Switch to yaml](../images/Part1/SwitchYaml.png)
+        ![Switch to yaml](../images/Part1/SwitchYaml.png)
 
-    !!! info "Why are you editing yaml directly?"
-        `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
+        !!! info "Why are you editing yaml directly?"
+            `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
 
-    Find the `clean-image-task` and add the following workspace definition:
+    2. Find the `clean-image-task` and add the following workspace definition:
 
-    ``` yaml
-          workspaces:
-          - name: source
-            workspace: workspace
-    ```
+        ``` yaml
+              workspaces:
+              - name: source
+                workspace: workspace
+        ```
 
-    ![Clean Image Workspace](../images/Part1/AddWorspaceProducingCleanImage.png)
+        ![Clean Image Workspace](../images/Part1/AddWorspaceProducingCleanImage.png)
 
-    Save the update
+    3. Save the update
 
-    ![Save Pipeline Edit Yaml](../images/Part1/PipelineUpdatedYaml.png)
+        ![Save Pipeline Edit Yaml](../images/Part1/PipelineUpdatedYaml.png)
 
-    !!! note
-        After the save message above appears you can then proceed to `Cancel` back to the pipeline menu.
+        !!! note
+            After the save message above appears you can then proceed to `Cancel` back to the pipeline menu.
 
 ## Manage resource across environments with Kustomize
 
 [Kustomize](https://kustomize.io){target="_blank" rel="noopener noreferrer"} is a tool for customizing Kubernetes resource configuration.
 
 !!! note "From the documentation overview"
-    Kustomize traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the [Introducing Kustomize Kubernetes Blog Post](https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/{target="_blank" rel="noopener noreferrer"}) for a more in-depth overview of Kustomize and its purpose.
+    Kustomize traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the [Introducing Kustomize Kubernetes Blog Post](https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/){target="_blank" rel="noopener noreferrer"} for a more in-depth overview of Kustomize and its purpose.
 
-As part of doing things the "cloud-native way", you will be using Kustomize to manage resource changes across your `dev` and `staging` environments as well as injecting information from your pipeline (such as newly created image information with git commits) into your Kubernetes (OpenShift) resources. 
+As part of doing things the "cloud-native" way you will be using Kustomize to manage resource changes across your `dev` and `staging` environments as well as injecting information from your pipeline (such as newly created image information with git commits) into your Kubernetes (OpenShift) resources. 
 
-To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the [ocp-files directory](https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files){target="_blank" rel="noopener noreferrer"}
+To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the [ocp-files directory](https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files){target="_blank" rel="noopener noreferrer"}.
 
 For more information on how kubectl (and oc through kubectl) integrates Kustomize, see the [kubectl documentation](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/){target="_blank" rel="noopener noreferrer"}.
 
@@ -274,7 +299,7 @@ Since there is no `ClusterTask` defined for Kustomize, you will create a custom 
 
     b. Paste the `kustomize` Task into the box
     
-    c. Scroll down and click create to create the `kustomize` Task 
+    c. Scroll down and click `Create` to create the `kustomize` Task 
 
     ![Create Kustomize Task](../images/Part1/CreateKustomizeTask.png)
 
@@ -290,7 +315,9 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
 
 2. Configure `kustomize` task
 
-    Since your initial deploy will be for the `dev` environment, the only values you need to change are the `Display Name` and the `SCRIPT`:
+    Since your initial deploy will be for the `dev` environment, the only values you need to change are the `Display Name` and the `SCRIPT` (copy and paste boxes below image):
+
+    ![Kustomize Configure 1](../images/Part1/KustomizeDevChoices.png)
 
     **Display Name**
     
@@ -303,31 +330,29 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
     ``` bash
     kustomize edit set image spring-petclinic=$(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
     ```
-
-    ![Kustomize Configure 1](../images/Part1/KustomizeDevChoices.png)
-
+    
 3. Save pipeline
 
 4. Add workspace to `kustomize-dev` task 
 
-    Save current pipeline edit and switch to `YAML` from pipeline menu.
+    1. Save current pipeline edit and switch to `YAML` from pipeline menu.
 
     ![Switch to yaml](../images/Part1/SwitchYaml.png)
 
     !!! Info "Why are you editing yaml directly?"
         `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
 
-    Find the `kustomize-dev` and add the following workspace definition:
+    2. Find the `kustomize-dev` and add the following workspace definition:
 
-    ``` yaml
-          workspaces:
-          - name: source
-            workspace: workspace
-    ```
+        ``` yaml
+              workspaces:
+              - name: source
+                workspace: workspace
+        ```
 
     ![Kustomize Dev Add Workspace](../images/Part1/AddWorkspaceKustomizeDev.png)
 
-    Save the update
+    3. Save the update
 
     ![Save Pipeline Edit Yaml](../images/Part1/PipelineUpdatedYaml.png)
 
@@ -344,15 +369,23 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
 
     ![add cleanup sequential](../images/Part1/AddSequentialTask.png)
 
-3. Configure the task with a `SCRIPT` value of:
+3. Configure the task with the following parameters (copy and paste boxes below image for changes):
+
+    ![cleanup resources](../images/Part1/CleanupResourcesTask.png)
+
+    **Display Name**
+
+    ``` bash
+    cleanup-resources
+    ```
+
+    **SCRIPT**
 
     ``` bash
     oc delete deployment,cm,svc,route -l app=$(params.APP_NAME) --ignore-not-found
     ```
 
     and an empty `ARGS` value.
-
-    ![cleanup resources](../images/Part1/CleanupResourcesTask.png)
 
     !!! warning "No help please!"
         Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). 
@@ -410,6 +443,6 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
     ![Pipeline Run Logs](../images/Part1/PipelineRolloutLogsView.png)
 
     !!! Success "Pipeline Run Logs View"
-        In the pipeline run `Logs` view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task you can see this was a manual build due to your `GIT_MESSAGE` variable printing out its message in the final (`deploy-dev`) task.
+        From the pipeline run `Logs` view you can see that the pipeline run tasks all have green check marks and that this was a manual build (from the message in the log output of the final [`deploy-dev`] task).
 
 :thumbsup:

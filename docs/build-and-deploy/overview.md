@@ -10,5 +10,5 @@ In this section, we will build, test and deploy the Java web application for you
 2. [Create Your PetClinic Continuous Integration/Continuous Deployment Flow using OpenShift Pipelines](pipeline.md)
     - Automate MySQL deployment using OpenShift template
     - Make clean image from S2I build
-    - Manage PetClinic deployment resources across dev and staging using KUSTOMIZE
+    - Manage PetClinic deployment resources using KUSTOMIZE
     - Setup PetClinic image deployment automation with tagging based on source

@@ -1,6 +1,6 @@
 # Getting Your PetClinic Up and Running
 
-For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. [The official version of PetClinic](https://github.com/spring-projects/spring-petclinic) demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. 
+For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. [The official version of PetClinic](https://github.com/spring-projects/spring-petclinic){target="_blank" rel="noopener noreferrer"} demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. 
 
 You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud-native application and a DevOps pipeline for the application.
 
@@ -20,7 +20,10 @@ You will start by building your PetClinic application from the source code and c
 
 ![Add DB](upandrunningimages/devselectdatabase.png)
 
-**2.** Next, select the `MySQL (Ephemeral)` tile. Note you are choosing the ephemeral option because at this point you do not care to persist the database beyond the life of the container.
+**2.** Next, select the `MySQL (Ephemeral)` tile. 
+
+!!! note 
+    You are choosing the ephemeral option because at this point you do not care to persist the database beyond the life of the container.
 
 ![Select MySQL](upandrunningimages/selectmqephemeral.png)
 
@@ -37,7 +40,7 @@ Click the `Create` button.
 !!! info "Why Ephemeral?"
     You are using the **Ephemeral** implementation because this a short-lived demo and you do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the container.
 
-A minute or two later, in the `Topology` view of your OpenShift Console, you should see `mysql` in running state. (Click on the Topology icon for `mysql` to bring up the side panel)
+A minute or two later, in the `Topology` view of your OpenShift Console, you should see `mysql` in the `Running` state. (Click on the Topology icon for `mysql` to bring up the side panel)
 
 ![DB running](upandrunningimages/mysqlrunning.png)
 
@@ -79,7 +82,7 @@ There are multiple ways OpenShift enables cloud-native application developers to
 
 ![git url](upandrunningimages/giturl.png)
 
-**3.** Scroll down to the Builder section. Select the `OpenJ9` tile and select `openj9-11-el8` as the builder image version. As you can see OpenShift offers many different builder images to help you build images from a variety of programming languages. Your list of builder images might differ from the screen shot. For Java on Z, the recommended JVM is `OpenJ9` because it has built-in s390x optimizations as well as container optimizations.
+**3.** Scroll down to the `Builder` section. Select the `OpenJ9` tile and select `openj9-11-el8` as the builder image version. As you can see OpenShift offers many different builder images to help you build images from a variety of programming languages. Your list of builder images might differ from the screen shot. For Java on Z, the recommended JVM is `OpenJ9` because it has built-in s390x optimizations as well as container optimizations.
 
 ![builder image](upandrunningimages/builderimage.png)
 
@@ -104,7 +107,7 @@ There are multiple ways OpenShift enables cloud-native application developers to
 ![pipeline icon](upandrunningimages/pipelineicon.png)
 
 !!! warning "Log Streaming Gotcha in the LinuxONE CC"
-    PLEASE BEWARE that if you are using the LinuxONE Community Cloud OpenShift Trial you might see lagginess with the log streaming. If it stops streaming you might want to go back out to the Topology view and once the pipeline completes, come back to the log view to see the logs.
+    **PLEASE BEWARE** that if you are using the LinuxONE Community Cloud OpenShift Trial you might see lagginess with the log streaming. If it stops streaming, you might want to go back out to the `Topology` view. You can always return to the logs view, once the pipeline completes, to see the logs.
 
 **9.** The pipeline will go through three tasks:
     
@@ -159,7 +162,7 @@ Now type in the following commands in your `mysql` terminal (copy and paste box 
 ![mysql access](upandrunningimages/mysqlaccess.png)
 
 ``` bash
-mysql -u root -h mysql -p
+mysql -u root -h mysql -ppetclinic
 ```
 
 ``` mysql
@@ -178,6 +181,9 @@ Let's run a SQL command now to verify that the owner that you added through the 
 select * from owners;
 ```
 
-Please let the instructors know, if you don't see your owner listed. 
+!!! Tip
+    If you added a different user than *alice* you should see that user in place of *alice* on your screen.
 
-Congratulations, you have completed this part of the workshop! You may move on to the next part, [PetClinic + OpenShift Pipelines = CI](pipeline.md).
+Please let the instructors know, if you don't see your owner you added listed. 
+
+Congratulations, you have completed this part of the workshop! You may move on to the next part, by clicking next on the bottom of the page.

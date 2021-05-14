@@ -24,11 +24,15 @@
 
     ![Change File](../images/Part2/ChangeFile.png)
 
-    1. Make change using the pet type you want to add (example is a turtle)
+    1. Make a change using the pet type you want to add (example is a turtle) 
 
-        ``` mysql
-        INSERT IGNORE INTO types VALUES (7, 'turtle');
-        ```
+        !!! note
+            The copy and paste box below can be entered on **line 24** with `enter` pressed after it to match the image above.
+
+        !!! example "Turtle"
+            ``` mysql
+            INSERT IGNORE INTO types VALUES (7, 'turtle');
+            ```
 
         !!! Tip "I want to add Willow, an awesome armadillo, not Yertle the turtle!"
             If you want to add something other than a turtle as an option, please change `turtle` to that animal (i.e. `armadillo`) in the mysql statement above. For the armadillo example, the statement becomes:
@@ -37,7 +41,19 @@
             INSERT IGNORE INTO types VALUES (7, 'armadillo');
             ```
 
-    2. Type in a commit message (you can make this whatever you want) and commit the change
+    2. Type in a commit message (you can make this whatever you want) and commit the change (example from image below)
+
+        !!! example "Yertle the turtle"
+
+            **Title**
+            ``` bash
+            Turtle Time
+            ```
+
+            **Extended Description**
+            ``` bash
+            I want to be able to add Yertle the turtle.
+            ```
 
 6. Take note of the git commit message and hash
 
@@ -74,25 +90,22 @@
     ![Successful PipelineRun Logs View 1](../images/Part2/PipelineRunLogsSucceeded.png)
 
     !!! Success "Pipeline Run Logs View 1"
-        In the pipeline run `Logs` view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task you can see that the that the external connection check worked and the `spring-petclinic` application is available at the route printed in the logs. Additionally, you can see via the series of tasks marked with green checks that the dev deployment ran successfully and the system cleaned it up and ran the staging deployment successfully to complete the pipeline.
+        In the pipeline run `Logs` view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task, you can see that the that the external connection check worked and the PetClinic application is available at the route printed in the logs. Additionally, you can see via the series of tasks marked with green checks that the dev deployment ran successfully and the system cleaned it up and ran the staging deployment successfully to complete the pipeline.
         
     ![Succeesful PipelineRun Logs View 2](../images/Part2/PipelineRunCommitLogs.png)
 
     !!! Success "Pipeline Run Logs View 2"
-        When you switch to the `deploy-staging` task logs by clicking on the `task` on the left hand side of the `Logs` view of the pipeline run, you see this was an automated build from git since the task prints out the `GIT_MESSAGE` that you typed in your commit word for word. (_Note: If you chose a different commit message that will show instead of the one displayed in the image above._).
-
-    ![Successful PipelineRun](../images/Part2/PipelineSucceeded.png)
+        When you switch to the `deploy-staging` task logs, by clicking on the `task` on the left hand side of the `Logs` view of the pipeline run, you see this was an automated build from git since the task prints out the `GIT_MESSAGE` that you typed in your commit word for word. (_Note: If you chose a different commit message that will show instead of the one displayed in the image above._).
 
 ### See Changes in Application
 
-1. Navigate to the `Topology` view and open a new tab with your recently deployed `spring-petclinic` application.
+1. Navigate to the `Topology` view and open a new tab with your recently deployed `staging` version of the PetClinic application by clicking `Open URL`.
 
     ![PetClinic Visit Time](../images/Part2/PetclinicTimeAgain.png)
 
 2. Navigate to the `Find Owners` tab
 
      ![PetClinic Initial View](../images/Part2/InitialViewPetClinic.png)
-
 
 3. Choose to add a new owner
 
@@ -116,4 +129,4 @@
 
 ## Summary :fireworks:
 
-In this section, you made a change to your `spring-petclinic` application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displaying the commit message explaining the change the build was implementing. Your pipeline then deployed this change to OpenShift in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). After everything was done, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with CI/CD for your application!
+In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to OpenShift in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "cloud-native" CI/CD for your PetClinic application on IBM Z/LinuxONE! Congratulations!!!
