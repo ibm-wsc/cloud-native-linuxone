@@ -1,4 +1,4 @@
-# PetClinic + OpenShift Pipelines = CI
+# PetClinic + OpenShift Pipelines
 
 Now that PetClinic is up and running on your OpenShift cluster, it's time to add functionality to your pipeline to achieve basic continuous integration. The OpenShift pipeline you created in the [PetClinic Up and Running](upandrunning.md) uses [Tekton](https://tekton.dev){target="_blank" rel="noopener noreferrer"} to run a series of tasks (each with one or more steps) to accomplish a workflow (pipeline). You will use the Pipeline Builder UI built into OpenShift to quickly and easily craft a pipeline for your project.
 

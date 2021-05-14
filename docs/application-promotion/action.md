@@ -1,4 +1,4 @@
-# Time to put it all in action for take 2
+# CI/CD in Action
 
 ## Make a change in GitHub
 
