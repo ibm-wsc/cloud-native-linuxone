@@ -666,21 +666,25 @@
 <p>Add a <code>mysql-deploy</code> task in parallel to the <code>git-fetch</code> task. 
     <img alt="Add Parallel MySQL" src="../../images/Part1/mySQL_ParallelTask.png" /> </p>
 <div class="admonition info">
-<p class="admonition-title">Why MySQL Parallel?</p>
+<p class="admonition-title">Why is <code>mysql-deploy</code> in Parallel?</p>
 <p>This ensures MySQL is in place for each <code>PetClinic</code> application build (which would fail without it).  </p>
 </div>
 <p>Click <code>Select Task</code> in the middle of the rectangle of the new task and choose the <code>openshift-client</code> task from the dropdown menu. </p>
 <p><img alt="ChooseOpenShift Client" src="../../images/Part1/Choose_OpenShiftClientTask.png" /></p>
-<p>Click on the middle of the oval of the <code>openshift-client</code> task to enter values for it.</p>
+<p>Click on the middle of the oval of the <code>openshift-client</code> task to enter values for it (copy and paste boxes below image).</p>
 <p><img alt="Click OpenShift Client" src="../../images/Part1/OpenShiftClientOval.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Once you add a specific task (i.e. openshift-client), clicking on the oval of the task will enable you to edit its default values for your needs.</p>
+<p>Once you add a specific task (i.e. <code>openshift-client</code>), clicking on the oval of the task will enable you to edit its default values for your needs.</p>
 </div>
-<p>Enter the following command into the script field to ensure the MySQL database is available with the necessary configuration:</p>
+<p>Give the task the following parameters to ensure the MySQL database is available with the necessary configuration:</p>
+<p><img alt="MySQL Task" src="../../images/Part1/MySQLTemplateTask.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>mysql-deploy
+</code></pre></div>
+<p><strong>SCRIPT</strong></p>
 <div class="highlight"><pre><span></span><code>oc process openshift//mysql-ephemeral -p <span class="nv">MYSQL_USER</span><span class="o">=</span>petclinic -p <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>petclinic -p <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>petclinic -p <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>petclinic <span class="p">|</span> oc apply -f -
 </code></pre></div>
-<p><img alt="MySQL Task" src="../../images/Part1/MySQLTemplateTask.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Simply Click Away</p>
 <p>Once you have entered the string into the <code>SCRIPT</code> section, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.</p>
@@ -696,14 +700,20 @@
 </li>
 <li>
 <p>Add a <code>mysql-rollout-wait</code> task</p>
-<p>You need to make sure that <code>mysql</code> is not only on its way to deploying but actually deployed before your <code>build</code> task begins. In order to achieve this, you will use the OpenShift Client again and wait for the <code>rollout</code> of the <code>mysql</code> <code>deploymentConfig</code> to complete after the <code>mysql-deploy</code> task. Add a sequential task after <code>mysql-deploy</code>:</p>
+<p>You need to make sure that <code>mysql</code> is fully deployed before your <code>build</code> task begins. In order to achieve this, you will use the OpenShift Client again and wait for the <code>rollout</code> of the <code>mysql</code> <code>deploymentConfig</code> to complete after the <code>mysql-deploy</code> task. Add a sequential task after <code>mysql-deploy</code>:</p>
 <p><img alt="mysql sequential task" src="../../images/Part1/mySQL_SequentialTask.png" /></p>
-<p><code>Select Task</code> as <code>openshift-client</code> like before and then fill out the task with the following parameters:</p>
+<p><code>Select Task</code> as <code>openshift-client</code> like before and then fill out the task with the following parameters (copy and paste boxes below image for changes):</p>
 <p><img alt="mysql-check task" src="../../images/Part1/MySQLRolloutWait.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">How did you get 3 ARGS fields?</p>
-<p>Using <code>Add another value</code> adds another row to the <code>ARGS</code> section. Please <code>Add another value</code> twice to have the 3 rows required for the <code>mysql-rollout-wait</code> task as shown above.</p>
-</div>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>mysql-rollout-wait
+</code></pre></div>
+<p><strong>ARGS</strong></p>
+<div class="highlight"><pre><span></span><code>rollout
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dc/mysql
+</code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">No help please!</p>
 <p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running).</p>
@@ -718,7 +728,7 @@
 </ol>
 <p><img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /> Now your <code>mysql-deploy</code> and <code>mysql-rollout</code> tasks will have <code>MySQL</code> alive and well for the <code>build</code> task!</p>
 <h2 id="make-clean-image-from-s2i-build">Make Clean Image from S2I build<a class="headerlink" href="#make-clean-image-from-s2i-build" title="Permanent link">&para;</a></h2>
-<p>The <code>s2i-java-11</code> image is very convenient for making an image from source code. However, the simplicity that gives it value, can make it fail at meeting the needs of many organizations by itself. In your case, you will take the artifacts from the s2i image and copy them to a new Docker image that can meet all your needs to get the best of both worlds. You'll create an optimized image starting from a compact <code>openj9</code> java 11 base and employing <a href="https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1#layered-jars" rel="noopener noreferrer" target="_blank">the advanced layers feature in spring</a> that optimizes Docker image caching with the <a href="https://raw.githubusercontent.com/ibm-wsc/spring-petclinic/main/final-Dockerfile" rel="noopener noreferrer" target="_blank">final-Dockerfile</a> in the <a href="https://github.com/ibm-wsc/spring-petclinic" rel="noopener noreferrer" target="_blank">ibm-wsc/spring-petclinic</a> git repository you forked. </p>
+<p>The <code>s2i-java-11</code> image is very convenient for making an image from source code. However, the simplicity that gives it value can make it fail at meeting the needs of many organizations by itself. In your case, you will take the artifacts from the s2i image and copy them to a new Docker image that can meet all your needs to get the best of both worlds. You'll create an optimized image starting from a compact <code>openj9</code> java 11 base and employing <a href="https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1#layered-jars" rel="noopener noreferrer" target="_blank">the advanced layers feature in spring</a> that optimizes Docker image caching with the <a href="https://raw.githubusercontent.com/ibm-wsc/spring-petclinic/main/final-Dockerfile" rel="noopener noreferrer" target="_blank">final-Dockerfile</a> in the <a href="https://github.com/ibm-wsc/spring-petclinic" rel="noopener noreferrer" target="_blank">ibm-wsc/spring-petclinic</a> git repository you forked. </p>
 <ol>
 <li>
 <p>Add <code>Buildah</code> task</p>
@@ -729,7 +739,7 @@
 <p>Configure <code>buildah</code> task</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Each value that you need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match image)</p>
+<p>Each value that you need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match the image)</p>
 </div>
 <p><img alt="Buildah Task Values" src="../../images/Part1/ProducingCleanImageBuildah2.png" /></p>
 <p>DISPLAY NAME:
@@ -781,18 +791,24 @@
 </li>
 <li>
 <p>Add workspace to <code>clean-image</code> task </p>
+<ol>
+<li>
 <p>Save current pipeline edit and switch to <code>YAML</code> from pipeline menu.</p>
 <p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Why are you editing yaml directly?</p>
 <p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.</p>
 </div>
+</li>
+<li>
 <p>Find the <code>clean-image-task</code> and add the following workspace definition:</p>
 <div class="highlight"><pre><span></span><code>      <span class="nt">workspaces</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
         <span class="nt">workspace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
 </code></pre></div>
 <p><img alt="Clean Image Workspace" src="../../images/Part1/AddWorspaceProducingCleanImage.png" /></p>
+</li>
+<li>
 <p>Save the update</p>
 <p><img alt="Save Pipeline Edit Yaml" src="../../images/Part1/PipelineUpdatedYaml.png" /></p>
 <div class="admonition note">
@@ -801,14 +817,16 @@
 </div>
 </li>
 </ol>
+</li>
+</ol>
 <h2 id="manage-resource-across-environments-with-kustomize">Manage resource across environments with Kustomize<a class="headerlink" href="#manage-resource-across-environments-with-kustomize" title="Permanent link">&para;</a></h2>
 <p><a href="https://kustomize.io" rel="noopener noreferrer" target="_blank">Kustomize</a> is a tool for customizing Kubernetes resource configuration.</p>
 <div class="admonition note">
 <p class="admonition-title">From the documentation overview</p>
-<p>Kustomize traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the <a href="https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/{target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;}">Introducing Kustomize Kubernetes Blog Post</a> for a more in-depth overview of Kustomize and its purpose.</p>
+<p>Kustomize traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the <a href="https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/" rel="noopener noreferrer" target="_blank">Introducing Kustomize Kubernetes Blog Post</a> for a more in-depth overview of Kustomize and its purpose.</p>
 </div>
-<p>As part of doing things the "cloud-native way", you will be using Kustomize to manage resource changes across your <code>dev</code> and <code>staging</code> environments as well as injecting information from your pipeline (such as newly created image information with git commits) into your Kubernetes (OpenShift) resources. </p>
-<p>To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the <a href="https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files" rel="noopener noreferrer" target="_blank">ocp-files directory</a></p>
+<p>As part of doing things the "cloud-native" way you will be using Kustomize to manage resource changes across your <code>dev</code> and <code>staging</code> environments as well as injecting information from your pipeline (such as newly created image information with git commits) into your Kubernetes (OpenShift) resources. </p>
+<p>To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the <a href="https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files" rel="noopener noreferrer" target="_blank">ocp-files directory</a>.</p>
 <p>For more information on how kubectl (and oc through kubectl) integrates Kustomize, see the <a href="https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/" rel="noopener noreferrer" target="_blank">kubectl documentation</a>.</p>
 <h3 id="creating-custom-task-for-kustomize">Creating Custom Task for Kustomize<a class="headerlink" href="#creating-custom-task-for-kustomize" title="Permanent link">&para;</a></h3>
 <p>Since there is no <code>ClusterTask</code> defined for Kustomize, you will create a custom task for this purpose. It will change into the Kustomize directory, run a Kustomize command on the directory, and then apply the files from the directory using the built-in Kustomize functionality of the oc command line tool (via kubectl's Kustomize support)</p>
@@ -876,7 +894,7 @@
 <p>Create the <code>kustomize</code> Task</p>
 <p>a. Click <code>Import YAML</code> to bring up the box where you can create Kubernetes resource definitions from yaml</p>
 <p>b. Paste the <code>kustomize</code> Task into the box</p>
-<p>c. Scroll down and click create to create the <code>kustomize</code> Task </p>
+<p>c. Scroll down and click <code>Create</code> to create the <code>kustomize</code> Task </p>
 <p><img alt="Create Kustomize Task" src="../../images/Part1/CreateKustomizeTask.png" /></p>
 </li>
 </ol>
@@ -890,33 +908,41 @@
 </li>
 <li>
 <p>Configure <code>kustomize</code> task</p>
-<p>Since your initial deploy will be for the <code>dev</code> environment, the only values you need to change are the <code>Display Name</code> and the <code>SCRIPT</code>:</p>
+<p>Since your initial deploy will be for the <code>dev</code> environment, the only values you need to change are the <code>Display Name</code> and the <code>SCRIPT</code> (copy and paste boxes below image):</p>
+<p><img alt="Kustomize Configure 1" src="../../images/Part1/KustomizeDevChoices.png" /></p>
 <p><strong>Display Name</strong></p>
 <div class="highlight"><pre><span></span><code>kustomize-dev
 </code></pre></div>
 <p><strong>SCRIPT</strong></p>
 <div class="highlight"><pre><span></span><code>kustomize edit <span class="nb">set</span> image spring-petclinic<span class="o">=</span><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>-minimal:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
 </code></pre></div>
-<p><img alt="Kustomize Configure 1" src="../../images/Part1/KustomizeDevChoices.png" /></p>
 </li>
 <li>
 <p>Save pipeline</p>
 </li>
 <li>
 <p>Add workspace to <code>kustomize-dev</code> task </p>
-<p>Save current pipeline edit and switch to <code>YAML</code> from pipeline menu.</p>
+<ol>
+<li>Save current pipeline edit and switch to <code>YAML</code> from pipeline menu.</li>
+</ol>
 <p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Why are you editing yaml directly?</p>
 <p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.</p>
 </div>
+<ol>
+<li>
 <p>Find the <code>kustomize-dev</code> and add the following workspace definition:</p>
 <div class="highlight"><pre><span></span><code>      <span class="nt">workspaces</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
         <span class="nt">workspace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
 </code></pre></div>
+</li>
+</ol>
 <p><img alt="Kustomize Dev Add Workspace" src="../../images/Part1/AddWorkspaceKustomizeDev.png" /></p>
-<p>Save the update</p>
+<ol>
+<li>Save the update</li>
+</ol>
 <p><img alt="Save Pipeline Edit Yaml" src="../../images/Part1/PipelineUpdatedYaml.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -935,11 +961,15 @@
 <p><img alt="add cleanup sequential" src="../../images/Part1/AddSequentialTask.png" /></p>
 </li>
 <li>
-<p>Configure the task with a <code>SCRIPT</code> value of:</p>
+<p>Configure the task with the following parameters (copy and paste boxes below image for changes):</p>
+<p><img alt="cleanup resources" src="../../images/Part1/CleanupResourcesTask.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>cleanup-resources
+</code></pre></div>
+<p><strong>SCRIPT</strong></p>
 <div class="highlight"><pre><span></span><code>oc delete deployment,cm,svc,route -l <span class="nv">app</span><span class="o">=</span><span class="k">$(</span>params.APP_NAME<span class="k">)</span> --ignore-not-found
 </code></pre></div>
 <p>and an empty <code>ARGS</code> value.</p>
-<p><img alt="cleanup resources" src="../../images/Part1/CleanupResourcesTask.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">No help please!</p>
 <p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
@@ -992,7 +1022,7 @@
 <p><img alt="Pipeline Run Logs" src="../../images/Part1/PipelineRolloutLogsView.png" /></p>
 <div class="admonition success">
 <p class="admonition-title">Pipeline Run Logs View</p>
-<p>In the pipeline run <code>Logs</code> view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task you can see this was a manual build due to your <code>GIT_MESSAGE</code> variable printing out its message in the final (<code>deploy-dev</code>) task.</p>
+<p>From the pipeline run <code>Logs</code> view you can see that the pipeline run tasks all have green check marks and that this was a manual build (from the message in the log output of the final [<code>deploy-dev</code>] task).</p>
 </div>
 </li>
 </ol>

@@ -606,9 +606,16 @@
 <p><img alt="Change File" src="../../images/Part2/ChangeFile.png" /></p>
 <ol>
 <li>
-<p>Make change using the pet type you want to add (example is a turtle)</p>
+<p>Make a change using the pet type you want to add (example is a turtle) </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The copy and paste box below can be entered on <strong>line 24</strong> with <code>enter</code> pressed after it to match the image above.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Turtle</p>
 <div class="highlight"><pre><span></span><code><span class="k">INSERT</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="k">types</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;turtle&#39;</span><span class="p">);</span>
 </code></pre></div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">I want to add Willow, an awesome armadillo, not Yertle the turtle!</p>
 <p>If you want to add something other than a turtle as an option, please change <code>turtle</code> to that animal (i.e. <code>armadillo</code>) in the mysql statement above. For the armadillo example, the statement becomes:</p>
@@ -617,7 +624,16 @@
 </div>
 </li>
 <li>
-<p>Type in a commit message (you can make this whatever you want) and commit the change</p>
+<p>Type in a commit message (you can make this whatever you want) and commit the change (example from image below)</p>
+<div class="admonition example">
+<p class="admonition-title">Yertle the turtle</p>
+<p><strong>Title</strong>
+<div class="highlight"><pre><span></span><code>Turtle Time
+</code></pre></div></p>
+<p><strong>Extended Description</strong>
+<div class="highlight"><pre><span></span><code>I want to be able to add Yertle the turtle.
+</code></pre></div></p>
+</div>
 </li>
 </ol>
 </li>
@@ -654,20 +670,19 @@
 <p><img alt="Successful PipelineRun Logs View 1" src="../../images/Part2/PipelineRunLogsSucceeded.png" /></p>
 <div class="admonition success">
 <p class="admonition-title">Pipeline Run Logs View 1</p>
-<p>In the pipeline run <code>Logs</code> view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task you can see that the that the external connection check worked and the <code>spring-petclinic</code> application is available at the route printed in the logs. Additionally, you can see via the series of tasks marked with green checks that the dev deployment ran successfully and the system cleaned it up and ran the staging deployment successfully to complete the pipeline.</p>
+<p>In the pipeline run <code>Logs</code> view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task, you can see that the that the external connection check worked and the PetClinic application is available at the route printed in the logs. Additionally, you can see via the series of tasks marked with green checks that the dev deployment ran successfully and the system cleaned it up and ran the staging deployment successfully to complete the pipeline.</p>
 </div>
 <p><img alt="Succeesful PipelineRun Logs View 2" src="../../images/Part2/PipelineRunCommitLogs.png" /></p>
 <div class="admonition success">
 <p class="admonition-title">Pipeline Run Logs View 2</p>
-<p>When you switch to the <code>deploy-staging</code> task logs by clicking on the <code>task</code> on the left hand side of the <code>Logs</code> view of the pipeline run, you see this was an automated build from git since the task prints out the <code>GIT_MESSAGE</code> that you typed in your commit word for word. (<em>Note: If you chose a different commit message that will show instead of the one displayed in the image above.</em>).</p>
+<p>When you switch to the <code>deploy-staging</code> task logs, by clicking on the <code>task</code> on the left hand side of the <code>Logs</code> view of the pipeline run, you see this was an automated build from git since the task prints out the <code>GIT_MESSAGE</code> that you typed in your commit word for word. (<em>Note: If you chose a different commit message that will show instead of the one displayed in the image above.</em>).</p>
 </div>
-<p><img alt="Successful PipelineRun" src="../../images/Part2/PipelineSucceeded.png" /></p>
 </li>
 </ol>
 <h3 id="see-changes-in-application">See Changes in Application<a class="headerlink" href="#see-changes-in-application" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Navigate to the <code>Topology</code> view and open a new tab with your recently deployed <code>spring-petclinic</code> application.</p>
+<p>Navigate to the <code>Topology</code> view and open a new tab with your recently deployed <code>staging</code> version of the PetClinic application by clicking <code>Open URL</code>.</p>
 <p><img alt="PetClinic Visit Time" src="../../images/Part2/PetclinicTimeAgain.png" /></p>
 </li>
 <li>
@@ -696,7 +711,7 @@
 </li>
 </ol>
 <h2 id="summary">Summary <img alt="🎆" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f386.svg" title=":fireworks:" /><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>In this section, you made a change to your <code>spring-petclinic</code> application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displaying the commit message explaining the change the build was implementing. Your pipeline then deployed this change to OpenShift in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). After everything was done, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with CI/CD for your application!</p>
+<p>In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to OpenShift in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "cloud-native" CI/CD for your PetClinic application on IBM Z/LinuxONE! Congratulations!!!</p>
                 
               
               

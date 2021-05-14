@@ -697,13 +697,13 @@
 <li>That the pieces of your application worked (unit testing)</li>
 <li>That they worked together (integration testing)</li>
 </ol>
-<p>Now, it's time to go a step further and automate testing that your application is working when deployed in a real environment both:</p>
+<p>Now, it's time to go a step further and automate testing that your application is working and accessible when deployed in a real (OpenShift) environment:</p>
 <ol>
-<li>Internally (within Kubernetes)</li>
-<li>Externally (for the outside world)</li>
+<li>Internally (within OpenShift)</li>
+<li>Externally (the outside world)</li>
 </ol>
 <h3 id="internally-within-kubernetesopenshift">Internally (Within Kubernetes/OpenShift)<a class="headerlink" href="#internally-within-kubernetesopenshift" title="Permanent link">&para;</a></h3>
-<p>The first thing we need to test is that the application is alive and available from within your cluster (Kubernetes environment). This is important not only for the CI/CD pipeline, but for any time your application is running  (downtime is detrimental, especially in production). </p>
+<p>The first thing you need to test is that the application is alive and available from within your cluster (Kubernetes environment). This is important not only for when running the CI/CD pipeline, but also for any time your application is running  (downtime is detrimental, especially in production). </p>
 <p>This functionality is available in Kubernetes via <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/" rel="noopener noreferrer" target="_blank">probes</a>. There are 3 different types of probes to test the different aspects of your application's availability:</p>
 <div class="admonition info">
 <p class="admonition-title">Kubernetes Probes in Spring</p>
@@ -723,7 +723,7 @@
 <p>Free startup concerns/constraints from other probes</p>
 </li>
 </ol>
-<p>Here is the <code>startupProbe</code> for the container running the PetClinicapplication:</p>
+<p>Here is the <code>startupProbe</code> for the container running the PetClinic application:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">startupProbe</span><span class="p">:</span>
     <span class="nt">httpGet</span><span class="p">:</span>
     <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/actuator/health/liveness</span>
@@ -731,7 +731,7 @@
     <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
     <span class="nt">failureThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
 </code></pre></div>
-<p>It is simply a query (via localhost) to PetClinic's liveness health endpoint. Once this returns successfully, you can be confident the application has started up and begin to monitor the liveness and readiness of each container of each replica (pod) of your application throughout its lifecycle.</p>
+<p>It simply queries (via localhost) PetClinic's liveness health endpoint. Once this returns successfully, you can be confident the application has started up and can begin to monitor the liveness and readiness of each container of each replica (pod) of your application throughout its lifecycle.</p>
 </li>
 <li>
 <p>Liveness probes:</p>
@@ -740,13 +740,13 @@
 <p>Make sure an application is actually running and not caught in a deadlock (it's alive)</p>
 </li>
 <li>
-<p>Restart "dead" <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/" rel="noopener noreferrer" target="_blank">kubelet</a> containers automatically</p>
+<p>Restart "dead" containers automatically with <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/" rel="noopener noreferrer" target="_blank">kubelet</a></p>
 </li>
 <li>
-<p>Fix problems that may arise in long-running containers</p>
+<p>Fix problems that may arise in long-running containers via the aforementioned restart</p>
 </li>
 </ol>
-<p>Here is the <code>livenessProbe</code> for the container running the PetClinicapplication:</p>
+<p>Here is the <code>livenessProbe</code> for the container running the PetClinic application:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">livenessProbe</span><span class="p">:</span>
     <span class="nt">httpGet</span><span class="p">:</span>
     <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/actuator/health/liveness</span>
@@ -754,7 +754,7 @@
     <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
     <span class="nt">failureThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
 </code></pre></div>
-<p>This looks almost identical to the <code>startupProbe</code> above other than having a much lower <code>failureThreshold</code>. The <code>startupProbe</code> is making sure the container of a given pod of our application's deployment is alive when it first starts up. This, it is allowing time for that startup to occur. Conversely, the <code>liveness</code> probe above is making sure our application stays alive throughout its lifecycle. Therefore, it has a much lower <code>failureThreshold</code> to enable <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/" rel="noopener noreferrer" target="_blank">kubelet</a> to quickly respond (restart the container) when the container becomes deadlocked.</p>
+<p>This looks almost identical to the <code>startupProbe</code> above other than having a much lower <code>failureThreshold</code>. The <code>startupProbe</code> is making sure the container of a given pod of your application's deployment is alive when it first starts up (It is allowing time for that startup to occur). On the other hand, the <code>liveness</code> probe above is making sure your application stays alive throughout its lifecycle. Therefore, it has a much lower <code>failureThreshold</code> to enable <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/" rel="noopener noreferrer" target="_blank">kubelet</a> to quickly respond (restart the container) when the container becomes deadlocked.</p>
 </li>
 <li>
 <p>Readiness probes:</p>
@@ -776,14 +776,14 @@
     <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
     <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
 </code></pre></div>
-<p>It is simply a query (via localhost) to PetClinic's readiness health endpoint. This probe will let Kubernetes know when send traffic to a PetClinic replica. When we send traffic to the application, only the available replicas will receive it. This means that replicas which aren't ready for traffic don't accidentally get it, causing errors for the user.</p>
+<p>It simply queries (via localhost) PetClinic's readiness health endpoint. This probe will let Kubernetes know when to send traffic to a PetClinic replica. When you send traffic to the application, only the available replicas will receive it. This means that replicas which aren't ready for traffic don't accidentally get it, preventing errors for the user.</p>
 </li>
 </ol>
 <p>These 3 probes serve to declare to Kubernetes the way your application (and the replicas that make it up) should behave, enabling the system to monitor and take action on your behalf (restarting the container or removing it's pod's endpoint from service) when the current state (the status) does not meet the desired state (your specification).</p>
-<p>The rollout task we created before as <code>deploy-dev</code> will only complete once all desired replicas are ready, implying that both the <code>startup</code> (initial liveness) and <code>readiness</code> probes have successfully passed and all replicas of your application are initially alive and ready for business. </p>
+<p>The rollout task you created before as <code>deploy-dev</code> will only complete once all desired replicas are ready, implying that both the <code>startup</code> (initial liveness) and <code>readiness</code> probes have successfully passed and all replicas of your application are initially alive and ready for business. </p>
 <h3 id="testing-external-connections">Testing External Connections<a class="headerlink" href="#testing-external-connections" title="Permanent link">&para;</a></h3>
 <p>While making sure your application is internally up and running is important, at the end of the day you want to provide access to your users externally<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
-<p>This means it is important to also test the OpenShift route (the component providing the external connection) as part of your CI/CD pipeline to ensure it is correctly servicing web traffic external to your cluster<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">2</a></sup>.</p>
+<p>This means it is important to also test the OpenShift route (the component providing the external connection) as part of your CI/CD pipeline to ensure it is correctly servicing web traffic external to your cluster<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <h4 id="create-external-route-test-task">Create External Route Test Task<a class="headerlink" href="#create-external-route-test-task" title="Permanent link">&para;</a></h4>
 <p>You will create a task to check the connection to your external route as part of your CI/CD pipeline.</p>
 <ol>
@@ -883,10 +883,10 @@
 <p>a. Click <code>Import YAML</code> to bring up the box where you can create Kubernetes resource definitions from yaml</p>
 <p>b. Paste the <code>connection-test</code> Task into the box</p>
 <p>c. Scroll down and click create to create the <code>connection-test</code> Task </p>
-<p><img alt="Create route-test Task" src="../../images/Part2/CreateTestRouteTask.png" /></p>
+<p><img alt="Create connection-test Task" src="../../images/Part2/CreateTestRouteTask.png" /></p>
 </li>
 </ol>
-<p>You should now see the created <code>route-test</code> Task. Navigate back to the <code>Pipelines</code> section of the OpenShift UI and go back to editing your pipeline.</p>
+<p>You should now see the created <code>connection-test</code> Task. Navigate back to the <code>Pipelines</code> section of the OpenShift UI and go back to editing your pipeline.</p>
 <p><img alt="Back to Pipelines" src="../../images/Part2/BackToPipelines.png" /></p>
 <h4 id="add-external-route-test-task-to-pipeline">Add External Route Test Task to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline" title="Permanent link">&para;</a></h4>
 <ol>
@@ -896,24 +896,24 @@
 </li>
 <li>
 <p>Configure <code>connection-test</code> task</p>
-<p>The only values you need to change are the <code>Display Name</code> and the <code>ROUTE_NAME</code>:</p>
+<p>The only values you need to change are the <code>Display Name</code> and the <code>ROUTE_NAME</code> (copy and paste boxes below image):</p>
+<p><img alt="Connection Test Configure 1" src="../../images/Part2/ConnectionTestConfigureDev.png" /></p>
 <p><strong>Display Name</strong></p>
 <div class="highlight"><pre><span></span><code>connect-dev
 </code></pre></div>
 <p><strong>ROUTE_NAME</strong></p>
 <div class="highlight"><pre><span></span><code>spring-petclinic-dev
 </code></pre></div>
-<p><img alt="Connection Test Configure 1" src="../../images/Part2/ConnectionTestConfigureDev.png" /></p>
 </li>
 <li>
 <p>Save pipeline</p>
 </li>
 </ol>
-<p>Your current pipeline builds and test your application, creates a docker image for it, deploys it to the development environment, and ensures that the application is working both internally and externally. In other words, once your application successfully completes the current pipeline, you can be confident in it and be ready to move to staging<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup>. </p>
+<p>Your current pipeline builds and test your application, creates a docker image for it, deploys it to the development environment, and ensures that the application is working both internally and externally. In other words, once your application successfully completes the current pipeline, you can be confident in it and be ready to move to staging<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. </p>
 <h2 id="deploy-staging">Deploy Staging<a class="headerlink" href="#deploy-staging" title="Permanent link">&para;</a></h2>
 <p>Moving to the staging environment means spinning up your application in that environment (with parameters relevant for it) and testing it there. Given that this is all using containers, you can easily free up the development resources that have successfully completed and then spin up the new resources in your staging environment.</p>
 <h3 id="remove-dev">Remove Dev<a class="headerlink" href="#remove-dev" title="Permanent link">&para;</a></h3>
-<p>Your first <code>Task</code> will mirror the <code>cleanup-resources</code> task at the beginning of your pipeline. </p>
+<p>Your first <code>Task</code> will mirror the <code>cleanup-resources</code> task at the beginning of your pipeline but cleanup just the <code>dev</code> resources using the <code>env=dev</code> <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors" rel="noopener noreferrer" target="_blank">label selector</a>.</p>
 <ol>
 <li>
 <p>Go back to editing your pipeline via <code>Actions -&gt; Edit Pipeline</code></p>
@@ -924,7 +924,7 @@
 <p><img alt="add cleanup sequential" src="../../images/Part2/AddSequentialCleanup.png" /></p>
 </li>
 <li>
-<p>Configure the <code>Task</code> with the following values(copy and paste boxes below image):</p>
+<p>Configure the <code>Task</code> with the following values (copy and paste boxes below image):</p>
 <p><img alt="cleanup dev" src="../../images/Part2/CleanupDevTask.png" /></p>
 <p><strong>Display Name</strong></p>
 <div class="highlight"><pre><span></span><code>cleanup-dev
@@ -940,24 +940,24 @@
 </li>
 </ol>
 <h3 id="add-staging">Add Staging<a class="headerlink" href="#add-staging" title="Permanent link">&para;</a></h3>
-<p>You will use your existing <code>kustomize</code> task to deploy the <code>staging</code> version of your 
-OpenShift files in a new task. <a href="https://github.com/ibm-wsc/spring-petclinic/blob/main/ocp-files/overlay/staging/kustomization.yaml" rel="noopener noreferrer" target="_blank">Customizations for staging PetClinic</a> include adding a staging environment label, name suffix, and change cause. You could deploy to a separate project or cluster altogether as well as change replicas or add pod autoscalers in a similar manner (depending on your use case) for different environments. </p>
+<p>You will use your existing <code>kustomize</code> task to deploy the staging configuration for your PetClinic application in a new <code>kustomize-staging</code> task. <a href="https://github.com/ibm-wsc/spring-petclinic/blob/main/ocp-files/overlay/staging/kustomization.yaml" rel="noopener noreferrer" target="_blank">Customizations for staging PetClinic</a> include adding a staging environment label, name suffix, change cause, and staging environment variables for your application. You could deploy to a separate project or cluster altogether as well as change replicas or add pod autoscalers in a similar manner (depending on your use case) for different environments. </p>
 <ol>
 <li>
 <p>Add a <code>kustomize</code> task sequentially to the end of your current pipeline (after <code>cleanup-dev</code>)</p>
 <p><img alt="StagingAdd" src="../../images/Part2/AddStaging.png" /> </p>
 </li>
 <li>
-<p>Configure the <code>Task</code> with the following values(copy and paste boxes below image):</p>
-<p>Display Name:
-<div class="highlight"><pre><span></span><code>kustomize-staging
-</code></pre></div></p>
-<p>and</p>
-<p>RELEASE_SUBDIR
-<div class="highlight"><pre><span></span><code>overlay/staging
-</code></pre></div></p>
-<p>to make the following configuration:</p>
+<p>Configure the <code>Task</code> with the following values (copy and paste boxes below image):</p>
 <p><img alt="Kustomize Staging Task" src="../../images/Part2/KustomizeStaging.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>kustomize-staging
+</code></pre></div>
+<p><strong>RELEASE_SUBDIR</strong></p>
+<div class="highlight"><pre><span></span><code>overlay/staging
+</code></pre></div>
+<p><strong>SCRIPT</strong></p>
+<div class="highlight"><pre><span></span><code>kustomize edit <span class="nb">set</span> image spring-petclinic<span class="o">=</span><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>-minimal:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
+</code></pre></div>
 </li>
 <li>
 <p><code>Save</code> current pipeline edit and then switch to <code>YAML</code> from pipeline menu.</p>
@@ -998,6 +998,10 @@ OpenShift files in a new task. <a href="https://github.com/ibm-wsc/spring-petcli
 <p><strong>SCRIPT</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>params.GIT_MESSAGE<span class="k">)</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> oc rollout status deploy/spring-petclinic-staging
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">No help please!</p>
+<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
+</div>
 </li>
 </ol>
 <h3 id="add-external-route-test-task-to-pipeline_1">Add External Route Test Task to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline_1" title="Permanent link">&para;</a></h3>
@@ -1023,24 +1027,28 @@ OpenShift files in a new task. <a href="https://github.com/ibm-wsc/spring-petcli
 </li>
 </ol>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>Congratulations! You have built a pipeline that tests your <code>PetClinic</code> application, creates a docker image for it, deploys it to the development environment with dev configuration, ensures that the application is working both internally and externally, cleans up the development environment, deploys it to the staging environment with staging configuration and then makes sure it is working both internally and externally<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. tl;dr you have the <code>I/D</code> (Integration/Deployment) in <code>CI/CD</code><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</p>
+<p>Congratulations! You have built a pipeline that tests your <code>PetClinic</code> application, creates a docker image for it, deploys it to the development environment with dev configuration, ensures that the application is working both internally and externally, cleans up the development environment, deploys it to the staging environment with staging configuration and then makes sure it is working both internally and externally<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. </p>
+<div class="admonition summary">
+<p class="admonition-title">tl;dr</p>
+<p>You now have the <code>I/D</code> (Integration/Deployment) in <code>CI/CD</code><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</p>
+</div>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>For different environments like dev and test, this may be different groups external to our Kubernetes environment (cluster), though internal to the organization itself and accessing the endpoints via a VPN or internal network. Production is likely when external connection via an organization's real website would happen. This networking doesn't actually affect you (it just matters that the route you are testing is available to you from where you are).&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p>You may think to yourself that you can't test an external connection from inside your cluster. However, by using the route you are causing the traffic to go "outside" the cluster's networking to reach the load balancer and then back "inside" via the route, explicitly testing the external connection and making sure that it indeed works. This just tests that the route works, not that the dns/hostname is available generally on the internet or private enterprise subnet (depending on environment), which is a different more general problem for your networking team (or cloud) to ensure for all of your applications using that network.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>For different environments like dev and test, this may be different groups external to your Kubernetes environment (cluster), though internal to the organization itself and accessing the endpoints via a VPN or internal network. Production is likely when external connection via an organization's real website would happen. The type of external connection (via a VPN or public connection) has little impact on the Kubernetes resources given a route will be used for all of those types of external connections (the most important thing is that the route you are testing is available to you [the tester] from where you are).&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>You could create more extensive tests to make sure that the pages are rendering correctly (besides just returning a proper status code). However, that is beyond the scope of the lab and this at least makes sure requests are successfully sent and returned via an external route, which is good enough for the lab's purposes.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>You may think to yourself that you can't test an external connection from inside your cluster. However, by using the route you are causing the traffic to go "outside" the cluster's networking to reach the load balancer and then back "inside" via the route, explicitly testing the external connection and making sure that it indeed works. This just tests that the route works, not that the dns/hostname is available generally on the internet or private enterprise subnet (depending on environment). Internet / subnet dns resolution is a different more general problem for your networking team (or cloud) to ensure for all of your applications using that network.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>You could create more extensive tests to make sure that the pages are rendering correctly (besides just returning a proper status code). However, that is beyond the scope of the lab and this at least makes sure requests are successfully sent and returned via an external route, which is good enough for the lab's purposes.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
 <p>This mirrors the <code>dev-deploy</code> task which waits for the dev release to rollout but uses the <code>SCRIPT</code> field for everything vs. <code>ARGS</code>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>You could clean up the staging environment at the end of the run but choose not to so that the user can interact with it between runs. You could also clean up or use a separate MySQL instance for staging but due to limited resources in our environment we have chosen not to add this extra component.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>You could clean up the staging environment at the end of the run but choose not to so that the user can interact with it between runs. You could also clean up or use a separate MySQL instance for staging but due to limited resources in your environment you have chosen not to add this extra component.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
 <p>You'll add the double <code>C</code>s in the next section by connecting it to GitHub.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>

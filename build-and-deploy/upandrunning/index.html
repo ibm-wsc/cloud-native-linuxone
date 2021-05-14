@@ -556,7 +556,7 @@
                 
                 
                 <h1 id="getting-your-petclinic-up-and-running">Getting Your PetClinic Up and Running<a class="headerlink" href="#getting-your-petclinic-up-and-running" title="Permanent link">&para;</a></h1>
-<p>For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. <a href="https://github.com/spring-projects/spring-petclinic">The official version of PetClinic</a> demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. </p>
+<p>For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. <a href="https://github.com/spring-projects/spring-petclinic" rel="noopener noreferrer" target="_blank">The official version of PetClinic</a> demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. </p>
 <p>You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud-native application and a DevOps pipeline for the application.</p>
 <p>You will start by building your PetClinic application from the source code and connecting it to a MySQL database.</p>
 <div class="admonition info">
@@ -574,7 +574,11 @@
 <h2 id="deploying-mysql-database">Deploying MySQL database<a class="headerlink" href="#deploying-mysql-database" title="Permanent link">&para;</a></h2>
 <p><strong>1.</strong> First, you need to setup your mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)</p>
 <p><img alt="Add DB" src="../upandrunningimages/devselectdatabase.png" /></p>
-<p><strong>2.</strong> Next, select the <code>MySQL (Ephemeral)</code> tile. Note you are choosing the ephemeral option because at this point you do not care to persist the database beyond the life of the container.</p>
+<p><strong>2.</strong> Next, select the <code>MySQL (Ephemeral)</code> tile. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You are choosing the ephemeral option because at this point you do not care to persist the database beyond the life of the container.</p>
+</div>
 <p><img alt="Select MySQL" src="../upandrunningimages/selectmqephemeral.png" /></p>
 <p><strong>3.</strong> Click on instantiate template.</p>
 <p><img alt="Select DB" src="../upandrunningimages/instantiatetemplate.png" /></p>
@@ -585,7 +589,7 @@
 <p class="admonition-title">Why Ephemeral?</p>
 <p>You are using the <strong>Ephemeral</strong> implementation because this a short-lived demo and you do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the container.</p>
 </div>
-<p>A minute or two later, in the <code>Topology</code> view of your OpenShift Console, you should see <code>mysql</code> in running state. (Click on the Topology icon for <code>mysql</code> to bring up the side panel)</p>
+<p>A minute or two later, in the <code>Topology</code> view of your OpenShift Console, you should see <code>mysql</code> in the <code>Running</code> state. (Click on the Topology icon for <code>mysql</code> to bring up the side panel)</p>
 <p><img alt="DB running" src="../upandrunningimages/mysqlrunning.png" /></p>
 <h2 id="fork-the-petclinic-repo-to-your-own-github-account">Fork the PetClinic repo to your own GitHub account<a class="headerlink" href="#fork-the-petclinic-repo-to-your-own-github-account" title="Permanent link">&para;</a></h2>
 <p>For this workshop, you will be using the PetClinic application from your own GitHub account so that you can enable integrations with it later.</p>
@@ -606,7 +610,7 @@
 <p><img alt="from git" src="../upandrunningimages/fromgit.png" /></p>
 <p><strong>2.</strong> Enter <code>https://github.com/&lt;your-github-ID&gt;/spring-petclinic</code> in the <code>Git Repo URL</code> field. Expand the <code>Show Advanced Git Options</code> section, and type in <code>main</code> for the <code>Git Reference</code>. This tells OpenShift which GitHub repo and branch to pull the source code from.</p>
 <p><img alt="git url" src="../upandrunningimages/giturl.png" /></p>
-<p><strong>3.</strong> Scroll down to the Builder section. Select the <code>OpenJ9</code> tile and select <code>openj9-11-el8</code> as the builder image version. As you can see OpenShift offers many different builder images to help you build images from a variety of programming languages. Your list of builder images might differ from the screen shot. For Java on Z, the recommended JVM is <code>OpenJ9</code> because it has built-in s390x optimizations as well as container optimizations.</p>
+<p><strong>3.</strong> Scroll down to the <code>Builder</code> section. Select the <code>OpenJ9</code> tile and select <code>openj9-11-el8</code> as the builder image version. As you can see OpenShift offers many different builder images to help you build images from a variety of programming languages. Your list of builder images might differ from the screen shot. For Java on Z, the recommended JVM is <code>OpenJ9</code> because it has built-in s390x optimizations as well as container optimizations.</p>
 <p><img alt="builder image" src="../upandrunningimages/builderimage.png" /></p>
 <p><strong>4.</strong> In the General section, put in the following entries for Application Name and Name. </p>
 <p><img alt="app name" src="../upandrunningimages/applicationname.png" /></p>
@@ -620,7 +624,7 @@
 <p><img alt="pipeline icon" src="../upandrunningimages/pipelineicon.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Log Streaming Gotcha in the LinuxONE CC</p>
-<p>PLEASE BEWARE that if you are using the LinuxONE Community Cloud OpenShift Trial you might see lagginess with the log streaming. If it stops streaming you might want to go back out to the Topology view and once the pipeline completes, come back to the log view to see the logs.</p>
+<p><strong>PLEASE BEWARE</strong> that if you are using the LinuxONE Community Cloud OpenShift Trial you might see lagginess with the log streaming. If it stops streaming, you might want to go back out to the <code>Topology</code> view. You can always return to the logs view, once the pipeline completes, to see the logs.</p>
 </div>
 <p><strong>9.</strong> The pipeline will go through three tasks:</p>
 <p>&nbsp;&nbsp;&nbsp; 1. <b>fetch-repository</b> - this Pipeline task will clone your Git PetClinic repo for the build task.</p>
@@ -654,7 +658,7 @@
 <p><img alt="mysql terminal" src="../upandrunningimages/mysqlterminal.png" /></p>
 <p>Now type in the following commands in your <code>mysql</code> terminal (copy and paste box below image):</p>
 <p><img alt="mysql access" src="../upandrunningimages/mysqlaccess.png" /></p>
-<div class="highlight"><pre><span></span><code>mysql -u root -h mysql -p
+<div class="highlight"><pre><span></span><code>mysql -u root -h mysql -ppetclinic
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="k">use</span> <span class="n">petclinic</span><span class="p">;</span>
 </code></pre></div>
@@ -664,8 +668,12 @@
 <p><img alt="mysql owner check" src="../upandrunningimages/mysqlowners.png" /></p>
 <div class="highlight"><pre><span></span><code><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">owners</span><span class="p">;</span>
 </code></pre></div>
-<p>Please let the instructors know, if you don't see your owner listed. </p>
-<p>Congratulations, you have completed this part of the workshop! You may move on to the next part, <a href="../pipeline/">PetClinic + OpenShift Pipelines = CI</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you added a different user than <em>alice</em> you should see that user in place of <em>alice</em> on your screen.</p>
+</div>
+<p>Please let the instructors know, if you don't see your owner you added listed. </p>
+<p>Congratulations, you have completed this part of the workshop! You may move on to the next part, by clicking next on the bottom of the page.</p>
                 
               
               
