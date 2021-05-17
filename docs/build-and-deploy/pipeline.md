@@ -9,7 +9,7 @@ Now that PetClinic is up and running on your OpenShift cluster, it's time to add
 
     - Configurable: Can tailor overall pipeline and individual tasks to needs of your enterprise/organization 
     
-    - Ease of Use: Pipeline Builder UI and built-in cluster resources (i.e. `ClusterTasks`, ClusterTriggerBindings`, etc.) enable you to easily create a pipeline and export the yaml files with minimal knowledge
+    - Ease of Use: Pipeline Builder UI and built-in cluster resources (i.e. `ClusterTasks`, `ClusterTriggerBindings`, etc.) enable you to easily create a pipeline and export the yaml files with minimal knowledge
 
 ## PetClinic Pipeline
 
@@ -436,7 +436,7 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
     ![Pipeline Run View](../images/Part1/PipelineRolloutRunView.png)
 
     !!! Success "Pipeline Run Details View"
-        In the pipeline run `Details` view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the image was `Triggered By` a user versus an automated source such as an event listener watching for a GitHub push...
+        In the pipeline run `Details` view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the above screenshot was `Triggered By` a user versus an automated source such as an event listener watching for a GitHub push...
 
     **Pipeline Run Success Logs Perspective:**
 
