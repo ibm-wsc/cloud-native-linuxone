@@ -1,5 +1,5 @@
 # Cloud Native Workshop Introduction
-We will setup and deploy an application (the cloud-native way) using OpenShift Container Platform and it's CI/CD workflow Openshift Pipelines.
+You will build and deploy an application (the cloud-native way) using OpenShift Container Platform and its CI/CD workflow OpenShift Pipelines.
 
 ## Overall Architecture Image
 
