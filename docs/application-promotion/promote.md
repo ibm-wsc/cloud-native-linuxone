@@ -21,7 +21,7 @@ The first thing you need to test is that the application is alive and available 
 This functionality is available in Kubernetes via [probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/){target="_blank" rel="noopener noreferrer"}. There are 3 different types of probes to test the different aspects of your application's availability:
 
 !!! info "Kubernetes Probes in Spring"
-    In Spring there are built-in endpoints for Kubernetes probes. If you are interested in learning how to program these into a Spring application of yours in the feature, please take a look at [Spring's official blog](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot){target="_blank" rel="noopener noreferrer"}
+    In Spring there are built-in endpoints for Kubernetes probes. If you are interested in learning how to program these into a Spring application of yours in the future, please take a look at [Spring's official blog](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot){target="_blank" rel="noopener noreferrer"}.
 
 1. Startup probes:
 
@@ -72,7 +72,7 @@ This functionality is available in Kubernetes via [probes](https://kubernetes.io
     
     2. Makes sure traffic goes only to replicas that are ready for it
     
-    3. Prevents user's from interacting with unready replicas (getting unnecessary errors)
+    3. Prevents users from interacting with unready replicas (getting unnecessary errors)
     
     Here is the `readinessProbe` for the container running PetClinic:
 
@@ -86,7 +86,7 @@ This functionality is available in Kubernetes via [probes](https://kubernetes.io
 
     It simply queries (via localhost) PetClinic's readiness health endpoint. This probe will let Kubernetes know when to send traffic to a PetClinic replica. When you send traffic to the application, only the available replicas will receive it. This means that replicas which aren't ready for traffic don't accidentally get it, preventing errors for the user.
 
-These 3 probes serve to declare to Kubernetes the way your application (and the replicas that make it up) should behave, enabling the system to monitor and take action on your behalf (restarting the container or removing it's pod's endpoint from service) when the current state (the status) does not meet the desired state (your specification).
+These 3 probes serve to declare to Kubernetes the way your application (and the replicas that make it up) should behave, enabling the system to monitor and take action on your behalf (restarting the container or removing its pod's endpoint from service) when the current state (the status) does not meet the desired state (your specification).
 
 The rollout task you created before as `deploy-dev` will only complete once all desired replicas are ready, implying that both the `startup` (initial liveness) and `readiness` probes have successfully passed and all replicas of your application are initially alive and ready for business. 
 
@@ -240,7 +240,7 @@ You should now see the created `connection-test` Task. Navigate back to the `Pip
 
 3. Save pipeline
 
-Your current pipeline builds and test your application, creates a docker image for it, deploys it to the development environment, and ensures that the application is working both internally and externally. In other words, once your application successfully completes the current pipeline, you can be confident in it and be ready to move to staging[^3]. 
+Your current pipeline builds and tests your application, creates a docker image for it, deploys it to the development environment, and ensures that the application is working both internally and externally. In other words, once your application successfully completes the current pipeline, you can be confident in it and be ready to move to staging[^3]. 
 
 [^3]: 
     You could create more extensive tests to make sure that the pages are rendering correctly (besides just returning a proper status code). However, that is beyond the scope of the lab and this at least makes sure requests are successfully sent and returned via an external route, which is good enough for the lab's purposes.
