@@ -659,7 +659,12 @@
 <p><img alt="Git Variables Populated" src="../../images/Part2/GitVariablesExist.png" /></p>
 </li>
 <li>
-<p>Watch the results of your build pipeline run. It should complete successfully as in the pictures below.</p>
+<p>Watch the results of your build pipeline run. It should complete successfully as in the pictures below. </p>
+<div class="admonition info">
+<p class="admonition-title">What to do if your pipeline run ends in failure</p>
+<p>If your pipeline run ends in failure, please look at the <code>Failure</code> tab (immediately below this message) to get back on track (instead of the default <code>Success</code> tab).</p>
+</div>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Success</label><div class="tabbed-content">
 <p><strong>Pipeline Run Success View Perspective:</strong></p>
 <p><img alt="Successful PipelineRun Details View" src="../../images/Part2/PipelineSucceeded.png" /></p>
 <div class="admonition success">
@@ -676,6 +681,35 @@
 <div class="admonition success">
 <p class="admonition-title">Pipeline Run Logs View 2</p>
 <p>When you switch to the <code>deploy-staging</code> task logs, by clicking on the <code>task</code> on the left hand side of the <code>Logs</code> view of the pipeline run, you see this was an automated build from git since the task prints out the <code>GIT_MESSAGE</code> that you typed in your commit word for word. (<em>Note: If you chose a different commit message that will show instead of the one displayed in the image above.</em>).</p>
+</div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Failure</label><div class="tabbed-content">
+<div class="admonition failure">
+<p class="admonition-title">Your pipeline failed, here is how to get back on the happy path</p>
+<ol>
+<li>
+<p>Please review your <code>pipelineRun</code> and see what error caused the failure.</p>
+</li>
+<li>
+<p>Make changes to fix the error. (If it's unclear what is causing the error / how to fix it, please ask the instructors for help) </p>
+</li>
+<li>
+<p>Resend the webhook from GitHub to trigger a new <code>pipelineRun</code> with the same values as before (see images below for help)</p>
+<ol>
+<li>
+<p>Click on your webhook from the <code>Webhooks</code> section of the repository settings for your GitHub repository fork of the <code>spring-petclinic</code> repository
+<img alt="GitHub Webhook View for Retry" src="../../images/Part2/ClickWebhookForRetry.png" /></p>
+</li>
+<li>
+<p>Click on the 3 dots for the most recent delivery</p>
+</li>
+<li>Click <code>Redeliver</code>
+<img alt="GitHub Webhook Send for Retry" src="../../images/Part2/RestartFailedPipelineRun.png" /></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </li>
 </ol>

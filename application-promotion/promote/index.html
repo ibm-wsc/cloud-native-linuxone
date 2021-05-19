@@ -707,7 +707,7 @@
 <p>This functionality is available in Kubernetes via <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/" rel="noopener noreferrer" target="_blank">probes</a>. There are 3 different types of probes to test the different aspects of your application's availability:</p>
 <div class="admonition info">
 <p class="admonition-title">Kubernetes Probes in Spring</p>
-<p>In Spring there are built-in endpoints for Kubernetes probes. If you are interested in learning how to program these into a Spring application of yours in the feature, please take a look at <a href="https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot" rel="noopener noreferrer" target="_blank">Spring's official blog</a></p>
+<p>In Spring there are built-in endpoints for Kubernetes probes. If you are interested in learning how to program these into a Spring application of yours in the future, please take a look at <a href="https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot" rel="noopener noreferrer" target="_blank">Spring's official blog</a>.</p>
 </div>
 <ol>
 <li>
@@ -766,7 +766,7 @@
 <p>Makes sure traffic goes only to replicas that are ready for it</p>
 </li>
 <li>
-<p>Prevents user's from interacting with unready replicas (getting unnecessary errors)</p>
+<p>Prevents users from interacting with unready replicas (getting unnecessary errors)</p>
 </li>
 </ol>
 <p>Here is the <code>readinessProbe</code> for the container running PetClinic:</p>
@@ -779,7 +779,7 @@
 <p>It simply queries (via localhost) PetClinic's readiness health endpoint. This probe will let Kubernetes know when to send traffic to a PetClinic replica. When you send traffic to the application, only the available replicas will receive it. This means that replicas which aren't ready for traffic don't accidentally get it, preventing errors for the user.</p>
 </li>
 </ol>
-<p>These 3 probes serve to declare to Kubernetes the way your application (and the replicas that make it up) should behave, enabling the system to monitor and take action on your behalf (restarting the container or removing it's pod's endpoint from service) when the current state (the status) does not meet the desired state (your specification).</p>
+<p>These 3 probes serve to declare to Kubernetes the way your application (and the replicas that make it up) should behave, enabling the system to monitor and take action on your behalf (restarting the container or removing its pod's endpoint from service) when the current state (the status) does not meet the desired state (your specification).</p>
 <p>The rollout task you created before as <code>deploy-dev</code> will only complete once all desired replicas are ready, implying that both the <code>startup</code> (initial liveness) and <code>readiness</code> probes have successfully passed and all replicas of your application are initially alive and ready for business. </p>
 <h3 id="testing-external-connections">Testing External Connections<a class="headerlink" href="#testing-external-connections" title="Permanent link">&para;</a></h3>
 <p>While making sure your application is internally up and running is important, at the end of the day you want to provide access to your users externally<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
@@ -909,7 +909,7 @@
 <p>Save pipeline</p>
 </li>
 </ol>
-<p>Your current pipeline builds and test your application, creates a docker image for it, deploys it to the development environment, and ensures that the application is working both internally and externally. In other words, once your application successfully completes the current pipeline, you can be confident in it and be ready to move to staging<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. </p>
+<p>Your current pipeline builds and tests your application, creates a docker image for it, deploys it to the development environment, and ensures that the application is working both internally and externally. In other words, once your application successfully completes the current pipeline, you can be confident in it and be ready to move to staging<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. </p>
 <h2 id="deploy-staging">Deploy Staging<a class="headerlink" href="#deploy-staging" title="Permanent link">&para;</a></h2>
 <p>Moving to the staging environment means spinning up your application in that environment (with parameters relevant for it) and testing it there. Given that this is all using containers, you can easily free up the development resources that have successfully completed and then spin up the new resources in your staging environment.</p>
 <h3 id="remove-dev">Remove Dev<a class="headerlink" href="#remove-dev" title="Permanent link">&para;</a></h3>
