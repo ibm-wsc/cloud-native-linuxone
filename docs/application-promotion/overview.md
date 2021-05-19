@@ -5,7 +5,7 @@ In this section, you will bring PetClinic from development to staging for the in
 1. [Promotion Tasks](promote.md)
     - Check successful connection of PetClinic `dev` version
     - Deploy PetClinic `staging` version
-    - Check successful connection of PetClinic `dev` version
+    - Check successful connection of PetClinic `staging` version
     
 2. [Git Tasks](git.md)
     - Add GitHub trigger to pipeline
@@ -16,5 +16,5 @@ In this section, you will bring PetClinic from development to staging for the in
 3. [Running Pipeline](action.md)
     - Update PetClinic with new animal type and push to GitHub
     - Watch GitHub trigger `PipelineRun`
-    - Watch app move from staging to dev seamlessly with images tagged with git commit SHA 
+    - Watch app move from dev to staging seamlessly with images tagged with git commit SHA 
     - Interact with the PetClinic application in staging using the new animal type
