@@ -76,26 +76,45 @@
 
     ![Git Variables Populated](../images/Part2/GitVariablesExist.png)
 
-4. Watch the results of your build pipeline run. It should complete successfully as in the pictures below.
+4. Watch the results of your build pipeline run. It should complete successfully as in the pictures below. 
 
-    **Pipeline Run Success View Perspective:**
+    !!! info "What to do if your pipeline run ends in failure"
+        If your pipeline run ends in failure, please look at the `Failure` tab (immediately below this message) to get back on track (instead of the default `Success` tab).
 
-    ![Successful PipelineRun Details View](../images/Part2/PipelineSucceeded.png)
+    === "Success"
+        **Pipeline Run Success View Perspective:**
 
-    !!! Success "Pipeline Run Details View"
-        In the pipeline run `Details` view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, observe that the event listener has triggered the `PipelineRun` instead of a user this time.
+        ![Successful PipelineRun Details View](../images/Part2/PipelineSucceeded.png)
 
-    **Pipeline Run Success Logs Perspective:**
+        !!! Success "Pipeline Run Details View"
+            In the pipeline run `Details` view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, observe that the event listener has triggered the `PipelineRun` instead of a user this time.
 
-    ![Successful PipelineRun Logs View 1](../images/Part2/PipelineRunLogsSucceeded.png)
+        **Pipeline Run Success Logs Perspective:**
 
-    !!! Success "Pipeline Run Logs View 1"
-        In the pipeline run `Logs` view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task, you can see that the that the external connection check worked and the PetClinic application is available at the route printed in the logs. Additionally, you can see via the series of tasks marked with green checks that the dev deployment ran successfully and the system cleaned it up and ran the staging deployment successfully to complete the pipeline.
-        
-    ![Successful PipelineRun Logs View 2](../images/Part2/PipelineRunCommitLogs.png)
+        ![Successful PipelineRun Logs View 1](../images/Part2/PipelineRunLogsSucceeded.png)
 
-    !!! Success "Pipeline Run Logs View 2"
-        When you switch to the `deploy-staging` task logs, by clicking on the `task` on the left hand side of the `Logs` view of the pipeline run, you see this was an automated build from git since the task prints out the `GIT_MESSAGE` that you typed in your commit word for word. (_Note: If you chose a different commit message that will show instead of the one displayed in the image above._).
+        !!! Success "Pipeline Run Logs View 1"
+            In the pipeline run `Logs` view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task, you can see that the that the external connection check worked and the PetClinic application is available at the route printed in the logs. Additionally, you can see via the series of tasks marked with green checks that the dev deployment ran successfully and the system cleaned it up and ran the staging deployment successfully to complete the pipeline.
+            
+        ![Successful PipelineRun Logs View 2](../images/Part2/PipelineRunCommitLogs.png)
+
+        !!! Success "Pipeline Run Logs View 2"
+            When you switch to the `deploy-staging` task logs, by clicking on the `task` on the left hand side of the `Logs` view of the pipeline run, you see this was an automated build from git since the task prints out the `GIT_MESSAGE` that you typed in your commit word for word. (_Note: If you chose a different commit message that will show instead of the one displayed in the image above._).
+
+    === "Failure"
+        !!! Failure "Your pipeline failed, here is how to get back on the happy path"
+            1. Please review your `pipelineRun` and see what error caused the failure.
+
+            2. Make changes to fix the error. (If it's unclear what is causing the error / how to fix it, please ask the instructors for help) 
+
+            3. Resend the webhook from GitHub to trigger a new `pipelineRun` with the same values as before (see images below for help)
+
+                1. Click on your webhook from the `Webhooks` section of the repository settings for your GitHub repository fork of the `spring-petclinic` repository
+                ![GitHub Webhook View for Retry](../images/Part2/ClickWebhookForRetry.png)
+
+                2. Click on the 3 dots for the most recent delivery
+                3. Click `Redeliver`
+                ![GitHub Webhook Send for Retry](../images/Part2/RestartFailedPipelineRun.png)
 
 ### See Changes in Application
 
