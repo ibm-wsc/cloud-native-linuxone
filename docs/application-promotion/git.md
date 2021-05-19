@@ -30,7 +30,7 @@ It's time to add the `C` (continuous) to your CI/CD pipeline.
     $(tt.params.git-revision)
     ```
 
-You are choosing the `github-push` cluster trigger binding, which is defined out of the box for OpenShift pipelines. This passes information into a number of different variables which you can list by clicking the expand arrow seen in the picture (It will initially say `Show Variables` and then switch to `Hide Variables` when expanded as shown in the picture). You will be using the variables in green boxes in the picture to pass the git commit message (`git-commit-message`) as well as the SHA of the git commit (`git-revision`) to the build pipeline from the GitHub webhook that triggers the build.
+You are choosing the `github-push` cluster trigger binding, which is defined out of the box for OpenShift Pipelines. This passes information into a number of different variables which you can list by clicking the expand arrow seen in the picture (It will initially say `Show Variables` and then switch to `Hide Variables` when expanded as shown in the picture). You will be using the variables in green boxes in the picture to pass the git commit message (`git-commit-message`) as well as the SHA of the git commit (`git-revision`) to the build pipeline from the GitHub webhook that triggers the build.
 
 ## Setting up Git Webhook
 
@@ -59,7 +59,7 @@ Now, you need to set up a webhook from GitHub. You want this to hit your `event 
 
     ![Add Webhook](../images/Part2/AddGithubWebhook.png)
 
-5. See the successfully create webhook now listed
+5. See the successfully created webhook now listed
 
     ![Webhook Listed](../images/Part2/WebhookListed.png)
 
