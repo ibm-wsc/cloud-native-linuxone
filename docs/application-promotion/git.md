@@ -63,7 +63,7 @@ Now, you need to set up a webhook from GitHub. You want this to hit your `event 
 
     ![Webhook Listed](../images/Part2/WebhookListed.png)
 
-## Summary
+## Summary :full_moon:
 
 You created a GitHub webhook for your `spring-petclinic` repository fork that will trigger a new run of your `spring-petclinic` pipeline when new code is pushed to your GitHub repo[^1]. You will trigger your pipeline via GitHub in the next section.
 

@@ -1,8 +1,8 @@
-# Automatically testing and promoting your application
+# Automatically Testing and Promoting your Application
 
 Here you will edit your pipeline to test your application in development, clean up your development resources, promote your application to staging, and test it in staging.
 
-## Testing your application in the wild
+## Testing your Application in the Wild
 
 During the build stage of your pipeline, you tested two things:
 
@@ -393,7 +393,7 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
     ![Save Pipeline](../images/Part2/SavePipeline.png)
 
-## Summary
+## Summary :waxing_gibbous_moon:
 
 Congratulations! You have built a pipeline that tests your `PetClinic` application, creates a docker image for it, deploys it to the development environment with dev configuration, ensures that the application is working both internally and externally, cleans up the development environment, deploys it to the staging environment with staging configuration and then makes sure it is working both internally and externally[^5]. 
 

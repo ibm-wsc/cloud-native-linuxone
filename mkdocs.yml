@@ -8,7 +8,10 @@ nav:
     - Build and Deploy Pet Clinic:
       - Section Overview: build-and-deploy/overview.md
       - PetClinic Up and Running: build-and-deploy/upandrunning.md
-      - PetClinic + OpenShift Pipelines: build-and-deploy/pipeline.md
+    - Configure PetClinic's Pipeline:
+      - Section Overview: full-dev-pipeline/overview.md
+      - Configure Build and Test: full-dev-pipeline/pipeline.md
+      - Configure Development Deployment: full-dev-pipeline/runpipeline.md
     - Test and Promote Pet Clinic:
       - Section Overview: application-promotion/overview.md
       - Promoting Application: application-promotion/promote.md

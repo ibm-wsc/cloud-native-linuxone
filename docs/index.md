@@ -4,8 +4,11 @@ Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift
 
 ## Agenda
 * [Introduction to Cloud Native Workshop](introduction.md)
-* [Deploy Pet Clinic via OpenShift Pipelines](build-and-deploy/overview.md)
-* [Extend Pipeline to Upgrade from Deployment to Staging](application-promotion/overview.md)
+* [Deploy PetClinic via OpenShift Pipelines](build-and-deploy/overview.md)
+* [Configure PetClinic's Integration and Deployment via OpenShift Pipelines to Meet Your Organization's Needs](full-dev-pipeline/overview.md)[^1]
+* [Extend Pipeline to Upgrade from Development to Staging](application-promotion/overview.md)
+
+[^1]: For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.
 
 ## Acknowledgements
 * Thanks to the following contributors:

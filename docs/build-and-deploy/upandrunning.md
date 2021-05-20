@@ -1,8 +1,8 @@
-# Getting Your PetClinic Up and Running
+# Getting Your PetClinic Application Up and Running
 
 For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. [The official version of PetClinic](https://github.com/spring-projects/spring-petclinic){target="_blank" rel="noopener noreferrer"} demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. 
 
-You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud-native application and a DevOps pipeline for the application.
+You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud native application and a DevOps pipeline for the application.
 
 You will start by building your PetClinic application from the source code and connecting it to a MySQL database.
 
@@ -72,7 +72,7 @@ That's it! You are ready to move on to the next section.
 
 ## Building and Deploying PetClinic Application
 
-There are multiple ways OpenShift enables cloud-native application developers to package up their applications and deploy them. For PetClinic, you will be building your application image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how OpenShift Pipelines work.
+There are multiple ways OpenShift enables cloud native application developers to package up their applications and deploy them. For PetClinic, you will be building your application image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how OpenShift Pipelines work.
 
 **1.** Start with choosing Add From Git:
 
@@ -186,4 +186,6 @@ select * from owners;
 
 Please let the instructors know, if you don't see your owner you added listed. 
 
-Congratulations, you have completed this part of the workshop! You may move on to the next part, by clicking next on the bottom of the page.
+## Summary :new_moon_with_face:
+
+Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an OpenShift Pipelines pipeline that you will build on in the next sections of the lab. You may move on to the next part by clicking `Next` on the bottom of the page.
