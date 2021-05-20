@@ -329,13 +329,67 @@
   
 
           
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Configure PetClinic's Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Configure PetClinic's Pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Configure PetClinic's Pipeline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
   
   
   
     <li class="md-nav__item">
-      <a href="../build-and-deploy/pipeline/" class="md-nav__link">
-        PetClinic + OpenShift Pipelines
+      <a href="../full-dev-pipeline/overview/" class="md-nav__link">
+        Section Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full-dev-pipeline/pipeline/" class="md-nav__link">
+        Configure Build and Test
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full-dev-pipeline/runpipeline/" class="md-nav__link">
+        Configure Development Deployment
       </a>
     </li>
   
@@ -358,14 +412,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
-      <label class="md-nav__link" for="__nav_5">
+      <label class="md-nav__link" for="__nav_6">
         Test and Promote Pet Clinic
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Test and Promote Pet Clinic" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Test and Promote Pet Clinic
         </label>
@@ -526,20 +580,31 @@
                 
                 
                 <h1 id="cloud-native-workshop-introduction">Cloud Native Workshop Introduction<a class="headerlink" href="#cloud-native-workshop-introduction" title="Permanent link">&para;</a></h1>
-<p>You will build and deploy an application (the cloud-native way) using OpenShift Container Platform and its CI/CD workflow OpenShift Pipelines.</p>
+<p>You will build and deploy an application (the cloud native way) using OpenShift Container Platform and its CI/CD workflow OpenShift Pipelines.</p>
 <h2 id="overall-architecture-image">Overall Architecture Image<a class="headerlink" href="#overall-architecture-image" title="Permanent link">&para;</a></h2>
 <p>One day an architecture image will sit here. Until then, enjoy this text.</p>
 <h2 id="lab-overview">Lab Overview<a class="headerlink" href="#lab-overview" title="Permanent link">&para;</a></h2>
 <p>You will set up a virtual pet clinic (based on the classic spring boot demo referenced in the main <a href="https://projects.spring.io/spring-petclinic/" rel="noopener noreferrer" target="_blank">documentation</a> running on LinuxONE using source code on GitHub and OpenShift Pipelines to seamlessly update, test, and deploy your pet clinic.</p>
-<p>This lab is broken into two parts:</p>
+<p>This lab is broken into three parts:</p>
 <ol>
 <li>
-<p>Automating build and deploy of PetClinic Java application with OpenShift Pipelines</p>
+<p>Building and deploying the PetClinic Java application with OpenShift Pipelines</p>
+</li>
+<li>
+<p>Configuring PetClinic's integration and deployment pipeline to meet your organization's needs<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </li>
 <li>
 <p>Promoting PetClinic from development to staging with testing and GitHub integration (adding the C [continuous] in CI/CD)</p>
 </li>
 </ol>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>For the purposes of this lab you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
               
               

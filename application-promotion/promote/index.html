@@ -284,13 +284,67 @@
   
 
           
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Configure PetClinic's Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Configure PetClinic's Pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Configure PetClinic's Pipeline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
   
   
   
     <li class="md-nav__item">
-      <a href="../../build-and-deploy/pipeline/" class="md-nav__link">
-        PetClinic + OpenShift Pipelines
+      <a href="../../full-dev-pipeline/overview/" class="md-nav__link">
+        Section Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../full-dev-pipeline/pipeline/" class="md-nav__link">
+        Configure Build and Test
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../full-dev-pipeline/runpipeline/" class="md-nav__link">
+        Configure Development Deployment
       </a>
     </li>
   
@@ -315,14 +369,14 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
-      <label class="md-nav__link" for="__nav_5">
+      <label class="md-nav__link" for="__nav_6">
         Test and Promote Pet Clinic
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Test and Promote Pet Clinic" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Test and Promote Pet Clinic
         </label>
@@ -377,10 +431,10 @@
       
         <li class="md-nav__item">
   <a href="#testing-your-application-in-the-wild" class="md-nav__link">
-    Testing your application in the wild
+    Testing your Application in the Wild
   </a>
   
-    <nav class="md-nav" aria-label="Testing your application in the wild">
+    <nav class="md-nav" aria-label="Testing your Application in the Wild">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -579,10 +633,10 @@
       
         <li class="md-nav__item">
   <a href="#testing-your-application-in-the-wild" class="md-nav__link">
-    Testing your application in the wild
+    Testing your Application in the Wild
   </a>
   
-    <nav class="md-nav" aria-label="Testing your application in the wild">
+    <nav class="md-nav" aria-label="Testing your Application in the Wild">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -689,9 +743,9 @@
                   </a>
                 
                 
-                <h1 id="automatically-testing-and-promoting-your-application">Automatically testing and promoting your application<a class="headerlink" href="#automatically-testing-and-promoting-your-application" title="Permanent link">&para;</a></h1>
+                <h1 id="automatically-testing-and-promoting-your-application">Automatically Testing and Promoting your Application<a class="headerlink" href="#automatically-testing-and-promoting-your-application" title="Permanent link">&para;</a></h1>
 <p>Here you will edit your pipeline to test your application in development, clean up your development resources, promote your application to staging, and test it in staging.</p>
-<h2 id="testing-your-application-in-the-wild">Testing your application in the wild<a class="headerlink" href="#testing-your-application-in-the-wild" title="Permanent link">&para;</a></h2>
+<h2 id="testing-your-application-in-the-wild">Testing your Application in the Wild<a class="headerlink" href="#testing-your-application-in-the-wild" title="Permanent link">&para;</a></h2>
 <p>During the build stage of your pipeline, you tested two things:</p>
 <ol>
 <li>That the pieces of your application worked (unit testing)</li>
@@ -1026,7 +1080,7 @@
 <p><img alt="Save Pipeline" src="../../images/Part2/SavePipeline.png" /></p>
 </li>
 </ol>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<h2 id="summary">Summary <img alt="🌔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f314.svg" title=":waxing_gibbous_moon:" /><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <p>Congratulations! You have built a pipeline that tests your <code>PetClinic</code> application, creates a docker image for it, deploys it to the development environment with dev configuration, ensures that the application is working both internally and externally, cleans up the development environment, deploys it to the staging environment with staging configuration and then makes sure it is working both internally and externally<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. </p>
 <div class="admonition summary">
 <p class="admonition-title">tl;dr</p>

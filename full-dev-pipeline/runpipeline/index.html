@@ -14,7 +14,7 @@
     
     
       
-        <title>PetClinic + OpenShift Pipelines - Cloud Native LinuxONE Workshop</title>
+        <title>Configure Development Deployment - Cloud Native LinuxONE Workshop</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#petclinic-openshift-pipelines" class="md-skip">
+        <a href="#configure-petclinic-development-deployment-to-meet-your-organizations-requirements1" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PetClinic + OpenShift Pipelines
+              Configure Development Deployment
             
           </span>
         </div>
@@ -242,14 +242,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       <label class="md-nav__link" for="__nav_4">
         Build and Deploy Pet Clinic
@@ -259,6 +257,62 @@
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Build and Deploy Pet Clinic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-and-deploy/overview/" class="md-nav__link">
+        Section Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-and-deploy/upandrunning/" class="md-nav__link">
+        PetClinic Up and Running
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
+        Configure PetClinic's Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Configure PetClinic's Pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Configure PetClinic's Pipeline
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -279,8 +333,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../upandrunning/" class="md-nav__link">
-        PetClinic Up and Running
+      <a href="../pipeline/" class="md-nav__link">
+        Configure Build and Test
       </a>
     </li>
   
@@ -300,12 +354,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          PetClinic + OpenShift Pipelines
+          Configure Development Deployment
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        PetClinic + OpenShift Pipelines
+        Configure Development Deployment
       </a>
       
         
@@ -320,27 +374,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#petclinic-pipeline" class="md-nav__link">
-    PetClinic Pipeline
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ensure-mysql-database-deployed-for-each-run" class="md-nav__link">
-    Ensure MySQL Database Deployed for each Run
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#make-clean-image-from-s2i-build" class="md-nav__link">
-    Make Clean Image from S2I build
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#manage-resource-across-environments-with-kustomize" class="md-nav__link">
@@ -390,6 +423,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -415,14 +455,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
-      <label class="md-nav__link" for="__nav_5">
+      <label class="md-nav__link" for="__nav_6">
         Test and Promote Pet Clinic
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Test and Promote Pet Clinic" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Test and Promote Pet Clinic
         </label>
@@ -552,27 +592,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#petclinic-pipeline" class="md-nav__link">
-    PetClinic Pipeline
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ensure-mysql-database-deployed-for-each-run" class="md-nav__link">
-    Ensure MySQL Database Deployed for each Run
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#make-clean-image-from-s2i-build" class="md-nav__link">
-    Make Clean Image from S2I build
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#manage-resource-across-environments-with-kustomize" class="md-nav__link">
     Manage resource across environments with Kustomize
   </a>
@@ -620,6 +639,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -632,200 +658,19 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ibm-wsc/cloud-native-linuxone/edit/main/docs/build-and-deploy/pipeline.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ibm-wsc/cloud-native-linuxone/edit/main/docs/full-dev-pipeline/runpipeline.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="petclinic-openshift-pipelines">PetClinic + OpenShift Pipelines<a class="headerlink" href="#petclinic-openshift-pipelines" title="Permanent link">&para;</a></h1>
-<p>Now that PetClinic is up and running on your OpenShift cluster, it's time to add functionality to your pipeline to achieve basic continuous integration. The OpenShift pipeline you created in the <a href="../upandrunning/">PetClinic Up and Running</a> uses <a href="https://tekton.dev" rel="noopener noreferrer" target="_blank">Tekton</a> to run a series of tasks (each with one or more steps) to accomplish a workflow (pipeline). You will use the Pipeline Builder UI built into OpenShift to quickly and easily craft a pipeline for your project.</p>
-<div class="admonition info">
-<p class="admonition-title">Why OpenShift Pipelines?</p>
-<ul>
-<li>
-<p>Portable: OpenShift resources defined via yaml files -&gt; portable across OpenShift clusters</p>
-</li>
-<li>
-<p>Low Resource Usage: Containers spin up when triggered -&gt; resources only used when needed</p>
-</li>
-<li>
-<p>Configurable: Can tailor overall pipeline and individual tasks to needs of your enterprise/organization </p>
-</li>
-<li>
-<p>Ease of Use: Pipeline Builder UI and built-in cluster resources (i.e. <code>ClusterTasks</code>, <code>ClusterTriggerBindings</code>, etc.) enable you to easily create a pipeline and export the yaml files with minimal knowledge</p>
-</li>
-</ul>
-</div>
-<h2 id="petclinic-pipeline">PetClinic Pipeline<a class="headerlink" href="#petclinic-pipeline" title="Permanent link">&para;</a></h2>
-<p>When you deployed the PetClinic application using the <code>From Git</code> option in the <a href="../upandrunning/">PetClinic Up and Running</a> section, you chose to create a basic pipeline. You'll start with this pipeline and edit it to add new functionality for your use case. </p>
-<p>Navigate to the <code>Pipelines</code> tab in the <code>Developer</code> perspective on the left and then click the three dots to the right of the pipeline name (<code>spring-petclinic</code>) and choose <code>Edit Pipeline</code>. <img alt="Pipeline Image" src="../../images/Part1/EditNewPipeline.png" /> </p>
-<h2 id="ensure-mysql-database-deployed-for-each-run">Ensure MySQL Database Deployed for each Run<a class="headerlink" href="#ensure-mysql-database-deployed-for-each-run" title="Permanent link">&para;</a></h2>
-<p>This will bring you to the Pipeline Builder UI where you can edit your pipeline. Here you will make sure the MySQL database is configured according to your specification before the <code>build</code> task.</p>
-<ol>
-<li>
-<p>Add a <code>mysql-deploy</code> task in parallel to the <code>git-fetch</code> task. 
-    <img alt="Add Parallel MySQL" src="../../images/Part1/mySQL_ParallelTask.png" /> </p>
-<div class="admonition info">
-<p class="admonition-title">Why is <code>mysql-deploy</code> in Parallel?</p>
-<p>This ensures MySQL is in place for each <code>PetClinic</code> application build (which would fail without it).  </p>
-</div>
-<p>Click <code>Select Task</code> in the middle of the rectangle of the new task and choose the <code>openshift-client</code> task from the dropdown menu. </p>
-<p><img alt="ChooseOpenShift Client" src="../../images/Part1/Choose_OpenShiftClientTask.png" /></p>
-<p>Click on the middle of the oval of the <code>openshift-client</code> task to enter values for it (copy and paste boxes below image).</p>
-<p><img alt="Click OpenShift Client" src="../../images/Part1/OpenShiftClientOval.png" /></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Once you add a specific task (i.e. <code>openshift-client</code>), clicking on the oval of the task will enable you to edit its default values for your needs.</p>
-</div>
-<p>Give the task the following parameters to ensure the MySQL database is available with the necessary configuration:</p>
-<p><img alt="MySQL Task" src="../../images/Part1/MySQLTemplateTask.png" /></p>
-<p><strong>Display Name</strong></p>
-<div class="highlight"><pre><span></span><code>mysql-deploy
-</code></pre></div>
-<p><strong>SCRIPT</strong></p>
-<div class="highlight"><pre><span></span><code>oc process openshift//mysql-ephemeral -p <span class="nv">MYSQL_USER</span><span class="o">=</span>petclinic -p <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>petclinic -p <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>petclinic -p <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>petclinic <span class="p">|</span> oc apply -f -
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Simply Click Away</p>
-<p>Once you have entered the string into the <code>SCRIPT</code> section, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">What is <code>oc process</code> doing?</p>
-<p><code>oc process</code> is processing the <a href="https://docs.openshift.com/container-platform/4.7/openshift_images/using-templates.html#templates-overview_using-templates" rel="noopener noreferrer" target="_blank">OpenShift template</a> for the <code>mysql-ephemeral</code> database with the parameters given via a series of <code>-p</code> arguments and finally <code>oc apply -f -</code> ensures that any missing components will be recreated.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">No help please!</p>
-<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
-</div>
-</li>
-<li>
-<p>Add a <code>mysql-rollout-wait</code> task</p>
-<p>You need to make sure that <code>mysql</code> is fully deployed before your <code>build</code> task begins. In order to achieve this, you will use the OpenShift Client again and wait for the <code>rollout</code> of the <code>mysql</code> <code>deploymentConfig</code> to complete after the <code>mysql-deploy</code> task. Add a sequential task after <code>mysql-deploy</code>:</p>
-<p><img alt="mysql sequential task" src="../../images/Part1/mySQL_SequentialTask.png" /></p>
-<p><code>Select Task</code> as <code>openshift-client</code> like before and then fill out the task with the following parameters (copy and paste boxes below image for changes):</p>
-<p><img alt="mysql-check task" src="../../images/Part1/MySQLRolloutWait.png" /></p>
-<p><strong>Display Name</strong></p>
-<div class="highlight"><pre><span></span><code>mysql-rollout-wait
-</code></pre></div>
-<p><strong>ARGS</strong></p>
-<div class="highlight"><pre><span></span><code>rollout
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>status
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>dc/mysql
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">No help please!</p>
-<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running).</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">What the ARGS?</p>
-<p>You may be wondering why you used the <code>SCRIPT</code> section in the <code>mysql-deploy</code> task for the entire command, but now are using the <code>ARGS</code> to individually list each argument of the command? Both work and so you are going through both methods here. On the one hand, the <code>SCRIPT</code> method is easier to copy and paste and looks the same as it would entered on the command line. On the other hand, the <code>ARGS</code> method adds readability to the task. Choose whichever method you prefer, though beware of input errors  with the <code>ARGS</code> method for long commands. <em>FYI: The equivalent <code>SCRIPT</code> command for the <code>mysql-rollout-wait</code> task is</em>:</p>
-<div class="highlight"><pre><span></span><code>oc rollout status dc/mysql
-</code></pre></div>
-</div>
-</li>
-</ol>
-<p><img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /> Now your <code>mysql-deploy</code> and <code>mysql-rollout</code> tasks will have <code>MySQL</code> alive and well for the <code>build</code> task!</p>
-<h2 id="make-clean-image-from-s2i-build">Make Clean Image from S2I build<a class="headerlink" href="#make-clean-image-from-s2i-build" title="Permanent link">&para;</a></h2>
-<p>The <code>s2i-java-11</code> image is very convenient for making an image from source code. However, the simplicity that gives it value can make it fail at meeting the needs of many organizations by itself. In your case, you will take the artifacts from the s2i image and copy them to a new Docker image that can meet all your needs to get the best of both worlds. You'll create an optimized image starting from a compact <code>openj9</code> java 11 base and employing <a href="https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1#layered-jars" rel="noopener noreferrer" target="_blank">the advanced layers feature in spring</a> that optimizes Docker image caching with the <a href="https://raw.githubusercontent.com/ibm-wsc/spring-petclinic/main/final-Dockerfile" rel="noopener noreferrer" target="_blank">final-Dockerfile</a> in the <a href="https://github.com/ibm-wsc/spring-petclinic" rel="noopener noreferrer" target="_blank">ibm-wsc/spring-petclinic</a> git repository you forked. </p>
-<ol>
-<li>
-<p>Add <code>Buildah</code> task</p>
-<p>Add the <code>buildah</code> task as a sequential task after the <code>build</code> task.</p>
-<p><img alt="Add Buildah Task" src="../../images/Part1/AddBuildahTask.png" /></p>
-</li>
-<li>
-<p>Configure <code>buildah</code> task</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Each value that you need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match the image)</p>
-</div>
-<p><img alt="Buildah Task Values" src="../../images/Part1/ProducingCleanImageBuildah2.png" /></p>
-<p>DISPLAY NAME:
-<div class="highlight"><pre><span></span><code>clean-image
-</code></pre></div></p>
-<p>IMAGE:
-<div class="highlight"><pre><span></span><code>$(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
-</code></pre></div></p>
-<p>DOCKERFILE:
-<div class="highlight"><pre><span></span><code>./final-Dockerfile
-</code></pre></div></p>
-<p>TLSVERIFY:
-<div class="highlight"><pre><span></span><code>false
-</code></pre></div></p>
-<p>BUILD_EXTRA_ARGS:
-<div class="highlight"><pre><span></span><code>--build-arg PETCLINIC_S2I_IMAGE=$(params.IMAGE_NAME)
-</code></pre></div></p>
-</li>
-<li>
-<p>Add <code>GIT_MESSAGE</code>, and <code>COMMIT_SHA</code> parameters to the pipeline</p>
-<p>Click <code>Add Parameter</code> twice ...</p>
-<p><img alt="Add Parameter" src="../../images/Part1/AddParameter.png" /></p>
-<p>and then fill in the parameter details for <code>GIT_MESSAGE</code> and <code>COMMIT_SHA</code> (copy and paste boxes below image)</p>
-<p><img alt="Add Image and Git Parameters" src="../../images/Part1/AddParameters.png" /></p>
-<p><strong>GIT_MESSAGE</strong></p>
-<p><code>GIT_MESSAGE</code> Parameter Name:
-<div class="highlight"><pre><span></span><code>GIT_MESSAGE
-</code></pre></div>
-<code>GIT_MESSAGE</code> Parameter Description:
-<div class="highlight"><pre><span></span><code>Git commit message if triggered by Git, otherwise it&#39;s a manual build
-</code></pre></div>
-<code>GIT_MESSAGE</code> Parameter Default Value
-<div class="highlight"><pre><span></span><code>This is a manual build (not triggered by Git)
-</code></pre></div></p>
-<p><strong>COMMIT_SHA</strong></p>
-<p><code>COMMIT_SHA</code> Parameter Name:
-<div class="highlight"><pre><span></span><code>COMMIT_SHA
-</code></pre></div>
-<code>COMMIT_SHA</code> Parameter Description:
-<div class="highlight"><pre><span></span><code>SHA of Git commit if triggered by Git, otherwise just update manual tag
-</code></pre></div>
-<code>COMMIT_SHA</code> Parameter Default Value:
-<div class="highlight"><pre><span></span><code>manual
-</code></pre></div></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Save parameters when done with entry by clicking on blue <code>SAVE</code> box before moving onto step 4. If blue <code>SAVE</code> box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the <code>-</code>.</p>
-</div>
-</li>
-<li>
-<p>Add workspace to <code>clean-image</code> task </p>
-<ol>
-<li>
-<p>Save current pipeline edit and switch to <code>YAML</code> from pipeline menu.</p>
-<p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png" /></p>
-<div class="admonition info">
-<p class="admonition-title">Why are you editing yaml directly?</p>
-<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.</p>
-</div>
-</li>
-<li>
-<p>Find the <code>clean-image-task</code> and add the following workspace definition:</p>
-<div class="highlight"><pre><span></span><code>      <span class="nt">workspaces</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
-        <span class="nt">workspace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
-</code></pre></div>
-<p><img alt="Clean Image Workspace" src="../../images/Part1/AddWorspaceProducingCleanImage.png" /></p>
-</li>
-<li>
-<p>Save the update</p>
-<p><img alt="Save Pipeline Edit Yaml" src="../../images/Part1/PipelineUpdatedYaml.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>After the save message above appears you can then proceed to <code>Cancel</code> back to the pipeline menu.</p>
-</div>
-</li>
-</ol>
-</li>
-</ol>
+                <h1 id="configure-petclinic-development-deployment-to-meet-your-organizations-requirements1">Configure PetClinic Development Deployment to Meet your Organization's Requirements<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#configure-petclinic-development-deployment-to-meet-your-organizations-requirements1" title="Permanent link">&para;</a></h1>
 <h2 id="manage-resource-across-environments-with-kustomize">Manage resource across environments with Kustomize<a class="headerlink" href="#manage-resource-across-environments-with-kustomize" title="Permanent link">&para;</a></h2>
 <p><a href="https://kustomize.io" rel="noopener noreferrer" target="_blank">Kustomize</a> is a tool for customizing Kubernetes resource configuration.</p>
 <div class="admonition note">
 <p class="admonition-title">From the documentation overview</p>
 <p>Kustomize traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the <a href="https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/" rel="noopener noreferrer" target="_blank">Introducing Kustomize Kubernetes Blog Post</a> for a more in-depth overview of Kustomize and its purpose.</p>
 </div>
-<p>As part of doing things the "cloud-native" way you will be using Kustomize to manage resource changes across your <code>dev</code> and <code>staging</code> environments as well as injecting information from your pipeline (such as newly created image information with git commits) into your Kubernetes (OpenShift) resources. </p>
+<p>As part of doing things the "cloud native" way you will be using Kustomize to manage resource changes across your <code>dev</code> and <code>staging</code> environments as well as injecting information from your pipeline (such as newly created image information with git commits) into your Kubernetes (OpenShift) resources. </p>
 <p>To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the <a href="https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files" rel="noopener noreferrer" target="_blank">ocp-files directory</a>.</p>
 <p>For more information on how kubectl (and oc through kubectl) integrates Kustomize, see the <a href="https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/" rel="noopener noreferrer" target="_blank">kubectl documentation</a>.</p>
 <h3 id="creating-custom-task-for-kustomize">Creating Custom Task for Kustomize<a class="headerlink" href="#creating-custom-task-for-kustomize" title="Permanent link">&para;</a></h3>
@@ -1026,7 +871,16 @@
 </div>
 </li>
 </ol>
-<p><img alt="👍" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f44d.svg" title=":thumbsup:" /></p>
+<h2 id="summary">Summary <img alt="🌓" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f313.svg" title=":first_quarter_moon:" /><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>Congratulations! You successfully deployed your PetClinic application to your development environment with automated checks and configuration to meet your needs. This means that whenever your pipeline is triggered it will automatically spin up resources to build, test and deploy your application according to the specification you need to meet for your organization<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
               
               
@@ -1044,7 +898,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../upandrunning/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../pipeline/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1053,7 +907,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              PetClinic Up and Running
+              Configure Build and Test
             </div>
           </div>
         </a>
