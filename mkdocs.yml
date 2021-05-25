@@ -6,14 +6,14 @@ nav:
     - Introduction: introduction.md
     - Prerequisites: prerequisites.md
     - Build and Deploy Pet Clinic:
-      - Section Overview: build-and-deploy/overview.md
+      - Build and Deploy Overview: build-and-deploy/build_overview.md
       - PetClinic Up and Running: build-and-deploy/upandrunning.md
     - Configure PetClinic's Pipeline:
-      - Section Overview: full-dev-pipeline/overview.md
+      - Configure Pipeline Overview: full-dev-pipeline/configure_overview.md
       - Configure Build and Test: full-dev-pipeline/pipeline.md
       - Configure Development Deployment: full-dev-pipeline/runpipeline.md
     - Test and Promote Pet Clinic:
-      - Section Overview: application-promotion/overview.md
+      - Test and Promote Overview: application-promotion/promote_overview.md
       - Promoting Application: application-promotion/promote.md
       - Integrating Git: application-promotion/git.md
       - CI/CD in Action: application-promotion/action.md

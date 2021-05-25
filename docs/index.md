@@ -4,9 +4,9 @@ Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift
 
 ## Agenda
 * [Introduction to Cloud Native Workshop](introduction.md)
-* [Deploy PetClinic via OpenShift Pipelines](build-and-deploy/overview.md)
-* [Configure PetClinic's Integration and Deployment via OpenShift Pipelines to Meet Your Organization's Needs](full-dev-pipeline/overview.md)[^1]
-* [Extend Pipeline to Upgrade from Development to Staging](application-promotion/overview.md)
+* [Deploy PetClinic via OpenShift Pipelines](build-and-deploy/build_overview.md)
+* [Configure PetClinic's Integration and Deployment via OpenShift Pipelines to Meet Your Organization's Needs](full-dev-pipeline/configure_overview.md)[^1]
+* [Extend Pipeline to Upgrade from Development to Staging](application-promotion/promote_overview.md)
 
 [^1]: For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.
 
@@ -17,10 +17,9 @@ Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift
 
     - The `spring` developers for creating the [petclinic demo](https://projects.spring.io/spring-petclinic/){target="_blank" rel="noopener noreferrer"} and the `redhat-developer-demos` for sharing the `spring-petclinic` version of sample application we started with
 
-
-
+## Key Contributors
+* Barry Silliman
 
 ## Workshop authors
 * [Garrett Woodworth](mailto:garrett.lee.woodworth@ibm.com)
 * [Jin VanStee](mailto:jinxiong@us.ibm.com)
-* [Barry Silliman](mailto:silliman@us.ibm.com)

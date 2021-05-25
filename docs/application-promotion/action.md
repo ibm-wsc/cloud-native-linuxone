@@ -2,7 +2,7 @@
 
 ## Make a change in GitHub
 
-1. Navigate to your GitHub fork
+1. Navigate to your GitHub fork's main page (this is the `Code` tab if you are on a different tab such as settings)
 
 2. Choose to `Go to file`
 
@@ -62,7 +62,7 @@
 ## Continuous Integration via OpenShift Pipelines
 
 ## Successfully Run Pipeline via GitHub
-1. Visit the newly triggered pipeline run in the `Pipelines` menu in the UI
+1. Visit the newly triggered pipeline run in the `Pipelines` menu in the OpenShift UI
 
     ![Newly Triggered PipelineRun](../images/Part2/ViewGitPipelineRun.png)
 
