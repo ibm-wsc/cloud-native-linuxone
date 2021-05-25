@@ -14,7 +14,7 @@
     
     
       
-        <title>Section Overview - Cloud Native LinuxONE Workshop</title>
+        <title>Build and Deploy Overview - Cloud Native LinuxONE Workshop</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#its-time-to-get-your-pet-clinic-ready-for-its-internal-debut" class="md-skip">
+        <a href="#its-time-to-open-up-your-pet-clinic-for-testing" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Section Overview
+              Build and Deploy Overview
             
           </span>
         </div>
@@ -242,12 +242,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         Build and Deploy Pet Clinic
@@ -263,11 +265,20 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../build-and-deploy/overview/" class="md-nav__link">
-        Section Overview
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Build and Deploy Overview
       </a>
+      
     </li>
   
 
@@ -277,7 +288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build-and-deploy/upandrunning/" class="md-nav__link">
+      <a href="../upandrunning/" class="md-nav__link">
         PetClinic Up and Running
       </a>
     </li>
@@ -319,8 +330,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../full-dev-pipeline/overview/" class="md-nav__link">
-        Section Overview
+      <a href="../../full-dev-pipeline/configure_overview/" class="md-nav__link">
+        Configure Pipeline Overview
       </a>
     </li>
   
@@ -362,14 +373,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
         Test and Promote Pet Clinic
@@ -385,20 +394,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Section Overview
+    <li class="md-nav__item">
+      <a href="../../application-promotion/promote_overview/" class="md-nav__link">
+        Test and Promote Overview
       </a>
-      
     </li>
   
 
@@ -408,7 +408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../promote/" class="md-nav__link">
+      <a href="../../application-promotion/promote/" class="md-nav__link">
         Promoting Application
       </a>
     </li>
@@ -420,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../git/" class="md-nav__link">
+      <a href="../../application-promotion/git/" class="md-nav__link">
         Integrating Git
       </a>
     </li>
@@ -432,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../action/" class="md-nav__link">
+      <a href="../../application-promotion/action/" class="md-nav__link">
         CI/CD in Action
       </a>
     </li>
@@ -518,41 +518,18 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ibm-wsc/cloud-native-linuxone/edit/main/docs/application-promotion/overview.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ibm-wsc/cloud-native-linuxone/edit/main/docs/build-and-deploy/build_overview.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="its-time-to-get-your-pet-clinic-ready-for-its-internal-debut">It's Time to Get your Pet Clinic Ready for its Internal Debut<a class="headerlink" href="#its-time-to-get-your-pet-clinic-ready-for-its-internal-debut" title="Permanent link">&para;</a></h1>
-<p>In this section, you will bring PetClinic from development to staging for the internal showcase of your pet clinic (staging).</p>
-<ol>
-<li>
-<p><a href="../promote/">Promotion Tasks</a></p>
+                <h1 id="its-time-to-open-up-your-pet-clinic-for-testing">It's Time to Open up your Pet Clinic for Testing<a class="headerlink" href="#its-time-to-open-up-your-pet-clinic-for-testing" title="Permanent link">&para;</a></h1>
+<p>In this section, you will build, test and deploy the Java web application for your pet clinic (PetClinic) to <a href="../upandrunning/">get it up and running on OpenShift</a>. This involves the following tasks:</p>
 <ul>
-<li>Check successful connection of PetClinic <code>dev</code> version</li>
-<li>Deploy PetClinic <code>staging</code> version</li>
-<li>Check successful connection of PetClinic <code>staging</code> version</li>
+<li>Deploying MySQL database</li>
+<li>Building and deploying PetClinic with automated testing</li>
+<li>Accessing PetClinic and adding an owner</li>
 </ul>
-</li>
-<li>
-<p><a href="../git/">Git Tasks</a></p>
-<ul>
-<li>Add GitHub trigger to pipeline</li>
-<li>Pass git commit messages and hashes to pipeline</li>
-<li>Version images by git commit</li>
-<li>Add webhook to GitHub so it will trigger a new <code>PipelineRun</code> for each push</li>
-</ul>
-</li>
-<li>
-<p><a href="../action/">Running Pipeline</a></p>
-<ul>
-<li>Update PetClinic with new animal type and push to GitHub</li>
-<li>Watch GitHub trigger <code>PipelineRun</code></li>
-<li>Watch app move from dev to staging seamlessly with images tagged with git commit SHA </li>
-<li>Interact with the PetClinic application in staging using the new animal type</li>
-</ul>
-</li>
-</ol>
                 
               
               
@@ -570,7 +547,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../full-dev-pipeline/runpipeline/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../../prerequisites/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -579,19 +556,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Configure Development Deployment
+              Prerequisites
             </div>
           </div>
         </a>
       
       
-        <a href="../promote/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../upandrunning/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Promoting Application
+              PetClinic Up and Running
             </div>
           </div>
           <div class="md-footer__button md-icon">
