@@ -17,6 +17,8 @@ nav:
       - Promoting Application: application-promotion/promote.md
       - Integrating Git: application-promotion/git.md
       - CI/CD in Action: application-promotion/action.md
+    - Cleanup:
+      - Environment Cleanup: cleanup/full-cleanup.md 
     - Glossary of terms: glossary.md
     - Other resources: resources.md
     - Propose a change: proposechange.md
