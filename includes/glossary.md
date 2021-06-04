@@ -1,5 +1,5 @@
 *[OCP]: OpenShift Container Platform
-*[OpenShift]: (OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment
+*[OpenShift]: (OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment
 *[Kubernetes]: (k8s): an open-source system for automating deployment, scaling, and management of containerized applications.
 *[Container image]: a linux application image built as a static starting point for use with a container
 *[JVM]: (Java Virtual Machine): the runtime engine of the Java Platform. It enables Java programs and programs compiled into Java bytecode to run on any computer that has a native JVM
