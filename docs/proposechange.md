@@ -9,3 +9,5 @@ Make your changes in Markdown. And submit for review.
 The owners of this repo will review your pull request and accept or deny your change proposal.
 
 There are other ways of doing a pull request, a Google search will lead you to those tutorials.
+
+--8<-- "includes/glossary.md"

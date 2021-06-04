@@ -18,3 +18,5 @@ In this section, you will bring PetClinic from development to staging for the in
     - Watch GitHub trigger `PipelineRun`
     - Watch app move from dev to staging seamlessly with images tagged with git commit SHA 
     - Interact with the PetClinic application in staging using the new animal type
+
+--8<-- "includes/glossary.md"

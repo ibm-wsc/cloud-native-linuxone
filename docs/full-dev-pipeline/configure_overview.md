@@ -13,3 +13,5 @@ It's time to expand your pipeline to automate the integration and deployment pro
     - Setup PetClinic image deployment automation with tagging based on source
 
 [^1]: For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.
+
+--8<-- "includes/glossary.md"

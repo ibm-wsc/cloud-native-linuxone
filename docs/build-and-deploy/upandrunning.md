@@ -58,7 +58,7 @@ Then click on the `fork` button on the upper right corner.
 
 ![repofork](upandrunningimages/gitrepofork.png)
 
-At this point you might need to log into GitHub if you weren't logged in already.
+At this point, you might need to log into GitHub if you weren't logged in already.
 
 Next, you might be presented with a screen to ask you to select where to fork to. Select your own user account to fork to.
 
@@ -111,7 +111,7 @@ There are multiple ways OpenShift enables cloud native application developers to
 
 **9.** The pipeline will go through three tasks:
     
-&nbsp;&nbsp;&nbsp; 1. <b>fetch-repository</b> - this Pipeline task will clone your Git PetClinic repo for the build task.
+&nbsp;&nbsp;&nbsp; 1. <b>fetch-repository</b> - this Pipeline task will git clone your PetClinic repo for the build task.
 
 &nbsp;&nbsp;&nbsp; 2. <b>build</b> - this Pipeline task is the build process which itself is broken down into a few sub-steps. This is the longest task in the pipeline, and can take up to 15 minutes. The steps that it goes through are as follows:
 
@@ -189,3 +189,5 @@ Please let the instructors know, if you don't see your owner you added listed.
 ## Summary :new_moon_with_face:
 
 Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an OpenShift Pipelines pipeline that you will build on in the next sections of the lab. You may move on to the next part by clicking `Next` on the bottom of the page.
+
+--8<-- "includes/glossary.md"

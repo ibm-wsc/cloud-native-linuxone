@@ -215,6 +215,9 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
 
 3. Watch the results of your build pipeline run. It should complete successfully as in the pictures below.
 
+    !!! info "How long will your pipeline take to run?"
+        The pipeline run may take anywhere from 10-25 minutes to complete depending on the current system load. You can see the progress of your build, as well as if any errors occur, via the UI. Thus, by monitoring the UI, you can make sure things are going as planned.
+
     **Pipeline Run Success View Perspective:**
 
     ![Pipeline Run View](../images/Part1/PipelineRolloutRunView.png)
@@ -233,3 +236,5 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
 Congratulations! You successfully deployed your PetClinic application to your development environment with automated checks and configuration to meet your needs. This means that whenever your pipeline is triggered it will automatically spin up resources to build, test and deploy your application according to the specification you need to meet for your organization[^1].
 
 [^1]: For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.
+
+--8<-- "includes/glossary.md"

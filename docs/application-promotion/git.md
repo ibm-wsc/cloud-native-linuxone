@@ -34,7 +34,7 @@ You are choosing the `github-push` cluster trigger binding, which is defined out
 
 ## Setting up Git Webhook
 
-Now, you need to set up a webhook from GitHub. You want this to hit your `event listener`, the pipelines resource which listens for events from outside sources in order to trigger a build. The listener you set up is using the `github-push` trigger binding to trigger a new pipeline run for your `spring-petclinic` pipeline passing the `github-push` parameters mentioned before. You created this `event-listener` via the OpenShift Pipelines UI when you added a trigger and will see it in the `Topology` section of the OpenShift UI as another application when you travel back there later. In order to setup your webhook to send a message to the `event listener` after a Github Push, do the following:
+Now, you need to set up a webhook from GitHub. You want this to hit your `event listener`, the pipelines resource which listens for events from outside sources in order to trigger a build. The listener you set up is using the `github-push` trigger binding to trigger a new pipeline run for your `spring-petclinic` pipeline passing the `github-push` parameters mentioned before. You created this `event-listener` via the OpenShift Pipelines UI when you added a trigger and will see it in the `Topology` section of the OpenShift UI as another application when you travel back there later. In order to setup your webhook to send a message to the `event listener` after a git push, do the following:
 
 1. Get the event listener url from the pipeline view
 
@@ -68,3 +68,5 @@ Now, you need to set up a webhook from GitHub. You want this to hit your `event 
 You created a GitHub webhook for your `spring-petclinic` repository fork that will trigger a new run of your `spring-petclinic` pipeline when new code is pushed to your GitHub repo[^1]. You will trigger your pipeline via GitHub in the next section.
 
 [^1]: A more detailed explanation is that when new code is pushed to your GitHub repo, the GitHub webhook will send a payload to the event listener which then interacts with a number of OpenShift Pipelines-associated Kubernetes custom resources that you created when you used the `Add Trigger` button in the UI. Namely, the event listener will trigger a new `PipelineRun` of your `spring-petclinic` pipeline based on the `spring-petclinic` `TriggerTemplate` passing it the values for the git commit SHA hash and the commit message using the variables populated via the `github-push` `ClusterTriggerBinding`.
+
+--8<-- "includes/glossary.md"

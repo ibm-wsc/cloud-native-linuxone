@@ -17,3 +17,5 @@ Throughout your journey across the three parts listed above, you will slowly con
 ![Cloud Native Workshop Architecture Overview](images/IntroSection/CloudNativeArchitectureDiagram.png)
 
 [^1]: For the purposes of this lab you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.
+
+--8<-- "includes/glossary.md"

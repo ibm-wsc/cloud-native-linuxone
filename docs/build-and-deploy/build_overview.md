@@ -5,3 +5,5 @@ In this section, you will build, test and deploy the Java web application for yo
 - Deploying MySQL database
 - Building and deploying PetClinic with automated testing
 - Accessing PetClinic and adding an owner
+
+--8<-- "includes/glossary.md"

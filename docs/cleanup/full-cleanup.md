@@ -54,3 +54,5 @@ From the `Topology` section of the OpenShift UI, please complete the following c
         ![Confirm Delete of MySQL DeploymentConfig](../images/Cleanup/ConfirmDeleteDeploymentConfigMySQL.png)
 
 ## :tada: Thank You for Cleaning Up! :tada:
+
+--8<-- "includes/glossary.md"

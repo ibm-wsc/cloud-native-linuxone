@@ -16,6 +16,9 @@
     src/main/resources/db/mysql/data.sql
     ```
 
+    !!! Tip "If the file doesn't appear right away"
+        Depending on your internet connection to GitHub, there may be a slight delay before the file appears for editing (your screen matches the picture above and you can click to select the file).
+
 4. Select to edit the file
 
     ![Edit File](../images/Part2/EditGitFile.png)
@@ -78,7 +81,10 @@
 
 4. Watch the results of your build pipeline run. It should complete successfully as in the pictures below. 
 
-    !!! info "What to do if your pipeline run ends in failure"
+    !!! info "How long will your pipeline take to run?"
+        The pipeline run may take anywhere from 10-25 minutes to complete depending on the current system load. You can see the progress of your build, as well as if any errors occur, via the UI. Thus, by monitoring the UI, you can make sure things are going as planned.
+
+    !!! Tip "What to do if your pipeline run ends in failure"
         If your pipeline run ends in failure, please look at the `Failure` tab (immediately below this message) to get back on track (instead of the default `Success` tab).
 
     === "Success"
@@ -149,3 +155,5 @@
 ## Summary :full_moon_with_face:
 
 In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to OpenShift in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "cloud native" CI/CD for your PetClinic application on IBM Z/LinuxONE! Congratulations!!!
+
+--8<-- "includes/glossary.md"

@@ -101,7 +101,7 @@ While making sure your application is internally up and running is important, at
 
 This means it is important to also test the OpenShift route (the component providing the external connection) as part of your CI/CD pipeline to ensure it is correctly servicing web traffic external to your cluster[^2].
 [^2]: 
-    You may think to yourself that you can't test an external connection from inside your cluster. However, by using the route you are causing the traffic to go "outside" the cluster's networking to reach the load balancer and then back "inside" via the route, explicitly testing the external connection and making sure that it indeed works. This just tests that the route works, not that the dns/hostname is available generally on the internet or private enterprise subnet (depending on environment). Internet / subnet dns resolution is a different more general problem for your networking team (or cloud) to ensure for all of your applications using that network.
+    You may think to yourself that you can't test an external connection from inside your cluster. However, by using the route, you are causing the traffic to go "outside" the cluster's networking to reach the load balancer and then back "inside" via the route. This explicitly tests the external connection and makes sure that it indeed works. However, you are just testing that the route works, not that the dns/hostname is available generally on the internet or private enterprise subnet (depending on environment). Internet / subnet dns resolution is a different, more general problem for your networking team (or cloud provider) to ensure for all of the applications using that network.
 
 #### Create External Route Test Task
 
@@ -251,7 +251,7 @@ Moving to the staging environment means spinning up your application in that env
 
 ### Remove Dev
 
-Your first `Task` will mirror the `cleanup-resources` task at the beginning of your pipeline but cleanup just the `dev` resources using the `env=dev` [label selector](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors){target="_blank" rel="noopener noreferrer"}.
+Your first `Task` will mirror the `cleanup-resources` task at the beginning of your pipeline, but will just cleanup the `dev` resources using the `env=dev` [label selector](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors){target="_blank" rel="noopener noreferrer"}.
 
 1. Go back to editing your pipeline via `Actions -> Edit Pipeline`
 
@@ -395,7 +395,7 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
 ## Summary :waxing_gibbous_moon:
 
-Congratulations! You have built a pipeline that tests your `PetClinic` application, creates a docker image for it, deploys it to the development environment with dev configuration, ensures that the application is working both internally and externally, cleans up the development environment, deploys it to the staging environment with staging configuration and then makes sure it is working both internally and externally[^5]. 
+Congratulations! You have built a pipeline that tests your `PetClinic` application, creates a docker image for it, deploys it to the development environment with dev configuration, ensures that the application is working both internally and externally, cleans up the development environment, deploys it to the staging environment with staging configuration, and then makes sure it is working both internally and externally[^5]. 
 
 !!! summary "tl;dr"
     You now have the `I/D` (Integration/Deployment) in `CI/CD`[^6].
@@ -405,3 +405,5 @@ Congratulations! You have built a pipeline that tests your `PetClinic` applicati
 
 [^6]: 
   You'll add the double `C`s in the next section by connecting it to GitHub.
+
+--8<-- "includes/glossary.md"

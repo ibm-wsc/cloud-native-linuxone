@@ -220,3 +220,5 @@ The `s2i-java-11` image is very convenient for making an image from source code.
 Your pipeline will now automatically check that your `MySQL` instance is configured properly and rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (`minimal`) image to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your image. Finally, it will tag the image to distinguish between manual builds and those triggered by a potential git push. In the next section, you will see this automation in action for your development environment.
 
 [^1]: For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.
+
+--8<-- "includes/glossary.md"

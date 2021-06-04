@@ -18,8 +18,7 @@ nav:
       - Integrating Git: application-promotion/git.md
       - CI/CD in Action: application-promotion/action.md
     - Cleanup:
-      - Environment Cleanup: cleanup/full-cleanup.md 
-    - Glossary of terms: glossary.md
+      - Environment Cleanup: cleanup/full-cleanup.md
     - Other resources: resources.md
     - Propose a change: proposechange.md
 
@@ -39,6 +38,7 @@ google_analytics:
   - UA-174658170-3
   - auto
 markdown_extensions:
+  - abbr
   - admonition
   - codehilite
   - footnotes
@@ -54,6 +54,7 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
