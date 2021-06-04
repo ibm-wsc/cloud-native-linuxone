@@ -545,21 +545,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../glossary/" class="md-nav__link">
-        Glossary of terms
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../resources/" class="md-nav__link">
         Other resources
       </a>
@@ -652,12 +637,12 @@
                 
                 
                 <h1 id="configure-petclinic-build-and-test-to-meet-your-organizations-requirements1">Configure PetClinic Build and Test to Meet your Organization's Requirements<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#configure-petclinic-build-and-test-to-meet-your-organizations-requirements1" title="Permanent link">&para;</a></h1>
-<p>Now that PetClinic is up and running on your OpenShift cluster, it's time to add functionality to your pipeline to achieve basic integration and deployment when triggered. The OpenShift pipeline you created in the <a href="../../build-and-deploy/upandrunning/">PetClinic Up and Running</a> uses <a href="https://tekton.dev" rel="noopener noreferrer" target="_blank">Tekton</a> to run a series of tasks (each with one or more steps) to accomplish a workflow (pipeline). You will use the Pipeline Builder UI built into OpenShift to quickly and easily craft a pipeline that meets your specific needs.</p>
+<p>Now that PetClinic is up and running on your <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> cluster, it's time to add functionality to your pipeline to achieve basic integration and deployment when triggered. The <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> pipeline you created in the <a href="../../build-and-deploy/upandrunning/">PetClinic Up and Running</a> uses <a href="https://tekton.dev" rel="noopener noreferrer" target="_blank">Tekton</a> to run a series of tasks (each with one or more steps) to accomplish a workflow (pipeline). You will use the Pipeline Builder <abbr title="user interface">UI</abbr> built into <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> to quickly and easily craft a pipeline that meets your specific needs.</p>
 <div class="admonition info">
-<p class="admonition-title">Why OpenShift Pipelines?</p>
+<p class="admonition-title">Why <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines?</p>
 <ul>
 <li>
-<p>Portable: OpenShift resources defined via yaml files -&gt; portable across OpenShift clusters</p>
+<p>Portable: <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> resources defined via yaml files -&gt; portable across <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> clusters</p>
 </li>
 <li>
 <p>Low Resource Usage: Containers spin up when triggered -&gt; resources only used when needed</p>
@@ -666,7 +651,7 @@
 <p>Configurable: Can tailor overall pipeline and individual tasks to needs of your enterprise/organization </p>
 </li>
 <li>
-<p>Ease of Use: Pipeline Builder UI and built-in cluster resources (i.e. <code>ClusterTasks</code>, <code>ClusterTriggerBindings</code>, etc.) enable you to easily create a pipeline and export the yaml files with minimal knowledge</p>
+<p>Ease of Use: Pipeline Builder <abbr title="user interface">UI</abbr> and built-in cluster resources (i.e. <code>ClusterTasks</code>, <code>ClusterTriggerBindings</code>, etc.) enable you to easily create a pipeline and export the yaml files with minimal knowledge</p>
 </li>
 </ul>
 </div>
@@ -674,7 +659,7 @@
 <p>When you deployed the PetClinic application using the <code>From Git</code> option in the <a href="../../build-and-deploy/upandrunning/">PetClinic Up and Running</a> section, you chose to create a basic pipeline. You'll start with this pipeline and edit it to add new functionality for your use case. </p>
 <p>Navigate to the <code>Pipelines</code> tab in the <code>Developer</code> perspective on the left and then click the three dots to the right of the pipeline name (<code>spring-petclinic</code>) and choose <code>Edit Pipeline</code>. <img alt="Pipeline Image" src="../../images/Part1/EditNewPipeline.png" /> </p>
 <h2 id="ensure-mysql-database-deployed-for-each-run">Ensure MySQL Database Deployed for each Run<a class="headerlink" href="#ensure-mysql-database-deployed-for-each-run" title="Permanent link">&para;</a></h2>
-<p>This will bring you to the Pipeline Builder UI where you can edit your pipeline. Here you will make sure the MySQL database is configured according to your specification before the <code>build</code> task.</p>
+<p>This will bring you to the Pipeline Builder <abbr title="user interface">UI</abbr> where you can edit your pipeline. Here you will make sure the MySQL database is configured according to your specification before the <code>build</code> task.</p>
 <ol>
 <li>
 <p>Add a <code>mysql-deploy</code> task in parallel to the <code>git-fetch</code> task. 
@@ -705,7 +690,7 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">What is <code>oc process</code> doing?</p>
-<p><code>oc process</code> is processing the <a href="https://docs.openshift.com/container-platform/4.7/openshift_images/using-templates.html#templates-overview_using-templates" rel="noopener noreferrer" target="_blank">OpenShift template</a> for the <code>mysql-ephemeral</code> database with the parameters given via a series of <code>-p</code> arguments and finally <code>oc apply -f -</code> ensures that any missing components will be recreated.</p>
+<p><code>oc process</code> is processing the <a href="https://docs.openshift.com/container-platform/4.7/openshift_images/using-templates.html#templates-overview_using-templates" rel="noopener noreferrer" target="_blank"><abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> template</a> for the <code>mysql-ephemeral</code> database with the parameters given via a series of <code>-p</code> arguments and finally <code>oc apply -f -</code> ensures that any missing components will be recreated.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">No help please!</p>
@@ -714,7 +699,7 @@
 </li>
 <li>
 <p>Add a <code>mysql-rollout-wait</code> task</p>
-<p>You need to make sure that <code>mysql</code> is fully deployed before your <code>build</code> task begins. In order to achieve this, you will use the OpenShift Client again and wait for the <code>rollout</code> of the <code>mysql</code> <code>deploymentConfig</code> to complete after the <code>mysql-deploy</code> task. Add a sequential task after <code>mysql-deploy</code>:</p>
+<p>You need to make sure that <code>mysql</code> is fully deployed before your <code>build</code> task begins. In order to achieve this, you will use the <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Client again and wait for the <code>rollout</code> of the <code>mysql</code> <code>deploymentConfig</code> to complete after the <code>mysql-deploy</code> task. Add a sequential task after <code>mysql-deploy</code>:</p>
 <p><img alt="mysql sequential task" src="../../images/Part1/mySQL_SequentialTask.png" /></p>
 <p><code>Select Task</code> as <code>openshift-client</code> like before and then fill out the task with the following parameters (copy and paste boxes below image for changes):</p>
 <p><img alt="mysql-check task" src="../../images/Part1/MySQLRolloutWait.png" /></p>
@@ -811,7 +796,7 @@
 <p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Why are you editing yaml directly?</p>
-<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.</p>
+<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder <abbr title="user interface">UI</abbr> so you have to do it directly in the yaml for now.</p>
 </div>
 </li>
 <li>
@@ -834,7 +819,7 @@
 </li>
 </ol>
 <h2 id="summary">Summary <img alt="🌒" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f312.svg" title=":waxing_crescent_moon:" /><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>Your pipeline will now automatically check that your <code>MySQL</code> instance is configured properly and rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (<code>minimal</code>) image to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your image. Finally, it will tag the image to distinguish between manual builds and those triggered by a potential git push. In the next section, you will see this automation in action for your development environment.</p>
+<p>Your pipeline will now automatically check that your <code>MySQL</code> instance is configured properly and rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (<code>minimal</code>) image to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your image. Finally, it will tag the image to distinguish between manual builds and those triggered by a potential <abbr title="updates the remote branch with local commits. You can also think of `git push` as update or publish.">git push</abbr>. In the next section, you will see this automation in action for your development environment.</p>
 <div class="footnote">
 <hr />
 <ol>

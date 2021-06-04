@@ -572,21 +572,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../glossary/" class="md-nav__link">
-        Glossary of terms
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../resources/" class="md-nav__link">
         Other resources
       </a>
@@ -707,12 +692,12 @@
                 
                 <h1 id="configure-petclinic-development-deployment-to-meet-your-organizations-requirements1">Configure PetClinic Development Deployment to Meet your Organization's Requirements<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#configure-petclinic-development-deployment-to-meet-your-organizations-requirements1" title="Permanent link">&para;</a></h1>
 <h2 id="manage-resource-across-environments-with-kustomize">Manage resource across environments with Kustomize<a class="headerlink" href="#manage-resource-across-environments-with-kustomize" title="Permanent link">&para;</a></h2>
-<p><a href="https://kustomize.io" rel="noopener noreferrer" target="_blank">Kustomize</a> is a tool for customizing Kubernetes resource configuration.</p>
+<p><a href="https://kustomize.io" rel="noopener noreferrer" target="_blank">Kustomize</a> is a tool for customizing <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> resource configuration.</p>
 <div class="admonition note">
 <p class="admonition-title">From the documentation overview</p>
-<p>Kustomize traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the <a href="https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/" rel="noopener noreferrer" target="_blank">Introducing Kustomize Kubernetes Blog Post</a> for a more in-depth overview of Kustomize and its purpose.</p>
+<p>Kustomize traverses a <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the <a href="https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/" rel="noopener noreferrer" target="_blank">Introducing Kustomize <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> Blog Post</a> for a more in-depth overview of Kustomize and its purpose.</p>
 </div>
-<p>As part of doing things the "cloud native" way you will be using Kustomize to manage resource changes across your <code>dev</code> and <code>staging</code> environments as well as injecting information from your pipeline (such as newly created image information with git commits) into your Kubernetes (OpenShift) resources. </p>
+<p>As part of doing things the "cloud native" way you will be using Kustomize to manage resource changes across your <code>dev</code> and <code>staging</code> environments as well as injecting information from your pipeline (such as newly created image information with git commits) into your <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> (<abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>) resources. </p>
 <p>To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the <a href="https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files" rel="noopener noreferrer" target="_blank">ocp-files directory</a>.</p>
 <p>For more information on how kubectl (and oc through kubectl) integrates Kustomize, see the <a href="https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/" rel="noopener noreferrer" target="_blank">kubectl documentation</a>.</p>
 <h3 id="creating-custom-task-for-kustomize">Creating Custom Task for Kustomize<a class="headerlink" href="#creating-custom-task-for-kustomize" title="Permanent link">&para;</a></h3>
@@ -779,13 +764,13 @@
 </li>
 <li>
 <p>Create the <code>kustomize</code> Task</p>
-<p>a. Click <code>Import YAML</code> to bring up the box where you can create Kubernetes resource definitions from yaml</p>
+<p>a. Click <code>Import YAML</code> to bring up the box where you can create <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> resource definitions from yaml</p>
 <p>b. Paste the <code>kustomize</code> Task into the box</p>
 <p>c. Scroll down and click <code>Create</code> to create the <code>kustomize</code> Task </p>
 <p><img alt="Create Kustomize Task" src="../../images/Part1/CreateKustomizeTask.png" /></p>
 </li>
 </ol>
-<p>You should now see the created <code>kustomize</code> Task. Navigate back to the <code>Pipelines</code> section of the OpenShift UI and go back to editing your pipeline.</p>
+<p>You should now see the created <code>kustomize</code> Task. Navigate back to the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> and go back to editing your pipeline.</p>
 <p><img alt="Back to Pipelines" src="../../images/Part1/BackToPipelines.png" /></p>
 <h3 id="add-kustomize-task-to-pipeline">Add Kustomize Task to Pipeline<a class="headerlink" href="#add-kustomize-task-to-pipeline" title="Permanent link">&para;</a></h3>
 <ol>
@@ -815,7 +800,7 @@
 <p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Why are you editing yaml directly?</p>
-<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.</p>
+<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder <abbr title="user interface">UI</abbr> so you have to do it directly in the yaml for now.</p>
 </div>
 <ol>
 <li>
@@ -899,11 +884,15 @@
 </li>
 <li>
 <p>Watch the results of your build pipeline run. It should complete successfully as in the pictures below.</p>
+<div class="admonition info">
+<p class="admonition-title">How long will your pipeline take to run?</p>
+<p>The pipeline run may take anywhere from 10-25 minutes to complete depending on the current system load. You can see the progress of your build, as well as if any errors occur, via the <abbr title="user interface">UI</abbr>. Thus, by monitoring the <abbr title="user interface">UI</abbr>, you can make sure things are going as planned.</p>
+</div>
 <p><strong>Pipeline Run Success View Perspective:</strong></p>
 <p><img alt="Pipeline Run View" src="../../images/Part1/PipelineRolloutRunView.png" /></p>
 <div class="admonition success">
 <p class="admonition-title">Pipeline Run Details View</p>
-<p>In the pipeline run <code>Details</code> view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the above screenshot was <code>Triggered By</code> a user versus an automated source such as an event listener watching for a GitHub push...</p>
+<p>In the pipeline run <code>Details</code> view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the above screenshot was <code>Triggered By</code> a user versus an automated source such as an <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> watching for a GitHub push...</p>
 </div>
 <p><strong>Pipeline Run Success Logs Perspective:</strong></p>
 <p><img alt="Pipeline Run Logs" src="../../images/Part1/PipelineRolloutLogsView.png" /></p>

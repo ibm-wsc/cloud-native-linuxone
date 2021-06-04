@@ -558,21 +558,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../glossary/" class="md-nav__link">
-        Glossary of terms
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../resources/" class="md-nav__link">
         Other resources
       </a>
@@ -692,6 +677,10 @@
 <p><img alt="Choose File" src="../../images/Part2/ChooseFile.png" /></p>
 <div class="highlight"><pre><span></span><code>src/main/resources/db/mysql/data.sql
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">If the file doesn't appear right away</p>
+<p>Depending on your internet connection to GitHub, there may be a slight delay before the file appears for editing (your screen matches the picture above and you can click to select the file).</p>
+</div>
 </li>
 <li>
 <p>Select to edit the file</p>
@@ -738,17 +727,17 @@
 <p><img alt="Github Hash and Message" src="../../images/Part2/SeeCommitHash.png" /></p>
 </li>
 </ol>
-<h2 id="continuous-integration-via-openshift-pipelines">Continuous Integration via OpenShift Pipelines<a class="headerlink" href="#continuous-integration-via-openshift-pipelines" title="Permanent link">&para;</a></h2>
+<h2 id="continuous-integration-via-openshift-pipelines">Continuous Integration via <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines<a class="headerlink" href="#continuous-integration-via-openshift-pipelines" title="Permanent link">&para;</a></h2>
 <h2 id="successfully-run-pipeline-via-github">Successfully Run Pipeline via GitHub<a class="headerlink" href="#successfully-run-pipeline-via-github" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Visit the newly triggered pipeline run in the <code>Pipelines</code> menu in the OpenShift UI</p>
+<p>Visit the newly triggered pipeline run in the <code>Pipelines</code> menu in the <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr></p>
 <p><img alt="Newly Triggered PipelineRun" src="../../images/Part2/ViewGitPipelineRun.png" /></p>
 </li>
 <li>
 <p>View the pipeline run from the <code>Details</code> view</p>
 <p><img alt="PipelineRun Triggered" src="../../images/Part2/PipelineTriggered.png" /></p>
-<p>You can see the event listener has triggered the <code>PipelineRun</code> instead of a user this time.</p>
+<p>You can see the <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> has triggered the <code>PipelineRun</code> instead of a user this time.</p>
 </li>
 <li>
 <p>You can see the variables populated with the correct values from Github in the <code>YAML</code> view of the pipeline run.</p>
@@ -757,6 +746,10 @@
 <li>
 <p>Watch the results of your build pipeline run. It should complete successfully as in the pictures below. </p>
 <div class="admonition info">
+<p class="admonition-title">How long will your pipeline take to run?</p>
+<p>The pipeline run may take anywhere from 10-25 minutes to complete depending on the current system load. You can see the progress of your build, as well as if any errors occur, via the <abbr title="user interface">UI</abbr>. Thus, by monitoring the <abbr title="user interface">UI</abbr>, you can make sure things are going as planned.</p>
+</div>
+<div class="admonition tip">
 <p class="admonition-title">What to do if your pipeline run ends in failure</p>
 <p>If your pipeline run ends in failure, please look at the <code>Failure</code> tab (immediately below this message) to get back on track (instead of the default <code>Success</code> tab).</p>
 </div>
@@ -765,7 +758,7 @@
 <p><img alt="Successful PipelineRun Details View" src="../../images/Part2/PipelineSucceeded.png" /></p>
 <div class="admonition success">
 <p class="admonition-title">Pipeline Run Details View</p>
-<p>In the pipeline run <code>Details</code> view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, observe that the event listener has triggered the <code>PipelineRun</code> instead of a user this time.</p>
+<p>In the pipeline run <code>Details</code> view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, observe that the <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> has triggered the <code>PipelineRun</code> instead of a user this time.</p>
 </div>
 <p><strong>Pipeline Run Success Logs Perspective:</strong></p>
 <p><img alt="Successful PipelineRun Logs View 1" src="../../images/Part2/PipelineRunLogsSucceeded.png" /></p>
@@ -841,7 +834,7 @@
 </li>
 </ol>
 <h2 id="summary">Summary <img alt="🌝" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f31d.svg" title=":full_moon_with_face:" /><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to OpenShift in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "cloud native" CI/CD for your PetClinic application on IBM Z/LinuxONE! Congratulations!!!</p>
+<p>In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "cloud native" CI/CD for your PetClinic application on IBM Z/LinuxONE! Congratulations!!!</p>
                 
               
               

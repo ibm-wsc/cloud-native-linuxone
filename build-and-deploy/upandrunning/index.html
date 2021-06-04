@@ -552,21 +552,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../glossary/" class="md-nav__link">
-        Glossary of terms
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../resources/" class="md-nav__link">
         Other resources
       </a>
@@ -667,11 +652,11 @@
                 
                 <h1 id="getting-your-petclinic-application-up-and-running">Getting Your PetClinic Application Up and Running<a class="headerlink" href="#getting-your-petclinic-application-up-and-running" title="Permanent link">&para;</a></h1>
 <p>For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. <a href="https://github.com/spring-projects/spring-petclinic" rel="noopener noreferrer" target="_blank">The official version of PetClinic</a> demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. </p>
-<p>You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud native application and a DevOps pipeline for the application.</p>
+<p>You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> tooling to build a PetClinic cloud native application and a DevOps pipeline for the application.</p>
 <p>You will start by building your PetClinic application from the source code and connecting it to a MySQL database.</p>
 <div class="admonition info">
 <p class="admonition-title">Using LinuxONE Community Cloud</p>
-<p>Because you are using the LinuxONE Community Cloud OpenShift trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.</p>
+<p>Because you are using the LinuxONE Community Cloud <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Lab Guide</p>
@@ -682,12 +667,12 @@
 </ul>
 </div>
 <h2 id="deploying-mysql-database">Deploying MySQL database<a class="headerlink" href="#deploying-mysql-database" title="Permanent link">&para;</a></h2>
-<p><strong>1.</strong> First, you need to setup your mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)</p>
+<p><strong>1.</strong> First, you need to setup your mysql database. Luckily, this is very easy on <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)</p>
 <p><img alt="Add DB" src="../upandrunningimages/devselectdatabase.png" /></p>
 <p><strong>2.</strong> Next, select the <code>MySQL (Ephemeral)</code> tile. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You are choosing the ephemeral option because at this point you do not care to persist the database beyond the life of the container.</p>
+<p>You are choosing the ephemeral option because at this point you do not care to persist the database beyond the life of the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr>.</p>
 </div>
 <p><img alt="Select MySQL" src="../upandrunningimages/selectmqephemeral.png" /></p>
 <p><strong>3.</strong> Click on instantiate template.</p>
@@ -697,30 +682,30 @@
 <p>Click the <code>Create</code> button. </p>
 <div class="admonition info">
 <p class="admonition-title">Why Ephemeral?</p>
-<p>You are using the <strong>Ephemeral</strong> implementation because this a short-lived demo and you do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the container.</p>
+<p>You are using the <strong>Ephemeral</strong> implementation because this a short-lived demo and you do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr>.</p>
 </div>
-<p>A minute or two later, in the <code>Topology</code> view of your OpenShift Console, you should see <code>mysql</code> in the <code>Running</code> state. (Click on the Topology icon for <code>mysql</code> to bring up the side panel)</p>
+<p>A minute or two later, in the <code>Topology</code> view of your <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Console, you should see <code>mysql</code> in the <code>Running</code> state. (Click on the Topology icon for <code>mysql</code> to bring up the side panel)</p>
 <p><img alt="DB running" src="../upandrunningimages/mysqlrunning.png" /></p>
-<h2 id="fork-the-petclinic-repo-to-your-own-github-account">Fork the PetClinic repo to your own GitHub account<a class="headerlink" href="#fork-the-petclinic-repo-to-your-own-github-account" title="Permanent link">&para;</a></h2>
+<h2 id="fork-the-petclinic-repo-to-your-own-github-account">Fork the PetClinic <abbr title="repository">repo</abbr> to your own GitHub account<a class="headerlink" href="#fork-the-petclinic-repo-to-your-own-github-account" title="Permanent link">&para;</a></h2>
 <p>For this workshop, you will be using the PetClinic application from your own GitHub account so that you can enable integrations with it later.</p>
 <p>To make a copy of the PetClinic application into your GitHub account, navigate to the following from your browser:</p>
 <div class="highlight"><pre><span></span><code>https://github.com/ibm-wsc/spring-petclinic
 </code></pre></div>
 <p>Then click on the <code>fork</code> button on the upper right corner.</p>
 <p><img alt="repofork" src="../upandrunningimages/gitrepofork.png" /></p>
-<p>At this point you might need to log into GitHub if you weren't logged in already.</p>
+<p>At this point, you might need to log into GitHub if you weren't logged in already.</p>
 <p>Next, you might be presented with a screen to ask you to select where to fork to. Select your own user account to fork to.</p>
 <p><img alt="reposelect" src="../upandrunningimages/forkselection.png" /></p>
-<p>Please make a note of your repo URL for later. It should be something like:</p>
+<p>Please make a note of your <abbr title="repository">repo</abbr> URL for later. It should be something like:</p>
 <p><code>https://github.com/&lt;your-github-username&gt;/spring-petclinic</code></p>
 <p>That's it! You are ready to move on to the next section.</p>
 <h2 id="building-and-deploying-petclinic-application">Building and Deploying PetClinic Application<a class="headerlink" href="#building-and-deploying-petclinic-application" title="Permanent link">&para;</a></h2>
-<p>There are multiple ways OpenShift enables cloud native application developers to package up their applications and deploy them. For PetClinic, you will be building your application image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how OpenShift Pipelines work.</p>
+<p>There are multiple ways <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> enables cloud native application developers to package up their applications and deploy them. For PetClinic, you will be building your application image from source, leveraging <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>'s S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines work.</p>
 <p><strong>1.</strong> Start with choosing Add From Git:</p>
 <p><img alt="from git" src="../upandrunningimages/fromgit.png" /></p>
-<p><strong>2.</strong> Enter <code>https://github.com/&lt;your-github-ID&gt;/spring-petclinic</code> in the <code>Git Repo URL</code> field. Expand the <code>Show Advanced Git Options</code> section, and type in <code>main</code> for the <code>Git Reference</code>. This tells OpenShift which GitHub repo and branch to pull the source code from.</p>
+<p><strong>2.</strong> Enter <code>https://github.com/&lt;your-github-ID&gt;/spring-petclinic</code> in the <code>Git Repo URL</code> field. Expand the <code>Show Advanced Git Options</code> section, and type in <code>main</code> for the <code>Git Reference</code>. This tells <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> which GitHub <abbr title="repository">repo</abbr> and branch to pull the source code from.</p>
 <p><img alt="git url" src="../upandrunningimages/giturl.png" /></p>
-<p><strong>3.</strong> Scroll down to the <code>Builder</code> section. Select the <code>OpenJ9</code> tile and select <code>openj9-11-el8</code> as the builder image version. As you can see OpenShift offers many different builder images to help you build images from a variety of programming languages. Your list of builder images might differ from the screen shot. For Java on Z, the recommended JVM is <code>OpenJ9</code> because it has built-in s390x optimizations as well as container optimizations.</p>
+<p><strong>3.</strong> Scroll down to the <code>Builder</code> section. Select the <code>OpenJ9</code> tile and select <code>openj9-11-el8</code> as the builder image version. As you can see <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> offers many different builder images to help you build images from a variety of programming languages. Your list of builder images might differ from the screen shot. For Java on Z, the recommended <abbr title="(Java Virtual Machine): the runtime engine of the Java Platform. It enables Java programs and programs compiled into Java bytecode to run on any computer that has a native JVM">JVM</abbr> is <code>OpenJ9</code> because it has built-in s390x optimizations as well as <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> optimizations.</p>
 <p><img alt="builder image" src="../upandrunningimages/builderimage.png" /></p>
 <p><strong>4.</strong> In the General section, put in the following entries for Application Name and Name. </p>
 <p><img alt="app name" src="../upandrunningimages/applicationname.png" /></p>
@@ -734,27 +719,27 @@
 <p><img alt="pipeline icon" src="../upandrunningimages/pipelineicon.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Log Streaming Gotcha in the LinuxONE CC</p>
-<p><strong>PLEASE BEWARE</strong> that if you are using the LinuxONE Community Cloud OpenShift Trial you might see lag with the log streaming. If it stops streaming, you might want to go back out to the <code>Topology</code> view. You can always return to the logs view, once the pipeline completes, to see the logs.</p>
+<p><strong>PLEASE BEWARE</strong> that if you are using the LinuxONE Community Cloud <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Trial you might see lag with the log streaming. If it stops streaming, you might want to go back out to the <code>Topology</code> view. You can always return to the logs view, once the pipeline completes, to see the logs.</p>
 </div>
 <p><strong>9.</strong> The pipeline will go through three tasks:</p>
-<p>&nbsp;&nbsp;&nbsp; 1. <b>fetch-repository</b> - this Pipeline task will clone your Git PetClinic repo for the build task.</p>
+<p>&nbsp;&nbsp;&nbsp; 1. <b>fetch-repository</b> - this Pipeline task will <abbr title="clones a repository into a newly created directory, creates remote-tracking branches for each branch in the cloned repository (visible using `git branch --remotes`), and creates and checks out an initial branch that is forked from the cloned repository’s currently active branch.">git clone</abbr> your PetClinic <abbr title="repository">repo</abbr> for the build task.</p>
 <p>&nbsp;&nbsp;&nbsp; 2. <b>build</b> - this Pipeline task is the build process which itself is broken down into a few sub-steps. This is the longest task in the pipeline, and can take up to 15 minutes. The steps that it goes through are as follows:</p>
 <div class="admonition info">
 <p class="admonition-title">build steps</p>
 <ul>
 <li>STEP-GEN-ENV-FILE: this step generates the environment file to be used during the build process</li>
-<li>STEP-GENERATE: this step generates the Dockerfile that will be used to create the OCI image later on during the build step</li>
-<li>STEP-BUILD: this is the multi-step build process of creating an OCI image out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the OCI image. If the tests fail, this step will not complete.</li>
-<li>STEP-PUSH: this final step pushes the built OCI image to the OpenShift image registry.</li>
+<li>STEP-GENERATE: this step generates the Dockerfile that will be used to create the <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> image later on during the build step</li>
+<li>STEP-BUILD: this is the multi-step build process of creating an <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> image out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> image. If the tests fail, this step will not complete.</li>
+<li>STEP-PUSH: this final step pushes the built <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> image to the <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> image registry.</li>
 </ul>
 </div>
 <p>&nbsp;&nbsp;&nbsp; 3. <b>deploy</b> - this Pipeline task will deploy the newly built image as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.</p>
 <p>Below is an image of the log of a successful build task: </p>
 <p><img alt="build output" src="../upandrunningimages/buildlog.png" /></p>
-<p><strong>10.</strong> Now if you go back to the Topology view, you should see the application has been successfully deployed to OpenShift as well. From here you can click on the <code>open URL</code> circle, and a new browser tab should open to lead you to your PetClinic's front page.</p>
+<p><strong>10.</strong> Now if you go back to the Topology view, you should see the application has been successfully deployed to <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> as well. From here you can click on the <code>open URL</code> circle, and a new browser tab should open to lead you to your PetClinic's front page.</p>
 <p><img alt="open URL" src="../upandrunningimages/openurl.png" /></p>
 <h2 id="interacting-with-your-petclinic-application-and-mysql-database">Interacting with Your PetClinic Application and MySQL database<a class="headerlink" href="#interacting-with-your-petclinic-application-and-mysql-database" title="Permanent link">&para;</a></h2>
-<p>In this section, you will add a new owner to the Pet Clinic application, and then go into your MySQL container to see if that owner was successfully added. </p>
+<p>In this section, you will add a new owner to the Pet Clinic application, and then go into your MySQL <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> to see if that owner was successfully added. </p>
 <p><strong>1.</strong> You Pet Clinic should look something similar to this. Go to the Find Owners tab, and create a new owner.</p>
 <p><img alt="find owners" src="../upandrunningimages/findowners.png" /></p>
 <p><strong>2.</strong> Click on the <code>Add Owner</code> button, and add an owner of your own, for example:</p>
@@ -762,7 +747,7 @@
 <p><strong>3.</strong> You can then go back to <code>Find Owners</code> and try searching for the owner that you just added. It should come back with the search results similar to the following.</p>
 <p><img alt="search results" src="../upandrunningimages/searchresults.png" /></p>
 <p><strong>4.</strong> Now let's check the MySQL database to make sure that the new owner you just added is in there.</p>
-<p>Return to your OpenShift console, from the Topology view, click on the <code>mysql</code> icon. This will bring up a side panel, and then click on the <code>mysql</code> pod (your pod name will be different than the picture):</p>
+<p>Return to your <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> console, from the Topology view, click on the <code>mysql</code> icon. This will bring up a side panel, and then click on the <code>mysql</code> pod (your pod name will be different than the picture):</p>
 <p><img alt="mysql pod access" src="../upandrunningimages/mysqlpod.png" /></p>
 <p>In the pod panel, go to the Terminal tab.</p>
 <p><img alt="mysql terminal" src="../upandrunningimages/mysqlterminal.png" /></p>
@@ -784,7 +769,7 @@
 </div>
 <p>Please let the instructors know, if you don't see your owner you added listed. </p>
 <h2 id="summary">Summary <img alt="🌚" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f31a.svg" title=":new_moon_with_face:" /><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an OpenShift Pipelines pipeline that you will build on in the next sections of the lab. You may move on to the next part by clicking <code>Next</code> on the bottom of the page.</p>
+<p>Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines pipeline that you will build on in the next sections of the lab. You may move on to the next part by clicking <code>Next</code> on the bottom of the page.</p>
                 
               
               
