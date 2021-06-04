@@ -778,12 +778,12 @@
 <li>That the pieces of your application worked (unit testing)</li>
 <li>That they worked together (integration testing)</li>
 </ol>
-<p>Now, it's time to go a step further and automate testing that your application is working and accessible when deployed in a real (<abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>) environment:</p>
+<p>Now, it's time to go a step further and automate testing that your application is working and accessible when deployed in a real (<abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>) environment:</p>
 <ol>
-<li>Internally (within <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>)</li>
+<li>Internally (within <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>)</li>
 <li>Externally (the outside world)</li>
 </ol>
-<h3 id="internally-within-kubernetesopenshift">Internally (Within <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr>/<abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>)<a class="headerlink" href="#internally-within-kubernetesopenshift" title="Permanent link">&para;</a></h3>
+<h3 id="internally-within-kubernetesopenshift">Internally (Within <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr>/<abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>)<a class="headerlink" href="#internally-within-kubernetesopenshift" title="Permanent link">&para;</a></h3>
 <p>The first thing you need to test is that the application is alive and available from within your cluster (<abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> environment). This is important not only for when running the CI/CD pipeline, but also for any time your application is running  (downtime is detrimental, especially in production). </p>
 <p>This functionality is available in <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> via <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/" rel="noopener noreferrer" target="_blank">probes</a>. There are 3 different types of probes to test the different aspects of your application's availability:</p>
 <div class="admonition info">
@@ -864,7 +864,7 @@
 <p>The rollout task you created before as <code>deploy-dev</code> will only complete once all desired replicas are ready, implying that both the <code>startup</code> (initial liveness) and <code>readiness</code> probes have successfully passed and all replicas of your application are initially alive and ready for business. </p>
 <h3 id="testing-external-connections">Testing External Connections<a class="headerlink" href="#testing-external-connections" title="Permanent link">&para;</a></h3>
 <p>While making sure your application is internally up and running is important, at the end of the day you want to provide access to your users externally<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
-<p>This means it is important to also test the <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> route (the component providing the external connection) as part of your CI/CD pipeline to ensure it is correctly servicing web traffic external to your cluster<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p>This means it is important to also test the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> route (the component providing the external connection) as part of your CI/CD pipeline to ensure it is correctly servicing web traffic external to your cluster<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <h4 id="create-external-route-test-task">Create External Route Test Task<a class="headerlink" href="#create-external-route-test-task" title="Permanent link">&para;</a></h4>
 <p>You will create a task to check the connection to your external route as part of your CI/CD pipeline.</p>
 <ol>
@@ -967,7 +967,7 @@
 <p><img alt="Create connection-test Task" src="../../images/Part2/CreateTestRouteTask.png" /></p>
 </li>
 </ol>
-<p>You should now see the created <code>connection-test</code> Task. Navigate back to the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> and go back to editing your pipeline.</p>
+<p>You should now see the created <code>connection-test</code> Task. Navigate back to the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> and go back to editing your pipeline.</p>
 <p><img alt="Back to Pipelines" src="../../images/Part2/BackToPipelines.png" /></p>
 <h4 id="add-external-route-test-task-to-pipeline">Add External Route Test Task to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline" title="Permanent link">&para;</a></h4>
 <ol>
@@ -1045,7 +1045,7 @@
 <p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Why are you editing yaml directly?</p>
-<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the <abbr title="(OpenShift Container Platform/OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder <abbr title="user interface">UI</abbr> so you have to do it directly in the yaml for now.</p>
+<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder <abbr title="user interface">UI</abbr> so you have to do it directly in the yaml for now.</p>
 </div>
 </li>
 <li>
