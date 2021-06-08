@@ -65,4 +65,5 @@ markdown_extensions:
       permalink: true
 plugins:
   - search
-  - enumerate-headings
+  - enumerate-headings:
+      toc_depth: 6
