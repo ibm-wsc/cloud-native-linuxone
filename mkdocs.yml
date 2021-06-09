@@ -67,3 +67,4 @@ plugins:
   - search
   - enumerate-headings:
       toc_depth: 6
+  - print-site
