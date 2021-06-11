@@ -1,26 +1,27 @@
 site_name: Cloud Native LinuxONE Workshop
 repo_url: https://github.com/ibm-wsc/cloud-native-linuxone
+site_url: https://ibm-wsc.github.io/cloud-native-linuxone/
 edit_uri: edit/main/docs
 nav:
-    - Home: index.md
-    - Introduction: introduction.md
-    - Prerequisites: prerequisites.md
+    - 1. Home: index.md
+    - 2. Introduction: introduction.md
+    - 3. Prerequisites: prerequisites.md
     - Build and Deploy Pet Clinic:
-      - Build and Deploy Overview: build-and-deploy/build_overview.md
-      - PetClinic Up and Running: build-and-deploy/upandrunning.md
+      - 4. Build and Deploy Overview: build-and-deploy/build_overview.md
+      - 5. PetClinic Up and Running: build-and-deploy/upandrunning.md
     - Configure PetClinic's Pipeline:
-      - Configure Pipeline Overview: full-dev-pipeline/configure_overview.md
-      - Configure Build and Test: full-dev-pipeline/pipeline.md
-      - Configure Development Deployment: full-dev-pipeline/runpipeline.md
+      - 6. Configure Pipeline Overview: full-dev-pipeline/configure_overview.md
+      - 7. Configure Build and Test: full-dev-pipeline/pipeline.md
+      - 8. Configure Development Deployment: full-dev-pipeline/runpipeline.md
     - Test and Promote Pet Clinic:
-      - Test and Promote Overview: application-promotion/promote_overview.md
-      - Promoting Application: application-promotion/promote.md
-      - Integrating Git: application-promotion/git.md
-      - CI/CD in Action: application-promotion/action.md
+      - 9. Test and Promote Overview: application-promotion/promote_overview.md
+      - 10. Promoting Application: application-promotion/promote.md
+      - 11. Integrating Git: application-promotion/git.md
+      - 12. CI/CD in Action: application-promotion/action.md
     - Cleanup:
-      - Environment Cleanup: cleanup/full-cleanup.md
-    - Other resources: resources.md
-    - Propose a change: proposechange.md
+      - 13. Environment Cleanup: cleanup/full-cleanup.md
+    - 14. Other resources: resources.md
+    - 15. Propose a change: proposechange.md
 
 theme: 
   name: material
@@ -67,4 +68,6 @@ plugins:
   - search
   - enumerate-headings:
       toc_depth: 6
-  - print-site
+      strict: true
+  - print-site:
+      add_to_navigation: true
