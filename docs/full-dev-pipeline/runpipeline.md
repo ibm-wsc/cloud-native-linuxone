@@ -7,7 +7,7 @@
 !!! note "From the documentation overview"
     Kustomize traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the [Introducing Kustomize Kubernetes Blog Post](https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/){target="_blank" rel="noopener noreferrer"} for a more in-depth overview of Kustomize and its purpose.
 
-As part of doing things the "cloud native" way you will be using Kustomize to manage resource changes across your `dev` and `staging` environments as well as injecting information from your pipeline (such as newly created image information with git commits) into your Kubernetes (OpenShift) resources. 
+As part of doing things the "cloud native" way you will be using Kustomize to manage resource changes across your `dev` and `staging` environments as well as injecting information from your pipeline (such as newly created container image information with git commits) into your Kubernetes (OpenShift) resources. 
 
 To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the [ocp-files directory](https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files){target="_blank" rel="noopener noreferrer"}.
 

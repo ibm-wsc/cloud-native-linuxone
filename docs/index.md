@@ -19,6 +19,8 @@ Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift
 
 ## Key Contributors
 * Barry Silliman
+* Faraz Khan
+* Rishi Patel
 * William Doyle
 
 ## Workshop authors

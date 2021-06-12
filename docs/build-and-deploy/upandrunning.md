@@ -72,7 +72,7 @@ That's it! You are ready to move on to the next section.
 
 ## Building and Deploying PetClinic Application
 
-There are multiple ways OpenShift enables cloud native application developers to package up their applications and deploy them. For PetClinic, you will be building your application image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how OpenShift Pipelines work.
+There are multiple ways OpenShift enables cloud native application developers to package up their applications and deploy them. For PetClinic, you will be building your container image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how OpenShift Pipelines work.
 
 **1.** Start with choosing Add From Git:
 
@@ -82,7 +82,7 @@ There are multiple ways OpenShift enables cloud native application developers to
 
 ![git url](upandrunningimages/giturl.png)
 
-**3.** Scroll down to the `Builder` section. Select the `OpenJ9` tile and select `openj9-11-el8` as the builder image version. As you can see OpenShift offers many different builder images to help you build images from a variety of programming languages. Your list of builder images might differ from the screen shot. For Java on Z, the recommended JVM is `OpenJ9` because it has built-in s390x optimizations as well as container optimizations.
+**3.** Scroll down to the `Builder` section. Select the `OpenJ9` tile and select `openj9-11-el8` as the builder container image version. As you can see OpenShift offers many different builder container images to help you build container images from a variety of programming languages. Your list of builder container images might differ from the screen shot. For Java on Z, the recommended JVM is `OpenJ9` because it has built-in s390x optimizations as well as container optimizations.
 
 ![builder image](upandrunningimages/builderimage.png)
 
@@ -117,11 +117,11 @@ There are multiple ways OpenShift enables cloud native application developers to
 
 !!! info "build steps"
     - STEP-GEN-ENV-FILE: this step generates the environment file to be used during the build process
-    - STEP-GENERATE: this step generates the Dockerfile that will be used to create the OCI image later on during the build step
-    - STEP-BUILD: this is the multi-step build process of creating an OCI image out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the OCI image. If the tests fail, this step will not complete.
-    - STEP-PUSH: this final step pushes the built OCI image to the OpenShift image registry.
+    - STEP-GENERATE: this step generates the Dockerfile that will be used to create the OCI container image later on during the build step
+    - STEP-BUILD: this is the multi-step build process of creating an OCI container image out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the OCI container image. If the tests fail, this step will not complete.
+    - STEP-PUSH: this final step pushes the built OCI container image to the OpenShift image registry.
 
-&nbsp;&nbsp;&nbsp; 3. <b>deploy</b> - this Pipeline task will deploy the newly built image as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.
+&nbsp;&nbsp;&nbsp; 3. <b>deploy</b> - this Pipeline task will deploy the newly built container image as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.
 
 Below is an image of the log of a successful build task: 
 
@@ -188,6 +188,6 @@ Please let the instructors know, if you don't see your owner you added listed.
 
 ## Summary :new_moon_with_face:
 
-Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an OpenShift Pipelines pipeline that you will build on in the next sections of the lab. You may move on to the next part by clicking `Next` on the bottom of the page.
+Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an OpenShift Pipelines pipeline that you will build on in the next sections of the lab to achieve CI/CD. You may move on to the next part by clicking `Next` on the bottom of the page.
 
 --8<-- "includes/glossary.md"
