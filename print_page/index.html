@@ -1,0 +1,1982 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://ibm-wsc.github.io/cloud-native-linuxone/print_page/">
+      
+      <link rel="icon" href="../images/pipelines-logo.png">
+      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
+    
+    
+      
+        <title>Print Site - Cloud Native LinuxONE Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-174658170-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Cloud Native LinuxONE Workshop" class="md-header__button md-logo" aria-label="Cloud Native LinuxONE Workshop" data-md-component="logo">
+      
+  <img src="../images/pipelines-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloud Native LinuxONE Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Print Site
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/ibm-wsc/cloud-native-linuxone/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cloud Native LinuxONE Workshop" class="md-nav__button md-logo" aria-label="Cloud Native LinuxONE Workshop" data-md-component="logo">
+      
+  <img src="../images/pipelines-logo.png" alt="logo">
+
+    </a>
+    Cloud Native LinuxONE Workshop
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/ibm-wsc/cloud-native-linuxone/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        1. Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        2. Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/" class="md-nav__link">
+        3. Prerequisites
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Build and Deploy Pet Clinic
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Build and Deploy Pet Clinic" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Build and Deploy Pet Clinic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-and-deploy/build_overview/" class="md-nav__link">
+        4. Build and Deploy Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-and-deploy/upandrunning/" class="md-nav__link">
+        5. PetClinic Up and Running
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Configure PetClinic's Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Configure PetClinic's Pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Configure PetClinic's Pipeline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full-dev-pipeline/configure_overview/" class="md-nav__link">
+        6. Configure Pipeline Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full-dev-pipeline/pipeline/" class="md-nav__link">
+        7. Configure Build and Test
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full-dev-pipeline/runpipeline/" class="md-nav__link">
+        8. Configure Development Deployment
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Test and Promote Pet Clinic
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Test and Promote Pet Clinic" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Test and Promote Pet Clinic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../application-promotion/promote_overview/" class="md-nav__link">
+        9. Test and Promote Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../application-promotion/promote/" class="md-nav__link">
+        10. Promoting Application
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../application-promotion/git/" class="md-nav__link">
+        11. Integrating Git
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../application-promotion/action/" class="md-nav__link">
+        12. CI/CD in Action
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Cleanup
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cleanup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Cleanup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cleanup/full-cleanup/" class="md-nav__link">
+        13. Environment Cleanup
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        14. Other resources
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proposechange/" class="md-nav__link">
+        15. Propose a change
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Print Site
+      </a>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <div id="print-site-page" class="">
+        <div id="print-site-banner">
+            <p>
+    <em>This box will disappear when printing</em>
+    <span style="float: right"><a href="https://timvink.github.io/mkdocs-print-site-plugin/">mkdocs-print-site-plugin</a></span>
+</p>
+<p>This page combines all site pages and applies print and PDF friendly styling. Print or export to PDF using <b>File > Print > Save as PDF</b>.</p>
+<p>For creating PDFs, make sure to use the browser's print and save-as-pdf function instead of the system dialog.</p>
+        </div>
+        
+        <section class="print-page">
+            <div id="print-page-toc" data-toc-depth="6">
+                <nav role='navigation' class='print-page-toc-nav'>
+                <h1 class='print-page-toc-title'>Table of Contents</h1>
+                </nav>
+            </div>
+        </section>
+        <section class="print-page" id="index"><h1 id="index-cloud-native-linuxone-workshop">Cloud Native <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Workshop<a class="headerlink" href="#index-cloud-native-linuxone-workshop" title="Permanent link">&para;</a></h1>
+<p>Welcome to our Cloud Native <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> workshop. Developers can leverage <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> to create continuous integration pipelines for Linux® workloads on IBM Z® and <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr>. You can quickly get up and running on <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> with a continuous workflow.</p>
+<h2 id="index-agenda">Agenda<a class="headerlink" href="#index-agenda" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#introduction">Introduction to Cloud Native Workshop</a></li>
+<li><a href="#build-and-deploy-build_overview">Deploy PetClinic via <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines</a></li>
+<li><a href="#full-dev-pipeline-configure_overview">Configure PetClinic's Integration and Deployment via <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines to Meet Your Organization's Needs</a><sup id="fnref:1"><a class="footnote-ref" href="#index-fn:1">1</a></sup></li>
+<li><a href="#application-promotion-promote_overview">Extend Pipeline to Upgrade from Development to Staging</a></li>
+</ul>
+<h2 id="index-acknowledgements">Acknowledgements<a class="headerlink" href="#index-acknowledgements" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Thanks to the following contributors:</p>
+<ul>
+<li>
+<p>Chee Yee for setting up the <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud for the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines workflow</p>
+</li>
+<li>
+<p>The <code>spring</code> developers for creating the <a href="https://projects.spring.io/spring-petclinic/" rel="noopener noreferrer" target="_blank">petclinic demo</a> and the <code>redhat-developer-demos</code> for sharing the <code>spring-petclinic</code> version of sample application we started with</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="index-key-contributors">Key Contributors<a class="headerlink" href="#index-key-contributors" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Barry Silliman</li>
+<li>Faraz Khan</li>
+<li>Rishi Patel</li>
+<li>William Doyle</li>
+</ul>
+<h2 id="index-workshop-authors">Workshop authors<a class="headerlink" href="#index-workshop-authors" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="mailto:garrett.lee.woodworth@ibm.com">Garrett Woodworth</a></li>
+<li><a href="mailto:jinxiong@us.ibm.com">Jin VanStee</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="index-fn:1">
+<p>For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.&#160;<a class="footnote-backref" href="#index-fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></section><section class="print-page" id="introduction"><h1 id="introduction-cloud-native-workshop-introduction">Cloud Native Workshop Introduction<a class="headerlink" href="#introduction-cloud-native-workshop-introduction" title="Permanent link">&para;</a></h1>
+<p>You will build and deploy an application (the <abbr title="an application that takes full advantage of the cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr> way) using <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Container Platform and its <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> workflow <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines.</p>
+<h2 id="introduction-lab-overview">Lab Overview<a class="headerlink" href="#introduction-lab-overview" title="Permanent link">&para;</a></h2>
+<p>You will set up a virtual pet clinic (based on the classic spring boot demo referenced in the main <a href="https://projects.spring.io/spring-petclinic/" rel="noopener noreferrer" target="_blank">documentation</a>) running on <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> using source code on GitHub and <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines to seamlessly update, test, and deploy your pet clinic.</p>
+<p>This lab is broken into three parts:</p>
+<ol>
+<li>
+<p>Building and deploying the PetClinic Java application with <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines</p>
+</li>
+<li>
+<p>Configuring PetClinic's integration and deployment pipeline to meet your organization's needs<sup id="fnref:1"><a class="footnote-ref" href="#introduction-fn:1">1</a></sup></p>
+</li>
+<li>
+<p>Promoting PetClinic from development to staging with testing and GitHub integration (adding the C [continuous] in <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr>)</p>
+</li>
+</ol>
+<p>Throughout your journey across the three parts listed above, you will slowly construct the following architecture:</p>
+<p><img alt="Cloud Native Workshop Architecture Overview" src="../images/IntroSection/CloudNativeArchitectureDiagram.png" /></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="introduction-fn:1">
+<p>For the purposes of this lab you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.&#160;<a class="footnote-backref" href="#introduction-fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></section><section class="print-page" id="prerequisites"><h1 id="prerequisites-prerequisites">Prerequisites<a class="headerlink" href="#prerequisites-prerequisites" title="Permanent link">&para;</a></h1>
+<h2 id="prerequisites-create-a-github">Create a GitHub<a class="headerlink" href="#prerequisites-create-a-github" title="Permanent link">&para;</a></h2>
+<p>Create a GitHub account (if you don't already have one) <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home" rel="noopener noreferrer" target="_blank">here</a>.</p>
+<h2 id="prerequisites-create-a-linuxone-community-cloud-openshift-container-platform-trial">Create a <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Container Platform Trial<a class="headerlink" href="#prerequisites-create-a-linuxone-community-cloud-openshift-container-platform-trial" title="Permanent link">&para;</a></h2>
+<p>Create a <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Container Platform trial <a href="https://linuxone.cloud.marist.edu/#/register?flag=OCP" rel="noopener noreferrer" target="_blank">here</a>.</p></section><h1 class='nav-section-title'>Build and Deploy Pet Clinic</h1><section class="print-page" id="build-and-deploy-build_overview"><h1 id="build-and-deploy-build_overview-its-time-to-open-up-your-pet-clinic-for-testing">It's Time to Open up your Pet Clinic for Testing<a class="headerlink" href="#build-and-deploy-build_overview-its-time-to-open-up-your-pet-clinic-for-testing" title="Permanent link">&para;</a></h1>
+<p>In this section, you will build, test and deploy the Java web application for your pet clinic (PetClinic) to <a href="#build-and-deploy-upandrunning">get it up and running on <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr></a>. This involves the following tasks:</p>
+<ul>
+<li>Deploying MySQL database</li>
+<li>Building and deploying PetClinic with automated testing</li>
+<li>Accessing PetClinic and adding an owner</li>
+</ul></section><section class="print-page" id="build-and-deploy-upandrunning"><h1 id="build-and-deploy-upandrunning-getting-your-petclinic-application-up-and-running">Getting Your PetClinic Application Up and Running<a class="headerlink" href="#build-and-deploy-upandrunning-getting-your-petclinic-application-up-and-running" title="Permanent link">&para;</a></h1>
+<p>For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. <a href="https://github.com/spring-projects/spring-petclinic" rel="noopener noreferrer" target="_blank">The official version of PetClinic</a> demonstrates the use of <abbr title="Java open-source framework for microservices">Spring Boot</abbr> with <abbr title="(Spring Model View Controllers):">Spring MVC</abbr> and <abbr title="(Spring Data Java Persistent API):">Spring Data JPA</abbr>. </p>
+<p>You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> tooling to build a PetClinic <abbr title="an application that takes full advantage of the cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr> application and a DevOps pipeline for the application.</p>
+<p>You will start by building your PetClinic application from the source code and connecting it to a MySQL database.</p>
+<div class="admonition info">
+<p class="admonition-title">Using <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud</p>
+<p>Because you are using the <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Lab Guide</p>
+<ul>
+<li>For the images in this lab:</li>
+<li>the <span style="color:green">green</span> arrows or boxes denote something to look at or reference </li>
+<li>the <span style="color:red">red</span> arrows or boxes denote something to click on or type.</li>
+</ul>
+</div>
+<h2 id="build-and-deploy-upandrunning-deploying-mysql-database">Deploying MySQL database<a class="headerlink" href="#build-and-deploy-upandrunning-deploying-mysql-database" title="Permanent link">&para;</a></h2>
+<p><strong>1.</strong> First, you need to setup your mysql database. Luckily, this is very easy on <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)</p>
+<p><img alt="Add DB" src="../build-and-deploy/upandrunningimages/devselectdatabase.png" /></p>
+<p><strong>2.</strong> Next, select the <code>MySQL (Ephemeral)</code> tile. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You are choosing the ephemeral option because at this point you do not care to persist the database beyond the life of the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr>.</p>
+</div>
+<p><img alt="Select MySQL" src="../build-and-deploy/upandrunningimages/selectmqephemeral.png" /></p>
+<p><strong>3.</strong> Click on instantiate template.</p>
+<p><img alt="Select DB" src="../build-and-deploy/upandrunningimages/instantiatetemplate.png" /></p>
+<p><strong>4.</strong> Fill the wizard with the parameters as shown in the image below (your namespace will be different from the image below):</p>
+<p><img alt="DB parameters" src="../build-and-deploy/upandrunningimages/mysqlparameters.png" /></p>
+<p>Click the <code>Create</code> button. </p>
+<div class="admonition info">
+<p class="admonition-title">Why Ephemeral?</p>
+<p>You are using the <strong>Ephemeral</strong> implementation because this a short-lived demo and you do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr>.</p>
+</div>
+<p>A minute or two later, in the <code>Topology</code> view of your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Console, you should see <code>mysql</code> in the <code>Running</code> state. (Click on the Topology icon for <code>mysql</code> to bring up the side panel)</p>
+<p><img alt="DB running" src="../build-and-deploy/upandrunningimages/mysqlrunning.png" /></p>
+<h2 id="build-and-deploy-upandrunning-fork-the-petclinic-repo-to-your-own-github-account">Fork the PetClinic <abbr title="repository">repo</abbr> to your own GitHub account<a class="headerlink" href="#build-and-deploy-upandrunning-fork-the-petclinic-repo-to-your-own-github-account" title="Permanent link">&para;</a></h2>
+<p>For this workshop, you will be using the PetClinic application from your own GitHub account so that you can enable integrations with it later.</p>
+<p>To make a copy of the PetClinic application into your GitHub account, navigate to the following from your browser:</p>
+<div class="highlight"><pre><span></span><code>https://github.com/ibm-wsc/spring-petclinic
+</code></pre></div>
+<p>Then click on the <code>fork</code> button on the upper right corner.</p>
+<p><img alt="repofork" src="../build-and-deploy/upandrunningimages/gitrepofork.png" /></p>
+<p>At this point, you might need to log into GitHub if you weren't logged in already.</p>
+<p>Next, you might be presented with a screen to ask you to select where to fork to. Select your own user account to fork to.</p>
+<p><img alt="reposelect" src="../build-and-deploy/upandrunningimages/forkselection.png" /></p>
+<p>Please make a note of your <abbr title="repository">repo</abbr> URL for later. It should be something like:</p>
+<p><code>https://github.com/&lt;your-github-username&gt;/spring-petclinic</code></p>
+<p>That's it! You are ready to move on to the next section.</p>
+<h2 id="build-and-deploy-upandrunning-building-and-deploying-petclinic-application">Building and Deploying PetClinic Application<a class="headerlink" href="#build-and-deploy-upandrunning-building-and-deploying-petclinic-application" title="Permanent link">&para;</a></h2>
+<p>There are multiple ways <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> enables <abbr title="an application that takes full advantage of the cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr> application developers to package up their applications and deploy them. For PetClinic, you will be building your <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> from source, leveraging <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>'s S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines work.</p>
+<p><strong>1.</strong> Start with choosing Add From Git:</p>
+<p><img alt="from git" src="../build-and-deploy/upandrunningimages/fromgit.png" /></p>
+<p><strong>2.</strong> Enter <code>https://github.com/&lt;your-github-ID&gt;/spring-petclinic</code> in the <code>Git Repo URL</code> field. Expand the <code>Show Advanced Git Options</code> section, and type in <code>main</code> for the <code>Git Reference</code>. This tells <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> which GitHub <abbr title="repository">repo</abbr> and branch to pull the source code from.</p>
+<p><img alt="git url" src="../build-and-deploy/upandrunningimages/giturl.png" /></p>
+<p><strong>3.</strong> Scroll down to the <code>Builder</code> section. Select the <code>OpenJ9</code> tile and select <code>openj9-11-el8</code> as the builder <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> version. As you can see <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> offers many different builder <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> images to help you build <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> images from a variety of programming languages. Your list of builder <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> images might differ from the screen shot. For Java on Z, the recommended <abbr title="(Java Virtual Machine): the runtime engine of the Java Platform. It enables Java programs and programs compiled into Java bytecode to run on any computer that has a native JVM">JVM</abbr> is <code>OpenJ9</code> because it has built-in <abbr title="optimizations for the s390x architecture that the LinuxONE family of servers uses. They enable software to run better on these servers.">s390x optimizations</abbr> as well as <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> optimizations.</p>
+<p><img alt="builder image" src="../build-and-deploy/upandrunningimages/builderimage.png" /></p>
+<p><strong>4.</strong> In the General section, put in the following entries for Application Name and Name. </p>
+<p><img alt="app name" src="../build-and-deploy/upandrunningimages/applicationname.png" /></p>
+<p><strong>5.</strong> Scroll down to the  Pipelines section, and check off the box next to <code>Add pipeline</code>. You can also expand the <code>Show pipeline visualization</code> section to see a visual of the build pipeline.</p>
+<p><img alt="add pipe" src="../build-and-deploy/upandrunningimages/addpipelines.png" /></p>
+<p><strong>6.</strong> You are almost there! You will need to configure a couple of Advanced Options. First, click on <code>Routing</code> in the Advanced Options section to expand the Routing options.</p>
+<p><img alt="open routing panel" src="../build-and-deploy/upandrunningimages/routinglink.png" /></p>
+<p><strong>7.</strong> In the Routing options section, only fill out the Security options as follows. You can leave the rest alone. These options will enable only TLS access to your PetClinic application.</p>
+<p><img alt="routing options" src="../build-and-deploy/upandrunningimages/routingpanel.png" /></p>
+<p><strong>8.</strong> You are done with configurations of this panel. Scroll all the way down and hit the <code>Create</code> button which will kick off the pipeline build of your PetClinic application. In a few seconds you will see your Topology with the new application icon. Hit the little pipeline icon in the diagram below to view the build logs.</p>
+<p><img alt="pipeline icon" src="../build-and-deploy/upandrunningimages/pipelineicon.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Log Streaming Gotcha in the <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> CC</p>
+<p><strong>PLEASE BEWARE</strong> that if you are using the <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Trial you might see lag with the log streaming. If it stops streaming, you might want to go back out to the <code>Topology</code> view. You can always return to the logs view, once the pipeline completes, to see the logs.</p>
+</div>
+<p><strong>9.</strong> The pipeline will go through three tasks:</p>
+<p>&nbsp;&nbsp;&nbsp; 1. <b>fetch-repository</b> - this Pipeline task will <abbr title="clones a repository into a newly created directory, creates remote-tracking branches for each branch in the cloned repository (visible using `git branch --remotes`), and creates and checks out an initial branch that is forked from the cloned repository’s currently active branch.">git clone</abbr> your PetClinic <abbr title="repository">repo</abbr> for the build task.</p>
+<p>&nbsp;&nbsp;&nbsp; 2. <b>build</b> - this Pipeline task is the build process which itself is broken down into a few sub-steps. This is the longest task in the pipeline, and can take up to 15 minutes. The steps that it goes through are as follows:</p>
+<div class="admonition info">
+<p class="admonition-title">build steps</p>
+<ul>
+<li>STEP-GEN-ENV-FILE: this step generates the environment file to be used during the build process</li>
+<li>STEP-GENERATE: this step generates the Dockerfile that will be used to create the <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> later on during the build step</li>
+<li>STEP-BUILD: this is the multi-step build process of creating an <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr>. If the tests fail, this step will not complete.</li>
+<li>STEP-PUSH: this final step pushes the built <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> image registry.</li>
+</ul>
+</div>
+<p>&nbsp;&nbsp;&nbsp; 3. <b>deploy</b> - this Pipeline task will deploy the newly built <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.</p>
+<p>Below is an image of the log of a successful build task: </p>
+<p><img alt="build output" src="../build-and-deploy/upandrunningimages/buildlog.png" /></p>
+<p><strong>10.</strong> Now if you go back to the Topology view, you should see the application has been successfully deployed to <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> as well. From here you can click on the <code>open URL</code> circle, and a new browser tab should open to lead you to your PetClinic's front page.</p>
+<p><img alt="open URL" src="../build-and-deploy/upandrunningimages/openurl.png" /></p>
+<h2 id="build-and-deploy-upandrunning-interacting-with-your-petclinic-application-and-mysql-database">Interacting with Your PetClinic Application and MySQL database<a class="headerlink" href="#build-and-deploy-upandrunning-interacting-with-your-petclinic-application-and-mysql-database" title="Permanent link">&para;</a></h2>
+<p>In this section, you will add a new owner to the Pet Clinic application, and then go into your MySQL <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> to see if that owner was successfully added. </p>
+<p><strong>1.</strong> You Pet Clinic should look something similar to this. Go to the Find Owners tab, and create a new owner.</p>
+<p><img alt="find owners" src="../build-and-deploy/upandrunningimages/findowners.png" /></p>
+<p><strong>2.</strong> Click on the <code>Add Owner</code> button, and add an owner of your own, for example:</p>
+<p><img alt="add owner" src="../build-and-deploy/upandrunningimages/addowner.png" /></p>
+<p><strong>3.</strong> You can then go back to <code>Find Owners</code> and try searching for the owner that you just added. It should come back with the search results similar to the following.</p>
+<p><img alt="search results" src="../build-and-deploy/upandrunningimages/searchresults.png" /></p>
+<p><strong>4.</strong> Now let's check the MySQL database to make sure that the new owner you just added is in there.</p>
+<p>Return to your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> console, from the Topology view, click on the <code>mysql</code> icon. This will bring up a side panel, and then click on the <code>mysql</code> pod (your pod name will be different than the picture):</p>
+<p><img alt="mysql pod access" src="../build-and-deploy/upandrunningimages/mysqlpod.png" /></p>
+<p>In the pod panel, go to the Terminal tab.</p>
+<p><img alt="mysql terminal" src="../build-and-deploy/upandrunningimages/mysqlterminal.png" /></p>
+<p>Now type in the following commands in your <code>mysql</code> terminal (copy and paste box below image):</p>
+<p><img alt="mysql access" src="../build-and-deploy/upandrunningimages/mysqlaccess.png" /></p>
+<div class="highlight"><pre><span></span><code>mysql -u root -h mysql -ppetclinic
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">use</span> <span class="n">petclinic</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">show</span> <span class="k">tables</span><span class="p">;</span>
+</code></pre></div>
+<p>Let's run a SQL command now to verify that the owner that you added through the application is indeed in the database (copy and paste box below image):</p>
+<p><img alt="mysql owner check" src="../build-and-deploy/upandrunningimages/mysqlowners.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">owners</span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you added a different user than <em>alice</em> you should see that user in place of <em>alice</em> on your screen.</p>
+</div>
+<p>Please let the instructors know, if you don't see your owner you added listed. </p>
+<h2 id="build-and-deploy-upandrunning-summary">Summary <img alt="🌚" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f31a.svg" title=":new_moon_with_face:" /><a class="headerlink" href="#build-and-deploy-upandrunning-summary" title="Permanent link">&para;</a></h2>
+<p>Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines pipeline that you will build on in the next sections of the lab to achieve <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr>. You may move on to the next part by clicking <code>Next</code> on the bottom of the page.</p></section><h1 class='nav-section-title-end'>Ended: Build and Deploy Pet Clinic</h1><h1 class='nav-section-title'>Configure PetClinic's Pipeline</h1><section class="print-page" id="full-dev-pipeline-configure_overview"><h1 id="full-dev-pipeline-configure_overview-configure-petclinics-integration-and-deployment-pipeline-to-meet-your-organizations-needs1">Configure PetClinic's Integration and Deployment Pipeline to Meet Your Organization's Needs<sup id="full-dev-pipeline-configure_overview-fnref:1"><a class="footnote-ref" href="#full-dev-pipeline-configure_overview-fn:1">1</a></sup><a class="headerlink" href="#full-dev-pipeline-configure_overview-configure-petclinics-integration-and-deployment-pipeline-to-meet-your-organizations-needs1" title="Permanent link">&para;</a></h1>
+<p>It's time to expand your pipeline to automate the integration and deployment process for your application (with specific configuration for your organization) using <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines. This involves the following tasks:</p>
+<ol>
+<li>
+<p><a href="#full-dev-pipeline-pipeline">Automate PetClinic Build and Test for your Organization's Needs</a></p>
+<ul>
+<li>Automate MySQL deployment using <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> template</li>
+<li>Make clean <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> from S2I build to meet the security needs of your organization</li>
+</ul>
+</li>
+<li>
+<p><a href="#full-dev-pipeline-runpipeline">Automate PetClinic development deployment to meet your Organization's Needs</a><sup id="fnref2:1"><a class="footnote-ref" href="#full-dev-pipeline-configure_overview-fn:1">1</a></sup></p>
+<ul>
+<li>Manage PetClinic deployment resources using KUSTOMIZE</li>
+<li>Setup PetClinic <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> deployment automation with tagging based on source</li>
+</ul>
+</li>
+</ol>
+<div class="footnote">
+<hr />
+<ol>
+<li id="full-dev-pipeline-configure_overview-fn:1">
+<p>For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.&#160;<a class="footnote-backref" href="#full-dev-pipeline-configure_overview-fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#full-dev-pipeline-configure_overview-fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></section><section class="print-page" id="full-dev-pipeline-pipeline"><h1 id="full-dev-pipeline-pipeline-configure-petclinic-build-and-test-to-meet-your-organizations-requirements1">Configure PetClinic Build and Test to Meet your Organization's Requirements<sup id="full-dev-pipeline-pipeline-fnref:1"><a class="footnote-ref" href="#full-dev-pipeline-pipeline-fn:1">1</a></sup><a class="headerlink" href="#full-dev-pipeline-pipeline-configure-petclinic-build-and-test-to-meet-your-organizations-requirements1" title="Permanent link">&para;</a></h1>
+<p>Now that PetClinic is up and running on your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> cluster, it's time to add functionality to your pipeline to achieve basic integration and deployment when triggered. The <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> pipeline you created in the <a href="#build-and-deploy-upandrunning">PetClinic Up and Running</a> uses <a href="https://tekton.dev" rel="noopener noreferrer" target="_blank">Tekton</a> to run a series of tasks (each with one or more steps) to accomplish a workflow (pipeline). You will use the Pipeline Builder <abbr title="user interface">UI</abbr> built into <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> to quickly and easily craft a pipeline that meets your specific needs.</p>
+<div class="admonition info">
+<p class="admonition-title">Why <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines?</p>
+<ul>
+<li>
+<p>Portable: <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> resources defined via yaml files -&gt; portable across <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> clusters</p>
+</li>
+<li>
+<p>Low Resource Usage: Containers spin up when triggered -&gt; resources only used when needed</p>
+</li>
+<li>
+<p>Configurable: Can tailor overall pipeline and individual tasks to needs of your enterprise/organization </p>
+</li>
+<li>
+<p>Ease of Use: Pipeline Builder <abbr title="user interface">UI</abbr> and built-in cluster resources (i.e. <code>ClusterTasks</code>, <code>ClusterTriggerBindings</code>, etc.) enable you to easily create a pipeline and export the yaml files with minimal knowledge</p>
+</li>
+</ul>
+</div>
+<h2 id="full-dev-pipeline-pipeline-petclinic-pipeline">PetClinic Pipeline<a class="headerlink" href="#full-dev-pipeline-pipeline-petclinic-pipeline" title="Permanent link">&para;</a></h2>
+<p>When you deployed the PetClinic application using the <code>From Git</code> option in the <a href="#build-and-deploy-upandrunning">PetClinic Up and Running</a> section, you chose to create a basic pipeline. You'll start with this pipeline and edit it to add new functionality for your use case. </p>
+<p>Navigate to the <code>Pipelines</code> tab in the <code>Developer</code> perspective on the left and then click the three dots to the right of the pipeline name (<code>spring-petclinic</code>) and choose <code>Edit Pipeline</code>. <img alt="Pipeline Image" src="../images/Part1/EditNewPipeline.png" /> </p>
+<h2 id="full-dev-pipeline-pipeline-ensure-mysql-database-deployed-for-each-run">Ensure MySQL Database Deployed for each Run<a class="headerlink" href="#full-dev-pipeline-pipeline-ensure-mysql-database-deployed-for-each-run" title="Permanent link">&para;</a></h2>
+<p>This will bring you to the Pipeline Builder <abbr title="user interface">UI</abbr> where you can edit your pipeline. Here you will make sure the MySQL database is configured according to your specification before the <code>build</code> task.</p>
+<ol>
+<li>
+<p>Add a <code>mysql-deploy</code> task in parallel to the <code>git-fetch</code> task. 
+    <img alt="Add Parallel MySQL" src="../images/Part1/mySQL_ParallelTask.png" /> </p>
+<div class="admonition info">
+<p class="admonition-title">Why is <code>mysql-deploy</code> in Parallel?</p>
+<p>This ensures MySQL is in place for each <code>PetClinic</code> application build (which would fail without it).  </p>
+</div>
+<p>Click <code>Select Task</code> in the middle of the rectangle of the new task and choose the <code>openshift-client</code> task from the dropdown menu. </p>
+<p><img alt="ChooseOpenShift Client" src="../images/Part1/Choose_OpenShiftClientTask.png" /></p>
+<p>Click on the middle of the oval of the <code>openshift-client</code> task to enter values for it (copy and paste boxes below image).</p>
+<p><img alt="Click OpenShift Client" src="../images/Part1/OpenShiftClientOval.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Once you add a specific task (i.e. <code>openshift-client</code>), clicking on the oval of the task will enable you to edit its default values for your needs.</p>
+</div>
+<p>Give the task the following parameters to ensure the MySQL database is available with the necessary configuration:</p>
+<p><img alt="MySQL Task" src="../images/Part1/MySQLTemplateTask.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>mysql-deploy
+</code></pre></div>
+<p><strong>SCRIPT</strong></p>
+<div class="highlight"><pre><span></span><code>oc process openshift//mysql-ephemeral -p <span class="nv">MYSQL_USER</span><span class="o">=</span>petclinic -p <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>petclinic -p <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>petclinic -p <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>petclinic <span class="p">|</span> oc apply -f -
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Simply Click Away</p>
+<p>Once you have entered the string into the <code>SCRIPT</code> section, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">What is <code>oc process</code> doing?</p>
+<p><code>oc process</code> is processing the <a href="https://docs.openshift.com/container-platform/4.7/openshift_images/using-templates.html#templates-overview_using-templates" rel="noopener noreferrer" target="_blank"><abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> template</a> for the <code>mysql-ephemeral</code> database with the parameters given via a series of <code>-p</code> arguments and finally <code>oc apply -f -</code> ensures that any missing components will be recreated.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">No help please!</p>
+<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
+</div>
+</li>
+<li>
+<p>Add a <code>mysql-rollout-wait</code> task</p>
+<p>You need to make sure that <code>mysql</code> is fully deployed before your <code>build</code> task begins. In order to achieve this, you will use the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Client again and wait for the <code>rollout</code> of the <code>mysql</code> <code>deploymentConfig</code> to complete after the <code>mysql-deploy</code> task. Add a sequential task after <code>mysql-deploy</code>:</p>
+<p><img alt="mysql sequential task" src="../images/Part1/mySQL_SequentialTask.png" /></p>
+<p><code>Select Task</code> as <code>openshift-client</code> like before and then fill out the task with the following parameters (copy and paste boxes below image for changes):</p>
+<p><img alt="mysql-check task" src="../images/Part1/MySQLRolloutWait.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>mysql-rollout-wait
+</code></pre></div>
+<p><strong>ARGS</strong></p>
+<div class="highlight"><pre><span></span><code>rollout
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dc/mysql
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">No help please!</p>
+<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running).</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">What the ARGS?</p>
+<p>You may be wondering why you used the <code>SCRIPT</code> section in the <code>mysql-deploy</code> task for the entire command, but now are using the <code>ARGS</code> to individually list each argument of the command? Both work and so you are going through both methods here. On the one hand, the <code>SCRIPT</code> method is easier to copy and paste and looks the same as it would entered on the command line. On the other hand, the <code>ARGS</code> method adds readability to the task. Choose whichever method you prefer, though beware of input errors  with the <code>ARGS</code> method for long commands. <em>FYI: The equivalent <code>SCRIPT</code> command for the <code>mysql-rollout-wait</code> task is</em>:</p>
+<div class="highlight"><pre><span></span><code>oc rollout status dc/mysql
+</code></pre></div>
+</div>
+</li>
+</ol>
+<p><img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /> Now your <code>mysql-deploy</code> and <code>mysql-rollout</code> tasks will have <code>MySQL</code> alive and well for the <code>build</code> task!</p>
+<h2 id="full-dev-pipeline-pipeline-make-clean-image-from-s2i-build">Make Clean Image from S2I build<a class="headerlink" href="#full-dev-pipeline-pipeline-make-clean-image-from-s2i-build" title="Permanent link">&para;</a></h2>
+<p>The <code>s2i-java-11</code> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> is very convenient for making a <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> from source code. However, the simplicity that gives it value can make it fail at meeting the needs of many organizations by itself. In your case, you will take the artifacts from the s2i <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> and copy them to a new <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> that can meet all your needs to get the best of both worlds. You'll create an optimized <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> starting from a compact <code>openj9</code> java 11 base and employing <a href="https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1#layered-jars" rel="noopener noreferrer" target="_blank">the advanced layers feature in spring</a> that optimizes Docker image caching with the <a href="https://raw.githubusercontent.com/ibm-wsc/spring-petclinic/main/final-Dockerfile" rel="noopener noreferrer" target="_blank">final-Dockerfile</a> in the <a href="https://github.com/ibm-wsc/spring-petclinic" rel="noopener noreferrer" target="_blank">ibm-wsc/spring-petclinic</a> git repository you forked. </p>
+<ol>
+<li>
+<p>Add <code>Buildah</code> task</p>
+<p>Add the <code>buildah</code> task as a sequential task after the <code>build</code> task.</p>
+<p><img alt="Add Buildah Task" src="../images/Part1/AddBuildahTask.png" /></p>
+</li>
+<li>
+<p>Configure <code>buildah</code> task</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Each value that you need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match the image)</p>
+</div>
+<p><img alt="Buildah Task Values" src="../images/Part1/ProducingCleanImageBuildah2.png" /></p>
+<p>DISPLAY NAME:
+<div class="highlight"><pre><span></span><code>clean-image
+</code></pre></div></p>
+<p>IMAGE:
+<div class="highlight"><pre><span></span><code>$(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
+</code></pre></div></p>
+<p>DOCKERFILE:
+<div class="highlight"><pre><span></span><code>./final-Dockerfile
+</code></pre></div></p>
+<p>TLSVERIFY:
+<div class="highlight"><pre><span></span><code>false
+</code></pre></div></p>
+<p>BUILD_EXTRA_ARGS:
+<div class="highlight"><pre><span></span><code>--build-arg PETCLINIC_S2I_IMAGE=$(params.IMAGE_NAME)
+</code></pre></div></p>
+</li>
+<li>
+<p>Add <code>GIT_MESSAGE</code>, and <code>COMMIT_SHA</code> parameters to the pipeline</p>
+<p>Click <code>Add Parameter</code> twice ...</p>
+<p><img alt="Add Parameter" src="../images/Part1/AddParameter.png" /></p>
+<p>and then fill in the parameter details for <code>GIT_MESSAGE</code> and <code>COMMIT_SHA</code> (copy and paste boxes below image)</p>
+<p><img alt="Add Image and Git Parameters" src="../images/Part1/AddParameters.png" /></p>
+<p><strong>GIT_MESSAGE</strong></p>
+<p><code>GIT_MESSAGE</code> Parameter Name:
+<div class="highlight"><pre><span></span><code>GIT_MESSAGE
+</code></pre></div>
+<code>GIT_MESSAGE</code> Parameter Description:
+<div class="highlight"><pre><span></span><code>Git commit message if triggered by Git, otherwise it&#39;s a manual build
+</code></pre></div>
+<code>GIT_MESSAGE</code> Parameter Default Value
+<div class="highlight"><pre><span></span><code>This is a manual build (not triggered by Git)
+</code></pre></div></p>
+<p><strong>COMMIT_SHA</strong></p>
+<p><code>COMMIT_SHA</code> Parameter Name:
+<div class="highlight"><pre><span></span><code>COMMIT_SHA
+</code></pre></div>
+<code>COMMIT_SHA</code> Parameter Description:
+<div class="highlight"><pre><span></span><code>SHA of Git commit if triggered by Git, otherwise just update manual tag
+</code></pre></div>
+<code>COMMIT_SHA</code> Parameter Default Value:
+<div class="highlight"><pre><span></span><code>manual
+</code></pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Save parameters when done with entry by clicking on blue <code>SAVE</code> box before moving onto step 4. If blue <code>SAVE</code> box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the <code>-</code>.</p>
+</div>
+</li>
+<li>
+<p>Add workspace to <code>clean-image</code> task </p>
+<ol>
+<li>
+<p>Save current pipeline edit and switch to <code>YAML</code> from pipeline menu.</p>
+<p><img alt="Switch to yaml" src="../images/Part1/SwitchYaml.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Why are you editing yaml directly?</p>
+<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder <abbr title="user interface">UI</abbr> so you have to do it directly in the yaml for now.</p>
+</div>
+</li>
+<li>
+<p>Find the <code>clean-image-task</code> and add the following workspace definition:</p>
+<div class="highlight"><pre><span></span><code>      <span class="nt">workspaces</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
+        <span class="nt">workspace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
+</code></pre></div>
+<p><img alt="Clean Image Workspace" src="../images/Part1/AddWorspaceProducingCleanImage.png" /></p>
+</li>
+<li>
+<p>Save the update</p>
+<p><img alt="Save Pipeline Edit Yaml" src="../images/Part1/PipelineUpdatedYaml.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the save message above appears you can then proceed to <code>Cancel</code> back to the pipeline menu.</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="full-dev-pipeline-pipeline-summary">Summary <img alt="🌒" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f312.svg" title=":waxing_crescent_moon:" /><a class="headerlink" href="#full-dev-pipeline-pipeline-summary" title="Permanent link">&para;</a></h2>
+<p>Your pipeline will now automatically check that your <code>MySQL</code> instance is configured properly and rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (<code>minimal</code>) <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr>. Finally, it will tag the <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to distinguish between manual builds and those triggered by a potential <abbr title="updates the remote branch with local commits. You can also think of `git push` as update or publish.">git push</abbr>. In the next section, you will see this automation in action for your development environment.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="full-dev-pipeline-pipeline-fn:1">
+<p>For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.&#160;<a class="footnote-backref" href="#full-dev-pipeline-pipeline-fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></section><section class="print-page" id="full-dev-pipeline-runpipeline"><h1 id="full-dev-pipeline-runpipeline-configure-petclinic-development-deployment-to-meet-your-organizations-requirements1">Configure PetClinic Development Deployment to Meet your Organization's Requirements<sup id="full-dev-pipeline-runpipeline-fnref:1"><a class="footnote-ref" href="#full-dev-pipeline-runpipeline-fn:1">1</a></sup><a class="headerlink" href="#full-dev-pipeline-runpipeline-configure-petclinic-development-deployment-to-meet-your-organizations-requirements1" title="Permanent link">&para;</a></h1>
+<h2 id="full-dev-pipeline-runpipeline-manage-resource-across-environments-with-kustomize">Manage resource across environments with Kustomize<a class="headerlink" href="#full-dev-pipeline-runpipeline-manage-resource-across-environments-with-kustomize" title="Permanent link">&para;</a></h2>
+<p><a href="https://kustomize.io" rel="noopener noreferrer" target="_blank">Kustomize</a> is a tool for customizing <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> resource configuration.</p>
+<div class="admonition note">
+<p class="admonition-title">From the documentation overview</p>
+<p>Kustomize traverses a <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the <a href="https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/" rel="noopener noreferrer" target="_blank">Introducing Kustomize <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> Blog Post</a> for a more in-depth overview of Kustomize and its purpose.</p>
+</div>
+<p>As part of doing things the "<abbr title="an application that takes full advantage of the cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr>" way you will be using Kustomize to manage resource changes across your <code>dev</code> and <code>staging</code> environments as well as injecting information from your pipeline (such as newly created <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> information with git commits) into your <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> (<abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>) resources. </p>
+<p>To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the <a href="https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files" rel="noopener noreferrer" target="_blank">ocp-files directory</a>.</p>
+<p>For more information on how kubectl (and oc through kubectl) integrates Kustomize, see the <a href="https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/" rel="noopener noreferrer" target="_blank">kubectl documentation</a>.</p>
+<h3 id="full-dev-pipeline-runpipeline-creating-custom-task-for-kustomize">Creating Custom <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> for Kustomize<a class="headerlink" href="#full-dev-pipeline-runpipeline-creating-custom-task-for-kustomize" title="Permanent link">&para;</a></h3>
+<p>Since there is no <code>ClusterTask</code> defined for Kustomize, you will create a custom task for this purpose. It will change into the Kustomize directory, run a Kustomize command on the directory, and then apply the files from the directory using the built-in Kustomize functionality of the oc command line tool (via kubectl's Kustomize support)</p>
+<ol>
+<li>
+<p>Copy the <code>kustomize</code> task using the following definition (copy by clicking on the copy icon in the top right of the box below):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tekton.dev/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kustomize</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">&gt;-</span>
+    <span class="no">This task runs commands against the cluster where the task run is being</span>
+    <span class="no">executed.</span>
+
+    <span class="no">Kustomize is a tool for Kubernetes native configuration management.  It</span>
+    <span class="no">introduces a template-free way to customize application configuration that</span>
+    <span class="no">simplifies the use of off-the-shelf applications.  Now, built into kubectl</span>
+    <span class="no">as apply -k and oc as oc apply -k.</span>
+  <span class="nt">params</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ocp-files</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The directory where the kustomization yaml file(s) reside in the git directory</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">KUSTOMIZE_DIR</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+  <span class="p p-Indicator">-</span> <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">base</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subdirectory of KUSTOMIZE_DIR used for extra configuration of current resources</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EDIT_SUDBDIR</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+  <span class="p p-Indicator">-</span> <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">overlay/dev</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subdirectory of KUSTOMIZE_DIR used for specifying resources for a specific release such as dev or staging</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RELEASE_SUBDIR</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+  <span class="p p-Indicator">-</span> <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kustomize --help</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The Kustomize CLI command to run</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SCRIPT</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+  <span class="nt">steps</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;docker.io/gmoney23/kustomize-s390x:v4.1.2&#39;</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kustomize</span>
+    <span class="nt">resources</span><span class="p">:</span>
+      <span class="nt">limits</span><span class="p">:</span>
+        <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
+        <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+      <span class="nt">requests</span><span class="p">:</span>
+        <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
+        <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+    <span class="nt">workingDir</span><span class="p">:</span> <span class="s">&quot;$(workspaces.source.path)/$(params.KUSTOMIZE_DIR)/$(params.EDIT_SUDBDIR)&quot;</span>
+    <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$(params.SCRIPT)</span>
+  <span class="p p-Indicator">-</span> <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;image-registry.openshift-image-registry.svc:5000/openshift/cli:latest&#39;</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apply-oc-files</span>
+    <span class="nt">resources</span><span class="p">:</span>
+      <span class="nt">limits</span><span class="p">:</span>
+        <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
+        <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+      <span class="nt">requests</span><span class="p">:</span>
+        <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
+        <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+    <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">oc apply -k &quot;$(workspaces.source.path)/$(params.KUSTOMIZE_DIR)/$(params.RELEASE_SUBDIR)&quot;</span>
+  <span class="nt">workspaces</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The git source code</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create the <code>kustomize</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr></p>
+<p>a. Click <code>Import YAML</code> to bring up the box where you can create <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> resource definitions from yaml</p>
+<p>b. Paste the <code>kustomize</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> into the box</p>
+<p>c. Scroll down and click <code>Create</code> to create the <code>kustomize</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> </p>
+<p><img alt="Create Kustomize Task" src="../images/Part1/CreateKustomizeTask.png" /></p>
+</li>
+</ol>
+<p>You should now see the created <code>kustomize</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr>. Navigate back to the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> and go back to editing your pipeline.</p>
+<p><img alt="Back to Pipelines" src="../images/Part1/BackToPipelines.png" /></p>
+<h3 id="full-dev-pipeline-runpipeline-add-kustomize-task-to-pipeline">Add Kustomize <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#full-dev-pipeline-runpipeline-add-kustomize-task-to-pipeline" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Add a sequential task after <code>clean-image</code> and when you <code>Select Task</code> choose the <code>kustomize</code> task. </p>
+<p><img alt="Add Kustomize task to Pipeline Dev" src="../images/Part1/AddKustomizeTaskPipeline.png" /></p>
+</li>
+<li>
+<p>Configure <code>kustomize</code> task</p>
+<p>Since your initial deploy will be for the <code>dev</code> environment, the only values you need to change are the <code>Display Name</code> and the <code>SCRIPT</code> (copy and paste boxes below image):</p>
+<p><img alt="Kustomize Configure 1" src="../images/Part1/KustomizeDevChoices.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>kustomize-dev
+</code></pre></div>
+<p><strong>SCRIPT</strong></p>
+<div class="highlight"><pre><span></span><code>kustomize edit <span class="nb">set</span> image spring-petclinic<span class="o">=</span><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>-minimal:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
+</code></pre></div>
+</li>
+<li>
+<p>Save pipeline</p>
+</li>
+<li>
+<p>Add workspace to <code>kustomize-dev</code> task </p>
+<ol>
+<li>Save current pipeline edit and switch to <code>YAML</code> from pipeline menu.</li>
+</ol>
+<p><img alt="Switch to yaml" src="../images/Part1/SwitchYaml.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Why are you editing yaml directly?</p>
+<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder <abbr title="user interface">UI</abbr> so you have to do it directly in the yaml for now.</p>
+</div>
+<ol>
+<li>
+<p>Find the <code>kustomize-dev</code> and add the following workspace definition:</p>
+<div class="highlight"><pre><span></span><code>      <span class="nt">workspaces</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
+        <span class="nt">workspace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
+</code></pre></div>
+</li>
+</ol>
+<p><img alt="Kustomize Dev Add Workspace" src="../images/Part1/AddWorkspaceKustomizeDev.png" /></p>
+<ol>
+<li>Save the update</li>
+</ol>
+<p><img alt="Save Pipeline Edit Yaml" src="../images/Part1/PipelineUpdatedYaml.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the save message above appears you can then proceed to <code>Cancel</code> back to the pipeline menu.</p>
+</div>
+</li>
+</ol>
+<h2 id="full-dev-pipeline-runpipeline-clean-old-petclinic-instances-at-the-beginning-of-a-run">Clean Old PetClinic Instances at the Beginning of a Run<a class="headerlink" href="#full-dev-pipeline-runpipeline-clean-old-petclinic-instances-at-the-beginning-of-a-run" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Go back to editing your pipeline via <code>Actions -&gt; Edit Pipeline</code></p>
+<p><img alt="Actions Edit Pipeline" src="../images/Part1/ActionsEditPipeline.png" /></p>
+</li>
+<li>
+<p>Add a <code>Task</code> named <code>cleanup-resources</code> sequentially at the beginning of the pipeline before <code>fetch-repository</code> (using the <code>openshift-client</code> <abbr title="a `Task` scoped to the entire cluster instead of a single project.">ClusterTask</abbr>).</p>
+<p><img alt="add cleanup sequential" src="../images/Part1/AddSequentialTask.png" /></p>
+</li>
+<li>
+<p>Configure the task with the following parameters (copy and paste boxes below image for changes):</p>
+<p><img alt="cleanup resources" src="../images/Part1/CleanupResourcesTask.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>cleanup-resources
+</code></pre></div>
+<p><strong>SCRIPT</strong></p>
+<div class="highlight"><pre><span></span><code>oc delete deployment,cm,svc,route -l <span class="nv">app</span><span class="o">=</span><span class="k">$(</span>params.APP_NAME<span class="k">)</span> --ignore-not-found
+</code></pre></div>
+<p>and an empty <code>ARGS</code> value.</p>
+<div class="admonition warning">
+<p class="admonition-title">No help please!</p>
+<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
+</div>
+</li>
+</ol>
+<h2 id="full-dev-pipeline-runpipeline-update-deploy-task-to-deploy-dev">Update Deploy <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to deploy-dev<a class="headerlink" href="#full-dev-pipeline-runpipeline-update-deploy-task-to-deploy-dev" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Click on the <code>deploy</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> at the end of the pipeline and change the following parameters to the corresponding values (copy and paste boxes below image):</p>
+<p><img alt="Deploy Dev Task Completed" src="../images/Part1/DeployDevCompleted.png" /></p>
+<p><strong>Display Name</strong>
+<div class="highlight"><pre><span></span><code>deploy-dev
+</code></pre></div></p>
+<p><strong>Script</strong>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>params.GIT_MESSAGE<span class="k">)</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> oc <span class="nv">$@</span>
+</code></pre></div></p>
+<p><strong>Last Arg</strong></p>
+<p>From <code>deploy/$(params.APP_NAME)</code> to:</p>
+<div class="highlight"><pre><span></span><code>deploy/spring-petclinic-dev
+</code></pre></div>
+</li>
+<li>
+<p><code>Save</code> your pipeline!</p>
+</li>
+</ol>
+<h2 id="full-dev-pipeline-runpipeline-run-the-updated-pipeline">Run the Updated Pipeline<a class="headerlink" href="#full-dev-pipeline-runpipeline-run-the-updated-pipeline" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Go to <code>Actions</code> -&gt; <code>Start</code> in the right hand corner of the pipeline menu</p>
+<p><img alt="Actions Start Pipeline" src="../images/Part1/StartPipelineManually.png" /></p>
+</li>
+<li>
+<p>Manually <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a <code>PipelineRun</code> by accepting the default values and clicking on <code>Start</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Persistent Volume Claim Note</p>
+<p>Please select a <code>PersistentVolumeClaim</code> if it is not already filled out for you to complete your pipeline. If it is already filled out for you then jump right to starting the pipeline.</p>
+</div>
+<p><img alt="Trigger Pipeline Manual" src="../images/Part1/PipelineExampleManualParameters.png" /></p>
+</li>
+<li>
+<p>Watch the results of your build pipeline run. It should complete successfully as in the pictures below.</p>
+<div class="admonition info">
+<p class="admonition-title">How long will your pipeline take to run?</p>
+<p>The pipeline run may take anywhere from 10-25 minutes to complete depending on the current system load. You can see the progress of your build, as well as if any errors occur, via the <abbr title="user interface">UI</abbr>. Thus, by monitoring the <abbr title="user interface">UI</abbr>, you can make sure things are going as planned.</p>
+</div>
+<p><strong>Pipeline Run Success View Perspective:</strong></p>
+<p><img alt="Pipeline Run View" src="../images/Part1/PipelineRolloutRunView.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Pipeline Run Details View</p>
+<p>In the pipeline run <code>Details</code> view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the above screenshot was <code>Triggered By</code> a user versus an automated source such as an <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> watching for a GitHub push...</p>
+</div>
+<p><strong>Pipeline Run Success Logs Perspective:</strong></p>
+<p><img alt="Pipeline Run Logs" src="../images/Part1/PipelineRolloutLogsView.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Pipeline Run Logs View</p>
+<p>From the pipeline run <code>Logs</code> view you can see that the pipeline run tasks all have green check marks and that this was a manual build (from the message in the log output of the final [<code>deploy-dev</code>] task).</p>
+</div>
+</li>
+</ol>
+<h2 id="full-dev-pipeline-runpipeline-summary">Summary <img alt="🌓" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f313.svg" title=":first_quarter_moon:" /><a class="headerlink" href="#full-dev-pipeline-runpipeline-summary" title="Permanent link">&para;</a></h2>
+<p>Congratulations! You successfully deployed your PetClinic application to your development environment with automated checks and configuration to meet your needs. This means that whenever your pipeline is triggered it will automatically spin up resources to build, test and deploy your application according to the specification you need to meet for your organization<sup id="fnref2:1"><a class="footnote-ref" href="#full-dev-pipeline-runpipeline-fn:1">1</a></sup>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="full-dev-pipeline-runpipeline-fn:1">
+<p>For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.&#160;<a class="footnote-backref" href="#full-dev-pipeline-runpipeline-fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#full-dev-pipeline-runpipeline-fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></section><h1 class='nav-section-title-end'>Ended: Configure PetClinic's Pipeline</h1><h1 class='nav-section-title'>Test and Promote Pet Clinic</h1><section class="print-page" id="application-promotion-promote_overview"><h1 id="application-promotion-promote_overview-its-time-to-get-your-pet-clinic-ready-for-its-internal-debut">It's Time to Get your Pet Clinic Ready for its Internal Debut<a class="headerlink" href="#application-promotion-promote_overview-its-time-to-get-your-pet-clinic-ready-for-its-internal-debut" title="Permanent link">&para;</a></h1>
+<p>In this section, you will bring PetClinic from development to staging for the internal showcase of your pet clinic (staging).</p>
+<ol>
+<li>
+<p><a href="#application-promotion-promote">Promotion Tasks</a></p>
+<ul>
+<li>Check successful connection of PetClinic <code>dev</code> version</li>
+<li>Deploy PetClinic <code>staging</code> version</li>
+<li>Check successful connection of PetClinic <code>staging</code> version</li>
+</ul>
+</li>
+<li>
+<p><a href="#application-promotion-git">Git Tasks</a></p>
+<ul>
+<li>Add GitHub <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> to pipeline</li>
+<li>Pass git commit messages and hashes to pipeline</li>
+<li>Version images by git commit</li>
+<li>Add <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> to GitHub so it will <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a new <code>PipelineRun</code> for each push</li>
+</ul>
+</li>
+<li>
+<p><a href="#application-promotion-action">Running Pipeline</a></p>
+<ul>
+<li>Update PetClinic with new animal type and push to GitHub</li>
+<li>Watch GitHub <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> <code>PipelineRun</code></li>
+<li>Watch app move from dev to staging seamlessly with images tagged with git commit SHA </li>
+<li>Interact with the PetClinic application in staging using the new animal type</li>
+</ul>
+</li>
+</ol></section><section class="print-page" id="application-promotion-promote"><h1 id="application-promotion-promote-automatically-testing-and-promoting-your-application">Automatically Testing and Promoting your Application<a class="headerlink" href="#application-promotion-promote-automatically-testing-and-promoting-your-application" title="Permanent link">&para;</a></h1>
+<p>Here you will edit your pipeline to test your application in development, clean up your development resources, promote your application to staging, and test it in staging.</p>
+<h2 id="application-promotion-promote-testing-your-application-in-the-wild">Testing your Application in the Wild<a class="headerlink" href="#application-promotion-promote-testing-your-application-in-the-wild" title="Permanent link">&para;</a></h2>
+<p>During the build stage of your pipeline, you tested two things:</p>
+<ol>
+<li>That the pieces of your application worked (unit testing)</li>
+<li>That they worked together (integration testing)</li>
+</ol>
+<p>Now, it's time to go a step further and automate testing that your application is working and accessible when deployed in a real (<abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>) environment:</p>
+<ol>
+<li>Internally (within <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>)</li>
+<li>Externally (the outside world)</li>
+</ol>
+<h3 id="application-promotion-promote-internally-within-kubernetesopenshift">Internally (Within <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr>/<abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>)<a class="headerlink" href="#application-promotion-promote-internally-within-kubernetesopenshift" title="Permanent link">&para;</a></h3>
+<p>The first thing you need to test is that the application is alive and available from within your cluster (<abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> environment). This is important not only for when running the <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> pipeline, but also for any time your application is running  (downtime is detrimental, especially in production). </p>
+<p>This functionality is available in <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> via <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/" rel="noopener noreferrer" target="_blank">probes</a>. There are 3 different types of probes to test the different aspects of your application's availability:</p>
+<div class="admonition info">
+<p class="admonition-title"><abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> Probes in Spring</p>
+<p>In Spring there are built-in endpoints for <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> probes. If you are interested in learning how to program these into a Spring application of yours in the future, please take a look at <a href="https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot" rel="noopener noreferrer" target="_blank">Spring's official blog</a>.</p>
+</div>
+<ol>
+<li>
+<p>Startup probes:</p>
+<ol>
+<li>
+<p>Activate first</p>
+</li>
+<li>
+<p>Make sure an application is up and running (started up) </p>
+</li>
+<li>
+<p>Free startup concerns/constraints from other probes</p>
+</li>
+</ol>
+<p>Here is the <code>startupProbe</code> for the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> running the PetClinic application:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">startupProbe</span><span class="p">:</span>
+    <span class="nt">httpGet</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/actuator/health/liveness</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+    <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+    <span class="nt">failureThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+</code></pre></div>
+<p>It simply queries (via localhost) PetClinic's liveness health endpoint. Once this returns successfully, you can be confident the application has started up and can begin to monitor the liveness and readiness of each <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> of each replica (pod) of your application throughout its lifecycle.</p>
+</li>
+<li>
+<p>Liveness probes:</p>
+<ol>
+<li>
+<p>Make sure an application is actually running and not caught in a deadlock (it's alive)</p>
+</li>
+<li>
+<p>Restart "dead" containers automatically with <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/" rel="noopener noreferrer" target="_blank"><abbr title="an agent that runs on each node of a Kubernetes cluster. It &quot;manages&quot; its node by reading the container manifests, and ensuring the defined containers are started and running.">kubelet</abbr></a></p>
+</li>
+<li>
+<p>Fix problems that may arise in long-running containers via the aforementioned restart</p>
+</li>
+</ol>
+<p>Here is the <code>livenessProbe</code> for the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> running the PetClinic application:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">livenessProbe</span><span class="p">:</span>
+    <span class="nt">httpGet</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/actuator/health/liveness</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+    <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+    <span class="nt">failureThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+</code></pre></div>
+<p>This looks almost identical to the <code>startupProbe</code> above other than having a much lower <code>failureThreshold</code>. The <code>startupProbe</code> is making sure the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> of a given pod of your application's deployment is alive when it first starts up (It is allowing time for that startup to occur). On the other hand, the <code>liveness</code> probe above is making sure your application stays alive throughout its lifecycle. Therefore, it has a much lower <code>failureThreshold</code> to enable <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/" rel="noopener noreferrer" target="_blank"><abbr title="an agent that runs on each node of a Kubernetes cluster. It &quot;manages&quot; its node by reading the container manifests, and ensuring the defined containers are started and running.">kubelet</abbr></a> to quickly respond (restart the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr>) when the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> becomes deadlocked.</p>
+</li>
+<li>
+<p>Readiness probes:</p>
+<ol>
+<li>
+<p>Check if each copy (replica) of an application is ready</p>
+</li>
+<li>
+<p>Makes sure traffic goes only to replicas that are ready for it</p>
+</li>
+<li>
+<p>Prevents users from interacting with unready replicas (getting unnecessary errors)</p>
+</li>
+</ol>
+<p>Here is the <code>readinessProbe</code> for the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> running PetClinic:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">readinessProbe</span><span class="p">:</span>
+    <span class="nt">httpGet</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/actuator/health/readiness</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+    <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+</code></pre></div>
+<p>It simply queries (via localhost) PetClinic's readiness health endpoint. This probe will let <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> know when to send traffic to a PetClinic replica. When you send traffic to the application, only the available replicas will receive it. This means that replicas which aren't ready for traffic don't accidentally get it, preventing errors for the user.</p>
+</li>
+</ol>
+<p>These 3 probes serve to declare to <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> the way your application (and the replicas that make it up) should behave, enabling the system to monitor and take action on your behalf (restarting the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> or removing its pod's endpoint from service) when the current state (the status) does not meet the desired state (your specification).</p>
+<p>The rollout task you created before as <code>deploy-dev</code> will only complete once all desired replicas are ready, implying that both the <code>startup</code> (initial liveness) and <code>readiness</code> probes have successfully passed and all replicas of your application are initially alive and ready for business. </p>
+<h3 id="application-promotion-promote-testing-external-connections">Testing External Connections<a class="headerlink" href="#application-promotion-promote-testing-external-connections" title="Permanent link">&para;</a></h3>
+<p>While making sure your application is internally up and running is important, at the end of the day you want to provide access to your users externally<sup id="fnref:1"><a class="footnote-ref" href="#application-promotion-promote-fn:1">1</a></sup>. </p>
+<p>This means it is important to also test the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> route (the component providing the external connection) as part of your <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> pipeline to ensure it is correctly servicing web traffic external to your cluster<sup id="fnref:2"><a class="footnote-ref" href="#application-promotion-promote-fn:2">2</a></sup>.</p>
+<h4 id="application-promotion-promote-create-external-route-test-task">Create External Route Test <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr><a class="headerlink" href="#application-promotion-promote-create-external-route-test-task" title="Permanent link">&para;</a></h4>
+<p>You will create a task to check the connection to your external route as part of your <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> pipeline.</p>
+<ol>
+<li>
+<p>Copy the <code>connection-test</code> task using the following definition (copy by clicking on the copy icon in the top right of the box below):</p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tekton.dev/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="nt">metadata</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">connection-test</span>
+<span class="nt">spec</span><span class="p">:</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">&gt;-</span>
+      <span class="no">&quot;This task runs a bash script to determine if a given application</span>
+      <span class="no">is accessible to the outside world via its route.&quot;</span>
+    <span class="nt">params</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ROUTE_NAME</span>
+      <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;The</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OpenShift</span><span class="nv"> </span><span class="s">route</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">application.&quot;</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">APP_PATH</span>
+      <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;/&quot;</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;The</span><span class="nv"> </span><span class="s">path</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">reach</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">application</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">it&#39;s</span><span class="nv"> </span><span class="s">hostname&quot;</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EXPECTED_STATUS</span>
+      <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;200&quot;</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;The</span><span class="nv"> </span><span class="s">expected</span><span class="nv"> </span><span class="s">http(s)</span><span class="nv"> </span><span class="s">status</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">querying</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">application.&quot;</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TIMEOUT</span>
+      <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;30&quot;</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;The</span><span class="nv"> </span><span class="s">number</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">seconds</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">try</span><span class="nv"> </span><span class="s">before</span><span class="nv"> </span><span class="s">giving</span><span class="nv"> </span><span class="s">up</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">successful</span><span class="nv"> </span><span class="s">connection.&quot;</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SECURE_CONNECTION</span>
+      <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;true</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">secure</span><span class="nv"> </span><span class="s">route</span><span class="nv"> </span><span class="s">(https),</span><span class="nv"> </span><span class="s">false</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">insecure</span><span class="nv"> </span><span class="s">(http)</span><span class="nv"> </span><span class="s">route.&quot;</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="nt">steps</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">route-connection-test</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;image-registry.openshift-image-registry.svc:5000/openshift/cli:latest&#39;</span>
+        <span class="nt">resources</span><span class="p">:</span>
+          <span class="nt">limits</span><span class="p">:</span>
+            <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
+            <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+          <span class="nt">requests</span><span class="p">:</span>
+            <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
+            <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+        <span class="nt">script</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+            <span class="no">#!/usr/bin/env bash</span>
+            <span class="no"># Make parameters into variables for clarity</span>
+            <span class="no">export route_name=&quot;$(params.ROUTE_NAME)&quot;</span>
+            <span class="no">export expected_status=&quot;$(params.EXPECTED_STATUS)&quot;</span>
+            <span class="no">export app_path=&quot;$(params.APP_PATH)&quot;</span>
+            <span class="no">export timeout=&quot;$(params.TIMEOUT)&quot;</span>
+            <span class="no">export secure_connection=&quot;$(params.SECURE_CONNECTION)&quot;</span>
+
+            <span class="no"># If true, http(s), if false (or otherwise) http</span>
+            <span class="no">if [ &quot;${secure_connection}&quot; == &quot;true&quot; ]</span>
+            <span class="no">then</span>
+                <span class="no">export header=&quot;https://&quot;</span>
+                <span class="no">echo &quot;Using secure https connection...&quot;</span>
+            <span class="no">else</span>
+                <span class="no">export header=&quot;http://&quot;</span>
+                <span class="no">echo &quot;Using insecure http connection...&quot;</span>
+            <span class="no">fi</span>
+            <span class="no"># Start timer at 0</span>
+            <span class="no">SECONDS=0</span>
+            <span class="no"># Once timeout reached, stop retrying</span>
+            <span class="no">while [ &quot;${SECONDS}&quot; -lt &quot;${timeout}&quot; ];</span>
+            <span class="no">do</span>
+                <span class="no"># Get hostname of route</span>
+                <span class="no">hostname=&quot;$(oc get route ${route_name} -o jsonpath=&#39;{.spec.host}&#39;)&quot;</span>
+                <span class="no"># Get http(s) status of web page via external connection (route)</span>
+                <span class="no">status=$(curl -s -o /dev/null -w &quot;%{http_code}&quot; &quot;${header}${hostname}${app_path}&quot;)</span>
+                <span class="no"># Print test completion message if expected status code received</span>
+                <span class="no">if [ &quot;${status}&quot; -eq &quot;${expected_status}&quot; ]</span>
+                <span class="no">then</span>
+                    <span class="no">echo &quot;---------------------------TESTS COMPLETE---------------------------&quot;</span>
+                    <span class="no">echo &quot;Congratulations on a successful test!&quot;</span>
+                    <span class="no">echo &quot;Please visit the application at:&quot;</span>
+                    <span class="no">echo</span>
+                    <span class="no">echo &quot;${header}${hostname}${app_path}&quot;</span>
+                    <span class="no">exit 0</span>
+                <span class="no"># Print failure message if incorrect status code received + retry</span>
+                <span class="no">else</span>
+                    <span class="no">echo &quot;The application is unexpectedly returning http(s) code ${status}...&quot;</span>
+                    <span class="no">echo &quot;It is not available to outside traffic yet...&quot;</span>
+                    <span class="no">echo &quot;Retrying in 5s at:&quot;</span>
+                    <span class="no">echo</span>
+                    <span class="no">echo &quot;${header}${hostname}${app_path}&quot;</span>
+                    <span class="no">sleep 5</span>
+                <span class="no">fi</span>
+            <span class="no">done</span>
+            <span class="no"># Redirect output to standard error, print message, and exit with error after timeout</span>
+            <span class="no">&gt;&amp;2 echo &quot;Error, failed after ${timeout} seconds of trying...&quot;</span>
+            <span class="no">&gt;&amp;2 echo &quot;The application was never accessible to the outside world :(&quot;</span>
+            <span class="no">exit 1</span>
+</code></pre></div>
+2. Create the <code>connection-test</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr></p>
+<p>a. Click <code>Import YAML</code> to bring up the box where you can create <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> resource definitions from yaml</p>
+<p>b. Paste the <code>connection-test</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> into the box</p>
+<p>c. Scroll down and click create to create the <code>connection-test</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> </p>
+<p><img alt="Create connection-test Task" src="../images/Part2/CreateTestRouteTask.png" /></p>
+</li>
+</ol>
+<p>You should now see the created <code>connection-test</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr>. Navigate back to the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> and go back to editing your pipeline.</p>
+<p><img alt="Back to Pipelines" src="../images/Part2/BackToPipelines.png" /></p>
+<h4 id="application-promotion-promote-add-external-route-test-task-to-pipeline">Add External Route Test <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#application-promotion-promote-add-external-route-test-task-to-pipeline" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Add a sequential task after <code>deploy-dev</code>. When you <code>Select Task</code>, choose the <code>connection-test</code> task. </p>
+<p><img alt="Add Connection Test task to Pipeline Dev" src="../images/Part2/ChooseConnectionTest.png" /></p>
+</li>
+<li>
+<p>Configure <code>connection-test</code> task</p>
+<p>The only values you need to change are the <code>Display Name</code> and the <code>ROUTE_NAME</code> (copy and paste boxes below image):</p>
+<p><img alt="Connection Test Configure 1" src="../images/Part2/ConnectionTestConfigureDev.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>connect-dev
+</code></pre></div>
+<p><strong>ROUTE_NAME</strong></p>
+<div class="highlight"><pre><span></span><code>spring-petclinic-dev
+</code></pre></div>
+</li>
+<li>
+<p>Save pipeline</p>
+</li>
+</ol>
+<p>Your current pipeline builds and tests your application, creates a docker image for it, deploys it to the development environment, and ensures that the application is working both internally and externally. In other words, once your application successfully completes the current pipeline, you can be confident in it and be ready to move to staging<sup id="fnref:3"><a class="footnote-ref" href="#application-promotion-promote-fn:3">3</a></sup>. </p>
+<h2 id="application-promotion-promote-deploy-staging">Deploy Staging<a class="headerlink" href="#application-promotion-promote-deploy-staging" title="Permanent link">&para;</a></h2>
+<p>Moving to the staging environment means spinning up your application in that environment (with parameters relevant for it) and testing it there. Given that this is all using containers, you can easily free up the development resources that have successfully completed and then spin up the new resources in your staging environment.</p>
+<h3 id="application-promotion-promote-remove-dev">Remove Dev<a class="headerlink" href="#application-promotion-promote-remove-dev" title="Permanent link">&para;</a></h3>
+<p>Your first <code>Task</code> will mirror the <code>cleanup-resources</code> task at the beginning of your pipeline, but will just cleanup the <code>dev</code> resources using the <code>env=dev</code> <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors" rel="noopener noreferrer" target="_blank">label selector</a>.</p>
+<ol>
+<li>
+<p>Go back to editing your pipeline via <code>Actions -&gt; Edit Pipeline</code></p>
+<p><img alt="Actions Edit Pipeline" src="../images/Part1/ActionsEditPipeline.png" /></p>
+</li>
+<li>
+<p>Add a <code>Task</code> sequentially at the end of the pipeline (after <code>connect-dev</code>) using the <code>openshift-client</code> <abbr title="a `Task` scoped to the entire cluster instead of a single project.">ClusterTask</abbr>.  </p>
+<p><img alt="add cleanup sequential" src="../images/Part2/AddSequentialCleanup.png" /></p>
+</li>
+<li>
+<p>Configure the <code>Task</code> with the following values (copy and paste boxes below image):</p>
+<p><img alt="cleanup dev" src="../images/Part2/CleanupDevTask.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>cleanup-dev
+</code></pre></div>
+<p><strong>SCRIPT</strong></p>
+<div class="highlight"><pre><span></span><code>oc delete deployment,cm,svc,route -l <span class="nv">app</span><span class="o">=</span>spring-petclinic,env<span class="o">=</span>dev --ignore-not-found
+</code></pre></div>
+<p>and an <strong>empty</strong> <code>ARGS</code> value.</p>
+<div class="admonition warning">
+<p class="admonition-title">No help please!</p>
+<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
+</div>
+</li>
+</ol>
+<h3 id="application-promotion-promote-add-staging">Add Staging<a class="headerlink" href="#application-promotion-promote-add-staging" title="Permanent link">&para;</a></h3>
+<p>You will use your existing <code>kustomize</code> task to deploy the staging configuration for your PetClinic application in a new <code>kustomize-staging</code> task. <a href="https://github.com/ibm-wsc/spring-petclinic/blob/main/ocp-files/overlay/staging/kustomization.yaml" rel="noopener noreferrer" target="_blank">Customizations for staging PetClinic</a> include adding a staging environment label, name suffix, change cause, and staging environment variables for your application. You could deploy to a separate project or cluster altogether as well as change replicas or add pod autoscalers in a similar manner (depending on your use case) for different environments. </p>
+<ol>
+<li>
+<p>Add a <code>kustomize</code> task sequentially to the end of your current pipeline (after <code>cleanup-dev</code>)</p>
+<p><img alt="StagingAdd" src="../images/Part2/AddStaging.png" /> </p>
+</li>
+<li>
+<p>Configure the <code>Task</code> with the following values (copy and paste boxes below image):</p>
+<p><img alt="Kustomize Staging Task" src="../images/Part2/KustomizeStaging.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>kustomize-staging
+</code></pre></div>
+<p><strong>RELEASE_SUBDIR</strong></p>
+<div class="highlight"><pre><span></span><code>overlay/staging
+</code></pre></div>
+<p><strong>SCRIPT</strong></p>
+<div class="highlight"><pre><span></span><code>kustomize edit <span class="nb">set</span> image spring-petclinic<span class="o">=</span><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>-minimal:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
+</code></pre></div>
+</li>
+<li>
+<p><code>Save</code> current pipeline edit and then switch to <code>YAML</code> from pipeline menu.</p>
+<p><img alt="Switch to yaml" src="../images/Part1/SwitchYaml.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Why are you editing yaml directly?</p>
+<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder <abbr title="user interface">UI</abbr> so you have to do it directly in the yaml for now.</p>
+</div>
+</li>
+<li>
+<p>Add workspace to <code>kustomize-staging</code> task </p>
+<p>Find the <code>kustomize-staging</code> and add the following workspace definition:</p>
+<div class="highlight"><pre><span></span><code>      workspaces:
+      - name: source
+        workspace: workspace
+</code></pre></div>
+<p><img alt="Kustomize Staging Add Workspace" src="../images/Part2/KustomizeStagingWorkspace.png" /></p>
+<p>Save the update</p>
+<p><img alt="Save Pipeline Edit Yaml" src="../images/Part2/PipelineUpdatedYaml.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the save message above appears you can then proceed to <code>Cancel</code> back to the pipeline menu.</p>
+</div>
+</li>
+</ol>
+<h3 id="application-promotion-promote-rollout-staging">Rollout Staging<a class="headerlink" href="#application-promotion-promote-rollout-staging" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Edit the pipeline again and add a <code>deploy-staging</code> task with the <code>openshift-client</code> <code>ClusterTask</code></p>
+<p><img alt="Deploy Staging Task" src="../images/Part2/DeployStagingTask.png" /></p>
+</li>
+<li>
+<p>Configure the task with the following parameters<sup id="fnref:4"><a class="footnote-ref" href="#application-promotion-promote-fn:4">4</a></sup> (copy and paste boxes below image):</p>
+<p><img alt="Staging Rollout" src="../images/Part2/DeployStagingParameters.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>deploy-staging
+</code></pre></div>
+<p><strong>SCRIPT</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>params.GIT_MESSAGE<span class="k">)</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> oc rollout status deploy/spring-petclinic-staging
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">No help please!</p>
+<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
+</div>
+</li>
+</ol>
+<h3 id="application-promotion-promote-add-external-route-test-task-to-pipeline_1">Add External Route Test <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#application-promotion-promote-add-external-route-test-task-to-pipeline_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Add a sequential task after <code>deploy-staging</code>. When you <code>Select Task</code>, choose the <code>connection-test</code> task. </p>
+<p><img alt="Add Connection Test task to Pipeline Dev" src="../images/Part2/ChooseCTestStaging.png" /></p>
+</li>
+<li>
+<p>Configure <code>connection-test</code> task</p>
+<p>The only values you need to change are the <code>Display Name</code> and the <code>ROUTE_NAME</code>:</p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>connect-staging
+</code></pre></div>
+<p><strong>ROUTE_NAME</strong></p>
+<div class="highlight"><pre><span></span><code>spring-petclinic-staging
+</code></pre></div>
+<p><img alt="Connection Test Configure 1" src="../images/Part2/ConnectionTestConfigureStaging.png" /></p>
+</li>
+<li>
+<p>Save pipeline</p>
+<p><img alt="Save Pipeline" src="../images/Part2/SavePipeline.png" /></p>
+</li>
+</ol>
+<h2 id="application-promotion-promote-summary">Summary <img alt="🌔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f314.svg" title=":waxing_gibbous_moon:" /><a class="headerlink" href="#application-promotion-promote-summary" title="Permanent link">&para;</a></h2>
+<p>Congratulations! You have built a pipeline that tests your <code>PetClinic</code> application, creates a docker image for it, deploys it to the development environment with dev configuration, ensures that the application is working both internally and externally, cleans up the development environment, deploys it to the staging environment with staging configuration, and then makes sure it is working both internally and externally<sup id="fnref:5"><a class="footnote-ref" href="#application-promotion-promote-fn:5">5</a></sup>. </p>
+<div class="admonition summary">
+<p class="admonition-title">tl;dr</p>
+<p>You now have the <code>I/D</code> (Integration/Deployment) in <code>CI/CD</code><sup id="fnref:6"><a class="footnote-ref" href="#application-promotion-promote-fn:6">6</a></sup>.</p>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="application-promotion-promote-fn:1">
+<p>For different environments like dev and test, this may be different groups external to your <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> environment (cluster), though internal to the organization itself and accessing the endpoints via a VPN or internal network. Production is likely when external connection via an organization's real website would happen. The type of external connection (via a VPN or public connection) has little impact on the <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> resources given a route will be used for all of those types of external connections (the most important thing is that the route you are testing is available to you [the tester] from where you are).&#160;<a class="footnote-backref" href="#application-promotion-promote-fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="application-promotion-promote-fn:2">
+<p>You may think to yourself that you can't test an external connection from inside your cluster. However, by using the route, you are causing the traffic to go "outside" the cluster's networking to reach the load balancer and then back "inside" via the route. This explicitly tests the external connection and makes sure that it indeed works. However, you are just testing that the route works, not that the dns/hostname is available generally on the internet or private enterprise subnet (depending on environment). Internet / subnet dns resolution is a different, more general problem for your networking team (or cloud provider) to ensure for all of the applications using that network.&#160;<a class="footnote-backref" href="#application-promotion-promote-fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="application-promotion-promote-fn:3">
+<p>You could create more extensive tests to make sure that the pages are rendering correctly (besides just returning a proper status code). However, that is beyond the scope of the lab and this at least makes sure requests are successfully sent and returned via an external route, which is good enough for the lab's purposes.&#160;<a class="footnote-backref" href="#application-promotion-promote-fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="application-promotion-promote-fn:4">
+<p>This mirrors the <code>dev-deploy</code> task which waits for the dev release to rollout but uses the <code>SCRIPT</code> field for everything vs. <code>ARGS</code>.&#160;<a class="footnote-backref" href="#application-promotion-promote-fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="application-promotion-promote-fn:5">
+<p>You could clean up the staging environment at the end of the run but choose not to so that the user can interact with it between runs. You could also clean up or use a separate MySQL instance for staging but due to limited resources in your environment you have chosen not to add this extra component.&#160;<a class="footnote-backref" href="#application-promotion-promote-fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="application-promotion-promote-fn:6">
+<p>You'll add the double <code>C</code>s in the next section by connecting it to GitHub.&#160;<a class="footnote-backref" href="#application-promotion-promote-fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></section><section class="print-page" id="application-promotion-git"><h1 id="application-promotion-git-integrating-openshift-pipelines-with-github">Integrating <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines with GitHub<a class="headerlink" href="#application-promotion-git-integrating-openshift-pipelines-with-github" title="Permanent link">&para;</a></h1>
+<p>It's time to add the <code>C</code> (continuous) to your <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> pipeline.</p>
+<h2 id="application-promotion-git-add-a-github-trigger">Add a GitHub <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">Trigger</abbr><a class="headerlink" href="#application-promotion-git-add-a-github-trigger" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Choose <code>Add Trigger</code> from the pipeline menu</p>
+<p><img alt="Select GitHub Trigger" src="../images/Part2/GitHubAddTrigger.png" /></p>
+</li>
+<li>
+<p>Configure the <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> as follows (copy and paste boxes below image) and click <code>Add</code> to add the <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> to your pipeline:</p>
+<p><img alt="GitHub Trigger Parameters" src="../images/Part2/WebhookTriggerParameters.png" /></p>
+<p><strong>Git Provider Type</strong>:
+<div class="highlight"><pre><span></span><code>github-push
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>github-push</code> is in a menu you need to select from</p>
+</div>
+<p><strong>GIT_MESSAGE</strong>
+<div class="highlight"><pre><span></span><code><span class="k">$(</span>tt.params.git-commit-message<span class="k">)</span>
+</code></pre></div></p>
+<p><strong>COMMIT_SHA</strong>
+<div class="highlight"><pre><span></span><code><span class="k">$(</span>tt.params.git-revision<span class="k">)</span>
+</code></pre></div></p>
+</li>
+</ol>
+<p>You are choosing the <code>github-push</code> cluster <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> binding, which is defined out of the box for <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines. This passes information into a number of different variables which you can list by clicking the expand arrow seen in the picture (It will initially say <code>Show Variables</code> and then switch to <code>Hide Variables</code> when expanded as shown in the picture). You will be using the variables in green boxes in the picture to pass the git commit message (<code>git-commit-message</code>) as well as the SHA of the git commit (<code>git-revision</code>) to the build pipeline from the GitHub <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> that triggers the build.</p>
+<h2 id="application-promotion-git-setting-up-git-webhook">Setting up Git <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">Webhook</abbr><a class="headerlink" href="#application-promotion-git-setting-up-git-webhook" title="Permanent link">&para;</a></h2>
+<p>Now, you need to set up a <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> from GitHub. You want this to hit your <code>event listener</code>, the pipelines resource which listens for events from outside sources in order to <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a build. The listener you set up is using the <code>github-push</code> <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> binding to <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a new pipeline run for your <code>spring-petclinic</code> pipeline passing the <code>github-push</code> parameters mentioned before. You created this <code>event-listener</code> via the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines <abbr title="user interface">UI</abbr> when you added a <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> and will see it in the <code>Topology</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> as another application when you travel back there later. In order to setup your <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> to send a message to the <code>event listener</code> after a <abbr title="updates the remote branch with local commits. You can also think of `git push` as update or publish.">git push</abbr>, do the following:</p>
+<ol>
+<li>
+<p>Get the <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> url from the pipeline view</p>
+<p><img alt="Find Event Listener" src="../images/Part2/FindEventListener.png" /></p>
+<p>Find the value listed for <strong>your</strong> pipeline and copy that value.</p>
+</li>
+<li>
+<p>Navigate to <strong>your</strong> git fork of the <code>github.com/ibm-wsc/spring-petclinic</code> GitHub repository</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Your git fork should be in the form github.com/<strong>yourusername</strong>/spring-petclinic where <strong>yourusername</strong> is <strong>your</strong> GitHub username</p>
+</div>
+</li>
+<li>
+<p>Go to the <code>settings</code> page of the repository</p>
+</li>
+<li>
+<p>Go to the Webhooks section and add a <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> with: </p>
+<ol>
+<li>
+<p><code>event listener URL</code> as the <code>PAYLOAD_URL</code></p>
+</li>
+<li>
+<p><code>application/json</code> selected as the <code>Content type</code></p>
+</li>
+<li>
+<p><code>Just the push event</code> selected for <code>Which events would you like to trigger this webhook?</code>.</p>
+</li>
+</ol>
+<p><img alt="Add Webhook" src="../images/Part2/AddGithubWebhook.png" /></p>
+</li>
+<li>
+<p>See the successfully created <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> now listed</p>
+<p><img alt="Webhook Listed" src="../images/Part2/WebhookListed.png" /></p>
+</li>
+</ol>
+<h2 id="application-promotion-git-summary">Summary <img alt="🌕" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f315.svg" title=":full_moon:" /><a class="headerlink" href="#application-promotion-git-summary" title="Permanent link">&para;</a></h2>
+<p>You created a GitHub <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> for your <code>spring-petclinic</code> repository fork that will <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a new run of your <code>spring-petclinic</code> pipeline when new code is pushed to your GitHub <abbr title="repository">repo</abbr><sup id="fnref:1"><a class="footnote-ref" href="#application-promotion-git-fn:1">1</a></sup>. You will <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> your pipeline via GitHub in the next section.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="application-promotion-git-fn:1">
+<p>A more detailed explanation is that when new code is pushed to your GitHub <abbr title="repository">repo</abbr>, the GitHub <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> will send a payload to the <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> which then interacts with a number of <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines-associated <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> custom resources that you created when you used the <code>Add Trigger</code> button in the <abbr title="user interface">UI</abbr>. Namely, the <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> will <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a new <code>PipelineRun</code> of your <code>spring-petclinic</code> pipeline based on the <code>spring-petclinic</code> <code>TriggerTemplate</code> passing it the values for the git commit SHA hash and the commit message using the variables populated via the <code>github-push</code> <code>ClusterTriggerBinding</code>.&#160;<a class="footnote-backref" href="#application-promotion-git-fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></section><section class="print-page" id="application-promotion-action"><h1 id="application-promotion-action-cicd-in-action"><abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> in Action<a class="headerlink" href="#application-promotion-action-cicd-in-action" title="Permanent link">&para;</a></h1>
+<h2 id="application-promotion-action-make-a-change-in-github">Make a change in GitHub<a class="headerlink" href="#application-promotion-action-make-a-change-in-github" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Navigate to your GitHub fork's main page (this is the <code>Code</code> tab if you are on a different tab such as settings)</p>
+</li>
+<li>
+<p>Choose to <code>Go to file</code></p>
+<p><img alt="Go to file" src="../images/Part2/GoToFile.png" /></p>
+</li>
+<li>
+<p>Choose the following file (copy and paste box below image):</p>
+<p><img alt="Choose File" src="../images/Part2/ChooseFile.png" /></p>
+<div class="highlight"><pre><span></span><code>src/main/resources/db/mysql/data.sql
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">If the file doesn't appear right away</p>
+<p>Depending on your internet connection to GitHub, there may be a slight delay before the file appears for editing (your screen matches the picture above and you can click to select the file).</p>
+</div>
+</li>
+<li>
+<p>Select to edit the file</p>
+<p><img alt="Edit File" src="../images/Part2/EditGitFile.png" /></p>
+</li>
+<li>
+<p>Change the file to add the pet field of your choice and commit it to your GitHub fork (description and copy and paste box are below image)</p>
+<p><img alt="Change File" src="../images/Part2/ChangeFile.png" /></p>
+<ol>
+<li>
+<p>Make a change using the pet type you want to add (example is a turtle) </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The copy and paste box below can be entered on <strong>line 24</strong> with <code>enter</code> pressed after it to match the image above.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Turtle</p>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="k">types</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;turtle&#39;</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">I want to add Willow, an awesome armadillo, not Yertle the turtle!</p>
+<p>If you want to add something other than a turtle as an option, please change <code>turtle</code> to that animal (i.e. <code>armadillo</code>) in the mysql statement above. For the armadillo example, the statement becomes:</p>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="k">types</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;armadillo&#39;</span><span class="p">);</span>
+</code></pre></div>
+</div>
+</li>
+<li>
+<p>Type in a commit message (you can make this whatever you want) and commit the change (example from image below)</p>
+<div class="admonition example">
+<p class="admonition-title">Yertle the turtle</p>
+<p><strong>Title</strong>
+<div class="highlight"><pre><span></span><code>Turtle Time
+</code></pre></div></p>
+<p><strong>Extended Description</strong>
+<div class="highlight"><pre><span></span><code>I want to be able to add Yertle the turtle.
+</code></pre></div></p>
+</div>
+</li>
+</ol>
+</li>
+<li>
+<p>Take note of the git commit message and hash</p>
+<p><img alt="Github Hash and Message" src="../images/Part2/SeeCommitHash.png" /></p>
+</li>
+</ol>
+<h2 id="application-promotion-action-continuous-integration-via-openshift-pipelines">Continuous Integration via <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines<a class="headerlink" href="#application-promotion-action-continuous-integration-via-openshift-pipelines" title="Permanent link">&para;</a></h2>
+<h2 id="application-promotion-action-successfully-run-pipeline-via-github">Successfully Run Pipeline via GitHub<a class="headerlink" href="#application-promotion-action-successfully-run-pipeline-via-github" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Visit the newly triggered pipeline run in the <code>Pipelines</code> menu in the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr></p>
+<p><img alt="Newly Triggered PipelineRun" src="../images/Part2/ViewGitPipelineRun.png" /></p>
+</li>
+<li>
+<p>View the pipeline run from the <code>Details</code> view</p>
+<p><img alt="PipelineRun Triggered" src="../images/Part2/PipelineTriggered.png" /></p>
+<p>You can see the <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> has triggered the <code>PipelineRun</code> instead of a user this time.</p>
+</li>
+<li>
+<p>You can see the variables populated with the correct values from Github in the <code>YAML</code> view of the pipeline run.</p>
+<p><img alt="Git Variables Populated" src="../images/Part2/GitVariablesExist.png" /></p>
+</li>
+<li>
+<p>Watch the results of your build pipeline run. It should complete successfully as in the pictures below. </p>
+<div class="admonition info">
+<p class="admonition-title">How long will your pipeline take to run?</p>
+<p>The pipeline run may take anywhere from 10-25 minutes to complete depending on the current system load. You can see the progress of your build, as well as if any errors occur, via the <abbr title="user interface">UI</abbr>. Thus, by monitoring the <abbr title="user interface">UI</abbr>, you can make sure things are going as planned.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">What to do if your pipeline run ends in failure</p>
+<p>If your pipeline run ends in failure, please look at the <code>Failure</code> tab (immediately below this message) to get back on track (instead of the default <code>Success</code> tab).</p>
+</div>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="application-promotion-action___tabbed_1_1" name="__tabbed_1" type="radio" /><label for="application-promotion-action___tabbed_1_1">Success</label><div class="tabbed-content">
+<p><strong>Pipeline Run Success View Perspective:</strong></p>
+<p><img alt="Successful PipelineRun Details View" src="../images/Part2/PipelineSucceeded.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Pipeline Run Details View</p>
+<p>In the pipeline run <code>Details</code> view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, observe that the <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> has triggered the <code>PipelineRun</code> instead of a user this time.</p>
+</div>
+<p><strong>Pipeline Run Success Logs Perspective:</strong></p>
+<p><img alt="Successful PipelineRun Logs View 1" src="../images/Part2/PipelineRunLogsSucceeded.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Pipeline Run Logs View 1</p>
+<p>In the pipeline run <code>Logs</code> view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task, you can see that the that the external connection check worked and the PetClinic application is available at the route printed in the logs. Additionally, you can see via the series of tasks marked with green checks that the dev deployment ran successfully and the system cleaned it up and ran the staging deployment successfully to complete the pipeline.</p>
+</div>
+<p><img alt="Successful PipelineRun Logs View 2" src="../images/Part2/PipelineRunCommitLogs.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Pipeline Run Logs View 2</p>
+<p>When you switch to the <code>deploy-staging</code> task logs, by clicking on the <code>task</code> on the left hand side of the <code>Logs</code> view of the pipeline run, you see this was an automated build from git since the task prints out the <code>GIT_MESSAGE</code> that you typed in your commit word for word. (<em>Note: If you chose a different commit message that will show instead of the one displayed in the image above.</em>).</p>
+</div>
+</div>
+<input id="application-promotion-action___tabbed_1_2" name="__tabbed_1" type="radio" /><label for="application-promotion-action___tabbed_1_2">Failure</label><div class="tabbed-content">
+<div class="admonition failure">
+<p class="admonition-title">Your pipeline failed, here is how to get back on the happy path</p>
+<ol>
+<li>
+<p>Please review your <code>pipelineRun</code> and see what error caused the failure.</p>
+</li>
+<li>
+<p>Make changes to fix the error. (If it's unclear what is causing the error / how to fix it, please ask the instructors for help) </p>
+</li>
+<li>
+<p>Resend the <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> from GitHub to <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a new <code>pipelineRun</code> with the same values as before (see images below for help)</p>
+<ol>
+<li>
+<p>Click on your <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> from the <code>Webhooks</code> section of the repository settings for your GitHub repository fork of the <code>spring-petclinic</code> repository
+<img alt="GitHub Webhook View for Retry" src="../images/Part2/ClickWebhookForRetry.png" /></p>
+</li>
+<li>
+<p>Click on the 3 dots for the most recent delivery</p>
+</li>
+<li>Click <code>Redeliver</code>
+<img alt="GitHub Webhook Send for Retry" src="../images/Part2/RestartFailedPipelineRun.png" /></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</li>
+</ol>
+<h3 id="application-promotion-action-see-changes-in-application">See Changes in Application<a class="headerlink" href="#application-promotion-action-see-changes-in-application" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Navigate to the <code>Topology</code> view and open a new tab with your recently deployed <code>staging</code> version of the PetClinic application by clicking <code>Open URL</code>.</p>
+<p><img alt="PetClinic Visit Time" src="../images/Part2/PetclinicTimeAgain.png" /></p>
+</li>
+<li>
+<p>Navigate to the <code>Find Owners</code> tab</p>
+<p><img alt="PetClinic Initial View" src="../images/Part2/InitialViewPetClinic.png" /></p>
+</li>
+<li>
+<p>Choose to add a new owner</p>
+<p><img alt="Add Owner" src="../images/Part2/AddOwner.png" /></p>
+</li>
+<li>
+<p>Add the owner with details of your choice</p>
+<p><img alt="Dr. Seuss Owner Add" src="../images/Part2/AddSeus.png" /></p>
+</li>
+<li>
+<p>Choose to add one of the owner's pets</p>
+<p><img alt="Add Pet" src="../images/Part2/AddNewPet.png" /></p>
+</li>
+<li>
+<p>Fill in the pet's details and select the new type of pet you added (turtle for the example)</p>
+<p><img alt="Add Yertle the Turtle" src="../images/Part2/AddYertleTheTurtle.png" /></p>
+</li>
+<li>
+<p>View the newly created pet of the new type (Yertle the turtle for the example)</p>
+<p><img alt="Long Live Yertle" src="../images/Part2/LongLiveYertle.png" /></p>
+</li>
+</ol>
+<h2 id="application-promotion-action-summary">Summary <img alt="🌝" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f31d.svg" title=":full_moon_with_face:" /><a class="headerlink" href="#application-promotion-action-summary" title="Permanent link">&para;</a></h2>
+<p>In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "<abbr title="an application that takes full advantage of the cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr>" <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> for your PetClinic application on IBM Z/<abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr>! Congratulations!!!</p></section><h1 class='nav-section-title-end'>Ended: Test and Promote Pet Clinic</h1><h1 class='nav-section-title'>Cleanup</h1><section class="print-page" id="cleanup-full-cleanup"><h1 id="cleanup-full-cleanup-environment-cleanup">Environment Cleanup<a class="headerlink" href="#cleanup-full-cleanup-environment-cleanup" title="Permanent link">&para;</a></h1>
+<p>In this section you will clean up the different things you made during the lab in order to free up resources for other projects you intend to embark on in the community cloud as well as for other users of the environment.</p>
+<h2 id="cleanup-full-cleanup-pipelines-section-cleanup">Pipelines Section Cleanup<a class="headerlink" href="#cleanup-full-cleanup-pipelines-section-cleanup" title="Permanent link">&para;</a></h2>
+<p>From the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr>, please complete the following cleanup tasks:</p>
+<ol>
+<li>
+<p>Delete the <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> for your pipeline</p>
+<ol>
+<li>
+<p>Choose to remove the <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr></p>
+<p><img alt="Remove Trigger" src="../images/Cleanup/RemoveTrigger.png" /></p>
+<ol>
+<li>Click the 3 dots</li>
+<li>Choose <code>Remove Trigger</code></li>
+</ol>
+</li>
+<li>
+<p>Confirm the <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> removal</p>
+<p><img alt="Confirm Remove Trigger" src="../images/Cleanup/ConfirmRemoveTrigger.png" /></p>
+<ol>
+<li>Choose your <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> from the dropdown menu</li>
+<li>Click <code>Remove</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Delete the pipeline</p>
+<p><img alt="Delete Pipeline" src="../images/Cleanup/DeletePipeline.png" /></p>
+<ol>
+<li>Click the 3 dots</li>
+<li>Choose <code>Delete Pipeline</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="cleanup-full-cleanup-topology-section-cleanup">Topology Section Cleanup<a class="headerlink" href="#cleanup-full-cleanup-topology-section-cleanup" title="Permanent link">&para;</a></h2>
+<p>From the <code>Topology</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr>, please complete the following cleanup tasks:</p>
+<ol>
+<li>
+<p>Delete the <code>spring-petclinic-staging</code> deployment and its associated resources</p>
+<ol>
+<li>
+<p>Right-click on the icon and choose <code>Delete Deployment</code></p>
+<p><img alt="Delete Spring Petclinic Staging Deployment" src="../images/Cleanup/DeletePetClinicStaging.png" /></p>
+</li>
+<li>
+<p>Click <code>Delete</code> (keep box checked to also delete dependent objects of this resource)</p>
+<p><img alt="Confirm Delete of Spring PetClinic Staging Deployment" src="../images/Cleanup/ConfirmDeletePetClinicStaging.png" /></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Delete <code>mysql</code> deployment config and its associated resources</p>
+<ol>
+<li>
+<p>Right-click on the icon and choose <code>Delete DeploymentConfig</code></p>
+<p><img alt="Delete MySQL Deployment Config" src="../images/Cleanup/DeleteDeploymentConfigMySQL.png" /></p>
+</li>
+<li>
+<p>Click <code>Delete</code> (keep box checked to also delete dependent objects of this resource)</p>
+<p><img alt="Confirm Delete of MySQL DeploymentConfig" src="../images/Cleanup/ConfirmDeleteDeploymentConfigMySQL.png" /></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="cleanup-full-cleanup-thank-you-for-cleaning-up"><img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /> Thank You for Cleaning Up! <img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /><a class="headerlink" href="#cleanup-full-cleanup-thank-you-for-cleaning-up" title="Permanent link">&para;</a></h2></section><h1 class='nav-section-title-end'>Ended: Cleanup</h1><section class="print-page" id="resources"><h1 id="resources-other-resources">Other Resources<a class="headerlink" href="#resources-other-resources" title="Permanent link">&para;</a></h1>
+<h2 id="resources-openshift-pipelines-resources">OpenShift Pipelines Resources<a class="headerlink" href="#resources-openshift-pipelines-resources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.openshift.com/learn/topics/pipelines">Information Page</a></li>
+<li><a href="https://www.openshift.com/blog/guide-to-openshift-pipelines-part-1-introducing-openshift-pipelines">Intro Series on OpenShift blog</a></li>
+</ul></section><section class="print-page" id="proposechange"><h1 id="proposechange-how-to-propose-a-change">How to propose a change<a class="headerlink" href="#proposechange-how-to-propose-a-change" title="Permanent link">&para;</a></h1>
+<p>On the page you want to make a change to, click on the pencil icon next to the page's title. This will take you to edit the page in Github.</p>
+<p>You will see a message similar to the following: "You’re editing a file in a project you don’t have write access to. Submitting a change to this file will write it to a new branch in your fork, so you can send a pull request."</p>
+<p>Make your changes in Markdown. And submit for review.</p>
+<p>The owners of this <abbr title="repository">repo</abbr> will review your pull request and accept or deny your change proposal.</p>
+<p>There are other ways of doing a pull request, a Google search will lead you to those tutorials.</p></section></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/ibm-wsc" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://hub.docker.com/u/s390x" target="_blank" rel="noopener" title="hub.docker.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="../js/print-site-instant-loading.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+    
+  
+        <script type="text/javascript">
+        window.addEventListener('load', function () {
+            generate_toc();
+        })
+        </script>
+        </body>
+</html>

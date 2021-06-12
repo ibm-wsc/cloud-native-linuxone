@@ -5,19 +5,22 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://ibm-wsc.github.io/cloud-native-linuxone/full-dev-pipeline/runpipeline/" rel="canonical"/>
 <link href="../../images/pipelines-logo.png" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.0.6" name="generator"/>
-<title>Configure Development Deployment - Cloud Native LinuxONE Workshop</title>
-<link href="../../assets/stylesheets/main.2c0c5eaf.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.7fa14f5b.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.2, mkdocs-material-7.1.7" name="generator"/>
+<title>8. Configure Development Deployment - Cloud Native LinuxONE Workshop</title>
+<link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../css/print-site.css" rel="stylesheet"/>
+<link href="../../css/print-site-material.css" rel="stylesheet"/>
 <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-174658170-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
 <script async="" src="https://www.google-analytics.com/analytics.js"></script>
 </head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="preference" dir="ltr">
-<script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -46,13 +49,11 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Configure Development Deployment
+              8. Configure Development Deployment
             
           </span>
 </div>
 </div>
-</div>
-<div class="md-header__options">
 </div>
 <label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
@@ -67,7 +68,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </label>
 <button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
 </button>
 </form>
 <div class="md-search__output">
@@ -85,7 +86,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ibm-wsc/cloud-native-linuxone/" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     GitHub
@@ -110,7 +111,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ibm-wsc/cloud-native-linuxone/" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     GitHub
@@ -120,17 +121,17 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../..">
-        Home
+        1. Home
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../introduction/">
-        Introduction
+        2. Introduction
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../prerequisites/">
-        Prerequisites
+        3. Prerequisites
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
@@ -147,12 +148,12 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../build-and-deploy/build_overview/">
-        Build and Deploy Overview
+        4. Build and Deploy Overview
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../build-and-deploy/upandrunning/">
-        PetClinic Up and Running
+        5. PetClinic Up and Running
       </a>
 </li>
 </ul>
@@ -172,22 +173,22 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../configure_overview/">
-        Configure Pipeline Overview
+        6. Configure Pipeline Overview
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../pipeline/">
-        Configure Build and Test
+        7. Configure Build and Test
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Configure Development Deployment
+          8. Configure Development Deployment
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Configure Development Deployment
+        8. Configure Development Deployment
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -254,22 +255,22 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../application-promotion/promote_overview/">
-        Test and Promote Overview
+        9. Test and Promote Overview
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../application-promotion/promote/">
-        Promoting Application
+        10. Promoting Application
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../application-promotion/git/">
-        Integrating Git
+        11. Integrating Git
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../application-promotion/action/">
-        CI/CD in Action
+        12. CI/CD in Action
       </a>
 </li>
 </ul>
@@ -289,7 +290,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../cleanup/full-cleanup/">
-        Environment Cleanup
+        13. Environment Cleanup
       </a>
 </li>
 </ul>
@@ -297,12 +298,17 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../resources/">
-        Other resources
+        14. Other resources
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../proposechange/">
-        Propose a change
+        15. Propose a change
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../print_page/">
+        Print Site
       </a>
 </li>
 </ul>
@@ -375,10 +381,10 @@
 <p class="admonition-title">From the documentation overview</p>
 <p>Kustomize traverses a <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the <a href="https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/" rel="noopener noreferrer" target="_blank">Introducing Kustomize <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> Blog Post</a> for a more in-depth overview of Kustomize and its purpose.</p>
 </div>
-<p>As part of doing things the "cloud native" way you will be using Kustomize to manage resource changes across your <code>dev</code> and <code>staging</code> environments as well as injecting information from your pipeline (such as newly created image information with git commits) into your <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> (<abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>) resources. </p>
+<p>As part of doing things the "<abbr title="an application that takes full advantage of the cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr>" way you will be using Kustomize to manage resource changes across your <code>dev</code> and <code>staging</code> environments as well as injecting information from your pipeline (such as newly created <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> information with git commits) into your <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> (<abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>) resources. </p>
 <p>To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the <a href="https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files" rel="noopener noreferrer" target="_blank">ocp-files directory</a>.</p>
 <p>For more information on how kubectl (and oc through kubectl) integrates Kustomize, see the <a href="https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/" rel="noopener noreferrer" target="_blank">kubectl documentation</a>.</p>
-<h3 id="creating-custom-task-for-kustomize"><span class="enumerate-heading-plugin">8.1.1</span> Creating Custom Task for Kustomize<a class="headerlink" href="#creating-custom-task-for-kustomize" title="Permanent link">¶</a></h3>
+<h3 id="creating-custom-task-for-kustomize"><span class="enumerate-heading-plugin">8.1.1</span> Creating Custom <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> for Kustomize<a class="headerlink" href="#creating-custom-task-for-kustomize" title="Permanent link">¶</a></h3>
 <p>Since there is no <code>ClusterTask</code> defined for Kustomize, you will create a custom task for this purpose. It will change into the Kustomize directory, run a Kustomize command on the directory, and then apply the files from the directory using the built-in Kustomize functionality of the oc command line tool (via kubectl's Kustomize support)</p>
 <ol>
 <li>
@@ -441,16 +447,16 @@
 </code></pre></div>
 </li>
 <li>
-<p>Create the <code>kustomize</code> Task</p>
+<p>Create the <code>kustomize</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr></p>
 <p>a. Click <code>Import YAML</code> to bring up the box where you can create <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> resource definitions from yaml</p>
-<p>b. Paste the <code>kustomize</code> Task into the box</p>
-<p>c. Scroll down and click <code>Create</code> to create the <code>kustomize</code> Task </p>
+<p>b. Paste the <code>kustomize</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> into the box</p>
+<p>c. Scroll down and click <code>Create</code> to create the <code>kustomize</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> </p>
 <p><img alt="Create Kustomize Task" src="../../images/Part1/CreateKustomizeTask.png"/></p>
 </li>
 </ol>
-<p>You should now see the created <code>kustomize</code> Task. Navigate back to the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> and go back to editing your pipeline.</p>
+<p>You should now see the created <code>kustomize</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr>. Navigate back to the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> and go back to editing your pipeline.</p>
 <p><img alt="Back to Pipelines" src="../../images/Part1/BackToPipelines.png"/></p>
-<h3 id="add-kustomize-task-to-pipeline"><span class="enumerate-heading-plugin">8.1.2</span> Add Kustomize Task to Pipeline<a class="headerlink" href="#add-kustomize-task-to-pipeline" title="Permanent link">¶</a></h3>
+<h3 id="add-kustomize-task-to-pipeline"><span class="enumerate-heading-plugin">8.1.2</span> Add Kustomize <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#add-kustomize-task-to-pipeline" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Add a sequential task after <code>clean-image</code> and when you <code>Select Task</code> choose the <code>kustomize</code> task. </p>
@@ -507,7 +513,7 @@
 <p><img alt="Actions Edit Pipeline" src="../../images/Part1/ActionsEditPipeline.png"/></p>
 </li>
 <li>
-<p>Add a <code>Task</code> named <code>cleanup-resources</code> sequentially at the beginning of the pipeline before <code>fetch-repository</code> (using the <code>openshift-client</code> ClusterTask).</p>
+<p>Add a <code>Task</code> named <code>cleanup-resources</code> sequentially at the beginning of the pipeline before <code>fetch-repository</code> (using the <code>openshift-client</code> <abbr title="a `Task` scoped to the entire cluster instead of a single project.">ClusterTask</abbr>).</p>
 <p><img alt="add cleanup sequential" src="../../images/Part1/AddSequentialTask.png"/></p>
 </li>
 <li>
@@ -526,10 +532,10 @@
 </div>
 </li>
 </ol>
-<h2 id="update-deploy-task-to-deploy-dev"><span class="enumerate-heading-plugin">8.3</span> Update Deploy Task to deploy-dev<a class="headerlink" href="#update-deploy-task-to-deploy-dev" title="Permanent link">¶</a></h2>
+<h2 id="update-deploy-task-to-deploy-dev"><span class="enumerate-heading-plugin">8.3</span> Update Deploy <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to deploy-dev<a class="headerlink" href="#update-deploy-task-to-deploy-dev" title="Permanent link">¶</a></h2>
 <ol>
 <li>
-<p>Click on the <code>deploy</code> Task at the end of the pipeline and change the following parameters to the corresponding values (copy and paste boxes below image):</p>
+<p>Click on the <code>deploy</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> at the end of the pipeline and change the following parameters to the corresponding values (copy and paste boxes below image):</p>
 <p><img alt="Deploy Dev Task Completed" src="../../images/Part1/DeployDevCompleted.png"/></p>
 <p><strong>Display Name</strong>
 <div class="highlight"><pre><span></span><code>deploy-dev
@@ -553,7 +559,7 @@
 <p><img alt="Actions Start Pipeline" src="../../images/Part1/StartPipelineManually.png"/></p>
 </li>
 <li>
-<p>Manually trigger a <code>PipelineRun</code> by accepting the default values and clicking on <code>Start</code>.</p>
+<p>Manually <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a <code>PipelineRun</code> by accepting the default values and clicking on <code>Start</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Persistent Volume Claim Note</p>
 <p>Please select a <code>PersistentVolumeClaim</code> if it is not already filled out for you to complete your pipeline. If it is already filled out for you then jump right to starting the pipeline.</p>
@@ -596,7 +602,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a class="md-footer__link md-footer__link--prev" href="../pipeline/" rel="prev">
+<a aria-label="Previous: 7. Configure Build and Test" class="md-footer__link md-footer__link--prev" href="../pipeline/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -605,17 +611,17 @@
 <span class="md-footer__direction">
                 Previous
               </span>
-              Configure Build and Test
+              7. Configure Build and Test
             </div>
 </div>
 </a>
-<a class="md-footer__link md-footer__link--next" href="../../application-promotion/promote_overview/" rel="next">
+<a aria-label="Next: 9. Test and Promote Overview" class="md-footer__link md-footer__link--next" href="../../application-promotion/promote_overview/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              Test and Promote Overview
+              9. Test and Promote Overview
             </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -647,7 +653,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
-<script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+<script src="../../js/print-site-instant-loading.js"></script>
+<script src="../../js/print-site.js"></script>
 </body>
 </html>

@@ -5,19 +5,22 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://ibm-wsc.github.io/cloud-native-linuxone/build-and-deploy/upandrunning/" rel="canonical"/>
 <link href="../../images/pipelines-logo.png" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.0.6" name="generator"/>
-<title>PetClinic Up and Running - Cloud Native LinuxONE Workshop</title>
-<link href="../../assets/stylesheets/main.2c0c5eaf.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.7fa14f5b.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.2, mkdocs-material-7.1.7" name="generator"/>
+<title>5. PetClinic Up and Running - Cloud Native LinuxONE Workshop</title>
+<link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../css/print-site.css" rel="stylesheet"/>
+<link href="../../css/print-site-material.css" rel="stylesheet"/>
 <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-174658170-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
 <script async="" src="https://www.google-analytics.com/analytics.js"></script>
 </head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="preference" dir="ltr">
-<script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -46,13 +49,11 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              PetClinic Up and Running
+              5. PetClinic Up and Running
             
           </span>
 </div>
 </div>
-</div>
-<div class="md-header__options">
 </div>
 <label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
@@ -67,7 +68,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </label>
 <button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
 </button>
 </form>
 <div class="md-search__output">
@@ -85,7 +86,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ibm-wsc/cloud-native-linuxone/" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     GitHub
@@ -110,7 +111,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ibm-wsc/cloud-native-linuxone/" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     GitHub
@@ -120,17 +121,17 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../..">
-        Home
+        1. Home
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../introduction/">
-        Introduction
+        2. Introduction
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../prerequisites/">
-        Prerequisites
+        3. Prerequisites
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -147,17 +148,17 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../build_overview/">
-        Build and Deploy Overview
+        4. Build and Deploy Overview
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          PetClinic Up and Running
+          5. PetClinic Up and Running
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        PetClinic Up and Running
+        5. PetClinic Up and Running
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -210,17 +211,17 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../full-dev-pipeline/configure_overview/">
-        Configure Pipeline Overview
+        6. Configure Pipeline Overview
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../full-dev-pipeline/pipeline/">
-        Configure Build and Test
+        7. Configure Build and Test
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../full-dev-pipeline/runpipeline/">
-        Configure Development Deployment
+        8. Configure Development Deployment
       </a>
 </li>
 </ul>
@@ -240,22 +241,22 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../application-promotion/promote_overview/">
-        Test and Promote Overview
+        9. Test and Promote Overview
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../application-promotion/promote/">
-        Promoting Application
+        10. Promoting Application
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../application-promotion/git/">
-        Integrating Git
+        11. Integrating Git
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../application-promotion/action/">
-        CI/CD in Action
+        12. CI/CD in Action
       </a>
 </li>
 </ul>
@@ -275,7 +276,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../cleanup/full-cleanup/">
-        Environment Cleanup
+        13. Environment Cleanup
       </a>
 </li>
 </ul>
@@ -283,12 +284,17 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../resources/">
-        Other resources
+        14. Other resources
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../proposechange/">
-        Propose a change
+        15. Propose a change
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../print_page/">
+        Print Site
       </a>
 </li>
 </ul>
@@ -341,12 +347,12 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="getting-your-petclinic-application-up-and-running"><span class="enumerate-heading-plugin">5.</span> Getting Your PetClinic Application Up and Running<a class="headerlink" href="#getting-your-petclinic-application-up-and-running" title="Permanent link">¶</a></h1>
-<p>For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. <a href="https://github.com/spring-projects/spring-petclinic" rel="noopener noreferrer" target="_blank">The official version of PetClinic</a> demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. </p>
-<p>You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> tooling to build a PetClinic cloud native application and a DevOps pipeline for the application.</p>
+<p>For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. <a href="https://github.com/spring-projects/spring-petclinic" rel="noopener noreferrer" target="_blank">The official version of PetClinic</a> demonstrates the use of <abbr title="Java open-source framework for microservices">Spring Boot</abbr> with <abbr title="(Spring Model View Controllers):">Spring MVC</abbr> and <abbr title="(Spring Data Java Persistent API):">Spring Data JPA</abbr>. </p>
+<p>You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> tooling to build a PetClinic <abbr title="an application that takes full advantage of the cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr> application and a DevOps pipeline for the application.</p>
 <p>You will start by building your PetClinic application from the source code and connecting it to a MySQL database.</p>
 <div class="admonition info">
-<p class="admonition-title">Using LinuxONE Community Cloud</p>
-<p>Because you are using the LinuxONE Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.</p>
+<p class="admonition-title">Using <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud</p>
+<p>Because you are using the <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Lab Guide</p>
@@ -390,12 +396,12 @@
 <p><code>https://github.com/&lt;your-github-username&gt;/spring-petclinic</code></p>
 <p>That's it! You are ready to move on to the next section.</p>
 <h2 id="building-and-deploying-petclinic-application"><span class="enumerate-heading-plugin">5.3</span> Building and Deploying PetClinic Application<a class="headerlink" href="#building-and-deploying-petclinic-application" title="Permanent link">¶</a></h2>
-<p>There are multiple ways <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> enables cloud native application developers to package up their applications and deploy them. For PetClinic, you will be building your application image from source, leveraging <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>'s S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines work.</p>
+<p>There are multiple ways <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> enables <abbr title="an application that takes full advantage of the cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr> application developers to package up their applications and deploy them. For PetClinic, you will be building your <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> from source, leveraging <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>'s S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines work.</p>
 <p><strong>1.</strong> Start with choosing Add From Git:</p>
 <p><img alt="from git" src="../upandrunningimages/fromgit.png"/></p>
 <p><strong>2.</strong> Enter <code>https://github.com/&lt;your-github-ID&gt;/spring-petclinic</code> in the <code>Git Repo URL</code> field. Expand the <code>Show Advanced Git Options</code> section, and type in <code>main</code> for the <code>Git Reference</code>. This tells <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> which GitHub <abbr title="repository">repo</abbr> and branch to pull the source code from.</p>
 <p><img alt="git url" src="../upandrunningimages/giturl.png"/></p>
-<p><strong>3.</strong> Scroll down to the <code>Builder</code> section. Select the <code>OpenJ9</code> tile and select <code>openj9-11-el8</code> as the builder image version. As you can see <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> offers many different builder images to help you build images from a variety of programming languages. Your list of builder images might differ from the screen shot. For Java on Z, the recommended <abbr title="(Java Virtual Machine): the runtime engine of the Java Platform. It enables Java programs and programs compiled into Java bytecode to run on any computer that has a native JVM">JVM</abbr> is <code>OpenJ9</code> because it has built-in s390x optimizations as well as <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> optimizations.</p>
+<p><strong>3.</strong> Scroll down to the <code>Builder</code> section. Select the <code>OpenJ9</code> tile and select <code>openj9-11-el8</code> as the builder <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> version. As you can see <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> offers many different builder <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> images to help you build <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> images from a variety of programming languages. Your list of builder <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> images might differ from the screen shot. For Java on Z, the recommended <abbr title="(Java Virtual Machine): the runtime engine of the Java Platform. It enables Java programs and programs compiled into Java bytecode to run on any computer that has a native JVM">JVM</abbr> is <code>OpenJ9</code> because it has built-in <abbr title="optimizations for the s390x architecture that the LinuxONE family of servers uses. They enable software to run better on these servers.">s390x optimizations</abbr> as well as <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> optimizations.</p>
 <p><img alt="builder image" src="../upandrunningimages/builderimage.png"/></p>
 <p><strong>4.</strong> In the General section, put in the following entries for Application Name and Name. </p>
 <p><img alt="app name" src="../upandrunningimages/applicationname.png"/></p>
@@ -408,8 +414,8 @@
 <p><strong>8.</strong> You are done with configurations of this panel. Scroll all the way down and hit the <code>Create</code> button which will kick off the pipeline build of your PetClinic application. In a few seconds you will see your Topology with the new application icon. Hit the little pipeline icon in the diagram below to view the build logs.</p>
 <p><img alt="pipeline icon" src="../upandrunningimages/pipelineicon.png"/></p>
 <div class="admonition warning">
-<p class="admonition-title">Log Streaming Gotcha in the LinuxONE CC</p>
-<p><strong>PLEASE BEWARE</strong> that if you are using the LinuxONE Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Trial you might see lag with the log streaming. If it stops streaming, you might want to go back out to the <code>Topology</code> view. You can always return to the logs view, once the pipeline completes, to see the logs.</p>
+<p class="admonition-title">Log Streaming Gotcha in the <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> CC</p>
+<p><strong>PLEASE BEWARE</strong> that if you are using the <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Trial you might see lag with the log streaming. If it stops streaming, you might want to go back out to the <code>Topology</code> view. You can always return to the logs view, once the pipeline completes, to see the logs.</p>
 </div>
 <p><strong>9.</strong> The pipeline will go through three tasks:</p>
 <p>    1. <b>fetch-repository</b> - this Pipeline task will <abbr title="clones a repository into a newly created directory, creates remote-tracking branches for each branch in the cloned repository (visible using `git branch --remotes`), and creates and checks out an initial branch that is forked from the cloned repository’s currently active branch.">git clone</abbr> your PetClinic <abbr title="repository">repo</abbr> for the build task.</p>
@@ -418,12 +424,12 @@
 <p class="admonition-title">build steps</p>
 <ul>
 <li>STEP-GEN-ENV-FILE: this step generates the environment file to be used during the build process</li>
-<li>STEP-GENERATE: this step generates the Dockerfile that will be used to create the <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> image later on during the build step</li>
-<li>STEP-BUILD: this is the multi-step build process of creating an <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> image out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> image. If the tests fail, this step will not complete.</li>
-<li>STEP-PUSH: this final step pushes the built <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> image to the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> image registry.</li>
+<li>STEP-GENERATE: this step generates the Dockerfile that will be used to create the <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> later on during the build step</li>
+<li>STEP-BUILD: this is the multi-step build process of creating an <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr>. If the tests fail, this step will not complete.</li>
+<li>STEP-PUSH: this final step pushes the built <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> image registry.</li>
 </ul>
 </div>
-<p>    3. <b>deploy</b> - this Pipeline task will deploy the newly built image as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.</p>
+<p>    3. <b>deploy</b> - this Pipeline task will deploy the newly built <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.</p>
 <p>Below is an image of the log of a successful build task: </p>
 <p><img alt="build output" src="../upandrunningimages/buildlog.png"/></p>
 <p><strong>10.</strong> Now if you go back to the Topology view, you should see the application has been successfully deployed to <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> as well. From here you can click on the <code>open URL</code> circle, and a new browser tab should open to lead you to your PetClinic's front page.</p>
@@ -459,14 +465,14 @@
 </div>
 <p>Please let the instructors know, if you don't see your owner you added listed. </p>
 <h2 id="summary"><span class="enumerate-heading-plugin">5.5</span> Summary <img alt="🌚" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f31a.svg" title=":new_moon_with_face:"/><a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
-<p>Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines pipeline that you will build on in the next sections of the lab. You may move on to the next part by clicking <code>Next</code> on the bottom of the page.</p>
+<p>Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines pipeline that you will build on in the next sections of the lab to achieve <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr>. You may move on to the next part by clicking <code>Next</code> on the bottom of the page.</p>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a class="md-footer__link md-footer__link--prev" href="../build_overview/" rel="prev">
+<a aria-label="Previous: 4. Build and Deploy Overview" class="md-footer__link md-footer__link--prev" href="../build_overview/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -475,17 +481,17 @@
 <span class="md-footer__direction">
                 Previous
               </span>
-              Build and Deploy Overview
+              4. Build and Deploy Overview
             </div>
 </div>
 </a>
-<a class="md-footer__link md-footer__link--next" href="../../full-dev-pipeline/configure_overview/" rel="next">
+<a aria-label="Next: 6. Configure Pipeline Overview" class="md-footer__link md-footer__link--next" href="../../full-dev-pipeline/configure_overview/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              Configure Pipeline Overview
+              6. Configure Pipeline Overview
             </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -517,7 +523,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
-<script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+<script src="../../js/print-site-instant-loading.js"></script>
+<script src="../../js/print-site.js"></script>
 </body>
 </html>
