@@ -25,7 +25,7 @@ a. Interact with the OpenShift Pipelines UI to define your pipeline and other Te
 
 b. OpenShift Pipelines UI creates the resources you defined in your OpenShift project
 
-#### Run your Pipline Flow (purple lines in picture above)
+#### Run your Pipeline Flow (purple lines in picture above)
 
 1. git push changes to your code to to GitHub
 2. The GitHub webhook sends a push event to the event listener URL
