@@ -19,13 +19,13 @@ Throughout your journey across the three parts listed above, you will slowly con
 
 ![Cloud Native Workshop Architecture Overview](images/IntroSection/CloudNativeArchitectureDiagram.png)
 
-#### Setup pipeline steps (lettered in picture above)
+#### Define your Pipeline Flow (orange lines in picture above)
 
 a. Interact with the OpenShift Pipelines UI to define your pipeline and other Tekton components.
 
 b. OpenShift Pipelines UI creates the resources you defined in your OpenShift project
 
-#### Final PipelineRun Flow steps (numbered in picture above)
+#### Run your Pipline Flow (purple lines in picture above)
 
 1. git push changes to your code to to GitHub
 2. The GitHub webhook sends a push event to the event listener URL
