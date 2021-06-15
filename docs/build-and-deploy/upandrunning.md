@@ -14,11 +14,36 @@ You will start by building your PetClinic application from the source code and c
     - the <span style="color:green">green</span> arrows or boxes denote something to look at or reference 
     - the <span style="color:red">red</span> arrows or boxes denote something to click on or type.
 
+## Logging into your LinuxONE Community Cloud OpenShift environment
+
+**1.** Please complete the [Prerequisites](../prerequisites.md) and register for a LinuxONE Community Cloud OpenShift trial if you have not done so already.
+
+**2.** After you register, you should have received an email you should have received an email asking you to Activate your account or entitlement. Please do so now if you have not already done so. The link to activate your trial is only valid for 48 hours after your initial registration.
+
+![linuxoneccactivation](upandrunningimages/linuxoneccactivation.png)
+
+**3.** After activiation, [log into your LinuxONE Community Cloud account](https://linuxone.cloud.marist.edu). 
+
+**4.** You should see the following in your dashboard. Select your OpenShift trial link:
+
+![linuxoneccocp](upandrunningimages/linuxonecchome.png)
+
+**5.** Log into OpenShift console with the same username and password that you used to log into your LinuxONE Community Cloud account (the same set that you registered with).
+
+![linuxoneocp](upandrunningimages/linuxoneccocplogin.png)
+
+**6.** You should see the Topology view of the OpenShift console. Click on  your project name (it will be a number randomly assigned to you that will be different than the one shown in the picture below):
+
+![linuxoneccocpfirstscreen](upandrunningimages/linuxoneccocpfirstscreen.png)
+
+
 ## Deploying MySQL database
 
 **1.** First, you need to setup your mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)
 
 ![Add DB](upandrunningimages/devselectdatabase.png)
+
+<b>Now you can start the lab!</b>
 
 **2.** Next, select the `MySQL (Ephemeral)` tile. 
 
