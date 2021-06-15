@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://ibm-wsc.github.io/cloud-native-linuxone/build-and-deploy/upandrunning/" rel="canonical"/>
 <link href="../../images/pipelines-logo.png" rel="icon"/>
-<meta content="mkdocs-1.2, mkdocs-material-7.1.7" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.8" name="generator"/>
 <title>5. PetClinic Up and Running - Cloud Native LinuxONE Workshop</title>
 <link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
@@ -167,27 +167,32 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-mysql-database">5.1 
+<a class="md-nav__link" href="#logging-into-your-linuxone-community-cloud-openshift-environment">5.1 
+    Logging into your LinuxONE Community Cloud OpenShift environment
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploying-mysql-database">5.2 
     Deploying MySQL database
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#fork-the-petclinic-repo-to-your-own-github-account">5.2 
+<a class="md-nav__link" href="#fork-the-petclinic-repo-to-your-own-github-account">5.3 
     Fork the PetClinic repo to your own GitHub account
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#building-and-deploying-petclinic-application">5.3 
+<a class="md-nav__link" href="#building-and-deploying-petclinic-application">5.4 
     Building and Deploying PetClinic Application
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#interacting-with-your-petclinic-application-and-mysql-database">5.4 
+<a class="md-nav__link" href="#interacting-with-your-petclinic-application-and-mysql-database">5.5 
     Interacting with Your PetClinic Application and MySQL database
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#summary">5.5 
+<a class="md-nav__link" href="#summary">5.6 
     Summary
   </a>
 </li>
@@ -312,27 +317,32 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-mysql-database">5.1 
+<a class="md-nav__link" href="#logging-into-your-linuxone-community-cloud-openshift-environment">5.1 
+    Logging into your LinuxONE Community Cloud OpenShift environment
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploying-mysql-database">5.2 
     Deploying MySQL database
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#fork-the-petclinic-repo-to-your-own-github-account">5.2 
+<a class="md-nav__link" href="#fork-the-petclinic-repo-to-your-own-github-account">5.3 
     Fork the PetClinic repo to your own GitHub account
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#building-and-deploying-petclinic-application">5.3 
+<a class="md-nav__link" href="#building-and-deploying-petclinic-application">5.4 
     Building and Deploying PetClinic Application
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#interacting-with-your-petclinic-application-and-mysql-database">5.4 
+<a class="md-nav__link" href="#interacting-with-your-petclinic-application-and-mysql-database">5.5 
     Interacting with Your PetClinic Application and MySQL database
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#summary">5.5 
+<a class="md-nav__link" href="#summary">5.6 
     Summary
   </a>
 </li>
@@ -362,9 +372,21 @@
 <li>the <span style="color:red">red</span> arrows or boxes denote something to click on or type.</li>
 </ul>
 </div>
-<h2 id="deploying-mysql-database"><span class="enumerate-heading-plugin">5.1</span> Deploying MySQL database<a class="headerlink" href="#deploying-mysql-database" title="Permanent link">¶</a></h2>
+<h2 id="logging-into-your-linuxone-community-cloud-openshift-environment"><span class="enumerate-heading-plugin">5.1</span> Logging into your <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> environment<a class="headerlink" href="#logging-into-your-linuxone-community-cloud-openshift-environment" title="Permanent link">¶</a></h2>
+<p><strong>1.</strong> Please complete the <a href="../../prerequisites/">Prerequisites</a> and register for a <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> trial if you have not done so already.</p>
+<p><strong>2.</strong> After you register, you should have received an email you should have received an email asking you to Activate your account or entitlement. Please do so now if you have not already done so. The link to activate your trial is only valid for 48 hours after your initial registration.</p>
+<p><img alt="linuxoneccactivation" src="../upandrunningimages/linuxoneccactivation.png"/></p>
+<p><strong>3.</strong> After activiation, <a href="https://linuxone.cloud.marist.edu">log into your <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud account</a>. </p>
+<p><strong>4.</strong> You should see the following in your dashboard. Select your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> trial link:</p>
+<p><img alt="linuxoneccocp" src="../upandrunningimages/linuxonecchome.png"/></p>
+<p><strong>5.</strong> Log into <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> console with the same username and password that you used to log into your <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud account (the same set that you registered with).</p>
+<p><img alt="linuxoneocp" src="../upandrunningimages/linuxoneccocplogin.png"/></p>
+<p><strong>6.</strong> You should see the Topology view of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> console. Click on  your project name (it will be a number randomly assigned to you that will be different than the one shown in the picture below):</p>
+<p><img alt="linuxoneccocpfirstscreen" src="../upandrunningimages/linuxoneccocpfirstscreen.png"/></p>
+<h2 id="deploying-mysql-database"><span class="enumerate-heading-plugin">5.2</span> Deploying MySQL database<a class="headerlink" href="#deploying-mysql-database" title="Permanent link">¶</a></h2>
 <p><strong>1.</strong> First, you need to setup your mysql database. Luckily, this is very easy on <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)</p>
 <p><img alt="Add DB" src="../upandrunningimages/devselectdatabase.png"/></p>
+<p><b>Now you can start the lab!</b></p>
 <p><strong>2.</strong> Next, select the <code>MySQL (Ephemeral)</code> tile. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -382,7 +404,7 @@
 </div>
 <p>A minute or two later, in the <code>Topology</code> view of your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Console, you should see <code>mysql</code> in the <code>Running</code> state. (Click on the Topology icon for <code>mysql</code> to bring up the side panel)</p>
 <p><img alt="DB running" src="../upandrunningimages/mysqlrunning.png"/></p>
-<h2 id="fork-the-petclinic-repo-to-your-own-github-account"><span class="enumerate-heading-plugin">5.2</span> Fork the PetClinic <abbr title="repository">repo</abbr> to your own GitHub account<a class="headerlink" href="#fork-the-petclinic-repo-to-your-own-github-account" title="Permanent link">¶</a></h2>
+<h2 id="fork-the-petclinic-repo-to-your-own-github-account"><span class="enumerate-heading-plugin">5.3</span> Fork the PetClinic <abbr title="repository">repo</abbr> to your own GitHub account<a class="headerlink" href="#fork-the-petclinic-repo-to-your-own-github-account" title="Permanent link">¶</a></h2>
 <p>For this workshop, you will be using the PetClinic application from your own GitHub account so that you can enable integrations with it later.</p>
 <p>To make a copy of the PetClinic application into your GitHub account, navigate to the following from your browser:</p>
 <div class="highlight"><pre><span></span><code>https://github.com/ibm-wsc/spring-petclinic
@@ -395,7 +417,7 @@
 <p>Please make a note of your <abbr title="repository">repo</abbr> URL for later. It should be something like:</p>
 <p><code>https://github.com/&lt;your-github-username&gt;/spring-petclinic</code></p>
 <p>That's it! You are ready to move on to the next section.</p>
-<h2 id="building-and-deploying-petclinic-application"><span class="enumerate-heading-plugin">5.3</span> Building and Deploying PetClinic Application<a class="headerlink" href="#building-and-deploying-petclinic-application" title="Permanent link">¶</a></h2>
+<h2 id="building-and-deploying-petclinic-application"><span class="enumerate-heading-plugin">5.4</span> Building and Deploying PetClinic Application<a class="headerlink" href="#building-and-deploying-petclinic-application" title="Permanent link">¶</a></h2>
 <p>There are multiple ways <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> enables <abbr title="an application that takes full advantage of the cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr> application developers to package up their applications and deploy them. For PetClinic, you will be building your <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> from source, leveraging <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>'s S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevOps pipeline from this workflow. It's a good way to start to understand how <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines work.</p>
 <p><strong>1.</strong> Start with choosing Add From Git:</p>
 <p><img alt="from git" src="../upandrunningimages/fromgit.png"/></p>
@@ -434,7 +456,7 @@
 <p><img alt="build output" src="../upandrunningimages/buildlog.png"/></p>
 <p><strong>10.</strong> Now if you go back to the Topology view, you should see the application has been successfully deployed to <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> as well. From here you can click on the <code>open URL</code> circle, and a new browser tab should open to lead you to your PetClinic's front page.</p>
 <p><img alt="open URL" src="../upandrunningimages/openurl.png"/></p>
-<h2 id="interacting-with-your-petclinic-application-and-mysql-database"><span class="enumerate-heading-plugin">5.4</span> Interacting with Your PetClinic Application and MySQL database<a class="headerlink" href="#interacting-with-your-petclinic-application-and-mysql-database" title="Permanent link">¶</a></h2>
+<h2 id="interacting-with-your-petclinic-application-and-mysql-database"><span class="enumerate-heading-plugin">5.5</span> Interacting with Your PetClinic Application and MySQL database<a class="headerlink" href="#interacting-with-your-petclinic-application-and-mysql-database" title="Permanent link">¶</a></h2>
 <p>In this section, you will add a new owner to the Pet Clinic application, and then go into your MySQL <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> to see if that owner was successfully added. </p>
 <p><strong>1.</strong> You Pet Clinic should look something similar to this. Go to the Find Owners tab, and create a new owner.</p>
 <p><img alt="find owners" src="../upandrunningimages/findowners.png"/></p>
@@ -464,7 +486,7 @@
 <p>If you added a different user than <em>alice</em> you should see that user in place of <em>alice</em> on your screen.</p>
 </div>
 <p>Please let the instructors know, if you don't see your owner you added listed. </p>
-<h2 id="summary"><span class="enumerate-heading-plugin">5.5</span> Summary <img alt="🌚" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f31a.svg" title=":new_moon_with_face:"/><a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<h2 id="summary"><span class="enumerate-heading-plugin">5.6</span> Summary <img alt="🌚" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f31a.svg" title=":new_moon_with_face:"/><a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
 <p>Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines pipeline that you will build on in the next sections of the lab to achieve <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr>. You may move on to the next part by clicking <code>Next</code> on the bottom of the page.</p>
 </article>
 </div>

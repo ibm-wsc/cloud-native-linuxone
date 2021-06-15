@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://ibm-wsc.github.io/cloud-native-linuxone/print_page/">
       
       <link rel="icon" href="../images/pipelines-logo.png">
-      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.8">
     
     
       
@@ -44,10 +44,19 @@
     
     
       
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-174658170-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
+  
+
+
+
+  
+  
+
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-174658170-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
     
     
   </head>
@@ -672,9 +681,21 @@
 <li>the <span style="color:red">red</span> arrows or boxes denote something to click on or type.</li>
 </ul>
 </div>
+<h2 id="build-and-deploy-upandrunning-logging-into-your-linuxone-community-cloud-openshift-environment">Logging into your <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> environment<a class="headerlink" href="#build-and-deploy-upandrunning-logging-into-your-linuxone-community-cloud-openshift-environment" title="Permanent link">&para;</a></h2>
+<p><strong>1.</strong> Please complete the <a href="#prerequisites">Prerequisites</a> and register for a <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> trial if you have not done so already.</p>
+<p><strong>2.</strong> After you register, you should have received an email you should have received an email asking you to Activate your account or entitlement. Please do so now if you have not already done so. The link to activate your trial is only valid for 48 hours after your initial registration.</p>
+<p><img alt="linuxoneccactivation" src="../build-and-deploy/upandrunningimages/linuxoneccactivation.png" /></p>
+<p><strong>3.</strong> After activiation, <a href="https://linuxone.cloud.marist.edu">log into your <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud account</a>. </p>
+<p><strong>4.</strong> You should see the following in your dashboard. Select your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> trial link:</p>
+<p><img alt="linuxoneccocp" src="../build-and-deploy/upandrunningimages/linuxonecchome.png" /></p>
+<p><strong>5.</strong> Log into <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> console with the same username and password that you used to log into your <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud account (the same set that you registered with).</p>
+<p><img alt="linuxoneocp" src="../build-and-deploy/upandrunningimages/linuxoneccocplogin.png" /></p>
+<p><strong>6.</strong> You should see the Topology view of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> console. Click on  your project name (it will be a number randomly assigned to you that will be different than the one shown in the picture below):</p>
+<p><img alt="linuxoneccocpfirstscreen" src="../build-and-deploy/upandrunningimages/linuxoneccocpfirstscreen.png" /></p>
 <h2 id="build-and-deploy-upandrunning-deploying-mysql-database">Deploying MySQL database<a class="headerlink" href="#build-and-deploy-upandrunning-deploying-mysql-database" title="Permanent link">&para;</a></h2>
 <p><strong>1.</strong> First, you need to setup your mysql database. Luckily, this is very easy on <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)</p>
 <p><img alt="Add DB" src="../build-and-deploy/upandrunningimages/devselectdatabase.png" /></p>
+<p><b>Now you can start the lab!</b></p>
 <p><strong>2.</strong> Next, select the <code>MySQL (Ephemeral)</code> tile. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
