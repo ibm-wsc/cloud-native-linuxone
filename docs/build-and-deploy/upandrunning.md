@@ -18,7 +18,7 @@ You will start by building your PetClinic application from the source code and c
 
 **1.** Please complete the [Prerequisites](../prerequisites.md) and register for a LinuxONE Community Cloud OpenShift trial if you have not done so already.
 
-**2.** After you register, you should have received an email asking you to Activate your account or entitlement. Please do so now if you have not already done so. The link to activate your trial is only valid for 48 hours after your initial registration.
+**2.** After you register, you should have received an email asking you to Activate your account or entitlement. Please do so now if you have not already done so. The link to activate your trial is only valid for 48 hours after your initial registration. If this time period has passed you need to re-register for the trial again.
 
 ![linuxoneccactivation](upandrunningimages/linuxoneccactivation.png)
 
