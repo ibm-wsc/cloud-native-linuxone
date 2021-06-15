@@ -1,4 +1,5 @@
 *[OCP]: OpenShift Container Platform
+*[Tekton]: a cloud native (Kubernetes based) open-source framework for creating CI/CD systems. It serves as the base of OpenShift Pipelines, allowing developers to build, test, and deploy across cloud providers and on-premise systems
 *[OpenShift]: (OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment
 *[Kubernetes]: (k8s): an open-source system for automating deployment, scaling, and management of containerized applications.
 *[JVM]: (Java Virtual Machine): the runtime engine of the Java Platform. It enables Java programs and programs compiled into Java bytecode to run on any computer that has a native JVM
