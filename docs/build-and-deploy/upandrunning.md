@@ -6,19 +6,19 @@ You will not be focusing on the ins and outs of the PetClinic application itself
 
 You will start by building your PetClinic application from the source code and connecting it to a MySQL database.
 
-!!! info "Using LinuxONE Community Cloud"
-    Because you are using the LinuxONE Community Cloud OpenShift trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.
-
 !!! note "Lab Guide"
     - For the images in this lab:
     - the <span style="color:green">green</span> arrows or boxes denote something to look at or reference 
     - the <span style="color:red">red</span> arrows or boxes denote something to click on or type.
 
+!!! info "Using LinuxONE Community Cloud"
+    Because you are using the LinuxONE Community Cloud OpenShift trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.
+
 ## Logging into your LinuxONE Community Cloud OpenShift environment
 
 **1.** Please complete the [Prerequisites](../prerequisites.md) and register for a LinuxONE Community Cloud OpenShift trial if you have not done so already.
 
-**2.** After you register, you should have received an email you should have received an email asking you to Activate your account or entitlement. Please do so now if you have not already done so. The link to activate your trial is only valid for 48 hours after your initial registration.
+**2.** After you register, you should have received an email asking you to Activate your account or entitlement. Please do so now if you have not already done so. The link to activate your trial is only valid for 48 hours after your initial registration.
 
 ![linuxoneccactivation](upandrunningimages/linuxoneccactivation.png)
 
