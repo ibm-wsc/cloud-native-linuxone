@@ -1052,7 +1052,7 @@ Paste the workspace definition under the highlighted line as shown in the image 
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SCRIPT</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
   <span class="nt">steps</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;docker.io/gmoney23/kustomize-s390x:v4.1.2&#39;</span>
+  <span class="p p-Indicator">-</span> <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;quay.io/gmoney23/kustomize-s390x:v4.1.2&#39;</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kustomize</span>
     <span class="nt">resources</span><span class="p">:</span>
       <span class="nt">limits</span><span class="p">:</span>
@@ -1805,11 +1805,11 @@ Paste the workspace definition under the highlighted line as shown in the image 
 <li>
 <p>Watch the results of your build pipeline run. It should complete successfully as in the pictures below. </p>
 <div class="admonition info">
-<p class="admonition-title">How long will your pipeline take to run?</p>
+<p class="admonition-title">Your pipeline may take a while to run</p>
 <p>The pipeline run may take anywhere from 10-25 minutes to complete depending on the current system load. You can see the progress of your build, as well as if any errors occur, via the <abbr title="user interface">UI</abbr>. Thus, by monitoring the <abbr title="user interface">UI</abbr>, you can make sure things are going as planned.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">What to do if your pipeline run ends in failure</p>
+<div class="admonition question">
+<p class="admonition-title">What should you do if your pipeline run ends in failure</p>
 <p>If your pipeline run ends in failure, please look at the <code>Failure</code> tab (immediately below this message) to get back on track (instead of the default <code>Success</code> tab).</p>
 </div>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="application-promotion-action___tabbed_1_1" name="__tabbed_1" type="radio" /><label for="application-promotion-action___tabbed_1_1">Success</label><div class="tabbed-content">
@@ -1845,14 +1845,20 @@ Paste the workspace definition under the highlighted line as shown in the image 
 <p>Resend the <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> from GitHub to <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> a new <code>pipelineRun</code> with the same values as before (see images below for help)</p>
 <ol>
 <li>
-<p>Click on your <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> from the <code>Webhooks</code> section of the repository settings for your GitHub repository fork of the <code>spring-petclinic</code> repository
-<img alt="GitHub Webhook View for Retry" src="../images/Part2/ClickWebhookForRetry.png" /></p>
+<p>Click on your <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> from the <code>Webhooks</code> section of the repository settings for your GitHub repository fork of the <code>spring-petclinic</code> repository</p>
+<p><img alt="GitHub Webhook View for Retry" src="../images/Part2/ClickWebhookForRetry.png" /></p>
 </li>
 <li>
 <p>Click on the 3 dots for the most recent delivery</p>
 </li>
-<li>Click <code>Redeliver</code>
-<img alt="GitHub Webhook Send for Retry" src="../images/Part2/RestartFailedPipelineRun.png" /></li>
+<li>
+<p>Click <code>Redeliver</code></p>
+<p><img alt="GitHub Webhook Send for Retry" src="../images/Part2/RestartFailedPipelineRun.png" /></p>
+</li>
+<li>
+<p>Confirm Redelivery</p>
+<p><img alt="GitHub Webhook Confirm Redelivery" src="../images/Part2/ConfirmRedelivery.png" /></p>
+</li>
 </ol>
 </li>
 </ol>
