@@ -9,9 +9,9 @@
 *[container image]: application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.
 *[container]: a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another
 *[kubelet]: an agent that runs on each node of a Kubernetes cluster. It "manages" its node by reading the container manifests, and ensuring the defined containers are started and running.
-*[event listener]: (`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.
-*[git push]: updates the remote branch with local commits. You can also think of `git push` as update or publish.
-*[git clone]: clones a repository into a newly created directory, creates remote-tracking branches for each branch in the cloned repository (visible using `git branch --remotes`), and creates and checks out an initial branch that is forked from the cloned repository’s currently active branch.
+*[event listener]: (EventListener) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.
+*[git push]: updates the remote branch with local commits. You can also think of git push as update or publish.
+*[git clone]: clones a repository into a newly created directory, creates remote-tracking branches for each branch in the cloned repository (visible using git branch --remotes), and creates and checks out an initial branch that is forked from the cloned repository’s currently active branch.
 *[CI/CD]: (Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).
 *[SCM]: (Source Code Management): Software (i.e. git) used to track the changes to a code base over time and merge contributions from different collaborators, resolving conflicts as they arise.
 *[OpenShift Pipelines]: Kubernetes-native CI/CD based on the Tekton open-source project and integrated with OpenShift via the OpenShift UI.
@@ -20,11 +20,11 @@
 *[microservices]: loosely coupled architecture where the different pieces (services) of an application can be maintained, updated and scaled independently.
 *[Spring MVC]: (Spring Model View Controllers): 
 *[Spring Data JPA]: (Spring Data Java Persistent API): 
-*[cloud native]: an application that takes full advantage of the cloud capabilities due to a microservices based architecture that can be scaled up and down independently.
+*[cloud native]: an application that takes full advantage of cloud capabilities due to a microservices based architecture that can be scaled up and down independently.
 *[s390x optimizations]: optimizations for the s390x architecture that the LinuxONE family of servers uses. They enable software to run better on these servers.
-*[ClusterTask]: a `Task` scoped to the entire cluster instead of a single project. 
-*[Task]: collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.
-*[Trigger]: captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`. 
-*[trigger]: captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`. 
+*[ClusterTask]: a Task scoped to the entire cluster instead of a single project. 
+*[Task]: collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.
+*[Trigger]: captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun. 
+*[trigger]: captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun. 
 *[Webhook]: sends a payload to the specified URL when a specific event occurs (such as a GitHub push)
 *[webhook]: sends a payload to the specified URL when a specific event occurs (such as a GitHub push)

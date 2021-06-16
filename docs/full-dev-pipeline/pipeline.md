@@ -2,7 +2,7 @@
 
 Now that PetClinic is up and running on your OpenShift cluster, it's time to add functionality to your pipeline to achieve basic integration and deployment when triggered. The OpenShift pipeline you created in the [PetClinic Up and Running](../build-and-deploy/upandrunning.md) uses [Tekton](https://tekton.dev){target="_blank" rel="noopener noreferrer"} to run a series of tasks (each with one or more steps) to accomplish a workflow (pipeline). You will use the Pipeline Builder UI built into OpenShift to quickly and easily craft a pipeline that meets your specific needs.
 
-!!! info "Why OpenShift Pipelines?"
+!!! question "Why OpenShift Pipelines?"
     - Portable: OpenShift resources defined via yaml files -> portable across OpenShift clusters
 
     - Low Resource Usage: Containers spin up when triggered -> resources only used when needed
@@ -24,7 +24,7 @@ This will bring you to the Pipeline Builder UI where you can edit your pipeline.
 1. Add a `mysql-deploy` task in parallel to the `git-fetch` task. 
     ![Add Parallel MySQL](../images/Part1/mySQL_ParallelTask.png) 
 
-    !!! info "Why is `mysql-deploy` in Parallel?"
+    !!! question "Why is `mysql-deploy` in Parallel?"
         This ensures MySQL is in place for each `PetClinic` application build (which would fail without it).  
 
     Click `Select Task` in the middle of the rectangle of the new task and choose the `openshift-client` task from the dropdown menu. 
@@ -57,7 +57,7 @@ This will bring you to the Pipeline Builder UI where you can edit your pipeline.
     !!! note "Simply Click Away"
         Once you have entered the string into the `SCRIPT` section, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.
 
-    !!! Tip "What is `oc process` doing?"
+    !!! question "What is `oc process` doing?"
         `oc process` is processing the [OpenShift template](https://docs.openshift.com/container-platform/4.7/openshift_images/using-templates.html#templates-overview_using-templates){target="_blank" rel="noopener noreferrer"} for the `mysql-ephemeral` database with the parameters given via a series of `-p` arguments and finally `oc apply -f -` ensures that any missing components will be recreated.
 
     !!! warning "No help please!"
@@ -96,7 +96,7 @@ This will bring you to the Pipeline Builder UI where you can edit your pipeline.
     !!! warning "No help please!"
         Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running).
 
-    !!! Tip "What the ARGS?"
+    !!! question "What the ARGS?"
         You may be wondering why you used the `SCRIPT` section in the `mysql-deploy` task for the entire command, but now are using the `ARGS` to individually list each argument of the command? Both work and so you are going through both methods here. On the one hand, the `SCRIPT` method is easier to copy and paste and looks the same as it would entered on the command line. On the other hand, the `ARGS` method adds readability to the task. Choose whichever method you prefer, though beware of input errors  with the `ARGS` method for long commands. _FYI: The equivalent `SCRIPT` command for the `mysql-rollout-wait` task is_:
 
         ``` bash
@@ -188,15 +188,15 @@ The `s2i-java-11` container image is very convenient for making a container imag
     ```
 
     !!! Tip
-        Save parameters when done with entry by clicking on blue `SAVE` box before moving onto step 4. If blue `SAVE` box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the `-`.
+        Save the parameters when you are done with entry by clicking on blue `Save` box before moving onto step 4. If blue `Save` box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the `-`.
 
 4. Add workspace to `clean-image` task 
 
-    1. Save current pipeline edit and switch to `YAML` from pipeline menu.
+    1. `Save` the current pipeline edit and switch to `YAML` from pipeline menu.
 
         ![Switch to yaml](../images/Part1/SwitchYaml.png)
 
-        !!! info "Why are you editing yaml directly?"
+        !!! question "Why are you editing yaml directly?"
             `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
 
     2. Find the `clean-image-task` and add the following workspace definition:
@@ -207,9 +207,16 @@ The `s2i-java-11` container image is very convenient for making a container imag
                 workspace: workspace
         ```
 
+        !!! question "How can you easily find the `clean-image` task and add the workspace definition?"
+            You can click on the black yaml box and then use your find keyboard shortcut (`ctrl+f` for Windows / `command+f` for mac) to bring up a find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
+            ``` bash
+            name: clean-image
+            ```
+            Paste the workspace definition under the highlighted line as shown in the image below.
+
         ![Clean Image Workspace](../images/Part1/AddWorspaceProducingCleanImage.png)
 
-    3. Save the update
+    3. `Save` the update
 
         ![Save Pipeline Edit Yaml](../images/Part1/PipelineUpdatedYaml.png)
 

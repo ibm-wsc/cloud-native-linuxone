@@ -8,7 +8,7 @@
 
     ![Go to file](../images/Part2/GoToFile.png)
 
-3. Choose the following file (copy and paste box below image):
+3. Type (or paste) the name of the following file into the search bar and select it (copy and paste box below image):
 
     ![Choose File](../images/Part2/ChooseFile.png)
 
@@ -44,7 +44,7 @@
             INSERT IGNORE INTO types VALUES (7, 'armadillo');
             ```
 
-    2. Type in a commit message (you can make this whatever you want) and commit the change (example from image below)
+    2. Type in a commit message (you can make this whatever you want) and commit the change (example copy and paste boxes from image above)
 
         !!! example "Yertle the turtle"
 

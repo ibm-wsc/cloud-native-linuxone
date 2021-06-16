@@ -15,7 +15,7 @@ For more information on how kubectl (and oc through kubectl) integrates Kustomiz
 
 ### Creating Custom Task for Kustomize
 
-Since there is no `ClusterTask` defined for Kustomize, you will create a custom task for this purpose. It will change into the Kustomize directory, run a Kustomize command on the directory, and then apply the files from the directory using the built-in Kustomize functionality of the oc command line tool (via kubectl's Kustomize support)
+Since there is no ClusterTask defined for Kustomize, you will create a custom task for this purpose. It will change into the Kustomize directory, run a Kustomize command on the directory, and then apply the files from the directory using the built-in Kustomize functionality of the oc command line tool (via kubectl's Kustomize support)
 
 1. Copy the `kustomize` task using the following definition (copy by clicking on the copy icon in the top right of the box below):
 
@@ -87,9 +87,11 @@ Since there is no `ClusterTask` defined for Kustomize, you will create a custom 
 
     ![Create Kustomize Task](../images/Part1/CreateKustomizeTask.png)
 
-You should now see the created `kustomize` Task. Navigate back to the `Pipelines` section of the OpenShift UI and go back to editing your pipeline.
+You should now see the created `kustomize` Task.
 
 ![Back to Pipelines](../images/Part1/BackToPipelines.png)
+
+Finally, navigate back to the `Pipelines` section of the OpenShift UI and go back to editing your pipeline.
 
 ### Add Kustomize Task to Pipeline
 
@@ -115,15 +117,15 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
     kustomize edit set image spring-petclinic=$(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
     ```
     
-3. Save pipeline
+3. `Save` the pipeline
 
 4. Add workspace to `kustomize-dev` task 
 
-    1. Save current pipeline edit and switch to `YAML` from pipeline menu.
+    1. `Save` the current pipeline edit and switch to `YAML` from pipeline menu.
 
     ![Switch to yaml](../images/Part1/SwitchYaml.png)
 
-    !!! Info "Why are you editing yaml directly?"
+    !!! question "Why are you editing yaml directly?"
         `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
 
     2. Find the `kustomize-dev` and add the following workspace definition:
@@ -134,9 +136,16 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
                 workspace: workspace
         ```
 
+        !!! question "How can you easily find the `kustomize-dev` task and add the workspace definition?"
+            You can click on the black yaml box and then use your find keyboard shortcut (`ctrl+f` for Windows / `command+f` for mac) to bring up a find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
+            ``` bash
+            name: kustomize-dev
+            ```
+            Paste the workspace definition under the highlighted line as shown in the image below.
+
     ![Kustomize Dev Add Workspace](../images/Part1/AddWorkspaceKustomizeDev.png)
 
-    3. Save the update
+    3. `Save` the update
 
     ![Save Pipeline Edit Yaml](../images/Part1/PipelineUpdatedYaml.png)
 
@@ -149,7 +158,7 @@ You should now see the created `kustomize` Task. Navigate back to the `Pipelines
 
     ![Actions Edit Pipeline](../images/Part1/ActionsEditPipeline.png)
 
-2. Add a `Task` named `cleanup-resources` sequentially at the beginning of the pipeline before `fetch-repository` (using the `openshift-client` ClusterTask).
+2. Add a Task named `cleanup-resources` sequentially at the beginning of the pipeline before `fetch-repository` (using the `openshift-client` ClusterTask).
 
     ![add cleanup sequential](../images/Part1/AddSequentialTask.png)
 

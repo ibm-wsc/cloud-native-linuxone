@@ -100,6 +100,7 @@ While making sure your application is internally up and running is important, at
     For different environments like dev and test, this may be different groups external to your Kubernetes environment (cluster), though internal to the organization itself and accessing the endpoints via a VPN or internal network. Production is likely when external connection via an organization's real website would happen. The type of external connection (via a VPN or public connection) has little impact on the Kubernetes resources given a route will be used for all of those types of external connections (the most important thing is that the route you are testing is available to you [the tester] from where you are).
 
 This means it is important to also test the OpenShift route (the component providing the external connection) as part of your CI/CD pipeline to ensure it is correctly servicing web traffic external to your cluster[^2].
+
 [^2]: 
     You may think to yourself that you can't test an external connection from inside your cluster. However, by using the route, you are causing the traffic to go "outside" the cluster's networking to reach the load balancer and then back "inside" via the route. This explicitly tests the external connection and makes sure that it indeed works. However, you are just testing that the route works, not that the dns/hostname is available generally on the internet or private enterprise subnet (depending on environment). Internet / subnet dns resolution is a different, more general problem for your networking team (or cloud provider) to ensure for all of the applications using that network.
 
@@ -202,15 +203,15 @@ You will create a task to check the connection to your external route as part of
     ```
 2. Create the `connection-test` Task
     
-    a. Click `Import YAML` to bring up the box where you can create Kubernetes resource definitions from yaml
+    1. Click `Import YAML` to bring up the box where you can create Kubernetes resource definitions from yaml
 
-    b. Paste the `connection-test` Task into the box
+    2. Paste the `connection-test` Task into the box
     
-    c. Scroll down and click create to create the `connection-test` Task 
+    3. Scroll down and click create to create the `connection-test` Task 
 
     ![Create connection-test Task](../images/Part2/CreateTestRouteTask.png)
 
-You should now see the created `connection-test` Task. Navigate back to the `Pipelines` section of the OpenShift UI and go back to editing your pipeline.
+You should now see the created `connection-test` Task. Finally, navigate back to the `Pipelines` section of the OpenShift UI and go back to editing your pipeline.
 
 ![Back to Pipelines](../images/Part2/BackToPipelines.png)
 
@@ -238,7 +239,7 @@ You should now see the created `connection-test` Task. Navigate back to the `Pip
     spring-petclinic-dev
     ```
 
-3. Save pipeline
+3. `Save` the pipeline
 
 Your current pipeline builds and tests your application, creates a docker image for it, deploys it to the development environment, and ensures that the application is working both internally and externally. In other words, once your application successfully completes the current pipeline, you can be confident in it and be ready to move to staging[^3]. 
 
@@ -251,17 +252,17 @@ Moving to the staging environment means spinning up your application in that env
 
 ### Remove Dev
 
-Your first `Task` will mirror the `cleanup-resources` task at the beginning of your pipeline, but will just cleanup the `dev` resources using the `env=dev` [label selector](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors){target="_blank" rel="noopener noreferrer"}.
+Your first Task will mirror the `cleanup-resources` task at the beginning of your pipeline, but will just cleanup the `dev` resources using the `env=dev` [label selector](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors){target="_blank" rel="noopener noreferrer"}.
 
 1. Go back to editing your pipeline via `Actions -> Edit Pipeline`
 
     ![Actions Edit Pipeline](../images/Part1/ActionsEditPipeline.png)
 
-2. Add a `Task` sequentially at the end of the pipeline (after `connect-dev`) using the `openshift-client` ClusterTask.  
+2. Add a Task sequentially at the end of the pipeline (after `connect-dev`) using the `openshift-client` ClusterTask.  
 
     ![add cleanup sequential](../images/Part2/AddSequentialCleanup.png)
 
-3. Configure the `Task` with the following values (copy and paste boxes below image):
+3. Configure the Task with the following values (copy and paste boxes below image):
 
     ![cleanup dev](../images/Part2/CleanupDevTask.png)
 
@@ -290,7 +291,7 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
     ![StagingAdd](../images/Part2/AddStaging.png) 
     
-2. Configure the `Task` with the following values (copy and paste boxes below image):
+2. Configure the Task with the following values (copy and paste boxes below image):
 
     ![Kustomize Staging Task](../images/Part2/KustomizeStaging.png)
 
@@ -312,7 +313,7 @@ You will use your existing `kustomize` task to deploy the staging configuration 
     kustomize edit set image spring-petclinic=$(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
     ```
 
-3. `Save` current pipeline edit and then switch to `YAML` from pipeline menu.
+3. `Save` the current pipeline edit and then switch to `YAML` from pipeline menu.
 
     ![Switch to yaml](../images/Part1/SwitchYaml.png)
 
@@ -329,9 +330,16 @@ You will use your existing `kustomize` task to deploy the staging configuration 
             workspace: workspace
     ```
 
+    !!! question "How can you easily find the `kustomize-staging` task and add the workspace definition?"
+        You can click on the black yaml box and then use your find keyboard shortcut (`ctrl+f` for Windows / `command+f` for mac) to bring up a find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
+        ``` bash
+        name: kustomize-staging
+        ```
+        Paste the workspace definition under the highlighted line as shown in the image below.
+
     ![Kustomize Staging Add Workspace](../images/Part2/KustomizeStagingWorkspace.png)
 
-    Save the update
+    `Save` the update
 
     ![Save Pipeline Edit Yaml](../images/Part2/PipelineUpdatedYaml.png)
 
@@ -340,7 +348,7 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
 ### Rollout Staging
 
-1. Edit the pipeline again and add a `deploy-staging` task with the `openshift-client` `ClusterTask`
+1. Edit the pipeline again and add a `deploy-staging` task with the `openshift-client` ClusterTask
 
     ![Deploy Staging Task](../images/Part2/DeployStagingTask.png)
 
@@ -371,9 +379,9 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
     ![Add Connection Test task to Pipeline Dev](../images/Part2/ChooseCTestStaging.png)
 
-2. Configure `connection-test` task
+2. Configure `connection-test` task with the following parameters (copy and paste boxes below image):
 
-    The only values you need to change are the `Display Name` and the `ROUTE_NAME`:
+    ![Connection Test Configure 1](../images/Part2/ConnectionTestConfigureStaging.png)
 
     **Display Name**
 
@@ -387,9 +395,7 @@ You will use your existing `kustomize` task to deploy the staging configuration 
     spring-petclinic-staging
     ```
 
-    ![Connection Test Configure 1](../images/Part2/ConnectionTestConfigureStaging.png)
-
-3. Save pipeline
+3. `Save` the pipeline
 
     ![Save Pipeline](../images/Part2/SavePipeline.png)
 

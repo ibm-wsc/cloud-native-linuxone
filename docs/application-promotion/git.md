@@ -12,6 +12,9 @@ It's time to add the `C` (continuous) to your CI/CD pipeline.
 
     ![GitHub Trigger Parameters](../images/Part2/WebhookTriggerParameters.png)
 
+    !!! note
+        The `Git_Repo` parameter should have your GitHub username instead of `siler23`. This should already be correctly filled out for you, so please don't change that to `siler23`.
+
     **Git Provider Type**:
     ``` bash
     github-push
@@ -36,7 +39,7 @@ You are choosing the `github-push` cluster trigger binding, which is defined out
 
 Now, you need to set up a webhook from GitHub. You want this to hit your `event listener`, the pipelines resource which listens for events from outside sources in order to trigger a build. The listener you set up is using the `github-push` trigger binding to trigger a new pipeline run for your `spring-petclinic` pipeline passing the `github-push` parameters mentioned before. You created this `event-listener` via the OpenShift Pipelines UI when you added a trigger and will see it in the `Topology` section of the OpenShift UI as another application when you travel back there later. In order to setup your webhook to send a message to the `event listener` after a git push, do the following:
 
-1. Get the event listener url from the pipeline view
+1. Get the event listener url from the `Details` view of your pipeline
 
     ![Find Event Listener](../images/Part2/FindEventListener.png)
 

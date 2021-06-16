@@ -62,7 +62,7 @@ You will start by building your PetClinic application from the source code and c
 
 Click the `Create` button. 
 
-!!! info "Why Ephemeral?"
+!!! question "Why Ephemeral?"
     You are using the **Ephemeral** implementation because this a short-lived demo and you do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the container.
 
 A minute or two later, in the `Topology` view of your OpenShift Console, you should see `mysql` in the `Running` state. (Click on the Topology icon for `mysql` to bring up the side panel)
@@ -73,15 +73,7 @@ A minute or two later, in the `Topology` view of your OpenShift Console, you sho
 
 For this workshop, you will be using the PetClinic application from your own GitHub account so that you can enable integrations with it later.
 
-To make a copy of the PetClinic application into your GitHub account, navigate to the following from your browser:
-
-```bash
-https://github.com/ibm-wsc/spring-petclinic
-```
-
-Then click on the `fork` button on the upper right corner.
-
-![repofork](upandrunningimages/gitrepofork.png)
+To make a copy of the PetClinic application into your GitHub account, [click here](https://github.com/ibm-wsc/spring-petclinic/fork){target="_blank" rel="noopener noreferrer"}
 
 At this point, you might need to log into GitHub if you weren't logged in already.
 
@@ -213,6 +205,6 @@ Please let the instructors know, if you don't see your owner you added listed.
 
 ## Summary :new_moon_with_face:
 
-Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an OpenShift Pipelines pipeline that you will build on in the next sections of the lab to achieve CI/CD. You may move on to the next part by clicking `Next` on the bottom of the page.
+Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an OpenShift Pipelines pipeline that you will build on in the next sections of the lab to achieve CI/CD. You may move on to the next part by clicking `Next` on the bottom right of the page.
 
 --8<-- "includes/glossary.md"
