@@ -53,6 +53,22 @@ From the `Topology` section of the OpenShift UI, please complete the following c
 
         ![Confirm Delete of MySQL DeploymentConfig](../images/Cleanup/ConfirmDeleteDeploymentConfigMySQL.png)
 
+## GitHub Section Cleanup
+
+Finally, you will cleanup the GitHub fork you made on your GitHub account with the following steps:
+
+1. Navigate to the settings for your forked GitHub repository
+
+    ![Pick GitHub Settings](../images/Cleanup/GitHubSettings.png)
+
+2. Scroll to the bottom of the settings page (to the `danger zone`) and choose to delete your repository
+
+    ![Choose to Delete Repository](../images/Cleanup/ChooseDeleteRepository.png)
+
+3. Confirm repository delete (retyping your forked repository's name)
+
+    ![Confirm Repository Delete](../images/Cleanup/ConfirmDeleteRepository.png)
+    
 ## :tada: Thank You for Cleaning Up! :tada:
 
 --8<-- "includes/glossary.md"
