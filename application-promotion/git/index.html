@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://ibm-wsc.github.io/cloud-native-linuxone/application-promotion/git/" rel="canonical"/>
 <link href="../../images/pipelines-logo.png" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.8" name="generator"/>
+<meta content="mkdocs-1.2, mkdocs-material-7.1.7" name="generator"/>
 <title>11. Integrating Git - Cloud Native LinuxONE Workshop</title>
 <link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
@@ -137,13 +137,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
-        Build and Deploy Pet Clinic
+        4-5. Build and Deploy Pet Clinic
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Build and Deploy Pet Clinic" class="md-nav" data-md-level="1">
+<nav aria-label="4-5. Build and Deploy Pet Clinic" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Build and Deploy Pet Clinic
+          4-5. Build and Deploy Pet Clinic
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -162,13 +162,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5">
-        Configure PetClinic's Pipeline
+        6-8. Configure PetClinic's Pipeline
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Configure PetClinic's Pipeline" class="md-nav" data-md-level="1">
+<nav aria-label="6-8. Configure PetClinic's Pipeline" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
-          Configure PetClinic's Pipeline
+          6-8. Configure PetClinic's Pipeline
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -192,13 +192,13 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_6">
-        Test and Promote Pet Clinic
+        9-12. Test and Promote Pet Clinic
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Test and Promote Pet Clinic" class="md-nav" data-md-level="1">
+<nav aria-label="9-12. Test and Promote Pet Clinic" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
-          Test and Promote Pet Clinic
+          9-12. Test and Promote Pet Clinic
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -255,13 +255,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_7">
-        Cleanup
+        13. Cleanup
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Cleanup" class="md-nav" data-md-level="1">
+<nav aria-label="13. Cleanup" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-          Cleanup
+          13. Cleanup
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -328,15 +328,19 @@
 </a>
 <h1 id="integrating-openshift-pipelines-with-github"><span class="enumerate-heading-plugin">11.</span> Integrating <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines with GitHub<a class="headerlink" href="#integrating-openshift-pipelines-with-github" title="Permanent link">¶</a></h1>
 <p>It's time to add the <code>C</code> (continuous) to your <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> pipeline.</p>
-<h2 id="add-a-github-trigger"><span class="enumerate-heading-plugin">11.1</span> Add a GitHub <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">Trigger</abbr><a class="headerlink" href="#add-a-github-trigger" title="Permanent link">¶</a></h2>
+<h2 id="add-a-github-trigger"><span class="enumerate-heading-plugin">11.1</span> Add a GitHub <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">Trigger</abbr><a class="headerlink" href="#add-a-github-trigger" title="Permanent link">¶</a></h2>
 <ol>
 <li>
 <p>Choose <code>Add Trigger</code> from the pipeline menu</p>
 <p><img alt="Select GitHub Trigger" src="../../images/Part2/GitHubAddTrigger.png"/></p>
 </li>
 <li>
-<p>Configure the <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> as follows (copy and paste boxes below image) and click <code>Add</code> to add the <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> to your pipeline:</p>
+<p>Configure the <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> as follows (copy and paste boxes below image) and click <code>Add</code> to add the <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> to your pipeline:</p>
 <p><img alt="GitHub Trigger Parameters" src="../../images/Part2/WebhookTriggerParameters.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>Git_Repo</code> parameter should have your GitHub username instead of <code>siler23</code>. This should already be correctly filled out for you, so please don't change that to <code>siler23</code>.</p>
+</div>
 <p><strong>Git Provider Type</strong>:
 <div class="highlight"><pre><span></span><code>github-push
 </code></pre></div></p>
@@ -352,12 +356,12 @@
 </code></pre></div></p>
 </li>
 </ol>
-<p>You are choosing the <code>github-push</code> cluster <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> binding, which is defined out of the box for <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines. This passes information into a number of different variables which you can list by clicking the expand arrow seen in the picture (It will initially say <code>Show Variables</code> and then switch to <code>Hide Variables</code> when expanded as shown in the picture). You will be using the variables in green boxes in the picture to pass the git commit message (<code>git-commit-message</code>) as well as the SHA of the git commit (<code>git-revision</code>) to the build pipeline from the GitHub <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> that triggers the build.</p>
+<p>You are choosing the <code>github-push</code> cluster <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> binding, which is defined out of the box for <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines. This passes information into a number of different variables which you can list by clicking the expand arrow seen in the picture (It will initially say <code>Show Variables</code> and then switch to <code>Hide Variables</code> when expanded as shown in the picture). You will be using the variables in green boxes in the picture to pass the git commit message (<code>git-commit-message</code>) as well as the SHA of the git commit (<code>git-revision</code>) to the build pipeline from the GitHub <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> that triggers the build.</p>
 <h2 id="setting-up-git-webhook"><span class="enumerate-heading-plugin">11.2</span> Setting up Git <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">Webhook</abbr><a class="headerlink" href="#setting-up-git-webhook" title="Permanent link">¶</a></h2>
-<p>Now, you need to set up a <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> from GitHub. You want this to hit your <code>event listener</code>, the pipelines resource which listens for events from outside sources in order to <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a build. The listener you set up is using the <code>github-push</code> <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> binding to <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a new pipeline run for your <code>spring-petclinic</code> pipeline passing the <code>github-push</code> parameters mentioned before. You created this <code>event-listener</code> via the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines <abbr title="user interface">UI</abbr> when you added a <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> and will see it in the <code>Topology</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> as another application when you travel back there later. In order to setup your <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> to send a message to the <code>event listener</code> after a <abbr title="updates the remote branch with local commits. You can also think of `git push` as update or publish.">git push</abbr>, do the following:</p>
+<p>Now, you need to set up a <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> from GitHub. You want this to hit your <code>event listener</code>, the pipelines resource which listens for events from outside sources in order to <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> a build. The listener you set up is using the <code>github-push</code> <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> binding to <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> a new pipeline run for your <code>spring-petclinic</code> pipeline passing the <code>github-push</code> parameters mentioned before. You created this <code>event-listener</code> via the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines <abbr title="user interface">UI</abbr> when you added a <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> and will see it in the <code>Topology</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> as another application when you travel back there later. In order to setup your <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> to send a message to the <code>event listener</code> after a <abbr title="updates the remote branch with local commits. You can also think of git push as update or publish.">git push</abbr>, do the following:</p>
 <ol>
 <li>
-<p>Get the <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> url from the pipeline view</p>
+<p>Get the <abbr title="(EventListener) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> url from the <code>Details</code> view of your pipeline</p>
 <p><img alt="Find Event Listener" src="../../images/Part2/FindEventListener.png"/></p>
 <p>Find the value listed for <strong>your</strong> pipeline and copy that value.</p>
 </li>
@@ -392,12 +396,12 @@
 </li>
 </ol>
 <h2 id="summary"><span class="enumerate-heading-plugin">11.3</span> Summary <img alt="🌕" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f315.svg" title=":full_moon:"/><a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
-<p>You created a GitHub <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> for your <code>spring-petclinic</code> repository fork that will <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a new run of your <code>spring-petclinic</code> pipeline when new code is pushed to your GitHub <abbr title="repository">repo</abbr><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. You will <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> your pipeline via GitHub in the next section.</p>
+<p>You created a GitHub <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> for your <code>spring-petclinic</code> repository fork that will <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> a new run of your <code>spring-petclinic</code> pipeline when new code is pushed to your GitHub <abbr title="repository">repo</abbr><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. You will <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> your pipeline via GitHub in the next section.</p>
 <div class="footnote">
 <hr/>
 <ol>
 <li id="fn:1">
-<p>A more detailed explanation is that when new code is pushed to your GitHub <abbr title="repository">repo</abbr>, the GitHub <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> will send a payload to the <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> which then interacts with a number of <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines-associated <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> custom resources that you created when you used the <code>Add Trigger</code> button in the <abbr title="user interface">UI</abbr>. Namely, the <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> will <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a new <code>PipelineRun</code> of your <code>spring-petclinic</code> pipeline based on the <code>spring-petclinic</code> <code>TriggerTemplate</code> passing it the values for the git commit SHA hash and the commit message using the variables populated via the <code>github-push</code> <code>ClusterTriggerBinding</code>. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>A more detailed explanation is that when new code is pushed to your GitHub <abbr title="repository">repo</abbr>, the GitHub <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> will send a payload to the <abbr title="(EventListener) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> which then interacts with a number of <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines-associated <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> custom resources that you created when you used the <code>Add Trigger</code> button in the <abbr title="user interface">UI</abbr>. Namely, the <abbr title="(EventListener) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> will <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> a new <code>PipelineRun</code> of your <code>spring-petclinic</code> pipeline based on the <code>spring-petclinic</code> <code>TriggerTemplate</code> passing it the values for the git commit SHA hash and the commit message using the variables populated via the <code>github-push</code> <code>ClusterTriggerBinding</code>. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>

@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://ibm-wsc.github.io/cloud-native-linuxone/full-dev-pipeline/runpipeline/" rel="canonical"/>
 <link href="../../images/pipelines-logo.png" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.8" name="generator"/>
+<meta content="mkdocs-1.2, mkdocs-material-7.1.7" name="generator"/>
 <title>8. Configure Development Deployment - Cloud Native LinuxONE Workshop</title>
 <link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
@@ -137,13 +137,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
-        Build and Deploy Pet Clinic
+        4-5. Build and Deploy Pet Clinic
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Build and Deploy Pet Clinic" class="md-nav" data-md-level="1">
+<nav aria-label="4-5. Build and Deploy Pet Clinic" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Build and Deploy Pet Clinic
+          4-5. Build and Deploy Pet Clinic
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -162,13 +162,13 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5">
-        Configure PetClinic's Pipeline
+        6-8. Configure PetClinic's Pipeline
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Configure PetClinic's Pipeline" class="md-nav" data-md-level="1">
+<nav aria-label="6-8. Configure PetClinic's Pipeline" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
-          Configure PetClinic's Pipeline
+          6-8. Configure PetClinic's Pipeline
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -244,13 +244,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_6">
-        Test and Promote Pet Clinic
+        9-12. Test and Promote Pet Clinic
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Test and Promote Pet Clinic" class="md-nav" data-md-level="1">
+<nav aria-label="9-12. Test and Promote Pet Clinic" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
-          Test and Promote Pet Clinic
+          9-12. Test and Promote Pet Clinic
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -279,13 +279,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_7">
-        Cleanup
+        13. Cleanup
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Cleanup" class="md-nav" data-md-level="1">
+<nav aria-label="13. Cleanup" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-          Cleanup
+          13. Cleanup
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -381,11 +381,11 @@
 <p class="admonition-title">From the documentation overview</p>
 <p>Kustomize traverses a <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the <a href="https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/" rel="noopener noreferrer" target="_blank">Introducing Kustomize <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> Blog Post</a> for a more in-depth overview of Kustomize and its purpose.</p>
 </div>
-<p>As part of doing things the "<abbr title="an application that takes full advantage of the cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr>" way you will be using Kustomize to manage resource changes across your <code>dev</code> and <code>staging</code> environments as well as injecting information from your pipeline (such as newly created <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> information with git commits) into your <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> (<abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>) resources. </p>
+<p>As part of doing things the "<abbr title="an application that takes full advantage of cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr>" way you will be using Kustomize to manage resource changes across your <code>dev</code> and <code>staging</code> environments as well as injecting information from your pipeline (such as newly created <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> information with git commits) into your <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> (<abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>) resources. </p>
 <p>To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the <a href="https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files" rel="noopener noreferrer" target="_blank">ocp-files directory</a>.</p>
 <p>For more information on how kubectl (and oc through kubectl) integrates Kustomize, see the <a href="https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/" rel="noopener noreferrer" target="_blank">kubectl documentation</a>.</p>
-<h3 id="creating-custom-task-for-kustomize"><span class="enumerate-heading-plugin">8.1.1</span> Creating Custom <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> for Kustomize<a class="headerlink" href="#creating-custom-task-for-kustomize" title="Permanent link">¶</a></h3>
-<p>Since there is no <code>ClusterTask</code> defined for Kustomize, you will create a custom task for this purpose. It will change into the Kustomize directory, run a Kustomize command on the directory, and then apply the files from the directory using the built-in Kustomize functionality of the oc command line tool (via kubectl's Kustomize support)</p>
+<h3 id="creating-custom-task-for-kustomize"><span class="enumerate-heading-plugin">8.1.1</span> Creating Custom <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> for Kustomize<a class="headerlink" href="#creating-custom-task-for-kustomize" title="Permanent link">¶</a></h3>
+<p>Since there is no <abbr title="a Task scoped to the entire cluster instead of a single project.">ClusterTask</abbr> defined for Kustomize, you will create a custom task for this purpose. It will change into the Kustomize directory, run a Kustomize command on the directory, and then apply the files from the directory using the built-in Kustomize functionality of the oc command line tool (via kubectl's Kustomize support)</p>
 <ol>
 <li>
 <p>Copy the <code>kustomize</code> task using the following definition (copy by clicking on the copy icon in the top right of the box below):</p>
@@ -447,16 +447,17 @@
 </code></pre></div>
 </li>
 <li>
-<p>Create the <code>kustomize</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr></p>
+<p>Create the <code>kustomize</code> <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr></p>
 <p>a. Click <code>Import YAML</code> to bring up the box where you can create <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> resource definitions from yaml</p>
-<p>b. Paste the <code>kustomize</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> into the box</p>
-<p>c. Scroll down and click <code>Create</code> to create the <code>kustomize</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> </p>
+<p>b. Paste the <code>kustomize</code> <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> into the box</p>
+<p>c. Scroll down and click <code>Create</code> to create the <code>kustomize</code> <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> </p>
 <p><img alt="Create Kustomize Task" src="../../images/Part1/CreateKustomizeTask.png"/></p>
 </li>
 </ol>
-<p>You should now see the created <code>kustomize</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr>. Navigate back to the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> and go back to editing your pipeline.</p>
+<p>You should now see the created <code>kustomize</code> <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr>.</p>
 <p><img alt="Back to Pipelines" src="../../images/Part1/BackToPipelines.png"/></p>
-<h3 id="add-kustomize-task-to-pipeline"><span class="enumerate-heading-plugin">8.1.2</span> Add Kustomize <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#add-kustomize-task-to-pipeline" title="Permanent link">¶</a></h3>
+<p>Finally, navigate back to the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> and go back to editing your pipeline.</p>
+<h3 id="add-kustomize-task-to-pipeline"><span class="enumerate-heading-plugin">8.1.2</span> Add Kustomize <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#add-kustomize-task-to-pipeline" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Add a sequential task after <code>clean-image</code> and when you <code>Select Task</code> choose the <code>kustomize</code> task. </p>
@@ -474,15 +475,15 @@
 </code></pre></div>
 </li>
 <li>
-<p>Save pipeline</p>
+<p><code>Save</code> the pipeline</p>
 </li>
 <li>
 <p>Add workspace to <code>kustomize-dev</code> task </p>
 <ol>
-<li>Save current pipeline edit and switch to <code>YAML</code> from pipeline menu.</li>
+<li><code>Save</code> the current pipeline edit and switch to <code>YAML</code> from pipeline menu.</li>
 </ol>
 <p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png"/></p>
-<div class="admonition info">
+<div class="admonition question">
 <p class="admonition-title">Why are you editing yaml directly?</p>
 <p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder <abbr title="user interface">UI</abbr> so you have to do it directly in the yaml for now.</p>
 </div>
@@ -493,11 +494,18 @@
       <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
         <span class="nt">workspace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
 </code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">How can you easily find the <code>kustomize-dev</code> task and add the workspace definition?</p>
+<p>You can click on the black yaml box and then use your find keyboard shortcut (<code>ctrl+f</code> for Windows / <code>command+f</code> for mac) to bring up a find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
+<div class="highlight"><pre><span></span><code>name: kustomize-dev
+</code></pre></div>
+Paste the workspace definition under the highlighted line as shown in the image below.</p>
+</div>
 </li>
 </ol>
 <p><img alt="Kustomize Dev Add Workspace" src="../../images/Part1/AddWorkspaceKustomizeDev.png"/></p>
 <ol>
-<li>Save the update</li>
+<li><code>Save</code> the update</li>
 </ol>
 <p><img alt="Save Pipeline Edit Yaml" src="../../images/Part1/PipelineUpdatedYaml.png"/></p>
 <div class="admonition note">
@@ -513,7 +521,7 @@
 <p><img alt="Actions Edit Pipeline" src="../../images/Part1/ActionsEditPipeline.png"/></p>
 </li>
 <li>
-<p>Add a <code>Task</code> named <code>cleanup-resources</code> sequentially at the beginning of the pipeline before <code>fetch-repository</code> (using the <code>openshift-client</code> <abbr title="a `Task` scoped to the entire cluster instead of a single project.">ClusterTask</abbr>).</p>
+<p>Add a <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> named <code>cleanup-resources</code> sequentially at the beginning of the pipeline before <code>fetch-repository</code> (using the <code>openshift-client</code> <abbr title="a Task scoped to the entire cluster instead of a single project.">ClusterTask</abbr>).</p>
 <p><img alt="add cleanup sequential" src="../../images/Part1/AddSequentialTask.png"/></p>
 </li>
 <li>
@@ -532,10 +540,10 @@
 </div>
 </li>
 </ol>
-<h2 id="update-deploy-task-to-deploy-dev"><span class="enumerate-heading-plugin">8.3</span> Update Deploy <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to deploy-dev<a class="headerlink" href="#update-deploy-task-to-deploy-dev" title="Permanent link">¶</a></h2>
+<h2 id="update-deploy-task-to-deploy-dev"><span class="enumerate-heading-plugin">8.3</span> Update Deploy <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to deploy-dev<a class="headerlink" href="#update-deploy-task-to-deploy-dev" title="Permanent link">¶</a></h2>
 <ol>
 <li>
-<p>Click on the <code>deploy</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> at the end of the pipeline and change the following parameters to the corresponding values (copy and paste boxes below image):</p>
+<p>Click on the <code>deploy</code> <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> at the end of the pipeline and change the following parameters to the corresponding values (copy and paste boxes below image):</p>
 <p><img alt="Deploy Dev Task Completed" src="../../images/Part1/DeployDevCompleted.png"/></p>
 <p><strong>Display Name</strong>
 <div class="highlight"><pre><span></span><code>deploy-dev
@@ -559,7 +567,7 @@
 <p><img alt="Actions Start Pipeline" src="../../images/Part1/StartPipelineManually.png"/></p>
 </li>
 <li>
-<p>Manually <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a <code>PipelineRun</code> by accepting the default values and clicking on <code>Start</code>.</p>
+<p>Manually <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> a <code>PipelineRun</code> by accepting the default values and clicking on <code>Start</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Persistent Volume Claim Note</p>
 <p>Please select a <code>PersistentVolumeClaim</code> if it is not already filled out for you to complete your pipeline. If it is already filled out for you then jump right to starting the pipeline.</p>
@@ -576,7 +584,7 @@
 <p><img alt="Pipeline Run View" src="../../images/Part1/PipelineRolloutRunView.png"/></p>
 <div class="admonition success">
 <p class="admonition-title">Pipeline Run Details View</p>
-<p>In the pipeline run <code>Details</code> view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the above screenshot was <code>Triggered By</code> a user versus an automated source such as an <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> watching for a GitHub push...</p>
+<p>In the pipeline run <code>Details</code> view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the above screenshot was <code>Triggered By</code> a user versus an automated source such as an <abbr title="(EventListener) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> watching for a GitHub push...</p>
 </div>
 <p><strong>Pipeline Run Success Logs Perspective:</strong></p>
 <p><img alt="Pipeline Run Logs" src="../../images/Part1/PipelineRolloutLogsView.png"/></p>

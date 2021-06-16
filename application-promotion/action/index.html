@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://ibm-wsc.github.io/cloud-native-linuxone/application-promotion/action/" rel="canonical"/>
 <link href="../../images/pipelines-logo.png" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.8" name="generator"/>
+<meta content="mkdocs-1.2, mkdocs-material-7.1.7" name="generator"/>
 <title>12. CI/CD in Action - Cloud Native LinuxONE Workshop</title>
 <link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
@@ -137,13 +137,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
-        Build and Deploy Pet Clinic
+        4-5. Build and Deploy Pet Clinic
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Build and Deploy Pet Clinic" class="md-nav" data-md-level="1">
+<nav aria-label="4-5. Build and Deploy Pet Clinic" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Build and Deploy Pet Clinic
+          4-5. Build and Deploy Pet Clinic
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -162,13 +162,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5">
-        Configure PetClinic's Pipeline
+        6-8. Configure PetClinic's Pipeline
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Configure PetClinic's Pipeline" class="md-nav" data-md-level="1">
+<nav aria-label="6-8. Configure PetClinic's Pipeline" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
-          Configure PetClinic's Pipeline
+          6-8. Configure PetClinic's Pipeline
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -192,13 +192,13 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_6">
-        Test and Promote Pet Clinic
+        9-12. Test and Promote Pet Clinic
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Test and Promote Pet Clinic" class="md-nav" data-md-level="1">
+<nav aria-label="9-12. Test and Promote Pet Clinic" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
-          Test and Promote Pet Clinic
+          9-12. Test and Promote Pet Clinic
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -269,13 +269,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_7">
-        Cleanup
+        13. Cleanup
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Cleanup" class="md-nav" data-md-level="1">
+<nav aria-label="13. Cleanup" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-          Cleanup
+          13. Cleanup
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -365,7 +365,7 @@
 <p><img alt="Go to file" src="../../images/Part2/GoToFile.png"/></p>
 </li>
 <li>
-<p>Choose the following file (copy and paste box below image):</p>
+<p>Type (or paste) the name of the following file into the search bar and select it (copy and paste box below image):</p>
 <p><img alt="Choose File" src="../../images/Part2/ChooseFile.png"/></p>
 <div class="highlight"><pre><span></span><code>src/main/resources/db/mysql/data.sql
 </code></pre></div>
@@ -401,7 +401,7 @@
 </div>
 </li>
 <li>
-<p>Type in a commit message (you can make this whatever you want) and commit the change (example from image below)</p>
+<p>Type in a commit message (you can make this whatever you want) and commit the change (example copy and paste boxes from image above)</p>
 <div class="admonition example">
 <p class="admonition-title">Yertle the turtle</p>
 <p><strong>Title</strong>
@@ -429,7 +429,7 @@
 <li>
 <p>View the pipeline run from the <code>Details</code> view</p>
 <p><img alt="PipelineRun Triggered" src="../../images/Part2/PipelineTriggered.png"/></p>
-<p>You can see the <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> has triggered the <code>PipelineRun</code> instead of a user this time.</p>
+<p>You can see the <abbr title="(EventListener) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> has triggered the <code>PipelineRun</code> instead of a user this time.</p>
 </li>
 <li>
 <p>You can see the variables populated with the correct values from Github in the <code>YAML</code> view of the pipeline run.</p>
@@ -450,7 +450,7 @@
 <p><img alt="Successful PipelineRun Details View" src="../../images/Part2/PipelineSucceeded.png"/></p>
 <div class="admonition success">
 <p class="admonition-title">Pipeline Run Details View</p>
-<p>In the pipeline run <code>Details</code> view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, observe that the <abbr title="(`EventListener`) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> has triggered the <code>PipelineRun</code> instead of a user this time.</p>
+<p>In the pipeline run <code>Details</code> view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, observe that the <abbr title="(EventListener) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> has triggered the <code>PipelineRun</code> instead of a user this time.</p>
 </div>
 <p><strong>Pipeline Run Success Logs Perspective:</strong></p>
 <p><img alt="Successful PipelineRun Logs View 1" src="../../images/Part2/PipelineRunLogsSucceeded.png"/></p>
@@ -475,7 +475,7 @@
 <p>Make changes to fix the error. (If it's unclear what is causing the error / how to fix it, please ask the instructors for help) </p>
 </li>
 <li>
-<p>Resend the <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> from GitHub to <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a `TriggerTemplate` to create a new `PipelineRun`.">trigger</abbr> a new <code>pipelineRun</code> with the same values as before (see images below for help)</p>
+<p>Resend the <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> from GitHub to <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> a new <code>pipelineRun</code> with the same values as before (see images below for help)</p>
 <ol>
 <li>
 <p>Click on your <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> from the <code>Webhooks</code> section of the repository settings for your GitHub repository fork of the <code>spring-petclinic</code> repository
@@ -526,7 +526,7 @@
 </li>
 </ol>
 <h2 id="summary"><span class="enumerate-heading-plugin">12.4</span> Summary <img alt="🌝" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f31d.svg" title=":full_moon_with_face:"/><a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
-<p>In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "<abbr title="an application that takes full advantage of the cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr>" <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> for your PetClinic application on IBM Z/<abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr>! Congratulations!!!</p>
+<p>In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "<abbr title="an application that takes full advantage of cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr>" <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> for your PetClinic application on IBM Z/<abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr>! Congratulations!!!</p>
 </article>
 </div>
 </div>

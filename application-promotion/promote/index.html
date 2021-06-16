@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://ibm-wsc.github.io/cloud-native-linuxone/application-promotion/promote/" rel="canonical"/>
 <link href="../../images/pipelines-logo.png" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.8" name="generator"/>
+<meta content="mkdocs-1.2, mkdocs-material-7.1.7" name="generator"/>
 <title>10. Promoting Application - Cloud Native LinuxONE Workshop</title>
 <link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
@@ -137,13 +137,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
-        Build and Deploy Pet Clinic
+        4-5. Build and Deploy Pet Clinic
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Build and Deploy Pet Clinic" class="md-nav" data-md-level="1">
+<nav aria-label="4-5. Build and Deploy Pet Clinic" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Build and Deploy Pet Clinic
+          4-5. Build and Deploy Pet Clinic
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -162,13 +162,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5">
-        Configure PetClinic's Pipeline
+        6-8. Configure PetClinic's Pipeline
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Configure PetClinic's Pipeline" class="md-nav" data-md-level="1">
+<nav aria-label="6-8. Configure PetClinic's Pipeline" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
-          Configure PetClinic's Pipeline
+          6-8. Configure PetClinic's Pipeline
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -192,13 +192,13 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_6">
-        Test and Promote Pet Clinic
+        9-12. Test and Promote Pet Clinic
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Test and Promote Pet Clinic" class="md-nav" data-md-level="1">
+<nav aria-label="9-12. Test and Promote Pet Clinic" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
-          Test and Promote Pet Clinic
+          9-12. Test and Promote Pet Clinic
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -307,13 +307,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_7">
-        Cleanup
+        13. Cleanup
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Cleanup" class="md-nav" data-md-level="1">
+<nav aria-label="13. Cleanup" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-          Cleanup
+          13. Cleanup
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -525,7 +525,7 @@
 <h3 id="testing-external-connections"><span class="enumerate-heading-plugin">10.1.2</span> Testing External Connections<a class="headerlink" href="#testing-external-connections" title="Permanent link">¶</a></h3>
 <p>While making sure your application is internally up and running is important, at the end of the day you want to provide access to your users externally<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
 <p>This means it is important to also test the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> route (the component providing the external connection) as part of your <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> pipeline to ensure it is correctly servicing web traffic external to your cluster<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
-<h4 id="create-external-route-test-task"><span class="enumerate-heading-plugin">10.1.2.1</span> Create External Route Test <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr><a class="headerlink" href="#create-external-route-test-task" title="Permanent link">¶</a></h4>
+<h4 id="create-external-route-test-task"><span class="enumerate-heading-plugin">10.1.2.1</span> Create External Route Test <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr><a class="headerlink" href="#create-external-route-test-task" title="Permanent link">¶</a></h4>
 <p>You will create a task to check the connection to your external route as part of your <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> pipeline.</p>
 <ol>
 <li>
@@ -620,16 +620,24 @@
             <span class="no">&gt;&amp;2 echo "The application was never accessible to the outside world :("</span>
             <span class="no">exit 1</span>
 </code></pre></div>
-2. Create the <code>connection-test</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr></p>
-<p>a. Click <code>Import YAML</code> to bring up the box where you can create <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> resource definitions from yaml</p>
-<p>b. Paste the <code>connection-test</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> into the box</p>
-<p>c. Scroll down and click create to create the <code>connection-test</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> </p>
+2. Create the <code>connection-test</code> <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr></p>
+<ol>
+<li>
+<p>Click <code>Import YAML</code> to bring up the box where you can create <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> resource definitions from yaml</p>
+</li>
+<li>
+<p>Paste the <code>connection-test</code> <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> into the box</p>
+</li>
+<li>
+<p>Scroll down and click create to create the <code>connection-test</code> <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> </p>
+</li>
+</ol>
 <p><img alt="Create connection-test Task" src="../../images/Part2/CreateTestRouteTask.png"/></p>
 </li>
 </ol>
-<p>You should now see the created <code>connection-test</code> <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr>. Navigate back to the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> and go back to editing your pipeline.</p>
+<p>You should now see the created <code>connection-test</code> <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr>. Finally, navigate back to the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> and go back to editing your pipeline.</p>
 <p><img alt="Back to Pipelines" src="../../images/Part2/BackToPipelines.png"/></p>
-<h4 id="add-external-route-test-task-to-pipeline"><span class="enumerate-heading-plugin">10.1.2.2</span> Add External Route Test <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline" title="Permanent link">¶</a></h4>
+<h4 id="add-external-route-test-task-to-pipeline"><span class="enumerate-heading-plugin">10.1.2.2</span> Add External Route Test <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline" title="Permanent link">¶</a></h4>
 <ol>
 <li>
 <p>Add a sequential task after <code>deploy-dev</code>. When you <code>Select Task</code>, choose the <code>connection-test</code> task. </p>
@@ -647,25 +655,25 @@
 </code></pre></div>
 </li>
 <li>
-<p>Save pipeline</p>
+<p><code>Save</code> the pipeline</p>
 </li>
 </ol>
 <p>Your current pipeline builds and tests your application, creates a docker image for it, deploys it to the development environment, and ensures that the application is working both internally and externally. In other words, once your application successfully completes the current pipeline, you can be confident in it and be ready to move to staging<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. </p>
 <h2 id="deploy-staging"><span class="enumerate-heading-plugin">10.2</span> Deploy Staging<a class="headerlink" href="#deploy-staging" title="Permanent link">¶</a></h2>
 <p>Moving to the staging environment means spinning up your application in that environment (with parameters relevant for it) and testing it there. Given that this is all using containers, you can easily free up the development resources that have successfully completed and then spin up the new resources in your staging environment.</p>
 <h3 id="remove-dev"><span class="enumerate-heading-plugin">10.2.1</span> Remove Dev<a class="headerlink" href="#remove-dev" title="Permanent link">¶</a></h3>
-<p>Your first <code>Task</code> will mirror the <code>cleanup-resources</code> task at the beginning of your pipeline, but will just cleanup the <code>dev</code> resources using the <code>env=dev</code> <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors" rel="noopener noreferrer" target="_blank">label selector</a>.</p>
+<p>Your first <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> will mirror the <code>cleanup-resources</code> task at the beginning of your pipeline, but will just cleanup the <code>dev</code> resources using the <code>env=dev</code> <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors" rel="noopener noreferrer" target="_blank">label selector</a>.</p>
 <ol>
 <li>
 <p>Go back to editing your pipeline via <code>Actions -&gt; Edit Pipeline</code></p>
 <p><img alt="Actions Edit Pipeline" src="../../images/Part1/ActionsEditPipeline.png"/></p>
 </li>
 <li>
-<p>Add a <code>Task</code> sequentially at the end of the pipeline (after <code>connect-dev</code>) using the <code>openshift-client</code> <abbr title="a `Task` scoped to the entire cluster instead of a single project.">ClusterTask</abbr>.  </p>
+<p>Add a <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> sequentially at the end of the pipeline (after <code>connect-dev</code>) using the <code>openshift-client</code> <abbr title="a Task scoped to the entire cluster instead of a single project.">ClusterTask</abbr>.  </p>
 <p><img alt="add cleanup sequential" src="../../images/Part2/AddSequentialCleanup.png"/></p>
 </li>
 <li>
-<p>Configure the <code>Task</code> with the following values (copy and paste boxes below image):</p>
+<p>Configure the <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> with the following values (copy and paste boxes below image):</p>
 <p><img alt="cleanup dev" src="../../images/Part2/CleanupDevTask.png"/></p>
 <p><strong>Display Name</strong></p>
 <div class="highlight"><pre><span></span><code>cleanup-dev
@@ -688,7 +696,7 @@
 <p><img alt="StagingAdd" src="../../images/Part2/AddStaging.png"/> </p>
 </li>
 <li>
-<p>Configure the <code>Task</code> with the following values (copy and paste boxes below image):</p>
+<p>Configure the <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> with the following values (copy and paste boxes below image):</p>
 <p><img alt="Kustomize Staging Task" src="../../images/Part2/KustomizeStaging.png"/></p>
 <p><strong>Display Name</strong></p>
 <div class="highlight"><pre><span></span><code>kustomize-staging
@@ -701,7 +709,7 @@
 </code></pre></div>
 </li>
 <li>
-<p><code>Save</code> current pipeline edit and then switch to <code>YAML</code> from pipeline menu.</p>
+<p><code>Save</code> the current pipeline edit and then switch to <code>YAML</code> from pipeline menu.</p>
 <p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png"/></p>
 <div class="admonition info">
 <p class="admonition-title">Why are you editing yaml directly?</p>
@@ -715,8 +723,15 @@
       - name: source
         workspace: workspace
 </code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">How can you easily find the <code>kustomize-staging</code> task and add the workspace definition?</p>
+<p>You can click on the black yaml box and then use your find keyboard shortcut (<code>ctrl+f</code> for Windows / <code>command+f</code> for mac) to bring up a find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
+<div class="highlight"><pre><span></span><code>name: kustomize-staging
+</code></pre></div>
+Paste the workspace definition under the highlighted line as shown in the image below.</p>
+</div>
 <p><img alt="Kustomize Staging Add Workspace" src="../../images/Part2/KustomizeStagingWorkspace.png"/></p>
-<p>Save the update</p>
+<p><code>Save</code> the update</p>
 <p><img alt="Save Pipeline Edit Yaml" src="../../images/Part2/PipelineUpdatedYaml.png"/></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -727,7 +742,7 @@
 <h3 id="rollout-staging"><span class="enumerate-heading-plugin">10.2.3</span> Rollout Staging<a class="headerlink" href="#rollout-staging" title="Permanent link">¶</a></h3>
 <ol>
 <li>
-<p>Edit the pipeline again and add a <code>deploy-staging</code> task with the <code>openshift-client</code> <code>ClusterTask</code></p>
+<p>Edit the pipeline again and add a <code>deploy-staging</code> task with the <code>openshift-client</code> <abbr title="a Task scoped to the entire cluster instead of a single project.">ClusterTask</abbr></p>
 <p><img alt="Deploy Staging Task" src="../../images/Part2/DeployStagingTask.png"/></p>
 </li>
 <li>
@@ -745,25 +760,24 @@
 </div>
 </li>
 </ol>
-<h3 id="add-external-route-test-task-to-pipeline_1"><span class="enumerate-heading-plugin">10.2.4</span> Add External Route Test <abbr title="collection of `Steps` that you define and arrange in a specific order of execution to build a `Pipeline`. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline_1" title="Permanent link">¶</a></h3>
+<h3 id="add-external-route-test-task-to-pipeline_1"><span class="enumerate-heading-plugin">10.2.4</span> Add External Route Test <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline_1" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Add a sequential task after <code>deploy-staging</code>. When you <code>Select Task</code>, choose the <code>connection-test</code> task. </p>
 <p><img alt="Add Connection Test task to Pipeline Dev" src="../../images/Part2/ChooseCTestStaging.png"/></p>
 </li>
 <li>
-<p>Configure <code>connection-test</code> task</p>
-<p>The only values you need to change are the <code>Display Name</code> and the <code>ROUTE_NAME</code>:</p>
+<p>Configure <code>connection-test</code> task with the following parameters (copy and paste boxes below image):</p>
+<p><img alt="Connection Test Configure 1" src="../../images/Part2/ConnectionTestConfigureStaging.png"/></p>
 <p><strong>Display Name</strong></p>
 <div class="highlight"><pre><span></span><code>connect-staging
 </code></pre></div>
 <p><strong>ROUTE_NAME</strong></p>
 <div class="highlight"><pre><span></span><code>spring-petclinic-staging
 </code></pre></div>
-<p><img alt="Connection Test Configure 1" src="../../images/Part2/ConnectionTestConfigureStaging.png"/></p>
 </li>
 <li>
-<p>Save pipeline</p>
+<p><code>Save</code> the pipeline</p>
 <p><img alt="Save Pipeline" src="../../images/Part2/SavePipeline.png"/></p>
 </li>
 </ol>

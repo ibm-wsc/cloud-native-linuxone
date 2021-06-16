@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://ibm-wsc.github.io/cloud-native-linuxone/full-dev-pipeline/pipeline/" rel="canonical"/>
 <link href="../../images/pipelines-logo.png" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.8" name="generator"/>
+<meta content="mkdocs-1.2, mkdocs-material-7.1.7" name="generator"/>
 <title>7. Configure Build and Test - Cloud Native LinuxONE Workshop</title>
 <link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
@@ -137,13 +137,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
-        Build and Deploy Pet Clinic
+        4-5. Build and Deploy Pet Clinic
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Build and Deploy Pet Clinic" class="md-nav" data-md-level="1">
+<nav aria-label="4-5. Build and Deploy Pet Clinic" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Build and Deploy Pet Clinic
+          4-5. Build and Deploy Pet Clinic
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -162,13 +162,13 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5">
-        Configure PetClinic's Pipeline
+        6-8. Configure PetClinic's Pipeline
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Configure PetClinic's Pipeline" class="md-nav" data-md-level="1">
+<nav aria-label="6-8. Configure PetClinic's Pipeline" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
-          Configure PetClinic's Pipeline
+          6-8. Configure PetClinic's Pipeline
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -225,13 +225,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_6">
-        Test and Promote Pet Clinic
+        9-12. Test and Promote Pet Clinic
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Test and Promote Pet Clinic" class="md-nav" data-md-level="1">
+<nav aria-label="9-12. Test and Promote Pet Clinic" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
-          Test and Promote Pet Clinic
+          9-12. Test and Promote Pet Clinic
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -260,13 +260,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_7">
-        Cleanup
+        13. Cleanup
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Cleanup" class="md-nav" data-md-level="1">
+<nav aria-label="13. Cleanup" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-          Cleanup
+          13. Cleanup
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -338,7 +338,7 @@
 </a>
 <h1 id="configure-petclinic-build-and-test-to-meet-your-organizations-requirements1"><span class="enumerate-heading-plugin">7.</span> Configure PetClinic Build and Test to Meet your Organization's Requirements<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#configure-petclinic-build-and-test-to-meet-your-organizations-requirements1" title="Permanent link">¶</a></h1>
 <p>Now that PetClinic is up and running on your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> cluster, it's time to add functionality to your pipeline to achieve basic integration and deployment when triggered. The <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> pipeline you created in the <a href="../../build-and-deploy/upandrunning/">PetClinic Up and Running</a> uses <a href="https://tekton.dev" rel="noopener noreferrer" target="_blank"><abbr title="a cloud native (Kubernetes based) open-source framework for creating CI/CD systems. It serves as the base of OpenShift Pipelines, allowing developers to build, test, and deploy across cloud providers and on-premise systems">Tekton</abbr></a> to run a series of tasks (each with one or more steps) to accomplish a workflow (pipeline). You will use the Pipeline Builder <abbr title="user interface">UI</abbr> built into <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> to quickly and easily craft a pipeline that meets your specific needs.</p>
-<div class="admonition info">
+<div class="admonition question">
 <p class="admonition-title">Why <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines?</p>
 <ul>
 <li>
@@ -364,7 +364,7 @@
 <li>
 <p>Add a <code>mysql-deploy</code> task in parallel to the <code>git-fetch</code> task. 
     <img alt="Add Parallel MySQL" src="../../images/Part1/mySQL_ParallelTask.png"> </img></p>
-<div class="admonition info">
+<div class="admonition question">
 <p class="admonition-title">Why is <code>mysql-deploy</code> in Parallel?</p>
 <p>This ensures MySQL is in place for each <code>PetClinic</code> application build (which would fail without it).  </p>
 </div>
@@ -388,7 +388,7 @@
 <p class="admonition-title">Simply Click Away</p>
 <p>Once you have entered the string into the <code>SCRIPT</code> section, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.</p>
 </div>
-<div class="admonition tip">
+<div class="admonition question">
 <p class="admonition-title">What is <code>oc process</code> doing?</p>
 <p><code>oc process</code> is processing the <a href="https://docs.openshift.com/container-platform/4.7/openshift_images/using-templates.html#templates-overview_using-templates" rel="noopener noreferrer" target="_blank"><abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> template</a> for the <code>mysql-ephemeral</code> database with the parameters given via a series of <code>-p</code> arguments and finally <code>oc apply -f -</code> ensures that any missing components will be recreated.</p>
 </div>
@@ -417,7 +417,7 @@
 <p class="admonition-title">No help please!</p>
 <p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running).</p>
 </div>
-<div class="admonition tip">
+<div class="admonition question">
 <p class="admonition-title">What the ARGS?</p>
 <p>You may be wondering why you used the <code>SCRIPT</code> section in the <code>mysql-deploy</code> task for the entire command, but now are using the <code>ARGS</code> to individually list each argument of the command? Both work and so you are going through both methods here. On the one hand, the <code>SCRIPT</code> method is easier to copy and paste and looks the same as it would entered on the command line. On the other hand, the <code>ARGS</code> method adds readability to the task. Choose whichever method you prefer, though beware of input errors  with the <code>ARGS</code> method for long commands. <em>FYI: The equivalent <code>SCRIPT</code> command for the <code>mysql-rollout-wait</code> task is</em>:</p>
 <div class="highlight"><pre><span></span><code>oc rollout status dc/mysql
@@ -485,16 +485,16 @@
 </code></pre></div></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Save parameters when done with entry by clicking on blue <code>SAVE</code> box before moving onto step 4. If blue <code>SAVE</code> box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the <code>-</code>.</p>
+<p>Save the parameters when you are done with entry by clicking on blue <code>Save</code> box before moving onto step 4. If blue <code>Save</code> box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the <code>-</code>.</p>
 </div>
 </li>
 <li>
 <p>Add workspace to <code>clean-image</code> task </p>
 <ol>
 <li>
-<p>Save current pipeline edit and switch to <code>YAML</code> from pipeline menu.</p>
+<p><code>Save</code> the current pipeline edit and switch to <code>YAML</code> from pipeline menu.</p>
 <p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png"/></p>
-<div class="admonition info">
+<div class="admonition question">
 <p class="admonition-title">Why are you editing yaml directly?</p>
 <p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder <abbr title="user interface">UI</abbr> so you have to do it directly in the yaml for now.</p>
 </div>
@@ -505,10 +505,17 @@
       <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
         <span class="nt">workspace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
 </code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">How can you easily find the <code>clean-image</code> task and add the workspace definition?</p>
+<p>You can click on the black yaml box and then use your find keyboard shortcut (<code>ctrl+f</code> for Windows / <code>command+f</code> for mac) to bring up a find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
+<div class="highlight"><pre><span></span><code>name: clean-image
+</code></pre></div>
+Paste the workspace definition under the highlighted line as shown in the image below.</p>
+</div>
 <p><img alt="Clean Image Workspace" src="../../images/Part1/AddWorspaceProducingCleanImage.png"/></p>
 </li>
 <li>
-<p>Save the update</p>
+<p><code>Save</code> the update</p>
 <p><img alt="Save Pipeline Edit Yaml" src="../../images/Part1/PipelineUpdatedYaml.png"/></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -519,7 +526,7 @@
 </li>
 </ol>
 <h2 id="summary"><span class="enumerate-heading-plugin">7.4</span> Summary <img alt="🌒" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f312.svg" title=":waxing_crescent_moon:"/><a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
-<p>Your pipeline will now automatically check that your <code>MySQL</code> instance is configured properly and rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (<code>minimal</code>) <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr>. Finally, it will tag the <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to distinguish between manual builds and those triggered by a potential <abbr title="updates the remote branch with local commits. You can also think of `git push` as update or publish.">git push</abbr>. In the next section, you will see this automation in action for your development environment.</p>
+<p>Your pipeline will now automatically check that your <code>MySQL</code> instance is configured properly and rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (<code>minimal</code>) <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr>. Finally, it will tag the <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to distinguish between manual builds and those triggered by a potential <abbr title="updates the remote branch with local commits. You can also think of git push as update or publish.">git push</abbr>. In the next section, you will see this automation in action for your development environment.</p>
 <div class="footnote">
 <hr/>
 <ol>
