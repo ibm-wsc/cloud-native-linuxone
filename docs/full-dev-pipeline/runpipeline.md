@@ -51,7 +51,7 @@ Since there is no ClusterTask defined for Kustomize, you will create a custom ta
         name: SCRIPT
         type: string
       steps:
-      - image: 'docker.io/gmoney23/kustomize-s390x:v4.1.2'
+      - image: 'quay.io/gmoney23/kustomize-s390x:v4.1.2'
         name: kustomize
         resources:
           limits:

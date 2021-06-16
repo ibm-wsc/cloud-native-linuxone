@@ -81,10 +81,10 @@
 
 4. Watch the results of your build pipeline run. It should complete successfully as in the pictures below. 
 
-    !!! info "How long will your pipeline take to run?"
+    !!! Info "Your pipeline may take a while to run"
         The pipeline run may take anywhere from 10-25 minutes to complete depending on the current system load. You can see the progress of your build, as well as if any errors occur, via the UI. Thus, by monitoring the UI, you can make sure things are going as planned.
 
-    !!! Tip "What to do if your pipeline run ends in failure"
+    !!! question "What should you do if your pipeline run ends in failure"
         If your pipeline run ends in failure, please look at the `Failure` tab (immediately below this message) to get back on track (instead of the default `Success` tab).
 
     === "Success"
@@ -116,11 +116,16 @@
             3. Resend the webhook from GitHub to trigger a new `pipelineRun` with the same values as before (see images below for help)
 
                 1. Click on your webhook from the `Webhooks` section of the repository settings for your GitHub repository fork of the `spring-petclinic` repository
-                ![GitHub Webhook View for Retry](../images/Part2/ClickWebhookForRetry.png)
+                
+                    ![GitHub Webhook View for Retry](../images/Part2/ClickWebhookForRetry.png)
 
                 2. Click on the 3 dots for the most recent delivery
                 3. Click `Redeliver`
-                ![GitHub Webhook Send for Retry](../images/Part2/RestartFailedPipelineRun.png)
+
+                    ![GitHub Webhook Send for Retry](../images/Part2/RestartFailedPipelineRun.png)
+                4. Confirm Redelivery
+
+                    ![GitHub Webhook Confirm Redelivery](../images/Part2/ConfirmRedelivery.png)
 
 ### See Changes in Application
 
