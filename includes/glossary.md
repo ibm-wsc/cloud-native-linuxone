@@ -28,4 +28,4 @@
 *[trigger]: captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun. 
 *[Webhook]: sends a payload to the specified URL when a specific event occurs (such as a GitHub push)
 *[webhook]: sends a payload to the specified URL when a specific event occurs (such as a GitHub push)
-*[DevOps]: speeds delivery of higher quality software by combining and automating the work of software development and IT operations teams.
+*[DevOps]: methodology that accelerates delivery and improves quality of software through automation (CI/CD) that eliminates the friction between software development and IT operations
