@@ -2,77 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/introduction/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/prerequisites/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/proposechange/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/resources/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/application-promotion/action/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/application-promotion/git/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/application-promotion/promote/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/application-promotion/promote_overview/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/build-and-deploy/build_overview/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/build-and-deploy/upandrunning/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cleanup/full-cleanup/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/full-dev-pipeline/configure_overview/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/full-dev-pipeline/pipeline/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/full-dev-pipeline/runpipeline/</loc>
-         <lastmod>2021-06-16</lastmod>
+         <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
