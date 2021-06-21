@@ -3,6 +3,14 @@
 Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift to create continuous integration pipelines for Linux® workloads on IBM Z® and LinuxONE. You can quickly get up and running on OpenShift with a continuous workflow.
 
 ## Agenda
+
+### Introductory Presentations
+
+* [Introduction to Kubernetes and OpenShift](presentations/cloud_native_devops_introduction.pdf)
+* [Introduction to Cloud Native DevOps](presentations/Kubernetes_Openshift_Introduction.pdf)
+
+### Lab: Build and Deploy a Cloud Native DevOps Pipeline in OpenShift on IBM Z and LinuxONE
+
 * [Introduction to Cloud Native Workshop](introduction.md)
 * [Deploy PetClinic via OpenShift Pipelines](build-and-deploy/build_overview.md)
 * [Configure PetClinic's Integration and Deployment via OpenShift Pipelines to Meet Your Organization's Needs](full-dev-pipeline/configure_overview.md)[^1]
