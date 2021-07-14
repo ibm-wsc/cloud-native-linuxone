@@ -119,7 +119,7 @@ There are multiple ways OpenShift enables cloud native application developers to
 
 ![routing options](upandrunningimages/routingpanel.png)
 
-**8.** You are done with configurations of this panel. Scroll all the way down and hit the `Create` button which will kick off the pipeline build of your PetClinic application. In a few seconds you will see your Topology with the new application icon. Hit the little pipeline icon in the diagram below to view the build logs. <b> You might see errors associated with ImageStream not being found during the build process. This does not mean that the build has failed. The pipeline creates the ImageStream first and then goes through the actual build process, and since the build process takes 10-15 minutes to complete, this error will be there until then. </b>
+**8.** You are done with configurations of this panel. Scroll all the way down and hit the `Create` button which will kick off the pipeline build of your PetClinic application. In a few seconds you will see your Topology with the new application icon. Hit the little pipeline icon in the diagram below to view the build logs. <b> You might see errors associated with ImageStream not being able to pull the application image during the build process. This does not mean that the build has failed. The pipeline creates the ImageStream first and then goes through the actual build process, and since the build process takes 10-15 minutes to complete, this error will be there until then. </b>
 
 ![pipeline icon](upandrunningimages/pipelineicon.png)
 
@@ -144,7 +144,7 @@ Below is an image of the log of a successful build task:
 
 ![build output](upandrunningimages/buildlog.png)
 
-**10.** Now if you go back to the Topology view, you should see the application has been successfully deployed to OpenShift as well. From here you can click on the `open URL` circle, and a new browser tab should open to lead you to your PetClinic's front page.
+**10.** Now if you go back to the Topology view, you should see the application has been successfully deployed to OpenShift as well. From here you can click on the `open URL` circle, and a new browser tab should open to lead you to your PetClinic's front page. <b> It can take a couple of minutes before the application is accessible through its URL so if it doesn't come up right away wait a few minutes and try again. </b>
 
 ![open URL](upandrunningimages/openurl.png)
 
