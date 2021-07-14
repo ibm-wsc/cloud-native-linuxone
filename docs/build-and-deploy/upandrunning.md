@@ -119,7 +119,7 @@ There are multiple ways OpenShift enables cloud native application developers to
 
 ![routing options](upandrunningimages/routingpanel.png)
 
-**8.** You are done with configurations of this panel. Scroll all the way down and hit the `Create` button which will kick off the pipeline build of your PetClinic application. In a few seconds you will see your Topology with the new application icon. Hit the little pipeline icon in the diagram below to view the build logs.
+**8.** You are done with configurations of this panel. Scroll all the way down and hit the `Create` button which will kick off the pipeline build of your PetClinic application. In a few seconds you will see your Topology with the new application icon. Hit the little pipeline icon in the diagram below to view the build logs. <b> You might see errors associated with ImageStream not being found during the build process. This does not mean that the build has failed. The pipeline creates the ImageStream first and then goes through the actual build process, and since the build process takes 10-15 minutes to complete, this error will be there until then. </b>
 
 ![pipeline icon](upandrunningimages/pipelineicon.png)
 
