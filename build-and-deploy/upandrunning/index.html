@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://ibm-wsc.github.io/cloud-native-linuxone/build-and-deploy/upandrunning/" rel="canonical"/>
 <link href="../../images/pipelines-logo.png" rel="icon"/>
-<meta content="mkdocs-1.2, mkdocs-material-7.1.7" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.8" name="generator"/>
 <title>5. PetClinic Up and Running - Cloud Native LinuxONE Workshop</title>
 <link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
@@ -429,7 +429,7 @@
 <p><img alt="open routing panel" src="../upandrunningimages/routinglink.png"/></p>
 <p><strong>7.</strong> In the Routing options section, only fill out the Security options as follows. You can leave the rest alone. These options will enable only TLS access to your PetClinic application.</p>
 <p><img alt="routing options" src="../upandrunningimages/routingpanel.png"/></p>
-<p><strong>8.</strong> You are done with configurations of this panel. Scroll all the way down and hit the <code>Create</code> button which will kick off the pipeline build of your PetClinic application. In a few seconds you will see your Topology with the new application icon. Hit the little pipeline icon in the diagram below to view the build logs.</p>
+<p><strong>8.</strong> You are done with configurations of this panel. Scroll all the way down and hit the <code>Create</code> button which will kick off the pipeline build of your PetClinic application. In a few seconds you will see your Topology with the new application icon. Hit the little pipeline icon in the diagram below to view the build logs. <b> You might see errors associated with ImageStream not being able to pull the application image during the build process. This does not mean that the build has failed. The pipeline creates the ImageStream first and then goes through the actual build process, and since the build process takes 10-15 minutes to complete, this error will be there until then. </b></p>
 <p><img alt="pipeline icon" src="../upandrunningimages/pipelineicon.png"/></p>
 <div class="admonition warning">
 <p class="admonition-title">Log Streaming Gotcha in the <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> CC</p>
@@ -450,7 +450,7 @@
 <p>    3. <b>deploy</b> - this Pipeline task will deploy the newly built <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.</p>
 <p>Below is an image of the log of a successful build task: </p>
 <p><img alt="build output" src="../upandrunningimages/buildlog.png"/></p>
-<p><strong>10.</strong> Now if you go back to the Topology view, you should see the application has been successfully deployed to <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> as well. From here you can click on the <code>open URL</code> circle, and a new browser tab should open to lead you to your PetClinic's front page.</p>
+<p><strong>10.</strong> Now if you go back to the Topology view, you should see the application has been successfully deployed to <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> as well. From here you can click on the <code>open URL</code> circle, and a new browser tab should open to lead you to your PetClinic's front page. <b> It can take a couple of minutes before the application is accessible through its URL so if it doesn't come up right away wait a few minutes and try again. </b></p>
 <p><img alt="open URL" src="../upandrunningimages/openurl.png"/></p>
 <h2 id="interacting-with-your-petclinic-application-and-mysql-database"><span class="enumerate-heading-plugin">5.5</span> Interacting with Your PetClinic Application and MySQL database<a class="headerlink" href="#interacting-with-your-petclinic-application-and-mysql-database" title="Permanent link">¶</a></h2>
 <p>In this section, you will add a new owner to the Pet Clinic application, and then go into your MySQL <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> to see if that owner was successfully added. </p>
