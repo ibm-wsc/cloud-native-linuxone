@@ -6,8 +6,8 @@ Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift
 
 ### Introductory Presentations
 
-* [Introduction to Kubernetes and OpenShift](presentations/cloud_native_devops_introduction.pdf)
-* [Introduction to Cloud Native DevOps](presentations/Kubernetes_Openshift_Introduction.pdf)
+* [Introduction to Kubernetes and OpenShift](presentations/Kubernetes_Openshift_Introduction.pdf)
+* [Introduction to Cloud Native DevOps](presentations/cloud_native_devops_introduction.pdf)
 
 ### Lab: Build and Deploy a Cloud Native DevOps Pipeline in OpenShift on IBM Z and LinuxONE
 
