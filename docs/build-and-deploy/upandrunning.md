@@ -107,7 +107,7 @@ There are multiple ways OpenShift enables cloud native application developers to
 
 ![app name](upandrunningimages/applicationname.png)
 
-**5.** Scroll down to the  Pipelines section, and check off the box next to `Add pipeline`. You can also expand the `Show pipeline visualization` section to see a visual of the build pipeline.
+**5.** Scroll down to the  Pipelines section, select the checkbox next to `Add pipeline`. You can also expand the `Show pipeline visualization` section to see a visual of the build pipeline.
 
 ![add pipe](upandrunningimages/addpipelines.png)
 
@@ -152,7 +152,7 @@ Below is an image of the log of a successful build task:
 
 In this section, you will add a new owner to the Pet Clinic application, and then go into your MySQL container to see if that owner was successfully added. 
 
-**1.** You Pet Clinic should look something similar to this. Go to the Find Owners tab, and create a new owner.
+**1.** Your Pet Clinic should look something similar to this. Go to the Find Owners tab, and create a new owner.
 
 ![find owners](upandrunningimages/findowners.png)
 
