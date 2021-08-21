@@ -32,13 +32,42 @@ In the account panel, go to the security tab, and type in the name `petclinic` t
 
 ## Configuring maven-settings with the Sonar scanner plugin
 
-We want to configure maven with the Sonar scanner plugin. We will do that by including the sonar scanner plugin in the maven settings file.
+We need to configure maven with the Sonar scanner plugin prefix. We will do that by including the sonar scanner plugin in the maven settings file.
 
-We will configure the maven settings as a Kubernetes ConfigMap.
+We will create a Kubernetes ConfigMap for the mavens settings file.
 
 Click on the import button at the top of the OpenShift console.
 
-Copy and paste the entirety of the following into the editor and then hit "Save".
+Copy and paste the entirety of the following into the editor and then hit "Save" (copy by clicking on the copy icon in the top right of the box below).
+
+```bash
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: maven-settings
+data:
+  settings.xml: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <settings>
+      <pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+      </pluginGroups>
+      <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>
+                  http://myserver:9000
+                </sonar.host.url>
+            </properties>
+        </profile>
+      </profiles>
+    </settings>
+```
 
 ## Configuring maven task into Pipeline to do code analysis
 
@@ -61,7 +90,7 @@ Then select the task `maven` from the drop down list.
 !!! tip
     Once you add a specific task (i.e. `maven`), clicking on the oval of the task will enable you to edit its default values for your needs.
 
-Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server, <b>be careful to substitute the `-Dsonar.login` goal with the token that you generated in the previous step.</b>
+Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server, <b>be careful to substitute the `-Dsonar.login` goal with the token that you generated in the previous step. Also be mindful to put your name in the value of the `Dsonar.projectName` goal.</b> 
 
 ![codeanalysistask](../images/DevSecOps/codeanalysistask.png)
 
@@ -89,20 +118,55 @@ sonar:sonar
 ```
 ``` bash
 -Dsonar.host.url=http://sonarqube.1628794070135.svc:9000
+``` 
+``` bash
+-Dsonar.projectName=petclinic-<your-name>
+```
+``` bash
+-Dsonar.projectVersion=1
+```
+``` bash
+-Dsonar.qualitygate.wait=true
 ```
 ``` bash
 -DskipTests=true
 ```
 
-Now you can click away to get back to the main pipeline edit panel. Now we will need to add our pipeline workspaces to this task, and we'll do this by editing the pipeline yaml.
+Now you can click away to get back to the main pipeline edit panel. <b>Save the pipeline.</b>
+
+Now we will need to add our pipeline workspaces to this task, and we'll do this by editing the pipeline yaml with the following in the `code-analysis` section:
+
+![codeanalysisworkspace](../images/DevSecOps/codeanalysisworkspace.png)
+
+Hit the Save button to save the pipeline.
 
 ## Run the pipeline
 
+Go to the Actions menu of your pipeline and select Start.
 
+![startpipeline](../images/DevSecOps/startpipelinerun.png)
 
-## Re-run the pipeline
+Hit Start after reviewing the settings panel.
 
-## Access the code analysis report
+You can go to your pipeline logs and see the output for each of the tasks. <TO DO .. add screen shot of pipeline logs>
+
+It will take 15-20 minutes for the code analysis to run completely through. This task will wait until the quality check is complete in SonarQube and if the quality gate fails, this task will fail and the pipeline will not continue to run. If the quality gate succeeds, this task will succeed and progress onto the next task in the pipeline.
+
+Let's see if our code passes the code analysis.
+
+![codeanalysisfail](../images/DevSecOps/codeanalysisfail.png)
+
+<TO DO.. add screen shot of failure output>
+
+At this point you can return to the SonarQube server here, and view the code scan report to see what caused the quality check to fail.
+
+<TO DO.. add screen shot of SonarQube project page>
+
+## Access the code analysis report (put this in a separate section?)
+
+## Update the code-analysis task with new project version
 
 ## Fix the code which will automatically trigger another pipeline run
+
+## Review final results
 
