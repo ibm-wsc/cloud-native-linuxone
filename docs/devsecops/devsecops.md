@@ -162,9 +162,9 @@ At this point you can return to the SonarQube server here, and view the code sca
 
 <TO DO.. add screen shot of SonarQube project page>
 
-## Access the code analysis report (put this in a separate section?)
+## Access the code analysis report (put this and follow-on steps in a separate section)
 
-## Update the code-analysis task with new project version
+## Update code-analysis task with new project version
 
 ## Fix the code which will automatically trigger another pipeline run
 
