@@ -58,12 +58,6 @@ data:
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <properties>
-                <!-- Optional URL to server. Default value is http://localhost:9000 -->
-                <sonar.host.url>
-                  http://myserver:9000
-                </sonar.host.url>
-            </properties>
         </profile>
       </profiles>
     </settings>

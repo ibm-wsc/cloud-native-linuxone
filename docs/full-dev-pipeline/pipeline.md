@@ -199,7 +199,7 @@ The `s2i-java-11` container image is very convenient for making a container imag
         !!! question "Why are you editing yaml directly?"
             `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
 
-    2. Find the `clean-image-task` and add the following workspace definition:
+    2. Find the `clean-image` task and add the following workspace definition:
 
         ``` yaml
               workspaces:
