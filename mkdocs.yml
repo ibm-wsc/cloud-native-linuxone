@@ -19,6 +19,7 @@ nav:
       - 11. Integrating Git: application-promotion/git.md
       - 12. CI/CD in Action: application-promotion/action.md
     - BONUS. Add the "Sec" in "DevSecOps": devsecops/devsecops.md
+    - REFERENCE. Setting up SonarQube Server in OpenShift: devsecops/sonarqube.md
     - 13. Cleanup:
       - 13. Environment Cleanup: cleanup/full-cleanup.md
     - 14. Other resources: resources.md
