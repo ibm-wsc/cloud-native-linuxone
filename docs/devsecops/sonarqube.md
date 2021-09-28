@@ -1,0 +1,1 @@
+# Setting up SonarQube server in OpenShift
