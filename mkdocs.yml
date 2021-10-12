@@ -18,12 +18,13 @@ nav:
       - 10. Promoting Application: application-promotion/promote.md
       - 11. Integrating Git: application-promotion/git.md
       - 12. CI/CD in Action: application-promotion/action.md
-    - BONUS. Add the "Sec" in "DevSecOps": devsecops/devsecops.md
-    - REFERENCE. Setting up SonarQube Server in OpenShift: devsecops/sonarqube.md
-    - 13. Cleanup:
-      - 13. Environment Cleanup: cleanup/full-cleanup.md
-    - 14. Other resources: resources.md
-    - 15. Propose a change: proposechange.md
+    - 13 [BONUS]. Add the "Sec" in "DevSecOps": devsecops/devsecops.md
+    - 14. Cleanup:
+      - 14. Environment Cleanup: cleanup/full-cleanup.md
+    - REFERENCE 1. Setting up SonarQube Server in OpenShift: devsecops/sonarqube.md
+    - REFERENCE 2. Setting up PetClinic OpenShift Pipeline using yaml files: yamlsetup.md 
+    - Other resources: resources.md
+    - Propose a change: proposechange.md
 
 theme: 
   name: material
