@@ -64,7 +64,7 @@
 
 ## Continuous Integration via OpenShift Pipelines
 
-## Successfully Run Pipeline via GitHub
+### Successfully Run Pipeline via GitHub
 1. Visit the newly triggered pipeline run in the `Pipelines` menu in the OpenShift UI
 
     ![Newly Triggered PipelineRun](../images/Part2/ViewGitPipelineRun.png)
