@@ -7,8 +7,8 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://ibm-wsc.github.io/cloud-native-linuxone/cleanup/full-cleanup/" rel="canonical"/>
 <link href="../../images/pipelines-logo.png" rel="icon"/>
-<meta content="mkdocs-1.2, mkdocs-material-7.1.7" name="generator"/>
-<title>13. Environment Cleanup - Cloud Native LinuxONE Workshop</title>
+<meta content="mkdocs-1.2.3, mkdocs-material-7.1.7" name="generator"/>
+<title>14. Environment Cleanup - Cloud Native LinuxONE Workshop</title>
 <link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -16,8 +16,6 @@
 <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
 <link href="../../css/print-site.css" rel="stylesheet"/>
 <link href="../../css/print-site-material.css" rel="stylesheet"/>
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-174658170-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
 </head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="preference" dir="ltr">
 <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
@@ -25,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#environment-cleanup">13. 
+<a class="md-skip" href="#environment-cleanup">14. 
           Skip to content
         </a>
 </div>
@@ -49,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              13. Environment Cleanup
+              14. Environment Cleanup
             
           </span>
 </div>
@@ -224,26 +222,31 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devsecops/devsecops/">
+        13 [BONUS]. Add the "Sec" in "DevSecOps"
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7">
-        13. Cleanup
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        14. Cleanup
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="13. Cleanup" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_7">
+<nav aria-label="14. Cleanup" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-          13. Cleanup
+          14. Cleanup
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          13. Environment Cleanup
+          14. Environment Cleanup
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        13. Environment Cleanup
+        14. Environment Cleanup
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -252,22 +255,22 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pipelines-section-cleanup">13.1 
+<a class="md-nav__link" href="#pipelines-section-cleanup">14.1 
     Pipelines Section Cleanup
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#topology-section-cleanup">13.2 
+<a class="md-nav__link" href="#topology-section-cleanup">14.2 
     Topology Section Cleanup
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#github-section-cleanup">13.3 
+<a class="md-nav__link" href="#github-section-cleanup">14.3 
     GitHub Section Cleanup
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#thank-you-for-cleaning-up">13.4 
+<a class="md-nav__link" href="#thank-you-for-cleaning-up">14.4 
     Thank You for Cleaning Up!
   </a>
 </li>
@@ -278,13 +281,23 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../devsecops/sonarqube/">
+        REFERENCE 1. Setting up SonarQube Server in OpenShift
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yamlsetup/">
+        REFERENCE 2. Setting up PetClinic OpenShift Pipeline using yaml files
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../resources/">
-        14. Other resources
+        Other resources
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../proposechange/">
-        15. Propose a change
+        Propose a change
       </a>
 </li>
 <li class="md-nav__item">
@@ -307,22 +320,22 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pipelines-section-cleanup">13.1 
+<a class="md-nav__link" href="#pipelines-section-cleanup">14.1 
     Pipelines Section Cleanup
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#topology-section-cleanup">13.2 
+<a class="md-nav__link" href="#topology-section-cleanup">14.2 
     Topology Section Cleanup
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#github-section-cleanup">13.3 
+<a class="md-nav__link" href="#github-section-cleanup">14.3 
     GitHub Section Cleanup
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#thank-you-for-cleaning-up">13.4 
+<a class="md-nav__link" href="#thank-you-for-cleaning-up">14.4 
     Thank You for Cleaning Up!
   </a>
 </li>
@@ -336,9 +349,9 @@
 <a class="md-content__button md-icon" href="https://github.com/ibm-wsc/cloud-native-linuxone/edit/main/docs/cleanup/full-cleanup.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="environment-cleanup"><span class="enumerate-heading-plugin">13.</span> Environment Cleanup<a class="headerlink" href="#environment-cleanup" title="Permanent link">¶</a></h1>
+<h1 id="environment-cleanup"><span class="enumerate-heading-plugin">14.</span> Environment Cleanup<a class="headerlink" href="#environment-cleanup" title="Permanent link">¶</a></h1>
 <p>In this section you will clean up the different things you made during the lab in order to free up resources for other projects you intend to embark on in the community cloud as well as for other users of the environment.</p>
-<h2 id="pipelines-section-cleanup"><span class="enumerate-heading-plugin">13.1</span> Pipelines Section Cleanup<a class="headerlink" href="#pipelines-section-cleanup" title="Permanent link">¶</a></h2>
+<h2 id="pipelines-section-cleanup"><span class="enumerate-heading-plugin">14.1</span> Pipelines Section Cleanup<a class="headerlink" href="#pipelines-section-cleanup" title="Permanent link">¶</a></h2>
 <p>From the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr>, please complete the following cleanup tasks:</p>
 <ol>
 <li>
@@ -371,7 +384,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="topology-section-cleanup"><span class="enumerate-heading-plugin">13.2</span> Topology Section Cleanup<a class="headerlink" href="#topology-section-cleanup" title="Permanent link">¶</a></h2>
+<h2 id="topology-section-cleanup"><span class="enumerate-heading-plugin">14.2</span> Topology Section Cleanup<a class="headerlink" href="#topology-section-cleanup" title="Permanent link">¶</a></h2>
 <p>From the <code>Topology</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr>, please complete the following cleanup tasks:</p>
 <ol>
 <li>
@@ -401,7 +414,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="github-section-cleanup"><span class="enumerate-heading-plugin">13.3</span> GitHub Section Cleanup<a class="headerlink" href="#github-section-cleanup" title="Permanent link">¶</a></h2>
+<h2 id="github-section-cleanup"><span class="enumerate-heading-plugin">14.3</span> GitHub Section Cleanup<a class="headerlink" href="#github-section-cleanup" title="Permanent link">¶</a></h2>
 <p>Finally, you will cleanup the GitHub fork you made on your GitHub account with the following steps:</p>
 <ol>
 <li>
@@ -417,14 +430,14 @@
 <p><img alt="Confirm Repository Delete" src="../../images/Cleanup/ConfirmDeleteRepository.png"/></p>
 </li>
 </ol>
-<h2 id="thank-you-for-cleaning-up"><span class="enumerate-heading-plugin">13.4</span> <img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:"/> Thank You for Cleaning Up! <img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:"/><a class="headerlink" href="#thank-you-for-cleaning-up" title="Permanent link">¶</a></h2>
+<h2 id="thank-you-for-cleaning-up"><span class="enumerate-heading-plugin">14.4</span> <img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:"/> Thank You for Cleaning Up! <img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:"/><a class="headerlink" href="#thank-you-for-cleaning-up" title="Permanent link">¶</a></h2>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: 12. CI/CD in Action" class="md-footer__link md-footer__link--prev" href="../../application-promotion/action/" rel="prev">
+<a "devsecops""="" aria-label="Previous: 13 [BONUS]. Add the " class="md-footer__link md-footer__link--prev" href="../../devsecops/devsecops/" in="" rel="prev" sec"="">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -433,17 +446,17 @@
 <span class="md-footer__direction">
                 Previous
               </span>
-              12. CI/CD in Action
+              13 [BONUS]. Add the "Sec" in "DevSecOps"
             </div>
 </div>
 </a>
-<a aria-label="Next: 14. Other resources" class="md-footer__link md-footer__link--next" href="../../resources/" rel="next">
+<a aria-label="Next: REFERENCE 1. Setting up SonarQube Server in OpenShift" class="md-footer__link md-footer__link--next" href="../../devsecops/sonarqube/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              14. Other resources
+              REFERENCE 1. Setting up SonarQube Server in OpenShift
             </div>
 </div>
 <div class="md-footer__button md-icon">

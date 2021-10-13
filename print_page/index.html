@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://ibm-wsc.github.io/cloud-native-linuxone/print_page/">
       
       <link rel="icon" href="../images/pipelines-logo.png">
-      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.1.7">
     
     
       
@@ -43,10 +43,6 @@
       <link rel="stylesheet" href="../css/print-site-material.css">
     
     
-      
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-174658170-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
@@ -440,20 +436,35 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../devsecops/devsecops/" class="md-nav__link">
+        13 [BONUS]. Add the "Sec" in "DevSecOps"
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
-      <label class="md-nav__link" for="__nav_7">
-        13. Cleanup
+      <label class="md-nav__link" for="__nav_8">
+        14. Cleanup
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="13. Cleanup" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+      <nav class="md-nav" aria-label="14. Cleanup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
-          13. Cleanup
+          14. Cleanup
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -463,7 +474,7 @@
   
     <li class="md-nav__item">
       <a href="../cleanup/full-cleanup/" class="md-nav__link">
-        13. Environment Cleanup
+        14. Environment Cleanup
       </a>
     </li>
   
@@ -483,8 +494,38 @@
   
   
     <li class="md-nav__item">
+      <a href="../devsecops/sonarqube/" class="md-nav__link">
+        REFERENCE 1. Setting up SonarQube Server in OpenShift
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yamlsetup/" class="md-nav__link">
+        REFERENCE 2. Setting up PetClinic OpenShift Pipeline using yaml files
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../resources/" class="md-nav__link">
-        14. Other resources
+        Other resources
       </a>
     </li>
   
@@ -499,7 +540,7 @@
   
     <li class="md-nav__item">
       <a href="../proposechange/" class="md-nav__link">
-        15. Propose a change
+        Propose a change
       </a>
     </li>
   
@@ -609,7 +650,7 @@
 <h2 id="introduction-lab-overview">Lab Overview<a class="headerlink" href="#introduction-lab-overview" title="Permanent link">&para;</a></h2>
 <p>You will set up a virtual pet clinic (based on the classic spring boot demo referenced in the main <a href="https://projects.spring.io/spring-petclinic/" rel="noopener noreferrer" target="_blank">documentation</a>) running on <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> using source code on GitHub and <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines to seamlessly update, test, and deploy your pet clinic.</p>
 <h3 id="introduction-lab-parts">Lab Parts<a class="headerlink" href="#introduction-lab-parts" title="Permanent link">&para;</a></h3>
-<p>This lab is broken into three parts:</p>
+<p>This lab is broken into three main parts:</p>
 <ol>
 <li>
 <p>Building and deploying the PetClinic Java application with <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines</p>
@@ -621,8 +662,12 @@
 <p>Promoting PetClinic from development to staging with testing and GitHub integration (adding the C [continuous] in <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr>)</p>
 </li>
 </ol>
-<p>Throughout your journey across the three parts listed above, you will slowly construct the following architecture:</p>
+<h3 id="introduction-bonus-part">Bonus Part<a class="headerlink" href="#introduction-bonus-part" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Securing your pipeline with SonarQube to put the Sec in DevSecOps</li>
+</ol>
 <h3 id="introduction-architecture-overview">Architecture Overview<a class="headerlink" href="#introduction-architecture-overview" title="Permanent link">&para;</a></h3>
+<p>Throughout your journey across the three main parts listed above, you will slowly construct the following architecture:</p>
 <p><img alt="Cloud Native Workshop Architecture Overview" src="../images/IntroSection/CloudNativeArchitectureDiagram.png" /></p>
 <h4 id="introduction-define-your-pipeline-flow-orange-lines-in-picture-above">Define your Pipeline Flow (orange lines in picture above)<a class="headerlink" href="#introduction-define-your-pipeline-flow-orange-lines-in-picture-above" title="Permanent link">&para;</a></h4>
 <p>a. Interact with the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines <abbr title="user interface">UI</abbr> to define your pipeline and other <abbr title="a cloud native (Kubernetes based) open-source framework for creating CI/CD systems. It serves as the base of OpenShift Pipelines, allowing developers to build, test, and deploy across cloud providers and on-premise systems">Tekton</abbr> components.</p>
@@ -978,7 +1023,7 @@
 </div>
 </li>
 <li>
-<p>Find the <code>clean-image-task</code> and add the following workspace definition:</p>
+<p>Find the <code>clean-image</code> task and add the following workspace definition:</p>
 <div class="highlight"><pre><span></span><code>      <span class="nt">workspaces</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source</span>
         <span class="nt">workspace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">workspace</span>
@@ -1793,7 +1838,7 @@ Paste the workspace definition under the highlighted line as shown in the image 
 </li>
 </ol>
 <h2 id="application-promotion-action-continuous-integration-via-openshift-pipelines">Continuous Integration via <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines<a class="headerlink" href="#application-promotion-action-continuous-integration-via-openshift-pipelines" title="Permanent link">&para;</a></h2>
-<h2 id="application-promotion-action-successfully-run-pipeline-via-github">Successfully Run Pipeline via GitHub<a class="headerlink" href="#application-promotion-action-successfully-run-pipeline-via-github" title="Permanent link">&para;</a></h2>
+<h3 id="application-promotion-action-successfully-run-pipeline-via-github">Successfully Run Pipeline via GitHub<a class="headerlink" href="#application-promotion-action-successfully-run-pipeline-via-github" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Visit the newly triggered pipeline run in the <code>Pipelines</code> menu in the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr></p>
@@ -1905,7 +1950,290 @@ Paste the workspace definition under the highlighted line as shown in the image 
 </li>
 </ol>
 <h2 id="application-promotion-action-summary">Summary <img alt="🌝" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f31d.svg" title=":full_moon_with_face:" /><a class="headerlink" href="#application-promotion-action-summary" title="Permanent link">&para;</a></h2>
-<p>In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "<abbr title="an application that takes full advantage of cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr>" <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> for your PetClinic application on IBM Z/<abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr>! Congratulations!!!</p></section><h1 class='nav-section-title-end'>Ended: 9-12. Test and Promote Pet Clinic</h1><h1 class='nav-section-title'>13. Cleanup</h1><section class="print-page" id="cleanup-full-cleanup"><h1 id="cleanup-full-cleanup-environment-cleanup">Environment Cleanup<a class="headerlink" href="#cleanup-full-cleanup-environment-cleanup" title="Permanent link">&para;</a></h1>
+<p>In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "<abbr title="an application that takes full advantage of cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr>" <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> for your PetClinic application on IBM Z/<abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr>! Congratulations!!!</p></section><h1 class='nav-section-title-end'>Ended: 9-12. Test and Promote Pet Clinic</h1><section class="print-page" id="devsecops-devsecops"><h1 id="devsecops-devsecops-configure-sonarqube-code-analysis-in-your-pipeline">Configure SonarQube code analysis in your Pipeline<a class="headerlink" href="#devsecops-devsecops-configure-sonarqube-code-analysis-in-your-pipeline" title="Permanent link">&para;</a></h1>
+<p>As a bonus lab, you will now configure an extra task in your existing Pipeline to conduct code scanning on your petclinic source code. This exercise is to show you one way of incorporating security code scanning as part of your automated CI/CD pipeline.</p>
+<p>We will use the popular open source package SonarQube to do the code scanning. According to Wikipedia, "SonarQube is an open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities on 20+ programming languages."</p>
+<p>For Petclinic, we will be using SonarScanner for Maven. The ability to execute the SonarQube analysis via a regular Maven goal makes it available anywhere Maven is available (developer build, CI server, etc.), without the need to manually download, setup, and maintain a SonarQube Runner installation. For more information on SonarScanner for Maven, please see <a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/" rel="noopener noreferrer" target="_blank">here</a>.</p>
+<h2 id="devsecops-devsecops-accessing-the-sonarqube-server-with-your-assigned-credentials">Accessing the SonarQube server with your assigned credentials<a class="headerlink" href="#devsecops-devsecops-accessing-the-sonarqube-server-with-your-assigned-credentials" title="Permanent link">&para;</a></h2>
+<p>The lab instructors have already setup a SonarQube server within the OpenShift cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.</p>
+<p>Access the SonarQube server <a href="https://sonarqube-1633551248720.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a></p>
+<p>Select <code>Log in</code> in the upper right hand corner. And log in with your assigned credentials.</p>
+<p>If you are not successful with this step, please let the instructor know.</p>
+<h2 id="devsecops-devsecops-generate-a-security-token-for-your-sonarqube-account">Generate a security token for your SonarQube account<a class="headerlink" href="#devsecops-devsecops-generate-a-security-token-for-your-sonarqube-account" title="Permanent link">&para;</a></h2>
+<p>You'll need either your credentials, or an access token associated with your account, in order to access the server for code scanning. </p>
+<p>Let's use the access token method.</p>
+<p>Now that you've logged in, select your account in the upper right hand corner of the SonarQube server page.</p>
+<p><img alt="sonarqubeaccount" src="../images/DevSecOps/sonarqubeaccount.png" /> </p>
+<p>In the account panel, go to the security tab, and type in the name <code>petclinic</code> to help identify your token, and then select <code>Generate</code>. Now copy and save this token to be used in the next step.</p>
+<p><img alt="sonarqubetoken" src="../images/DevSecOps/sonarqubetoken.png" /> </p>
+<h2 id="devsecops-devsecops-configuring-maven-settings-with-the-sonar-scanner-plugin">Configuring maven-settings with the Sonar scanner plugin<a class="headerlink" href="#devsecops-devsecops-configuring-maven-settings-with-the-sonar-scanner-plugin" title="Permanent link">&para;</a></h2>
+<p>We need to configure maven with the Sonar scanner plugin prefix. We will do that by including the sonar scanner plugin in the maven settings file.</p>
+<p>We will create a Kubernetes ConfigMap for the mavens settings file.</p>
+<p>Click on the import button at the top of the OpenShift console.</p>
+<p>Copy and paste the entirety of the following into the editor and then hit "Save" (copy by clicking on the copy icon in the top right of the box below).</p>
+<div class="highlight"><pre><span></span><code>kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: maven-settings
+data:
+  settings.xml: <span class="p">|</span>
+    &lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span>?&gt;
+    &lt;settings&gt;
+      &lt;pluginGroups&gt;
+        &lt;pluginGroup&gt;io.spring.javaformat&lt;/pluginGroup&gt;
+        &lt;pluginGroup&gt;org.sonarsource.scanner.maven&lt;/pluginGroup&gt;
+      &lt;/pluginGroups&gt;
+      &lt;profiles&gt;
+        &lt;profile&gt;
+          &lt;id&gt;sonar&lt;/id&gt;
+          &lt;activation&gt;
+            &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+          &lt;/activation&gt;
+          &lt;properties&gt;
+            &lt;!-- Wait <span class="k">until</span> the quality check is <span class="nb">complete</span> <span class="k">in</span> SonarQube  --&gt;
+            &lt;sonar.qualitygate.wait&gt;
+              <span class="nb">true</span>
+            &lt;/sonar.qualitygate.wait&gt;
+            &lt;!-- Exclude DTO Files from SonarQube duplication check as these should have duplications --&gt;
+            &lt;sonar.cpd.exclusions&gt;
+              **/*DTO*
+            &lt;/sonar.cpd.exclusions&gt;
+          &lt;/properties&gt;
+        &lt;/profile&gt;
+      &lt;/profiles&gt;
+    &lt;/settings&gt;
+</code></pre></div>
+<h2 id="devsecops-devsecops-configuring-maven-task-into-pipeline-to-do-code-analysis">Configuring maven task into Pipeline to do code analysis<a class="headerlink" href="#devsecops-devsecops-configuring-maven-task-into-pipeline-to-do-code-analysis" title="Permanent link">&para;</a></h2>
+<p>Go back to your OpenShift console and go to your pipeline. Your pipeline should look like the picture below, at this point of the workshop.</p>
+<p><img alt="presqpipeline" src="../images/DevSecOps/presqpipeline.png" /> </p>
+<ol>
+<li>
+<p>We will insert the code analysis task before the build task. The idea being we want to scan the source code for bugs and vulnerabilities, before we build a container image out of it.</p>
+<p>a. From your pipeline screen, Go to Actions -&gt; Edit Pipeline.</p>
+<p>b. Select the plus sign before the build task, as in the picture below.</p>
+<p><img alt="addsqtask" src="../images/DevSecOps/addsqtask.png" /></p>
+<p>c. Then select the task <code>maven</code> from the drop down list.</p>
+<p><img alt="maventask" src="../images/DevSecOps/maventask.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Once you add a specific task (i.e. <code>maven</code>), clicking on the oval of the task will enable you to edit its default values for your needs.</p>
+</div>
+</li>
+<li>
+<p>Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server, <b>be careful to substitute the <code>-Dsonar.login</code> goal with the token that you generated in the previous step. Also be mindful to put your name in the value of the <code>Dsonar.projectName</code> goal.</b> </p>
+<p><img alt="codeanalysistask" src="../images/DevSecOps/codeanalysistask.png" /></p>
+<p><strong>Display Name</strong></p>
+<div class="highlight"><pre><span></span><code>code-analysis
+</code></pre></div>
+<p><strong>MAVEN_IMAGE</strong>
+<div class="highlight"><pre><span></span><code>maven:3.8.1-jdk-11-openj9
+</code></pre></div></p>
+<p><strong>GOALS</strong></p>
+<p><div class="highlight"><pre><span></span><code>install
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sonar:sonar
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>-Dsonar.login<span class="o">=</span>&lt;use-your-token-from-previous-step&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>https://sonarqube-1633551248720.apps.cloudnative.marist.edu
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>-Dsonar.projectName<span class="o">=</span>petclinic-&lt;your-name&gt;
+</code></pre></div></p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Remember to replace <code>&lt;your-name&gt;</code> with your name such as <code>petclinic-garrett</code>.</p>
+</div>
+</li>
+<li>
+<p>Now you can click away to get back to the main pipeline edit panel.</p>
+</li>
+<li>
+<p>Save the <code>pipeline</code>.</p>
+</li>
+<li>
+<p>Now we will need to add our pipeline workspaces to this task.</p>
+<p>a. Switch to <code>YAML</code> from pipeline menu.</p>
+<p><img alt="Switch to yaml" src="../images/Part1/SwitchYaml.png" /></p>
+<div class="admonition question">
+<p class="admonition-title">Why are you editing yaml directly?</p>
+<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.</p>
+</div>
+<p>b. Find the <code>code-analysis</code> task and add the following workspace definition:</p>
+<div class="highlight"><pre><span></span><code>      workspaces:
+        - name: source
+          workspace: workspace
+        - name: maven-settings
+          workspace: maven-settings
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">How can you easily find the <code>code-analysis</code> task and add the workspace definition?</p>
+<ol>
+<li>You can click on the black yaml box and then use your find keyboard shortcut (<code>ctrl+f</code> for Windows / <code>command+f</code> for mac) to bring up the find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
+  <div class="highlight"><pre><span></span><code>name: code-analysis
+</code></pre></div></li>
+<li>Paste the workspace definition under the highlighted line as shown in the image below.</li>
+</ol>
+<p><img alt="Code Analysis Task Add Workspace" src="../images/DevSecOps/AddWorkspaceCodeTask.png" /></p>
+</div>
+<p>c. Add <code>maven-settings</code> to the list of pipeline workspaces</p>
+<ol>
+<li>
+<p>Scroll down to the very bottom of the pipeline yaml file where you can find the workspaces for the pipeline defined.</p>
+</li>
+<li>
+<p>Add the <code>maven-settings</code> workspace to the pipeline with the following:</p>
+<div class="highlight"><pre><span></span><code>    - name: maven-settings
+</code></pre></div>
+</li>
+<li>
+<p>Save the pipeline</p>
+</li>
+</ol>
+<p><img alt="Add Maven Settings Workspace" src="../images/DevSecOps/AddMavenSettingsWorkspace.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the save message appears you can then proceed to <code>Cancel</code> back to the pipeline menu.</p>
+</div>
+</li>
+</ol>
+<h2 id="devsecops-devsecops-run-the-pipeline">Run the pipeline<a class="headerlink" href="#devsecops-devsecops-run-the-pipeline" title="Permanent link">&para;</a></h2>
+<p>Go to the Actions menu of your pipeline and select Start.</p>
+<p><img alt="startpipeline" src="../images/DevSecOps/startpipelinerun.png" /></p>
+<p>Hit Start after reviewing the settings panel and making sure to set the options for the <code>maven-settings</code> workspace (select <code>configmap</code> as the resource choice and <code>maven-settings</code> as the specific configmap to use as in the image below).</p>
+<p><img alt="Choose maven-settings when starting pipeline" src="../images/DevSecOps/ChooseMavenSettings.png" /></p>
+<p>You can go to your pipeline logs and see the output for each of the tasks. <TO DO .. add screen shot of pipeline logs></p>
+<p>It will take 15-20 minutes for the code analysis to run completely through. This task will wait until the quality check is complete in SonarQube and if the quality gate fails, this task will fail and the pipeline will not continue to run. If the quality gate succeeds, this task will succeed and progress onto the next task in the pipeline.</p>
+<p>Let's see if our code passes the code analysis...</p>
+<p><img alt="codeanalysisfail" src="../images/DevSecOps/codeanalysisfail.png" /></p>
+<p>It fails <img alt="😞" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f61e.svg" title=":disappointed:" />. Next, we are going to see why it failed.</p>
+<h2 id="devsecops-devsecops-analyzing-the-failure-in-sonarqube">Analyzing the Failure in SonarQube<a class="headerlink" href="#devsecops-devsecops-analyzing-the-failure-in-sonarqube" title="Permanent link">&para;</a></h2>
+<h3 id="devsecops-devsecops-view-your-project">View your project<a class="headerlink" href="#devsecops-devsecops-view-your-project" title="Permanent link">&para;</a></h3>
+<p>At this point please return to the SonarQube server <a href="https://sonarqube-1633551248720.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a>, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:</p>
+<p><img alt="SonarProject View Fail" src="../images/DevSecOps/FindPetclinicSonar.png" /></p>
+<ol>
+<li>
+<p>Type your name in the project search bar to bring up your project</p>
+</li>
+<li>
+<p>Click on your project (which should have a <code>Failed</code> label)</p>
+</li>
+</ol>
+<h3 id="devsecops-devsecops-check-what-caused-the-failure">Check what caused the failure<a class="headerlink" href="#devsecops-devsecops-check-what-caused-the-failure" title="Permanent link">&para;</a></h3>
+<p><img alt="Failure Check" src="../images/DevSecOps/CheckFailureReason.png" /></p>
+<p>You can see that the overall code check failed due to a security rating worse than A. You should see 9 vulnerabilities that caused this failure. In order to check what these are, please click on the vulnerabilities link as shown in the image.</p>
+<p><img alt="Vulnerabilities" src="../images/DevSecOps/VulnerabilityOverview.png" /></p>
+<ol>
+<li>
+<p>See individual vulnerabilities and click on <code>Why is this an issue?</code></p>
+</li>
+<li>
+<p>Read the vulnerability descriptions to see why they are a problem and get insights into fixing them in the code.</p>
+</li>
+</ol>
+<h2 id="devsecops-devsecops-update-petclinic-to-fix-the-issues-that-came-up-in-the-sonarqube-scan">Update PetClinic to fix the issues that came up in the SonarQube scan<a class="headerlink" href="#devsecops-devsecops-update-petclinic-to-fix-the-issues-that-came-up-in-the-sonarqube-scan" title="Permanent link">&para;</a></h2>
+<p>In the scan, there were various security issues related to the use of entity objects for data transfer instead of data transfer objects (DTOs) when using @RequestMapping and similar methods. In order to fix these, you will have to make changes to the java code for the application. Luckily for you, the changes have already been made on the <code>security-fixes</code> branch of the project. In order to bring these changes to the main branch you will need to make a pul request and merge the <code>security-fixes</code> branch into the main branch. </p>
+<p>You can do this with the following actions:</p>
+<ol>
+<li>
+<p>Go to your fork of the petclinic repository in GitHub and choose to create a new pull request</p>
+<p><img alt="Create new pull request" src="../images/DevSecOps/OpenNewPullRequest.png" /></p>
+<ol>
+<li>
+<p>Click on the <code>Pull Requests</code> tab</p>
+</li>
+<li>
+<p>Click on <code>New pull request</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Change your base repository from the main repository to your fork.</p>
+<p><img alt="Choose your repository" src="../images/DevSecOps/ChooseYourBranch.png" /></p>
+<ol>
+<li>
+<p>Click on base repository default of <code>ibm-wsc/spring-petclinic</code></p>
+</li>
+<li>
+<p>Change to your petclinic fork (in my case this is <code>siler23/petclinic</code> but yours will be different)</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Choose the <code>security-fixes</code> branch to merge into the <code>main</code> branch and create your pull request</p>
+<p><img alt="Choose security-fixes branch" src="../images/DevSecOps/CreatePullRequestFromSecurityFixes.png" /></p>
+<ol>
+<li>Choose <code>security-fixes</code> branch to compare to <code>main</code></li>
+<li>Click <code>Create pull request</code></li>
+</ol>
+</li>
+<li>
+<p>Write a justification for your pull request and confirm again that you want to create it</p>
+<p><img alt="Create pull request for real" src="../images/DevSecOps/CreatePullRequestForReal.png" /></p>
+<ol>
+<li>Write a justification such as </li>
+</ol>
+<div class="highlight"><pre><span></span><code>Create fixes for all of the security vulnerabilities that showed up in the SonarQube scan.
+</code></pre></div>
+<ol>
+<li>Click <code>Create pull request</code></li>
+</ol>
+</li>
+<li>
+<p>Merge your pull request, merging the <code>security-fixes</code> branch with all of the security fixes into the <code>main</code> branch.</p>
+<p><img alt="Merge pull request" src="../images/DevSecOps/MergePullRequest.png" /></p>
+</li>
+<li>
+<p>Confirm the merge </p>
+<p><img alt="Confirm merge" src="../images/DevSecOps/ConfirmMergeRequest.png" /></p>
+</li>
+<li>
+<p>Delete the <code>security-fixes</code> branch now that it's been successfully merged into the <code>main</code> branch of your petclinic repository fork.</p>
+<p><img alt="Delete security-fixes branch" src="../images/DevSecOps/SuccessfullyMerged.png" /></p>
+<ol>
+<li>
+<p>See that the <code>security-fixes</code> branch was successfully merged!</p>
+</li>
+<li>
+<p>Click <code>Delete branch</code> to delete the now superfluous <code>security-fixes</code> branch.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="devsecops-devsecops-verify-that-vulnerabilities-in-petclinic-have-been-patched">Verify that vulnerabilities in petclinic have been patched<a class="headerlink" href="#devsecops-devsecops-verify-that-vulnerabilities-in-petclinic-have-been-patched" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>See a new pipeline triggered back in the <code>Pipelines</code> view of your OpenShift namespace.</p>
+<p><img alt="New pipeline running" src="../images/DevSecOps/PipelineRunning.png" /></p>
+</li>
+<li>
+<p>View the pipeline run and watch it successfully complete the <code>code-analysis</code> task.</p>
+<p><img alt="Security Success" src="../images/DevSecOps/CodeAnalysisPasses.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also wait to see the other tasks pass but since the main goal of this section was to focus on integrating security into DevOps and you have already gone through the pipeline without the <code>code-analysis</code> task, there is really no need to do so.</p>
+</div>
+</li>
+<li>
+<p>View the <a href="https://sonarqube-1633551248720.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">SonarQube server</a> again to see the updated results for your project (based on the latest scan)</p>
+<ol>
+<li>
+<p>See your project passes and click on it for full results</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Search for your project with your name like before.</p>
+</div>
+<p><img alt="See your project passes" src="../images/DevSecOps/SeeYourProjectPasses.png" /></p>
+</li>
+<li>
+<p>View the final results of the scan.</p>
+<p><img alt="See Passed Full Results" src="../images/DevSecOps/PassedFullPage.png" /></p>
+<p>Those pesky vulnerabilities have been squashed! <img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="devsecops-devsecops-summary">Summary <img alt="🔭" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f52d.svg" title=":telescope:" /><a class="headerlink" href="#devsecops-devsecops-summary" title="Permanent link">&para;</a></h2>
+<p>In this section, you started on your DevSecOps journey by integrating SonarQube security scanning into your DevOps pipeline. Initially, the scan flagged several security vulnerabilities, causing the pipeline to fail before the vulnerable code could get packaged into a container. Next, you were able to dig into the vulnerabilities and figure out what needed to be changed with the SonarQube report. Then, you applied a security patch, eliminating the flagged security vulnerabilities in the PetClinic application. Finally, your pipeline succeeded and secure code was packaged into a container and deployed and the pipeline set up to catch any new security vulnerabilities as soon as they appear. Congratulations!</p></section><h1 class='nav-section-title'>14. Cleanup</h1><section class="print-page" id="cleanup-full-cleanup"><h1 id="cleanup-full-cleanup-environment-cleanup">Environment Cleanup<a class="headerlink" href="#cleanup-full-cleanup-environment-cleanup" title="Permanent link">&para;</a></h1>
 <p>In this section you will clean up the different things you made during the lab in order to free up resources for other projects you intend to embark on in the community cloud as well as for other users of the environment.</p>
 <h2 id="cleanup-full-cleanup-pipelines-section-cleanup">Pipelines Section Cleanup<a class="headerlink" href="#cleanup-full-cleanup-pipelines-section-cleanup" title="Permanent link">&para;</a></h2>
 <p>From the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr>, please complete the following cleanup tasks:</p>
@@ -1986,7 +2314,239 @@ Paste the workspace definition under the highlighted line as shown in the image 
 <p><img alt="Confirm Repository Delete" src="../images/Cleanup/ConfirmDeleteRepository.png" /></p>
 </li>
 </ol>
-<h2 id="cleanup-full-cleanup-thank-you-for-cleaning-up"><img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /> Thank You for Cleaning Up! <img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /><a class="headerlink" href="#cleanup-full-cleanup-thank-you-for-cleaning-up" title="Permanent link">&para;</a></h2></section><h1 class='nav-section-title-end'>Ended: 13. Cleanup</h1><section class="print-page" id="resources"><h1 id="resources-other-resources">Other Resources<a class="headerlink" href="#resources-other-resources" title="Permanent link">&para;</a></h1>
+<h2 id="cleanup-full-cleanup-thank-you-for-cleaning-up"><img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /> Thank You for Cleaning Up! <img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /><a class="headerlink" href="#cleanup-full-cleanup-thank-you-for-cleaning-up" title="Permanent link">&para;</a></h2></section><h1 class='nav-section-title-end'>Ended: 14. Cleanup</h1><section class="print-page" id="devsecops-sonarqube"><h1 id="devsecops-sonarqube-setting-up-sonarqube-server-in-openshift">Setting up SonarQube server in OpenShift<a class="headerlink" href="#devsecops-sonarqube-setting-up-sonarqube-server-in-openshift" title="Permanent link">&para;</a></h1>
+<h2 id="devsecops-sonarqube-sign-up-for-necessary-accounts">Sign up for necessary accounts<a class="headerlink" href="#devsecops-sonarqube-sign-up-for-necessary-accounts" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Get a 2<sup>nd</sup> OpenShift cluster trial (in addition to the one you got for the regular lab, using a different email) <a href="https://linuxone.cloud.marist.edu/#/register?flag=OCP" rel="noopener noreferrer" target="_blank">here</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Within 48 hours after you register, be sure to "Activate your account or entitlement" following the instructions in the follow-on email sent to the email address you specified during registration.</p>
+</div>
+</li>
+<li>
+<p>Sign up for IBM Z Container Registry trial using <a href="https://epwt-www.mybluemix.net/software/support/trial/cst/programwebsite.wss?siteId=1208&amp;tabId=3216&amp;p=null&amp;h=null" rel="noopener noreferrer" target="_blank">this link</a>.</p>
+</li>
+</ol>
+<h2 id="devsecops-sonarqube-access-openshift-cluster">Access OpenShift Cluster<a class="headerlink" href="#devsecops-sonarqube-access-openshift-cluster" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This should be a different OpenShift cluster than the one used for the main lab sections due to resource constraints.</p>
+</div>
+<ol>
+<li>
+<p>Code for the project</p>
+<p>Please fork the code to your GitHub repository by <a href="https://github.com/ibm-wsc/spring-petclinic/fork" rel="noopener noreferrer" target="_blank">clicking here</a>. If this fails, you likely already have a forked version of the repository from the lab. If so, go to your fork and use that in the next step.</p>
+</li>
+<li>
+<p>Clone the git repository to your local computer </p>
+<p>a. Get the link from GitHub using the <code>Code</code> button on your forked repository and the <code>HTTPS</code> tab. <img alt="Clone PetClinic example" src="../images/YamlSetup/ClonePetclinic.png" /></p>
+<p>b. Perform the clone locally in a terminal window using git clone + the link you copied such as <code>git clone https://github.com/siler23/spring-petclinic.git</code> for the example in <code>a.</code> above.</p>
+</li>
+<li>
+<p>Log into OpenShift in a terminal window locally.</p>
+<p>a. Click on your username in the upper right hand of the LinuxONE Community Cloud OpenShift UI.</p>
+<p>b. Click <code>Copy Login command</code></p>
+<p><img alt="Copy Login Command" src="../images/YamlSetup/CopyLoginCommand.png" /></p>
+<p>c. In the new window that opens click <code>Display Token</code> to generate a login token.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may be prompted to enter your LinuxONE Community Cloud username and password again.</p>
+</div>
+<p><img alt="Display Token Prompt" src="../images/YamlSetup/DisplayTokenPrompt.png" /></p>
+<p>d. Copy the login command.</p>
+<p><img alt="Oc Login Command Copy " src="../images/YamlSetup/OcLoginCommand.png" /></p>
+<p>e. Use the login command in your terminal to login to your OpenShift project.</p>
+<p><img alt="Terminal oc Login" src="../images/YamlSetup/TerminalLogin.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Login token has been blurred in image for security purposes.</p>
+</div>
+</li>
+</ol>
+<h2 id="devsecops-sonarqube-create-openshift-resources-for-sonarqube-server">Create OpenShift resources for SonarQube server<a class="headerlink" href="#devsecops-sonarqube-create-openshift-resources-for-sonarqube-server" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Create a Kubernetes (OpenShift) secret for the IBM Z Container Registry using your API Key</p>
+<div class="highlight"><pre><span></span><code>oc create secret docker-registry z-container-registry --docker-username<span class="o">=</span>iamapikey --docker-server<span class="o">=</span><span class="s1">&#39;icr.io&#39;</span> --docker-password<span class="o">=</span><span class="s1">&#39;YOUR_API_KEY&#39;</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please replace <code>YOUR_API_KEY</code> with your API Key for the IBM Z container registry.</p>
+</div>
+</li>
+<li>
+<p>Create OpenShift resources from PetClinic git repo you cloned.</p>
+<p>a. Change into the directory where you cloned your petclinic repo in step 2b of <a href="#devsecops-sonarqube-access-openshift-cluster">Access OpenShift Cluster</a>.</p>
+<p>b. Apply the SonarQube server files to your project from the main directory of the cloned GitHub fork using the following command:</p>
+<div class="highlight"><pre><span></span><code>oc apply -f ocp-files/sonarqube-server
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code>deployment.apps/sonarqube created
+service/sonarqube created
+route.route.openshift.io/sonarqube created
+persistentvolumeclaim/sonarqube-data created
+</code></pre></div>
+</div>
+</li>
+</ol>
+<h2 id="devsecops-sonarqube-access-sonarqube-server">Access SonarQube server<a class="headerlink" href="#devsecops-sonarqube-access-sonarqube-server" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Wait for the SonarQube server to come up and then access it at its route you can find the route via the oc command line tool in your logged in namespace using:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">hostname</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>oc get route sonarqube -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.host}&#39;</span><span class="k">)</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;https://</span><span class="si">${</span><span class="nv">hostname</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also use the user interface (UI) of your project.</p>
+</div>
+</li>
+<li>
+<p>Log into SonarQube server with default username/password of <code>admin</code>/<code>admin</code></p>
+</li>
+</ol>
+<h2 id="devsecops-sonarqube-change-admin-password">Change Admin password<a class="headerlink" href="#devsecops-sonarqube-change-admin-password" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Access your account settings</p>
+<p><img alt="Go to account settings" src="../images/DevSecOps/GoToAccount.png" /></p>
+<ol>
+<li>
+<p>Click the <code>A</code> icon in the upper right hand corner</p>
+</li>
+<li>
+<p>Choose <code>My Account</code> from the droopdown menu</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Change admin password </p>
+<p><img alt="Change Admin Password" src="../images/DevSecOps/ChangePasswordAdmin.png" /></p>
+<ol>
+<li>
+<p>Choose the <code>Security</code> tab at the top of the page</p>
+</li>
+<li>
+<p>Enter your old password of <code>admin</code> and choose + confirm a new password </p>
+</li>
+<li>
+<p>Click <code>Change Password</code></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="devsecops-sonarqube-create-petclinic-default-sonarqube-quality-gate">Create PetClinic Default SonarQube Quality Gate<a class="headerlink" href="#devsecops-sonarqube-create-petclinic-default-sonarqube-quality-gate" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Go to the <code>Quality Gates</code> tab.</p>
+<p><img alt="Quality Gates Tab" src="../images/DevSecOps/ChooseQualityGatesTab.png" /></p>
+</li>
+<li>
+<p>Copy BUILT-IN Sonar way quality gate</p>
+<ol>
+<li>
+<p>Choose to copy the gate 
+    <img alt="Quality Gate Sonar Way Copy" src="../images/DevSecOps/CopySonarWayQualityGate.png" /></p>
+</li>
+<li>
+<p>Choose a name for your new gate
+    <img alt="Name Quality Gate" src="../images/DevSecOps/ConfirmCopyQualityGate.png" /></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Add conditions for <code>Overall Code</code></p>
+<p><img alt="Name Quality Gate" src="../images/DevSecOps/QualityGateOverallCode.png" /></p>
+<ol>
+<li>
+<p>Click <code>Add Condition</code> for each Condition in the image above (the same ones used for <code>New Code</code>).</p>
+</li>
+<li>
+<p>Create each condition for <code>Overall Code</code> to match the image above.</p>
+</li>
+<li>
+<p>Click <code>Set as Default</code> to set the <code>PetClinic Quality Gate</code> as the default quality gate so that it will be used for the new projects created by users in the <a href="#devsecops-devsecops">SonarQube section</a> of the lab.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="devsecops-sonarqube-summary">Summary<a class="headerlink" href="#devsecops-sonarqube-summary" title="Permanent link">&para;</a></h2>
+<p>You have set up a SonarQube and are now ready to enjoy the <a href="#devsecops-devsecops">SonarQube section</a> of the lab using your own SonarQube server. Congratulations!!!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use the URL you used to access the SonarQube server as your SonarQube url in the <a href="#devsecops-devsecops">SonarQube section</a>.</p>
+</div></section><section class="print-page" id="yamlsetup"><h1 id="yamlsetup-quick-start-petclinic-pipeline-with-yaml-files">Quick Start PetClinic pipeline with Yaml files<a class="headerlink" href="#yamlsetup-quick-start-petclinic-pipeline-with-yaml-files" title="Permanent link">&para;</a></h1>
+<p>This section is for users that want to quickly bring up the pipeline and resources of the lab from yaml. This is good for users that have gone through the lab and want to learn how to quickly bring up the resources in a different cluster. This is what users will eventually want to do with pipelines they create (use yaml files to portably bring pipelines to different OpenShift clusters).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you already have resources created from the lab, please do the <a href="#cleanup-full-cleanup">cleanup section here</a>.</p>
+</div>
+<h2 id="yamlsetup-pre-requisites">Pre-requisites<a class="headerlink" href="#yamlsetup-pre-requisites" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Code for the project</p>
+<p>Please fork the code to your GitHub repository by <a href="https://github.com/ibm-wsc/spring-petclinic/fork" rel="noopener noreferrer" target="_blank">clicking here</a>. If this fails, you likely already have a forked version of the repository from the lab. Please make sure you have done the <a href="#cleanup-full-cleanup">cleanup section here</a> and then come back to this section.</p>
+</li>
+<li>
+<p>Clone the git repository to your local computer </p>
+<p>a. Get the link from GitHub using the <code>Code</code> button on your forked repository and the <code>HTTPS</code> tab. <img alt="Clone PetClinic example" src="../images/YamlSetup/ClonePetclinic.png" /></p>
+<p>b. Perform the clone locally in a terminal window using git clone + the link you copied such as <code>git clone https://github.com/siler23/spring-petclinic.git</code> for the example in <code>a.</code> above.</p>
+</li>
+<li>
+<p>Log into OpenShift in a terminal window locally.</p>
+<p>a. Click on your username in the upper right hand of the LinuxONE Community Cloud OpenShift UI.</p>
+<p>b. Click <code>Copy Login command</code></p>
+<p><img alt="Copy Login Command" src="../images/YamlSetup/CopyLoginCommand.png" /></p>
+<p>c. In the new window that opens click <code>Display Token</code> to generate a login token.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may be prompted to enter your LinuxONE Community Cloud username and password again.</p>
+</div>
+<p><img alt="Display Token Prompt" src="../images/YamlSetup/DisplayTokenPrompt.png" /></p>
+<p>d. Copy the login command.</p>
+<p><img alt="Oc Login Command Copy " src="../images/YamlSetup/OcLoginCommand.png" /></p>
+<p>e. Use the login command in your terminal to login to your OpenShift project.</p>
+<p><img alt="Terminal oc Login" src="../images/YamlSetup/TerminalLogin.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Login token has been blurred in image for security purposes.</p>
+</div>
+</li>
+<li>
+<p>Create OpenShift resources from PetClinic git repo you cloned.</p>
+<p>a. Change into the directory where you cloned your petclinic repo in step 2.</p>
+<p>b. Create the necessary project files in OpenShift from the main directory of the cloned GitHub fork using the following command:</p>
+<div class="highlight"><pre><span></span><code>oc apply -f ocp-files/pipelines/final-yaml
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code>task.tekton.dev/connection-test created
+pipeline.tekton.dev/spring-petclinic created
+task.tekton.dev/kustomize created
+persistentvolumeclaim/petclinic-pipeline-pvc created
+</code></pre></div>
+</div>
+</li>
+<li>
+<p>Go to your newly created spring-petclinic pipeline via the <code>Pipelines UI</code> and start a new pipeline.</p>
+<p><img alt="Start New Pipeline" src="../images/YamlSetup/StartPipelineSelect.png" /></p>
+</li>
+<li>
+<p>Replace the YOUR_REPO with your git base repository (Git Hub username) and YOUR_PROJECT with the your OpenShift Project (the one you have in community cloud or otherwise) and choose to back the workspace with a PVC (namely the petlcinic-pipeline-pvc) you created in step 4. </p>
+<p>a. Initial Parameters</p>
+<p><img alt="Pipeline Initial Look Start Screen" src="../images/YamlSetup/PipelineInitialWindow.png" /></p>
+<p>b. Change Parameters and start pipeline</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your project and repo should be different from mine.</p>
+</div>
+<p><img alt="Pipeline Final Start Screen" src="../images/YamlSetup/StartPipelineWithChanges.png" /></p>
+</li>
+<li>
+<p>Your pipeline is back in action! <img alt="🎉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f389.svg" title=":tada:" /></p>
+</li>
+</ol></section><section class="print-page" id="resources"><h1 id="resources-other-resources">Other Resources<a class="headerlink" href="#resources-other-resources" title="Permanent link">&para;</a></h1>
 <h2 id="resources-openshift-pipelines-resources">OpenShift Pipelines Resources<a class="headerlink" href="#resources-openshift-pipelines-resources" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.openshift.com/learn/topics/pipelines">Information Page</a></li>

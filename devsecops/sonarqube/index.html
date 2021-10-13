@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://ibm-wsc.github.io/cloud-native-linuxone/devsecops/sonarqube/" rel="canonical"/>
+<link href="../../images/pipelines-logo.png" rel="icon"/>
+<meta content="mkdocs-1.2.3, mkdocs-material-7.1.7" name="generator"/>
+<title>REFERENCE 1. Setting up SonarQube Server in OpenShift - Cloud Native LinuxONE Workshop</title>
+<link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../css/print-site.css" rel="stylesheet"/>
+<link href="../../css/print-site-material.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="preference" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#setting-up-sonarqube-server-in-openshift">15. 
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Cloud Native LinuxONE Workshop" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Cloud Native LinuxONE Workshop">
+<img alt="logo" src="../../images/pipelines-logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Cloud Native LinuxONE Workshop
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              REFERENCE 1. Setting up SonarQube Server in OpenShift
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ibm-wsc/cloud-native-linuxone/" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Cloud Native LinuxONE Workshop" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Cloud Native LinuxONE Workshop">
+<img alt="logo" src="../../images/pipelines-logo.png"/>
+</a>
+    Cloud Native LinuxONE Workshop
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ibm-wsc/cloud-native-linuxone/" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        1. Home
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../introduction/">
+        2. Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../prerequisites/">
+        3. Prerequisites
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        4-5. Build and Deploy Pet Clinic
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4-5. Build and Deploy Pet Clinic" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          4-5. Build and Deploy Pet Clinic
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../build-and-deploy/build_overview/">
+        4. Build and Deploy Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../build-and-deploy/upandrunning/">
+        5. PetClinic Up and Running
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        6-8. Configure PetClinic's Pipeline
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6-8. Configure PetClinic's Pipeline" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          6-8. Configure PetClinic's Pipeline
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../full-dev-pipeline/configure_overview/">
+        6. Configure Pipeline Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../full-dev-pipeline/pipeline/">
+        7. Configure Build and Test
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../full-dev-pipeline/runpipeline/">
+        8. Configure Development Deployment
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        9-12. Test and Promote Pet Clinic
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="9-12. Test and Promote Pet Clinic" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          9-12. Test and Promote Pet Clinic
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../application-promotion/promote_overview/">
+        9. Test and Promote Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../application-promotion/promote/">
+        10. Promoting Application
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../application-promotion/git/">
+        11. Integrating Git
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../application-promotion/action/">
+        12. CI/CD in Action
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../devsecops/">
+        13 [BONUS]. Add the "Sec" in "DevSecOps"
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        14. Cleanup
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="14. Cleanup" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          14. Cleanup
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cleanup/full-cleanup/">
+        14. Environment Cleanup
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          REFERENCE 1. Setting up SonarQube Server in OpenShift
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        REFERENCE 1. Setting up SonarQube Server in OpenShift
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sign-up-for-necessary-accounts">15.1 
+    Sign up for necessary accounts
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#access-openshift-cluster">15.2 
+    Access OpenShift Cluster
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-openshift-resources-for-sonarqube-server">15.3 
+    Create OpenShift resources for SonarQube server
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#access-sonarqube-server">15.4 
+    Access SonarQube server
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#change-admin-password">15.5 
+    Change Admin password
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-petclinic-default-sonarqube-quality-gate">15.6 
+    Create PetClinic Default SonarQube Quality Gate
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">15.7 
+    Summary
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yamlsetup/">
+        REFERENCE 2. Setting up PetClinic OpenShift Pipeline using yaml files
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../resources/">
+        Other resources
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../proposechange/">
+        Propose a change
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../print_page/">
+        Print Site
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sign-up-for-necessary-accounts">15.1 
+    Sign up for necessary accounts
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#access-openshift-cluster">15.2 
+    Access OpenShift Cluster
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-openshift-resources-for-sonarqube-server">15.3 
+    Create OpenShift resources for SonarQube server
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#access-sonarqube-server">15.4 
+    Access SonarQube server
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#change-admin-password">15.5 
+    Change Admin password
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-petclinic-default-sonarqube-quality-gate">15.6 
+    Create PetClinic Default SonarQube Quality Gate
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">15.7 
+    Summary
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ibm-wsc/cloud-native-linuxone/edit/main/docs/devsecops/sonarqube.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<h1 id="setting-up-sonarqube-server-in-openshift"><span class="enumerate-heading-plugin">15.</span> Setting up SonarQube server in OpenShift<a class="headerlink" href="#setting-up-sonarqube-server-in-openshift" title="Permanent link">¶</a></h1>
+<h2 id="sign-up-for-necessary-accounts"><span class="enumerate-heading-plugin">15.1</span> Sign up for necessary accounts<a class="headerlink" href="#sign-up-for-necessary-accounts" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p>Get a 2<sup>nd</sup> OpenShift cluster trial (in addition to the one you got for the regular lab, using a different email) <a href="https://linuxone.cloud.marist.edu/#/register?flag=OCP" rel="noopener noreferrer" target="_blank">here</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Within 48 hours after you register, be sure to "Activate your account or entitlement" following the instructions in the follow-on email sent to the email address you specified during registration.</p>
+</div>
+</li>
+<li>
+<p>Sign up for IBM Z Container Registry trial using <a href="https://epwt-www.mybluemix.net/software/support/trial/cst/programwebsite.wss?siteId=1208&amp;tabId=3216&amp;p=null&amp;h=null" rel="noopener noreferrer" target="_blank">this link</a>.</p>
+</li>
+</ol>
+<h2 id="access-openshift-cluster"><span class="enumerate-heading-plugin">15.2</span> Access OpenShift Cluster<a class="headerlink" href="#access-openshift-cluster" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This should be a different OpenShift cluster than the one used for the main lab sections due to resource constraints.</p>
+</div>
+<ol>
+<li>
+<p>Code for the project</p>
+<p>Please fork the code to your GitHub repository by <a href="https://github.com/ibm-wsc/spring-petclinic/fork" rel="noopener noreferrer" target="_blank">clicking here</a>. If this fails, you likely already have a forked version of the repository from the lab. If so, go to your fork and use that in the next step.</p>
+</li>
+<li>
+<p>Clone the git repository to your local computer </p>
+<p>a. Get the link from GitHub using the <code>Code</code> button on your forked repository and the <code>HTTPS</code> tab. <img alt="Clone PetClinic example" src="../../images/YamlSetup/ClonePetclinic.png"/></p>
+<p>b. Perform the clone locally in a terminal window using git clone + the link you copied such as <code>git clone https://github.com/siler23/spring-petclinic.git</code> for the example in <code>a.</code> above.</p>
+</li>
+<li>
+<p>Log into OpenShift in a terminal window locally.</p>
+<p>a. Click on your username in the upper right hand of the LinuxONE Community Cloud OpenShift UI.</p>
+<p>b. Click <code>Copy Login command</code></p>
+<p><img alt="Copy Login Command" src="../../images/YamlSetup/CopyLoginCommand.png"/></p>
+<p>c. In the new window that opens click <code>Display Token</code> to generate a login token.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may be prompted to enter your LinuxONE Community Cloud username and password again.</p>
+</div>
+<p><img alt="Display Token Prompt" src="../../images/YamlSetup/DisplayTokenPrompt.png"/></p>
+<p>d. Copy the login command.</p>
+<p><img alt="Oc Login Command Copy " src="../../images/YamlSetup/OcLoginCommand.png"/></p>
+<p>e. Use the login command in your terminal to login to your OpenShift project.</p>
+<p><img alt="Terminal oc Login" src="../../images/YamlSetup/TerminalLogin.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Login token has been blurred in image for security purposes.</p>
+</div>
+</li>
+</ol>
+<h2 id="create-openshift-resources-for-sonarqube-server"><span class="enumerate-heading-plugin">15.3</span> Create OpenShift resources for SonarQube server<a class="headerlink" href="#create-openshift-resources-for-sonarqube-server" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p>Create a Kubernetes (OpenShift) secret for the IBM Z Container Registry using your API Key</p>
+<div class="highlight"><pre><span></span><code>oc create secret docker-registry z-container-registry --docker-username<span class="o">=</span>iamapikey --docker-server<span class="o">=</span><span class="s1">'icr.io'</span> --docker-password<span class="o">=</span><span class="s1">'YOUR_API_KEY'</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please replace <code>YOUR_API_KEY</code> with your API Key for the IBM Z container registry.</p>
+</div>
+</li>
+<li>
+<p>Create OpenShift resources from PetClinic git repo you cloned.</p>
+<p>a. Change into the directory where you cloned your petclinic repo in step 2b of <a href="#access-openshift-cluster">15.2 Access OpenShift Cluster</a>.</p>
+<p>b. Apply the SonarQube server files to your project from the main directory of the cloned GitHub fork using the following command:</p>
+<div class="highlight"><pre><span></span><code>oc apply -f ocp-files/sonarqube-server
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code>deployment.apps/sonarqube created
+service/sonarqube created
+route.route.openshift.io/sonarqube created
+persistentvolumeclaim/sonarqube-data created
+</code></pre></div>
+</div>
+</li>
+</ol>
+<h2 id="access-sonarqube-server"><span class="enumerate-heading-plugin">15.4</span> Access SonarQube server<a class="headerlink" href="#access-sonarqube-server" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p>Wait for the SonarQube server to come up and then access it at its route you can find the route via the oc command line tool in your logged in namespace using:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">hostname</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>oc get route sonarqube -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.spec.host}'</span><span class="k">)</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"https://</span><span class="si">${</span><span class="nv">hostname</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also use the user interface (UI) of your project.</p>
+</div>
+</li>
+<li>
+<p>Log into SonarQube server with default username/password of <code>admin</code>/<code>admin</code></p>
+</li>
+</ol>
+<h2 id="change-admin-password"><span class="enumerate-heading-plugin">15.5</span> Change Admin password<a class="headerlink" href="#change-admin-password" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p>Access your account settings</p>
+<p><img alt="Go to account settings" src="../../images/DevSecOps/GoToAccount.png"/></p>
+<ol>
+<li>
+<p>Click the <code>A</code> icon in the upper right hand corner</p>
+</li>
+<li>
+<p>Choose <code>My Account</code> from the droopdown menu</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Change admin password </p>
+<p><img alt="Change Admin Password" src="../../images/DevSecOps/ChangePasswordAdmin.png"/></p>
+<ol>
+<li>
+<p>Choose the <code>Security</code> tab at the top of the page</p>
+</li>
+<li>
+<p>Enter your old password of <code>admin</code> and choose + confirm a new password </p>
+</li>
+<li>
+<p>Click <code>Change Password</code></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="create-petclinic-default-sonarqube-quality-gate"><span class="enumerate-heading-plugin">15.6</span> Create PetClinic Default SonarQube Quality Gate<a class="headerlink" href="#create-petclinic-default-sonarqube-quality-gate" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p>Go to the <code>Quality Gates</code> tab.</p>
+<p><img alt="Quality Gates Tab" src="../../images/DevSecOps/ChooseQualityGatesTab.png"/></p>
+</li>
+<li>
+<p>Copy BUILT-IN Sonar way quality gate</p>
+<ol>
+<li>
+<p>Choose to copy the gate 
+    <img alt="Quality Gate Sonar Way Copy" src="../../images/DevSecOps/CopySonarWayQualityGate.png"/></p>
+</li>
+<li>
+<p>Choose a name for your new gate
+    <img alt="Name Quality Gate" src="../../images/DevSecOps/ConfirmCopyQualityGate.png"/></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Add conditions for <code>Overall Code</code></p>
+<p><img alt="Name Quality Gate" src="../../images/DevSecOps/QualityGateOverallCode.png"/></p>
+<ol>
+<li>
+<p>Click <code>Add Condition</code> for each Condition in the image above (the same ones used for <code>New Code</code>).</p>
+</li>
+<li>
+<p>Create each condition for <code>Overall Code</code> to match the image above.</p>
+</li>
+<li>
+<p>Click <code>Set as Default</code> to set the <code>PetClinic Quality Gate</code> as the default quality gate so that it will be used for the new projects created by users in the <a href="../devsecops/">SonarQube section</a> of the lab.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="summary"><span class="enumerate-heading-plugin">15.7</span> Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>You have set up a SonarQube and are now ready to enjoy the <a href="../devsecops/">SonarQube section</a> of the lab using your own SonarQube server. Congratulations!!!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use the URL you used to access the SonarQube server as your SonarQube url in the <a href="../devsecops/">SonarQube section</a>.</p>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: 14. Environment Cleanup" class="md-footer__link md-footer__link--prev" href="../../cleanup/full-cleanup/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              14. Environment Cleanup
+            </div>
+</div>
+</a>
+<a aria-label="Next: REFERENCE 2. Setting up PetClinic OpenShift Pipeline using yaml files" class="md-footer__link md-footer__link--next" href="../../yamlsetup/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              REFERENCE 2. Setting up PetClinic OpenShift Pipeline using yaml files
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="https://github.com/ibm-wsc" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://hub.docker.com/u/s390x" rel="noopener" target="_blank" title="hub.docker.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+<script src="../../js/print-site-instant-loading.js"></script>
+<script src="../../js/print-site.js"></script>
+</body>
+</html>

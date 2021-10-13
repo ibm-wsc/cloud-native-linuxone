@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://ibm-wsc.github.io/cloud-native-linuxone/introduction/" rel="canonical"/>
 <link href="../images/pipelines-logo.png" rel="icon"/>
-<meta content="mkdocs-1.2, mkdocs-material-7.1.7" name="generator"/>
+<meta content="mkdocs-1.2.3, mkdocs-material-7.1.7" name="generator"/>
 <title>2. Introduction - Cloud Native LinuxONE Workshop</title>
 <link href="../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
@@ -16,8 +16,6 @@
 <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
 <link href="../css/print-site.css" rel="stylesheet"/>
 <link href="../css/print-site-material.css" rel="stylesheet"/>
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-174658170-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
 </head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="preference" dir="ltr">
 <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
@@ -151,18 +149,23 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#architecture-overview">2.1.2 
+<a class="md-nav__link" href="#bonus-part">2.1.2 
+    Bonus Part
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture-overview">2.1.3 
     Architecture Overview
   </a>
 <nav aria-label="Architecture Overview" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#define-your-pipeline-flow-orange-lines-in-picture-above">2.1.2.1 
+<a class="md-nav__link" href="#define-your-pipeline-flow-orange-lines-in-picture-above">2.1.3.1 
     Define your Pipeline Flow (orange lines in picture above)
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#run-your-pipeline-flow-purple-lines-in-picture-above">2.1.2.2 
+<a class="md-nav__link" href="#run-your-pipeline-flow-purple-lines-in-picture-above">2.1.3.2 
     Run your Pipeline Flow (purple lines in picture above)
   </a>
 </li>
@@ -270,34 +273,49 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../devsecops/devsecops/">
+        13 [BONUS]. Add the "Sec" in "DevSecOps"
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7">
-        13. Cleanup
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        14. Cleanup
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="13. Cleanup" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_7">
+<nav aria-label="14. Cleanup" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-          13. Cleanup
+          14. Cleanup
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../cleanup/full-cleanup/">
-        13. Environment Cleanup
+        14. Environment Cleanup
       </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../devsecops/sonarqube/">
+        REFERENCE 1. Setting up SonarQube Server in OpenShift
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yamlsetup/">
+        REFERENCE 2. Setting up PetClinic OpenShift Pipeline using yaml files
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../resources/">
-        14. Other resources
+        Other resources
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../proposechange/">
-        15. Propose a change
+        Propose a change
       </a>
 </li>
 <li class="md-nav__item">
@@ -331,18 +349,23 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#architecture-overview">2.1.2 
+<a class="md-nav__link" href="#bonus-part">2.1.2 
+    Bonus Part
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture-overview">2.1.3 
     Architecture Overview
   </a>
 <nav aria-label="Architecture Overview" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#define-your-pipeline-flow-orange-lines-in-picture-above">2.1.2.1 
+<a class="md-nav__link" href="#define-your-pipeline-flow-orange-lines-in-picture-above">2.1.3.1 
     Define your Pipeline Flow (orange lines in picture above)
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#run-your-pipeline-flow-purple-lines-in-picture-above">2.1.2.2 
+<a class="md-nav__link" href="#run-your-pipeline-flow-purple-lines-in-picture-above">2.1.3.2 
     Run your Pipeline Flow (purple lines in picture above)
   </a>
 </li>
@@ -367,7 +390,7 @@
 <h2 id="lab-overview"><span class="enumerate-heading-plugin">2.1</span> Lab Overview<a class="headerlink" href="#lab-overview" title="Permanent link">¶</a></h2>
 <p>You will set up a virtual pet clinic (based on the classic spring boot demo referenced in the main <a href="https://projects.spring.io/spring-petclinic/" rel="noopener noreferrer" target="_blank">documentation</a>) running on <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> using source code on GitHub and <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines to seamlessly update, test, and deploy your pet clinic.</p>
 <h3 id="lab-parts"><span class="enumerate-heading-plugin">2.1.1</span> Lab Parts<a class="headerlink" href="#lab-parts" title="Permanent link">¶</a></h3>
-<p>This lab is broken into three parts:</p>
+<p>This lab is broken into three main parts:</p>
 <ol>
 <li>
 <p>Building and deploying the PetClinic Java application with <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines</p>
@@ -379,13 +402,17 @@
 <p>Promoting PetClinic from development to staging with testing and GitHub integration (adding the C [continuous] in <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr>)</p>
 </li>
 </ol>
-<p>Throughout your journey across the three parts listed above, you will slowly construct the following architecture:</p>
-<h3 id="architecture-overview"><span class="enumerate-heading-plugin">2.1.2</span> Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">¶</a></h3>
+<h3 id="bonus-part"><span class="enumerate-heading-plugin">2.1.2</span> Bonus Part<a class="headerlink" href="#bonus-part" title="Permanent link">¶</a></h3>
+<ol>
+<li>Securing your pipeline with SonarQube to put the Sec in DevSecOps</li>
+</ol>
+<h3 id="architecture-overview"><span class="enumerate-heading-plugin">2.1.3</span> Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">¶</a></h3>
+<p>Throughout your journey across the three main parts listed above, you will slowly construct the following architecture:</p>
 <p><img alt="Cloud Native Workshop Architecture Overview" src="../images/IntroSection/CloudNativeArchitectureDiagram.png"/></p>
-<h4 id="define-your-pipeline-flow-orange-lines-in-picture-above"><span class="enumerate-heading-plugin">2.1.2.1</span> Define your Pipeline Flow (orange lines in picture above)<a class="headerlink" href="#define-your-pipeline-flow-orange-lines-in-picture-above" title="Permanent link">¶</a></h4>
+<h4 id="define-your-pipeline-flow-orange-lines-in-picture-above"><span class="enumerate-heading-plugin">2.1.3.1</span> Define your Pipeline Flow (orange lines in picture above)<a class="headerlink" href="#define-your-pipeline-flow-orange-lines-in-picture-above" title="Permanent link">¶</a></h4>
 <p>a. Interact with the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines <abbr title="user interface">UI</abbr> to define your pipeline and other <abbr title="a cloud native (Kubernetes based) open-source framework for creating CI/CD systems. It serves as the base of OpenShift Pipelines, allowing developers to build, test, and deploy across cloud providers and on-premise systems">Tekton</abbr> components.</p>
 <p>b. <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines <abbr title="user interface">UI</abbr> creates the resources you defined in your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> project</p>
-<h4 id="run-your-pipeline-flow-purple-lines-in-picture-above"><span class="enumerate-heading-plugin">2.1.2.2</span> Run your Pipeline Flow (purple lines in picture above)<a class="headerlink" href="#run-your-pipeline-flow-purple-lines-in-picture-above" title="Permanent link">¶</a></h4>
+<h4 id="run-your-pipeline-flow-purple-lines-in-picture-above"><span class="enumerate-heading-plugin">2.1.3.2</span> Run your Pipeline Flow (purple lines in picture above)<a class="headerlink" href="#run-your-pipeline-flow-purple-lines-in-picture-above" title="Permanent link">¶</a></h4>
 <ol>
 <li><abbr title="updates the remote branch with local commits. You can also think of git push as update or publish.">git push</abbr> changes to your code to to GitHub</li>
 <li>The GitHub <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> sends a push event to the <abbr title="(EventListener) is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads.">event listener</abbr> URL</li>
