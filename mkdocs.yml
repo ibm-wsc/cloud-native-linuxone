@@ -38,9 +38,9 @@ extra:
       link: https://github.com/ibm-wsc
     - icon: fontawesome/brands/docker
       link: https://hub.docker.com/u/s390x
-google_analytics:
-  - UA-174658170-3
-  - auto
+  analytics:
+    provider: google
+    property: UA-174658170-3
 markdown_extensions:
   - abbr
   - admonition

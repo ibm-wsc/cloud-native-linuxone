@@ -2,9 +2,12 @@
 
 ## Sign up for necessary accounts
 
-1. Get a 2nd OpenShift cluster trial (in addition to the one you got for the regular lab, using a different email)
+1. Get a 2nd OpenShift cluster trial (in addition to the one you got for the regular lab, using a different email) [here](https://linuxone.cloud.marist.edu/#/register?flag=OCP){target="_blank" rel="noopener noreferrer"}.
 
-2. Sign up for IBM Z Container Registry trial
+    !!! note
+        Within 48 hours after you register, be sure to "Activate your account or entitlement" following the instructions in the follow-on email sent to the email address you specified during registration.
+
+2. Sign up for IBM Z Container Registry trial using [this link](https://epwt-www.mybluemix.net/software/support/trial/cst/programwebsite.wss?siteId=1208&tabId=3216&p=null&h=null){target="_blank" rel="noopener noreferrer"}.
 
 ## Access OpenShift Cluster
 
@@ -76,7 +79,7 @@
         persistentvolumeclaim/sonarqube-data created
         ```
 
-## Access and Setup SonarQube Server
+## Access SonarQube server
 
 1. Wait for the SonarQube server to come up and then access it at its route you can find the route via the oc command line tool in your logged in namespace using:
 
@@ -87,6 +90,54 @@
     !!! note
         You can also use the user interface (UI) of your project.
 
-2. Change the admin password for your SonarQube server
+2. Log into SonarQube server with default username/password of `admin`/`admin`
 
-3. Add new quality gate for new code and overall code and make it the default quality gate for your SonarQube server
+## Change Admin password
+
+1. Access your account settings
+
+    ![Go to account settings](../images/DevSecOps/GoToAccount.png)
+
+    1. Click the `A` icon in the upper right hand corner
+
+    2. Choose `My Account` from the droopdown menu
+
+2. Change admin password 
+
+    ![Change Admin Password](../images/DevSecOps/ChangePasswordAdmin.png)
+
+    1. Choose the `Security` tab at the top of the page
+
+    2. Enter your old password of `admin` and choose + confirm a new password 
+
+    3. Click `Change Password`
+
+## Create PetClinic Default SonarQube Quality Gate
+
+1. Go to the `Quality Gates` tab.
+
+    ![Quality Gates Tab](../images/DevSecOps/ChooseQualityGatesTab.png)
+
+2. Copy BUILT-IN Sonar way quality gate
+
+    1. Choose to copy the gate 
+        ![Quality Gate Sonar Way Copy](../images/DevSecOps/CopySonarWayQualityGate.png)
+
+    2. Choose a name for your new gate
+        ![Name Quality Gate](../images/DevSecOps/ConfirmCopyQualityGate.png)
+
+3. Add conditions for `Overall Code`
+
+    ![Name Quality Gate](../images/DevSecOps/QualityGateOverallCode.png)
+
+    1. Click `Add Condition` for each Condition in the image above (the same ones used for `New Code`).
+
+    2. Create each condition for `Overall Code` to match the image above.
+
+    3. Click `Set as Default` to set the `PetClinic Quality Gate` as the default quality gate so that it will be used for the new projects created by users in the [SonarQube section](devsecops.md) of the lab.
+
+## Summary
+You have set up a SonarQube and are now ready to enjoy the [SonarQube section](devsecops.md) of the lab using your own SonarQube server. Congratulations!!!
+
+!!! note
+    Use the URL you used to access the SonarQube server as your SonarQube url in the [SonarQube section](devsecops.md).
