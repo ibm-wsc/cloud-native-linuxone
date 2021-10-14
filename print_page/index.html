@@ -2020,7 +2020,7 @@ data:
 </div>
 </li>
 <li>
-<p>Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server, <b>be careful to substitute the <code>-Dsonar.login</code> goal with the token that you generated in the previous step. Also be mindful to put your name in the value of the <code>Dsonar.projectName</code> goal.</b> </p>
+<p>Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server, <b>be careful to substitute the <code>-Dsonar.login</code> goal with the token that you generated in the previous step. Also be mindful to put your name in the value of the <code>Dsonar.projectName</code> and <code>`Dsonar.projectKey</code> goals.</b> </p>
 <p><img alt="codeanalysistask" src="../images/DevSecOps/codeanalysistask.png" /></p>
 <p><strong>Display Name</strong></p>
 <div class="highlight"><pre><span></span><code>code-analysis
@@ -2038,6 +2038,8 @@ data:
 <div class="highlight"><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>https://sonarqube-1633551248720.apps.cloudnative.marist.edu
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>-Dsonar.projectName<span class="o">=</span>petclinic-&lt;your-name&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>-Dsonar.projectKey<span class="o">=</span>petclinic-&lt;your-name&gt;
 </code></pre></div></p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
