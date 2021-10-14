@@ -95,7 +95,7 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
     !!! tip
         Once you add a specific task (i.e. `maven`), clicking on the oval of the task will enable you to edit its default values for your needs.
 
-2. Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server, <b>be careful to substitute the `-Dsonar.login` goal with the token that you generated in the previous step. Also be mindful to put your name in the value of the `Dsonar.projectName` goal.</b> 
+2. Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server, <b>be careful to substitute the `-Dsonar.login` goal with the token that you generated in the previous step. Also be mindful to put your name in the value of the `Dsonar.projectName` and ``Dsonar.projectKey` goals.</b> 
 
     ![codeanalysistask](../images/DevSecOps/codeanalysistask.png)
 
@@ -126,6 +126,9 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
     ``` 
     ``` bash
     -Dsonar.projectName=petclinic-<your-name>
+    ```
+    ``` bash
+    -Dsonar.projectKey=petclinic-<your-name>
     ```
 
     !!! caution
