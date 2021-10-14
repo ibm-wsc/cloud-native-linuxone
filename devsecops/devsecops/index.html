@@ -506,7 +506,7 @@ data:
 <div class="highlight"><pre><span></span><code>maven:3.8.1-jdk-11-openj9
 </code></pre></div></p>
 <p><strong>GOALS</strong></p>
-<p><div class="highlight"><pre><span></span><code>install
+<p><div class="highlight"><pre><span></span><code>package
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sonar:sonar
 </code></pre></div>
@@ -529,13 +529,17 @@ data:
 </li>
 <li>
 <p>Now we will need to add our pipeline workspaces to this task.</p>
-<p>a. Switch to <code>YAML</code> from pipeline menu.</p>
+<ol>
+<li>
+<p>Switch to <code>YAML</code> from pipeline menu.</p>
 <p><img alt="Switch to yaml" src="../../images/Part1/SwitchYaml.png"/></p>
 <div class="admonition question">
 <p class="admonition-title">Why are you editing yaml directly?</p>
 <p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.</p>
 </div>
-<p>b. Find the <code>code-analysis</code> task and add the following workspace definition:</p>
+</li>
+<li>
+<p>Find the <code>code-analysis</code> task and add the following workspace definition:</p>
 <div class="highlight"><pre><span></span><code>      workspaces:
         - name: source
           workspace: workspace
@@ -552,7 +556,9 @@ data:
 </ol>
 <p><img alt="Code Analysis Task Add Workspace" src="../../images/DevSecOps/AddWorkspaceCodeTask.png"/></p>
 </div>
-<p>c. Add <code>maven-settings</code> to the list of pipeline workspaces</p>
+</li>
+<li>
+<p>Add <code>maven-settings</code> to the list of pipeline workspaces</p>
 <ol>
 <li>
 <p>Scroll down to the very bottom of the pipeline yaml file where you can find the workspaces for the pipeline defined.</p>
@@ -564,13 +570,15 @@ data:
 </li>
 <li>
 <p>Save the pipeline</p>
+<p><img alt="Add Maven Settings Workspace" src="../../images/DevSecOps/AddMavenSettingsWorkspace.png"/></p>
 </li>
 </ol>
-<p><img alt="Add Maven Settings Workspace" src="../../images/DevSecOps/AddMavenSettingsWorkspace.png"/></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>After the save message appears you can then proceed to <code>Cancel</code> back to the pipeline menu.</p>
 </div>
+</li>
+</ol>
 </li>
 </ol>
 <h2 id="run-the-pipeline"><span class="enumerate-heading-plugin">13.5</span> Run the pipeline<a class="headerlink" href="#run-the-pipeline" title="Permanent link">¶</a></h2>
