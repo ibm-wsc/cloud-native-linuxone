@@ -60,9 +60,6 @@ This will bring you to the Pipeline Builder UI where you can edit your pipeline.
     !!! question "What is `oc process` doing?"
         `oc process` is processing the [OpenShift template](https://docs.openshift.com/container-platform/4.7/openshift_images/using-templates.html#templates-overview_using-templates){target="_blank" rel="noopener noreferrer"} for the `mysql-ephemeral` database with the parameters given via a series of `-p` arguments and finally `oc apply -f -` ensures that any missing components will be recreated.
 
-    !!! warning "No help please!"
-        Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). 
-
 2. Add a `mysql-rollout-wait` task
 
     You need to make sure that `mysql` is fully deployed before your `build` task begins. In order to achieve this, you will use the OpenShift Client again and wait for the `rollout` of the `mysql` `deploymentConfig` to complete after the `mysql-deploy` task. Add a sequential task after `mysql-deploy`:
@@ -79,29 +76,15 @@ This will bring you to the Pipeline Builder UI where you can edit your pipeline.
     mysql-rollout-wait
     ```
 
-    **ARGS**
+    **SCRIPT**
 
     ``` bash
-    rollout
-    ```
-    
-    ``` bash
-    status
+    oc rollout status dc/mysql
     ```
 
-    ``` bash
-    dc/mysql
-    ```
+3. Save the parameters when you are done with entry by clicking on blue `Save` box.
 
-    !!! warning "No help please!"
-        Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running).
-
-    !!! question "What the ARGS?"
-        You may be wondering why you used the `SCRIPT` section in the `mysql-deploy` task for the entire command, but now are using the `ARGS` to individually list each argument of the command? Both work and so you are going through both methods here. On the one hand, the `SCRIPT` method is easier to copy and paste and looks the same as it would entered on the command line. On the other hand, the `ARGS` method adds readability to the task. Choose whichever method you prefer, though beware of input errors  with the `ARGS` method for long commands. _FYI: The equivalent `SCRIPT` command for the `mysql-rollout-wait` task is_:
-
-        ``` bash
-        oc rollout status dc/mysql
-        ```
+    ![Save pipeline](../images/Part1/savepipeline.png)
 
 :tada: Now your `mysql-deploy` and `mysql-rollout` tasks will have `MySQL` alive and well for the `build` task!
 
@@ -122,30 +105,37 @@ The `s2i-java-11` container image is very convenient for making a container imag
 
     ![Buildah Task Values](../images/Part1/ProducingCleanImageBuildah2.png)
 
-    DISPLAY NAME:
+    **DISPLAY NAME:**
     ```
     clean-image
     ```
 
-    IMAGE:
+    **IMAGE:**
     ```
     $(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
     ```
 
-    DOCKERFILE:
+    **DOCKERFILE:**
     ```
     ./final-Dockerfile
     ```
 
-    TLSVERIFY:
+    **TLSVERIFY:**
     ```
     false
     ```
 
-    BUILD_EXTRA_ARGS:
+    **BUILD_EXTRA_ARGS:**
     ```
     --build-arg PETCLINIC_S2I_IMAGE=$(params.IMAGE_NAME)
     ```
+
+    **source:**
+    ```
+    workspace
+    ```
+    !!! Tip
+        You choose the workspace (in this case `workspace`) from a dropdown menu
 
 3. Add `GIT_MESSAGE`, and `COMMIT_SHA` parameters to the pipeline
 
@@ -187,41 +177,8 @@ The `s2i-java-11` container image is very convenient for making a container imag
     manual
     ```
 
-    !!! Tip
-        Save the parameters when you are done with entry by clicking on blue `Save` box before moving onto step 4. If blue `Save` box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the `-`.
-
-4. Add workspace to `clean-image` task 
-
-    1. `Save` the current pipeline edit and switch to `YAML` from pipeline menu.
-
-        ![Switch to yaml](../images/Part1/SwitchYaml.png)
-
-        !!! question "Why are you editing yaml directly?"
-            `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
-
-    2. Find the `clean-image` task and add the following workspace definition:
-
-        ``` yaml
-              workspaces:
-              - name: source
-                workspace: workspace
-        ```
-
-        !!! question "How can you easily find the `clean-image` task and add the workspace definition?"
-            You can click on the black yaml box and then use your find keyboard shortcut (`ctrl+f` for Windows / `command+f` for mac) to bring up a find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
-            ``` bash
-            name: clean-image
-            ```
-            Paste the workspace definition under the highlighted line as shown in the image below.
-
-        ![Clean Image Workspace](../images/Part1/AddWorspaceProducingCleanImage.png)
-
-    3. `Save` the update
-
-        ![Save Pipeline Edit Yaml](../images/Part1/PipelineUpdatedYaml.png)
-
-        !!! note
-            After the save message above appears you can then proceed to `Cancel` back to the pipeline menu.
+    !!! Tip 
+        Remember to save the parameters when you are done with entry by clicking on blue `Save` box (as in the bottom of the image above).
 
 ## Summary :waxing_crescent_moon:
 Your pipeline will now automatically check that your `MySQL` instance is configured properly and rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (`minimal`) container image to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your container image. Finally, it will tag the container image to distinguish between manual builds and those triggered by a potential git push. In the next section, you will see this automation in action for your development environment.
