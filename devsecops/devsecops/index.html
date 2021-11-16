@@ -258,23 +258,28 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#run-the-pipeline">13.5 
+<a class="md-nav__link" href="#add-the-new-maven-settings-workspace-to-the-triggertemplate">13.5 
+    Add the new maven-settings workspace to the TriggerTemplate
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-the-pipeline">13.6 
     Run the pipeline
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#analyzing-the-failure-in-sonarqube">13.6 
+<a class="md-nav__link" href="#analyzing-the-failure-in-sonarqube">13.7 
     Analyzing the Failure in SonarQube
   </a>
 <nav aria-label="Analyzing the Failure in SonarQube" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#view-your-project">13.6.1 
+<a class="md-nav__link" href="#view-your-project">13.7.1 
     View your project
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#check-what-caused-the-failure">13.6.2 
+<a class="md-nav__link" href="#check-what-caused-the-failure">13.7.2 
     Check what caused the failure
   </a>
 </li>
@@ -282,17 +287,17 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#update-petclinic-to-fix-the-issues-that-came-up-in-the-sonarqube-scan">13.7 
+<a class="md-nav__link" href="#update-petclinic-to-fix-the-issues-that-came-up-in-the-sonarqube-scan">13.8 
     Update PetClinic to fix the issues that came up in the SonarQube scan
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#verify-that-vulnerabilities-in-petclinic-have-been-patched">13.8 
+<a class="md-nav__link" href="#verify-that-vulnerabilities-in-petclinic-have-been-patched">13.9 
     Verify that vulnerabilities in petclinic have been patched
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#summary">13.9 
+<a class="md-nav__link" href="#summary">13.10 
     Summary
   </a>
 </li>
@@ -379,23 +384,28 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#run-the-pipeline">13.5 
+<a class="md-nav__link" href="#add-the-new-maven-settings-workspace-to-the-triggertemplate">13.5 
+    Add the new maven-settings workspace to the TriggerTemplate
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-the-pipeline">13.6 
     Run the pipeline
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#analyzing-the-failure-in-sonarqube">13.6 
+<a class="md-nav__link" href="#analyzing-the-failure-in-sonarqube">13.7 
     Analyzing the Failure in SonarQube
   </a>
 <nav aria-label="Analyzing the Failure in SonarQube" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#view-your-project">13.6.1 
+<a class="md-nav__link" href="#view-your-project">13.7.1 
     View your project
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#check-what-caused-the-failure">13.6.2 
+<a class="md-nav__link" href="#check-what-caused-the-failure">13.7.2 
     Check what caused the failure
   </a>
 </li>
@@ -403,17 +413,17 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#update-petclinic-to-fix-the-issues-that-came-up-in-the-sonarqube-scan">13.7 
+<a class="md-nav__link" href="#update-petclinic-to-fix-the-issues-that-came-up-in-the-sonarqube-scan">13.8 
     Update PetClinic to fix the issues that came up in the SonarQube scan
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#verify-that-vulnerabilities-in-petclinic-have-been-patched">13.8 
+<a class="md-nav__link" href="#verify-that-vulnerabilities-in-petclinic-have-been-patched">13.9 
     Verify that vulnerabilities in petclinic have been patched
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#summary">13.9 
+<a class="md-nav__link" href="#summary">13.10 
     Summary
   </a>
 </li>
@@ -433,7 +443,7 @@
 <p>For Petclinic, we will be using SonarScanner for Maven. The ability to execute the SonarQube analysis via a regular Maven goal makes it available anywhere Maven is available (developer build, CI server, etc.), without the need to manually download, setup, and maintain a SonarQube Runner installation. For more information on SonarScanner for Maven, please see <a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/" rel="noopener noreferrer" target="_blank">here</a>.</p>
 <h2 id="accessing-the-sonarqube-server-with-your-assigned-credentials"><span class="enumerate-heading-plugin">13.1</span> Accessing the SonarQube server with your assigned credentials<a class="headerlink" href="#accessing-the-sonarqube-server-with-your-assigned-credentials" title="Permanent link">¶</a></h2>
 <p>The lab instructors have already setup a SonarQube server within the OpenShift cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.</p>
-<p>Access the SonarQube server <a href="https://sonarqube-1633551248720.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a></p>
+<p>Access the SonarQube server <a href="https://sonarqube-1637004968927.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a></p>
 <p>Select <code>Log in</code> in the upper right hand corner. And log in with your assigned credentials.</p>
 <p>If you are not successful with this step, please let the instructor know.</p>
 <h2 id="generate-a-security-token-for-your-sonarqube-account"><span class="enumerate-heading-plugin">13.2</span> Generate a security token for your SonarQube account<a class="headerlink" href="#generate-a-security-token-for-your-sonarqube-account" title="Permanent link">¶</a></h2>
@@ -512,7 +522,7 @@ data:
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>-Dsonar.login<span class="o">=</span>&lt;use-your-token-from-previous-step&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>https://sonarqube-1633551248720.apps.cloudnative.marist.edu
+<div class="highlight"><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>https://sonarqube-1637004968927.apps.cloudnative.marist.edu
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>-Dsonar.projectName<span class="o">=</span>petclinic-&lt;your-name&gt;
 </code></pre></div>
@@ -583,7 +593,42 @@ data:
 </ol>
 </li>
 </ol>
-<h2 id="run-the-pipeline"><span class="enumerate-heading-plugin">13.5</span> Run the pipeline<a class="headerlink" href="#run-the-pipeline" title="Permanent link">¶</a></h2>
+<h2 id="add-the-new-maven-settings-workspace-to-the-triggertemplate"><span class="enumerate-heading-plugin">13.5</span> Add the new <code>maven-settings</code> workspace to the TriggerTemplate<a class="headerlink" href="#add-the-new-maven-settings-workspace-to-the-triggertemplate" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p>Go to the <strong>TriggerTemplates</strong> section of your pipeline and click the link to take you to your pipeline's <code>TriggerTemplate</code></p>
+<p><img alt="Click on TriggerTemplate" src="../../images/DevSecOps/ClickTriggerTemplate.png"/></p>
+</li>
+<li>
+<p>Edit the <code>TriggerTemplate</code></p>
+<ol>
+<li>Click Actions</li>
+<li>Choose <code>Edit TriggerTemplate</code> from the dropdown menu</li>
+</ol>
+<p><img alt="Edit Trigger Template" src="../../images/DevSecOps/EditTriggerTemplate.png"/></p>
+</li>
+<li>
+<p>Add the workspace to the <code>workspaces</code> section of the TriggerTemplate.</p>
+<ol>
+<li>
+<p>Add the following code to the <code>workspaces</code> section</p>
+<div class="highlight"><pre><span></span><code>          - name: maven-settings
+            configMap:
+              name: maven-settings
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Take care to match the indentation in the picture below</p>
+</div>
+</li>
+<li>
+<p>Click <code>Save</code> to apply your changes</p>
+</li>
+</ol>
+<p><img alt="Add Workspace to triggertemplate" src="../../images/DevSecOps/AddWorkspaceToTriggerTemplate.png"/></p>
+</li>
+</ol>
+<h2 id="run-the-pipeline"><span class="enumerate-heading-plugin">13.6</span> Run the pipeline<a class="headerlink" href="#run-the-pipeline" title="Permanent link">¶</a></h2>
 <p>Go to the Actions menu of your pipeline and select Start.</p>
 <p><img alt="startpipeline" src="../../images/DevSecOps/startpipelinerun.png"/></p>
 <p>Hit Start after reviewing the settings panel and making sure to set the options for the <code>maven-settings</code> workspace (select <code>configmap</code> as the resource choice and <code>maven-settings</code> as the specific configmap to use as in the image below).</p>
@@ -593,9 +638,9 @@ data:
 <p>Let's see if our code passes the code analysis...</p>
 <p><img alt="codeanalysisfail" src="../../images/DevSecOps/codeanalysisfail.png"/></p>
 <p>It fails <img alt="😞" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f61e.svg" title=":disappointed:"/>. Next, we are going to see why it failed.</p>
-<h2 id="analyzing-the-failure-in-sonarqube"><span class="enumerate-heading-plugin">13.6</span> Analyzing the Failure in SonarQube<a class="headerlink" href="#analyzing-the-failure-in-sonarqube" title="Permanent link">¶</a></h2>
-<h3 id="view-your-project"><span class="enumerate-heading-plugin">13.6.1</span> View your project<a class="headerlink" href="#view-your-project" title="Permanent link">¶</a></h3>
-<p>At this point please return to the SonarQube server <a href="https://sonarqube-1633551248720.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a>, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:</p>
+<h2 id="analyzing-the-failure-in-sonarqube"><span class="enumerate-heading-plugin">13.7</span> Analyzing the Failure in SonarQube<a class="headerlink" href="#analyzing-the-failure-in-sonarqube" title="Permanent link">¶</a></h2>
+<h3 id="view-your-project"><span class="enumerate-heading-plugin">13.7.1</span> View your project<a class="headerlink" href="#view-your-project" title="Permanent link">¶</a></h3>
+<p>At this point please return to the SonarQube server <a href="https://sonarqube-1637004968927.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a>, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:</p>
 <p><img alt="SonarProject View Fail" src="../../images/DevSecOps/FindPetclinicSonar.png"/></p>
 <ol>
 <li>
@@ -605,7 +650,7 @@ data:
 <p>Click on your project (which should have a <code>Failed</code> label)</p>
 </li>
 </ol>
-<h3 id="check-what-caused-the-failure"><span class="enumerate-heading-plugin">13.6.2</span> Check what caused the failure<a class="headerlink" href="#check-what-caused-the-failure" title="Permanent link">¶</a></h3>
+<h3 id="check-what-caused-the-failure"><span class="enumerate-heading-plugin">13.7.2</span> Check what caused the failure<a class="headerlink" href="#check-what-caused-the-failure" title="Permanent link">¶</a></h3>
 <p><img alt="Failure Check" src="../../images/DevSecOps/CheckFailureReason.png"/></p>
 <p>You can see that the overall code check failed due to a security rating worse than A. You should see 9 vulnerabilities that caused this failure. In order to check what these are, please click on the vulnerabilities link as shown in the image.</p>
 <p><img alt="Vulnerabilities" src="../../images/DevSecOps/VulnerabilityOverview.png"/></p>
@@ -617,7 +662,7 @@ data:
 <p>Read the vulnerability descriptions to see why they are a problem and get insights into fixing them in the code.</p>
 </li>
 </ol>
-<h2 id="update-petclinic-to-fix-the-issues-that-came-up-in-the-sonarqube-scan"><span class="enumerate-heading-plugin">13.7</span> Update PetClinic to fix the issues that came up in the SonarQube scan<a class="headerlink" href="#update-petclinic-to-fix-the-issues-that-came-up-in-the-sonarqube-scan" title="Permanent link">¶</a></h2>
+<h2 id="update-petclinic-to-fix-the-issues-that-came-up-in-the-sonarqube-scan"><span class="enumerate-heading-plugin">13.8</span> Update PetClinic to fix the issues that came up in the SonarQube scan<a class="headerlink" href="#update-petclinic-to-fix-the-issues-that-came-up-in-the-sonarqube-scan" title="Permanent link">¶</a></h2>
 <p>In the scan, there were various security issues related to the use of entity objects for data transfer instead of data transfer objects (DTOs) when using @RequestMapping and similar methods. In order to fix these, you will have to make changes to the java code for the application. Luckily for you, the changes have already been made on the <code>security-fixes</code> branch of the project. In order to bring these changes to the main branch you will need to make a pul request and merge the <code>security-fixes</code> branch into the main branch. </p>
 <p>You can do this with the following actions:</p>
 <ol>
@@ -657,12 +702,14 @@ data:
 <p>Write a justification for your pull request and confirm again that you want to create it</p>
 <p><img alt="Create pull request for real" src="../../images/DevSecOps/CreatePullRequestForReal.png"/></p>
 <ol>
-<li>Write a justification such as </li>
-</ol>
-<div class="highlight"><pre><span></span><code>Create fixes for all of the security vulnerabilities that showed up in the SonarQube scan.
-</code></pre></div>
-<ol>
-<li>Click <code>Create pull request</code></li>
+<li>
+<p>Write a justification such as 
+  <div class="highlight"><pre><span></span><code>Create fixes <span class="k">for</span> all of the security vulnerabilities that showed up <span class="k">in</span> the SonarQube scan.
+</code></pre></div></p>
+</li>
+<li>
+<p>Click <code>Create pull request</code></p>
+</li>
 </ol>
 </li>
 <li>
@@ -686,7 +733,7 @@ data:
 </ol>
 </li>
 </ol>
-<h2 id="verify-that-vulnerabilities-in-petclinic-have-been-patched"><span class="enumerate-heading-plugin">13.8</span> Verify that vulnerabilities in petclinic have been patched<a class="headerlink" href="#verify-that-vulnerabilities-in-petclinic-have-been-patched" title="Permanent link">¶</a></h2>
+<h2 id="verify-that-vulnerabilities-in-petclinic-have-been-patched"><span class="enumerate-heading-plugin">13.9</span> Verify that vulnerabilities in petclinic have been patched<a class="headerlink" href="#verify-that-vulnerabilities-in-petclinic-have-been-patched" title="Permanent link">¶</a></h2>
 <ol>
 <li>
 <p>See a new pipeline triggered back in the <code>Pipelines</code> view of your OpenShift namespace.</p>
@@ -701,7 +748,7 @@ data:
 </div>
 </li>
 <li>
-<p>View the <a href="https://sonarqube-1633551248720.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">SonarQube server</a> again to see the updated results for your project (based on the latest scan)</p>
+<p>View the <a href="https://sonarqube-1637004968927.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">SonarQube server</a> again to see the updated results for your project (based on the latest scan)</p>
 <ol>
 <li>
 <p>See your project passes and click on it for full results</p>
@@ -719,8 +766,8 @@ data:
 </ol>
 </li>
 </ol>
-<h2 id="summary"><span class="enumerate-heading-plugin">13.9</span> Summary <img alt="🔭" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f52d.svg" title=":telescope:"/><a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
-<p>In this section, you started on your DevSecOps journey by integrating SonarQube security scanning into your DevOps pipeline. Initially, the scan flagged several security vulnerabilities, causing the pipeline to fail before the vulnerable code could get packaged into a container. Next, you were able to dig into the vulnerabilities and figure out what needed to be changed with the SonarQube report. Then, you applied a security patch, eliminating the flagged security vulnerabilities in the PetClinic application. Finally, your pipeline succeeded and secure code was packaged into a container and deployed and the pipeline set up to catch any new security vulnerabilities as soon as they appear. Congratulations!</p>
+<h2 id="summary"><span class="enumerate-heading-plugin">13.10</span> Summary <img alt="🔭" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f52d.svg" title=":telescope:"/><a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>In this section, you started on your DevSecOps journey by integrating SonarQube security scanning into your DevOps pipeline. Initially, the scan flagged several security vulnerabilities, causing the pipeline to fail before the vulnerable code could get packaged into a container. Next, you were able to dig into the vulnerabilities and figure out what needed to be changed with the SonarQube report. Then, you applied a security patch, eliminating the flagged security vulnerabilities in the PetClinic application. With these changes, your pipeline succeeded having containerized and deployed secure code. Finally, you are left with a pipeline set up to catch any new security vulnerabilities as soon as they appear. Congratulations!</p>
 </article>
 </div>
 </div>

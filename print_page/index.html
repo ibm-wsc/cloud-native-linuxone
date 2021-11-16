@@ -602,15 +602,26 @@
 <h2 id="index-agenda">Agenda<a class="headerlink" href="#index-agenda" title="Permanent link">&para;</a></h2>
 <h3 id="index-introductory-presentations">Introductory Presentations<a class="headerlink" href="#index-introductory-presentations" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../presentations/Kubernetes_Openshift_Introduction.pdf">Introduction to <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> and <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr></a></li>
-<li><a href="../presentations/cloud_native_devops_introduction.pdf">Introduction to Cloud Native <abbr title="methodology that accelerates delivery and improves quality of software through automation (CI/CD) that eliminates the friction between software development and IT operations">DevOps</abbr></a></li>
+<li>12:00 - 12:30pm ET - <a href="../presentations/Kubernetes_Openshift_Introduction.pdf">Introduction to <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> and <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr></a></li>
+<li>12:30 - 01:00pm - <a href="../presentations/cloud_native_devops_introduction.pdf">Introduction to Cloud Native <abbr title="methodology that accelerates delivery and improves quality of software through automation (CI/CD) that eliminates the friction between software development and IT operations">DevOps</abbr></a></li>
 </ul>
 <h3 id="index-lab-build-and-deploy-a-cloud-native-devops-pipeline-in-openshift-on-ibm-z-and-linuxone">Lab: Build and Deploy a Cloud Native <abbr title="methodology that accelerates delivery and improves quality of software through automation (CI/CD) that eliminates the friction between software development and IT operations">DevOps</abbr> Pipeline in <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> on IBM Z and <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr><a class="headerlink" href="#index-lab-build-and-deploy-a-cloud-native-devops-pipeline-in-openshift-on-ibm-z-and-linuxone" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="#introduction">Introduction to Cloud Native Workshop</a></li>
+<li>1pm - 1:15pm - <a href="#introduction">Introduction to Cloud Native <abbr title="methodology that accelerates delivery and improves quality of software through automation (CI/CD) that eliminates the friction between software development and IT operations">DevOps</abbr> Pipeline Lab</a></li>
+<li>1:15pm - 4pm<ul>
 <li><a href="#build-and-deploy-build_overview">Deploy PetClinic via <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines</a></li>
 <li><a href="#full-dev-pipeline-configure_overview">Configure PetClinic's Integration and Deployment via <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines to Meet Your Organization's Needs</a><sup id="fnref:1"><a class="footnote-ref" href="#index-fn:1">1</a></sup></li>
 <li><a href="#application-promotion-promote_overview">Extend Pipeline to Upgrade from Development to Staging</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="index-introduction-to-rbac-and-container-registry-best-practices">Introduction to RBAC and Container Registry Best Practices<a class="headerlink" href="#index-introduction-to-rbac-and-container-registry-best-practices" title="Permanent link">&para;</a></h3>
+<ul>
+<li>4pm - 4:30pm - Introduction to RBAC and Container Registry Best Practices and Hands-On with RBAC</li>
+</ul>
+<h3 id="index-bonus-lab-adding-code-scanning-with-sonarqube-to-your-pipeline">BONUS lab: Adding code scanning with SonarQube to your Pipeline<a class="headerlink" href="#index-bonus-lab-adding-code-scanning-with-sonarqube-to-your-pipeline" title="Permanent link">&para;</a></h3>
+<ul>
+<li>4:30pm - 5pm - <a href="#devsecops-devsecops">Configure SonarQube code analysis in your Pipeline</a></li>
 </ul>
 <h2 id="index-acknowledgements">Acknowledgements<a class="headerlink" href="#index-acknowledgements" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1956,7 +1967,7 @@ Paste the workspace definition under the highlighted line as shown in the image 
 <p>For Petclinic, we will be using SonarScanner for Maven. The ability to execute the SonarQube analysis via a regular Maven goal makes it available anywhere Maven is available (developer build, CI server, etc.), without the need to manually download, setup, and maintain a SonarQube Runner installation. For more information on SonarScanner for Maven, please see <a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/" rel="noopener noreferrer" target="_blank">here</a>.</p>
 <h2 id="devsecops-devsecops-accessing-the-sonarqube-server-with-your-assigned-credentials">Accessing the SonarQube server with your assigned credentials<a class="headerlink" href="#devsecops-devsecops-accessing-the-sonarqube-server-with-your-assigned-credentials" title="Permanent link">&para;</a></h2>
 <p>The lab instructors have already setup a SonarQube server within the OpenShift cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.</p>
-<p>Access the SonarQube server <a href="https://sonarqube-1633551248720.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a></p>
+<p>Access the SonarQube server <a href="https://sonarqube-1637004968927.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a></p>
 <p>Select <code>Log in</code> in the upper right hand corner. And log in with your assigned credentials.</p>
 <p>If you are not successful with this step, please let the instructor know.</p>
 <h2 id="devsecops-devsecops-generate-a-security-token-for-your-sonarqube-account">Generate a security token for your SonarQube account<a class="headerlink" href="#devsecops-devsecops-generate-a-security-token-for-your-sonarqube-account" title="Permanent link">&para;</a></h2>
@@ -2035,7 +2046,7 @@ data:
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>-Dsonar.login<span class="o">=</span>&lt;use-your-token-from-previous-step&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>https://sonarqube-1633551248720.apps.cloudnative.marist.edu
+<div class="highlight"><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>https://sonarqube-1637004968927.apps.cloudnative.marist.edu
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>-Dsonar.projectName<span class="o">=</span>petclinic-&lt;your-name&gt;
 </code></pre></div>
@@ -2106,6 +2117,41 @@ data:
 </ol>
 </li>
 </ol>
+<h2 id="devsecops-devsecops-add-the-new-maven-settings-workspace-to-the-triggertemplate">Add the new <code>maven-settings</code> workspace to the TriggerTemplate<a class="headerlink" href="#devsecops-devsecops-add-the-new-maven-settings-workspace-to-the-triggertemplate" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Go to the <strong>TriggerTemplates</strong> section of your pipeline and click the link to take you to your pipeline's <code>TriggerTemplate</code></p>
+<p><img alt="Click on TriggerTemplate" src="../images/DevSecOps/ClickTriggerTemplate.png" /></p>
+</li>
+<li>
+<p>Edit the <code>TriggerTemplate</code></p>
+<ol>
+<li>Click Actions</li>
+<li>Choose <code>Edit TriggerTemplate</code> from the dropdown menu</li>
+</ol>
+<p><img alt="Edit Trigger Template" src="../images/DevSecOps/EditTriggerTemplate.png" /></p>
+</li>
+<li>
+<p>Add the workspace to the <code>workspaces</code> section of the TriggerTemplate.</p>
+<ol>
+<li>
+<p>Add the following code to the <code>workspaces</code> section</p>
+<div class="highlight"><pre><span></span><code>          - name: maven-settings
+            configMap:
+              name: maven-settings
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Take care to match the indentation in the picture below</p>
+</div>
+</li>
+<li>
+<p>Click <code>Save</code> to apply your changes</p>
+</li>
+</ol>
+<p><img alt="Add Workspace to triggertemplate" src="../images/DevSecOps/AddWorkspaceToTriggerTemplate.png" /></p>
+</li>
+</ol>
 <h2 id="devsecops-devsecops-run-the-pipeline">Run the pipeline<a class="headerlink" href="#devsecops-devsecops-run-the-pipeline" title="Permanent link">&para;</a></h2>
 <p>Go to the Actions menu of your pipeline and select Start.</p>
 <p><img alt="startpipeline" src="../images/DevSecOps/startpipelinerun.png" /></p>
@@ -2118,7 +2164,7 @@ data:
 <p>It fails <img alt="😞" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f61e.svg" title=":disappointed:" />. Next, we are going to see why it failed.</p>
 <h2 id="devsecops-devsecops-analyzing-the-failure-in-sonarqube">Analyzing the Failure in SonarQube<a class="headerlink" href="#devsecops-devsecops-analyzing-the-failure-in-sonarqube" title="Permanent link">&para;</a></h2>
 <h3 id="devsecops-devsecops-view-your-project">View your project<a class="headerlink" href="#devsecops-devsecops-view-your-project" title="Permanent link">&para;</a></h3>
-<p>At this point please return to the SonarQube server <a href="https://sonarqube-1633551248720.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a>, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:</p>
+<p>At this point please return to the SonarQube server <a href="https://sonarqube-1637004968927.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a>, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:</p>
 <p><img alt="SonarProject View Fail" src="../images/DevSecOps/FindPetclinicSonar.png" /></p>
 <ol>
 <li>
@@ -2180,12 +2226,14 @@ data:
 <p>Write a justification for your pull request and confirm again that you want to create it</p>
 <p><img alt="Create pull request for real" src="../images/DevSecOps/CreatePullRequestForReal.png" /></p>
 <ol>
-<li>Write a justification such as </li>
-</ol>
-<div class="highlight"><pre><span></span><code>Create fixes for all of the security vulnerabilities that showed up in the SonarQube scan.
-</code></pre></div>
-<ol>
-<li>Click <code>Create pull request</code></li>
+<li>
+<p>Write a justification such as 
+  <div class="highlight"><pre><span></span><code>Create fixes <span class="k">for</span> all of the security vulnerabilities that showed up <span class="k">in</span> the SonarQube scan.
+</code></pre></div></p>
+</li>
+<li>
+<p>Click <code>Create pull request</code></p>
+</li>
 </ol>
 </li>
 <li>
@@ -2224,7 +2272,7 @@ data:
 </div>
 </li>
 <li>
-<p>View the <a href="https://sonarqube-1633551248720.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">SonarQube server</a> again to see the updated results for your project (based on the latest scan)</p>
+<p>View the <a href="https://sonarqube-1637004968927.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">SonarQube server</a> again to see the updated results for your project (based on the latest scan)</p>
 <ol>
 <li>
 <p>See your project passes and click on it for full results</p>
@@ -2243,7 +2291,7 @@ data:
 </li>
 </ol>
 <h2 id="devsecops-devsecops-summary">Summary <img alt="🔭" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f52d.svg" title=":telescope:" /><a class="headerlink" href="#devsecops-devsecops-summary" title="Permanent link">&para;</a></h2>
-<p>In this section, you started on your DevSecOps journey by integrating SonarQube security scanning into your DevOps pipeline. Initially, the scan flagged several security vulnerabilities, causing the pipeline to fail before the vulnerable code could get packaged into a container. Next, you were able to dig into the vulnerabilities and figure out what needed to be changed with the SonarQube report. Then, you applied a security patch, eliminating the flagged security vulnerabilities in the PetClinic application. Finally, your pipeline succeeded and secure code was packaged into a container and deployed and the pipeline set up to catch any new security vulnerabilities as soon as they appear. Congratulations!</p></section><h1 class='nav-section-title'>14. Cleanup</h1><section class="print-page" id="cleanup-full-cleanup"><h1 id="cleanup-full-cleanup-environment-cleanup">Environment Cleanup<a class="headerlink" href="#cleanup-full-cleanup-environment-cleanup" title="Permanent link">&para;</a></h1>
+<p>In this section, you started on your DevSecOps journey by integrating SonarQube security scanning into your DevOps pipeline. Initially, the scan flagged several security vulnerabilities, causing the pipeline to fail before the vulnerable code could get packaged into a container. Next, you were able to dig into the vulnerabilities and figure out what needed to be changed with the SonarQube report. Then, you applied a security patch, eliminating the flagged security vulnerabilities in the PetClinic application. With these changes, your pipeline succeeded having containerized and deployed secure code. Finally, you are left with a pipeline set up to catch any new security vulnerabilities as soon as they appear. Congratulations!</p></section><h1 class='nav-section-title'>14. Cleanup</h1><section class="print-page" id="cleanup-full-cleanup"><h1 id="cleanup-full-cleanup-environment-cleanup">Environment Cleanup<a class="headerlink" href="#cleanup-full-cleanup-environment-cleanup" title="Permanent link">&para;</a></h1>
 <p>In this section you will clean up the different things you made during the lab in order to free up resources for other projects you intend to embark on in the community cloud as well as for other users of the environment.</p>
 <h2 id="cleanup-full-cleanup-pipelines-section-cleanup">Pipelines Section Cleanup<a class="headerlink" href="#cleanup-full-cleanup-pipelines-section-cleanup" title="Permanent link">&para;</a></h2>
 <p>From the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr>, please complete the following cleanup tasks:</p>
@@ -2306,6 +2354,118 @@ data:
 <p><img alt="Confirm Delete of MySQL DeploymentConfig" src="../images/Cleanup/ConfirmDeleteDeploymentConfigMySQL.png" /></p>
 </li>
 </ol>
+</li>
+</ol>
+<h2 id="cleanup-full-cleanup-delete-leftover-resources">Delete Leftover Resources<a class="headerlink" href="#cleanup-full-cleanup-delete-leftover-resources" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Click on the <code>Search</code> tab from the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> menu</p>
+<p><img alt="Search Tab" src="../images/Cleanup/ClickSearchTab.png" /></p>
+</li>
+<li>
+<p>Click on the <code>Resources</code> drop down menu</p>
+<p><img alt="Resources DropDown" src="../images/Cleanup/ClickResourceDropdown.png" /></p>
+</li>
+<li>
+<p>Check (click the checkbox) the following resources (you can search for them individually) </p>
+<ol>
+<li>
+<p>Secret</p>
+<div class="highlight"><pre><span></span><code>Secret
+</code></pre></div>
+</li>
+<li>
+<p>Route (route.openshift.io/v1)</p>
+<div class="highlight"><pre><span></span><code>Route
+</code></pre></div>
+</li>
+<li>
+<p>Service (core/v1)</p>
+<div class="highlight"><pre><span></span><code>Service
+</code></pre></div>
+</li>
+<li>
+<p>ImageStream</p>
+<div class="highlight"><pre><span></span><code>ImageStream
+</code></pre></div>
+</li>
+<li>
+<p>ConfigMap</p>
+<div class="highlight"><pre><span></span><code>ConfigMap
+</code></pre></div>
+</li>
+<li>
+<p>PersistentVolumeClaim</p>
+<div class="highlight"><pre><span></span><code>PersistentVolumeClaim
+</code></pre></div>
+</li>
+</ol>
+<p><img alt="Select Resource" src="../images/Cleanup/SelectResources.png" /></p>
+</li>
+<li>
+<p>Select <code>Name</code> for the filter</p>
+<p><img alt="Select Name Filter" src="../images/Cleanup/SelectNameFilter.png" /></p>
+</li>
+<li>
+<p>Delete the resources for <code>mysql</code></p>
+<ol>
+<li>
+<p>Search for the <em>Name</em> <code>mysql</code></p>
+<div class="highlight"><pre><span></span><code>mysql
+</code></pre></div>
+<p><img alt="SearchMySQL" src="../images/Cleanup/SearchMySQL.png" /></p>
+</li>
+<li>
+<p>Click on the 3 dots to the right of the first individual resource</p>
+<p><img alt="Delete Resource" src="../images/Cleanup/DeleteResource.png" /></p>
+</li>
+<li>
+<p>Confirm the deletion in the following window</p>
+<p><img alt="Confirm Delete Resource" src="../images/Cleanup/ConfirmDeleteResource.png" /></p>
+</li>
+<li>
+<p>Repeat this for all of the other resources that appear for <code>mysql</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip<p>This should include 2 secrets (<code>mysql</code> and one starting with <code>mysql-ephemeral-parameters-</code>) and 1 <code>mysql</code> service.</p>
+</p>
+</div>
+</li>
+</ol>
+</li>
+<li>
+<p>Delete the resources for the <em>Name</em> <code>spring-petclinic</code></p>
+<div class="highlight"><pre><span></span><code>spring-petclinic
+</code></pre></div>
+<p><img alt="SearchSpringPetclinic" src="../images/Cleanup/SearchSpringPetclinic.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip<p>This should include 2 secrets, 1 route, 1 service, 2 imageStreams, and 2 configMaps.</p>
+</p>
+</div>
+</li>
+<li>
+<p>Delete the resources for the <em>Name</em> <code>event-listener</code></p>
+<div class="highlight"><pre><span></span><code>event-listener
+</code></pre></div>
+<p><img alt="SearchEventListener" src="../images/Cleanup/SearchEventListener.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip<p>This should include 1 route.</p>
+</p>
+</div>
+</li>
+<li>
+<p>Delete the <code>persistentVolumeClaim</code> associated with your pipeline</p>
+<ol>
+<li>
+<p>Leave the <em>Name</em> field blank and go to the <em>PersistentVolumeClaim</em> section of the page</p>
+</li>
+<li>
+<p>Delete the <code>persistentVolumeClaim</code> (if there are more than 1, delete the 1 created for this lab [you can look at the creation time to double check this])</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip<p>This should include 1 <code>persistentVolumeClaim</code>.</p>
+</p>
+</div>
 </li>
 </ol>
 <h2 id="cleanup-full-cleanup-github-section-cleanup">GitHub Section Cleanup<a class="headerlink" href="#cleanup-full-cleanup-github-section-cleanup" title="Permanent link">&para;</a></h2>
