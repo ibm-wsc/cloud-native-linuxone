@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://ibm-wsc.github.io/cloud-native-linuxone/assignment/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/introduction/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
