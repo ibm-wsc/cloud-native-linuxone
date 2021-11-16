@@ -19,9 +19,9 @@ Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift
 
 [^1]: For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.
 
-### Introduction to RBAC and Container Registry Best Practices
+### Introduction to RBAC and Container Registry, Q&A
 
-* 4pm - 4:30pm - Introduction to RBAC and Container Registry Best Practices and Hands-On with RBAC
+* 4pm - 4:30pm - Introduction to RBAC and Hands-On with RBAC
 
 ### BONUS lab: Adding code scanning with SonarQube to your Pipeline
 
