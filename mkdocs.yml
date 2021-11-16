@@ -21,6 +21,7 @@ nav:
     - 13 [BONUS]. Add the "Sec" in "DevSecOps": devsecops/devsecops.md
     - 14. Cleanup:
       - 14. Environment Cleanup: cleanup/full-cleanup.md
+    - 15. Lab Assignments: assignment.md
     - REFERENCE 1. Setting up SonarQube Server in OpenShift: devsecops/sonarqube.md
     - REFERENCE 2. Setting up PetClinic OpenShift Pipeline using yaml files: yamlsetup.md 
     - Other resources: resources.md
