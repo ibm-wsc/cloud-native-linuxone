@@ -4,6 +4,7 @@ You will need to enter the "Skytap Password" one time only (assuming you don't s
 
 If your Red Hat Enterprise Linux desktop asks for a login password for userid *workshop user*, the password, for all teams, will be provided by an instructor in the WebEx meeting chat. Your desktop will lock and ask for this password if your session is idle for one hour.
 
+**You only need to use this instance for the RBAC lab, and only if you do not have the OpenShift CLI (oc) installed on your local workstation.**
 
 |Name|Team Number|Skytap URL |Skytap Password|
 |:--:|:---------:|:---------:|:-------------:|
