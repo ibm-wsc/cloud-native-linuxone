@@ -10,7 +10,7 @@ For Petclinic, we will be using SonarScanner for Maven. The ability to execute t
 
 The lab instructors have already setup a SonarQube server within the OpenShift cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.
 
-Access the SonarQube server [here](https://sonarqube-1633551248720.apps.cloudnative.marist.edu){target="_blank" rel="noopener noreferrer"}
+Access the SonarQube server [here](https://sonarqube-1637004968927.apps.cloudnative.marist.edu){target="_blank" rel="noopener noreferrer"}
 
 Select `Log in` in the upper right hand corner. And log in with your assigned credentials.
 
@@ -122,7 +122,7 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
     -Dsonar.login=<use-your-token-from-previous-step>
     ```
     ``` bash
-    -Dsonar.host.url=https://sonarqube-1633551248720.apps.cloudnative.marist.edu
+    -Dsonar.host.url=https://sonarqube-1637004968927.apps.cloudnative.marist.edu
     ``` 
     ``` bash
     -Dsonar.projectName=petclinic-<your-name>
@@ -186,6 +186,36 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
         !!! note
             After the save message appears you can then proceed to `Cancel` back to the pipeline menu.
 
+## Add the new `maven-settings` workspace to the TriggerTemplate
+
+1. Go to the **TriggerTemplates** section of your pipeline and click the link to take you to your pipeline's `TriggerTemplate`
+
+    ![Click on TriggerTemplate](../images/DevSecOps/ClickTriggerTemplate.png)
+
+2. Edit the `TriggerTemplate`
+
+    1. Click Actions
+    2. Choose `Edit TriggerTemplate` from the dropdown menu
+
+    ![Edit Trigger Template](../images/DevSecOps/EditTriggerTemplate.png)
+
+3. Add the workspace to the `workspaces` section of the TriggerTemplate.
+
+    1. Add the following code to the `workspaces` section
+
+        ```
+                  - name: maven-settings
+                    configMap:
+                      name: maven-settings
+        ```
+        
+        !!! note
+            Take care to match the indentation in the picture below
+
+    2. Click `Save` to apply your changes
+
+    ![Add Workspace to triggertemplate](../images/DevSecOps/AddWorkspaceToTriggerTemplate.png)
+
 ## Run the pipeline
 
 Go to the Actions menu of your pipeline and select Start.
@@ -210,7 +240,7 @@ It fails :disappointed:. Next, we are going to see why it failed.
 
 ### View your project
 
-At this point please return to the SonarQube server [here](https://sonarqube-1633551248720.apps.cloudnative.marist.edu){target="_blank" rel="noopener noreferrer"}, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:
+At this point please return to the SonarQube server [here](https://sonarqube-1637004968927.apps.cloudnative.marist.edu){target="_blank" rel="noopener noreferrer"}, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:
 
 ![SonarProject View Fail](../images/DevSecOps/FindPetclinicSonar.png)
 
@@ -265,11 +295,10 @@ You can do this with the following actions:
     ![Create pull request for real](../images/DevSecOps/CreatePullRequestForReal.png)
 
     1. Write a justification such as 
-
-      ```
+      ``` bash
       Create fixes for all of the security vulnerabilities that showed up in the SonarQube scan.
       ```
-    
+
     2. Click `Create pull request`
 
 5. Merge your pull request, merging the `security-fixes` branch with all of the security fixes into the `main` branch.
@@ -301,7 +330,7 @@ You can do this with the following actions:
     !!! note
         You can also wait to see the other tasks pass but since the main goal of this section was to focus on integrating security into DevOps and you have already gone through the pipeline without the `code-analysis` task, there is really no need to do so.
 
-3. View the [SonarQube server](https://sonarqube-1633551248720.apps.cloudnative.marist.edu){target="_blank" rel="noopener noreferrer"} again to see the updated results for your project (based on the latest scan)
+3. View the [SonarQube server](https://sonarqube-1637004968927.apps.cloudnative.marist.edu){target="_blank" rel="noopener noreferrer"} again to see the updated results for your project (based on the latest scan)
 
     1. See your project passes and click on it for full results
 
@@ -318,4 +347,4 @@ You can do this with the following actions:
 
 ## Summary :telescope:
 
-In this section, you started on your DevSecOps journey by integrating SonarQube security scanning into your DevOps pipeline. Initially, the scan flagged several security vulnerabilities, causing the pipeline to fail before the vulnerable code could get packaged into a container. Next, you were able to dig into the vulnerabilities and figure out what needed to be changed with the SonarQube report. Then, you applied a security patch, eliminating the flagged security vulnerabilities in the PetClinic application. Finally, your pipeline succeeded and secure code was packaged into a container and deployed and the pipeline set up to catch any new security vulnerabilities as soon as they appear. Congratulations!
+In this section, you started on your DevSecOps journey by integrating SonarQube security scanning into your DevOps pipeline. Initially, the scan flagged several security vulnerabilities, causing the pipeline to fail before the vulnerable code could get packaged into a container. Next, you were able to dig into the vulnerabilities and figure out what needed to be changed with the SonarQube report. Then, you applied a security patch, eliminating the flagged security vulnerabilities in the PetClinic application. With these changes, your pipeline succeeded having containerized and deployed secure code. Finally, you are left with a pipeline set up to catch any new security vulnerabilities as soon as they appear. Congratulations!

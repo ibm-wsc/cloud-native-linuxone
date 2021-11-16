@@ -53,6 +53,114 @@ From the `Topology` section of the OpenShift UI, please complete the following c
 
         ![Confirm Delete of MySQL DeploymentConfig](../images/Cleanup/ConfirmDeleteDeploymentConfigMySQL.png)
 
+## Delete Leftover Resources
+
+1. Click on the `Search` tab from the OpenShift menu
+
+    ![Search Tab](../images/Cleanup/ClickSearchTab.png)
+
+2. Click on the `Resources` drop down menu
+
+    ![Resources DropDown](../images/Cleanup/ClickResourceDropdown.png)
+
+3. Check (click the checkbox) the following resources (you can search for them individually) 
+
+    1. Secret
+
+        ```
+        Secret
+        ```
+
+    2. Route (route.openshift.io/v1)
+
+        ```
+        Route
+        ```
+
+    3. Service (core/v1)
+
+        ```
+        Service
+        ```
+
+    4. ImageStream
+
+        ```
+        ImageStream
+        ```
+
+    5. ConfigMap
+
+        ```
+        ConfigMap
+        ```
+
+    6. PersistentVolumeClaim
+
+        ```
+        PersistentVolumeClaim
+        ```
+
+    ![Select Resource](../images/Cleanup/SelectResources.png)
+    
+4. Select `Name` for the filter
+
+    ![Select Name Filter](../images/Cleanup/SelectNameFilter.png)
+
+5. Delete the resources for `mysql`
+
+    1. Search for the *Name* `mysql`
+
+        ```
+        mysql
+        ```
+
+        ![SearchMySQL](../images/Cleanup/SearchMySQL.png)
+
+    2. Click on the 3 dots to the right of the first individual resource
+
+        ![Delete Resource](../images/Cleanup/DeleteResource.png)
+    
+    3. Confirm the deletion in the following window
+
+        ![Confirm Delete Resource](../images/Cleanup/ConfirmDeleteResource.png)
+    
+    4. Repeat this for all of the other resources that appear for `mysql`
+
+        !!! Tip
+                This should include 2 secrets (`mysql` and one starting with `mysql-ephemeral-parameters-`) and 1 `mysql` service.
+        
+6. Delete the resources for the *Name* `spring-petclinic`
+
+    ```
+    spring-petclinic
+    ```
+
+    ![SearchSpringPetclinic](../images/Cleanup/SearchSpringPetclinic.png)
+
+    !!! Tip
+            This should include 2 secrets, 1 route, 1 service, 2 imageStreams, and 2 configMaps.
+
+7. Delete the resources for the *Name* `event-listener`
+
+    ```
+    event-listener
+    ```
+
+    ![SearchEventListener](../images/Cleanup/SearchEventListener.png)
+
+    !!! Tip
+            This should include 1 route.
+
+8. Delete the `persistentVolumeClaim` associated with your pipeline
+
+    1. Leave the *Name* field blank and go to the *PersistentVolumeClaim* section of the page
+
+    2. Delete the `persistentVolumeClaim` (if there are more than 1, delete the 1 created for this lab [you can look at the creation time to double check this])
+
+    !!! Tip
+            This should include 1 `persistentVolumeClaim`.
+
 ## GitHub Section Cleanup
 
 Finally, you will cleanup the GitHub fork you made on your GitHub account with the following steps:
