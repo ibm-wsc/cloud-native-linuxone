@@ -450,7 +450,7 @@
 <p>For Petclinic, we will be using SonarScanner for Maven. The ability to execute the SonarQube analysis via a regular Maven goal makes it available anywhere Maven is available (developer build, CI server, etc.), without the need to manually download, setup, and maintain a SonarQube Runner installation. For more information on SonarScanner for Maven, please see <a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/" rel="noopener noreferrer" target="_blank">here</a>.</p>
 <h2 id="accessing-the-sonarqube-server-with-your-assigned-credentials"><span class="enumerate-heading-plugin">13.1</span> Accessing the SonarQube server with your assigned credentials<a class="headerlink" href="#accessing-the-sonarqube-server-with-your-assigned-credentials" title="Permanent link">¶</a></h2>
 <p>The lab instructors have already setup a SonarQube server within the OpenShift cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.</p>
-<p>Access the SonarQube server <a href="https://sonarqube-1637004968927.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a></p>
+<p>Access the SonarQube server <a href="https://sonarqube-1670885178028.apps.cloudnative.marist.edu/" rel="noopener noreferrer" target="_blank">here</a></p>
 <p>Select <code>Log in</code> in the upper right hand corner. And log in with your assigned credentials.</p>
 <p>If you are not successful with this step, please let the instructor know.</p>
 <h2 id="generate-a-security-token-for-your-sonarqube-account"><span class="enumerate-heading-plugin">13.2</span> Generate a security token for your SonarQube account<a class="headerlink" href="#generate-a-security-token-for-your-sonarqube-account" title="Permanent link">¶</a></h2>
@@ -529,7 +529,7 @@ data:
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>-Dsonar.login<span class="o">=</span>&lt;use-your-token-from-previous-step&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>https://sonarqube-1637004968927.apps.cloudnative.marist.edu
+<div class="highlight"><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>https://sonarqube-1670885178028.apps.cloudnative.marist.edu
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>-Dsonar.projectName<span class="o">=</span>petclinic-&lt;your-name&gt;
 </code></pre></div>
@@ -647,7 +647,7 @@ data:
 <p>It fails <img alt="😞" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f61e.svg" title=":disappointed:"/>. Next, we are going to see why it failed.</p>
 <h2 id="analyzing-the-failure-in-sonarqube"><span class="enumerate-heading-plugin">13.7</span> Analyzing the Failure in SonarQube<a class="headerlink" href="#analyzing-the-failure-in-sonarqube" title="Permanent link">¶</a></h2>
 <h3 id="view-your-project"><span class="enumerate-heading-plugin">13.7.1</span> View your project<a class="headerlink" href="#view-your-project" title="Permanent link">¶</a></h3>
-<p>At this point please return to the SonarQube server <a href="https://sonarqube-1637004968927.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a>, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:</p>
+<p>At this point please return to the SonarQube server <a href="https://sonarqube-1670885178028.apps.cloudnative.marist.edu/" rel="noopener noreferrer" target="_blank">here</a>, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:</p>
 <p><img alt="SonarProject View Fail" src="../../images/DevSecOps/FindPetclinicSonar.png"/></p>
 <ol>
 <li>
@@ -755,7 +755,7 @@ data:
 </div>
 </li>
 <li>
-<p>View the <a href="https://sonarqube-1637004968927.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">SonarQube server</a> again to see the updated results for your project (based on the latest scan)</p>
+<p>View the <a href="https://sonarqube-1670885178028.apps.cloudnative.marist.edu/" rel="noopener noreferrer" target="_blank">SonarQube server</a> again to see the updated results for your project (based on the latest scan)</p>
 <ol>
 <li>
 <p>See your project passes and click on it for full results</p>

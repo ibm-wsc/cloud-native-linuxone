@@ -631,25 +631,18 @@
 <h3 id="index-introductory-presentations">Introductory Presentations<a class="headerlink" href="#index-introductory-presentations" title="Permanent link">&para;</a></h3>
 <ul>
 <li>12:00 - 12:30pm ET - <a href="../presentations/Kubernetes_Openshift_Introduction.pdf">Introduction to <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> and <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr></a></li>
-<li>12:30 - 01:00pm - <a href="../presentations/cloud_native_devops_introduction.pdf">Introduction to Cloud Native <abbr title="methodology that accelerates delivery and improves quality of software through automation (CI/CD) that eliminates the friction between software development and IT operations">DevOps</abbr></a></li>
+<li>12:30pm - 1:00pm - <a href="../presentations/cloud_native_devops_introduction.pdf">Introduction to Cloud Native <abbr title="methodology that accelerates delivery and improves quality of software through automation (CI/CD) that eliminates the friction between software development and IT operations">DevOps</abbr></a></li>
 </ul>
 <h3 id="index-lab-build-and-deploy-a-cloud-native-devops-pipeline-in-openshift-on-ibm-z-and-linuxone">Lab: Build and Deploy a Cloud Native <abbr title="methodology that accelerates delivery and improves quality of software through automation (CI/CD) that eliminates the friction between software development and IT operations">DevOps</abbr> Pipeline in <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> on IBM Z and <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr><a class="headerlink" href="#index-lab-build-and-deploy-a-cloud-native-devops-pipeline-in-openshift-on-ibm-z-and-linuxone" title="Permanent link">&para;</a></h3>
 <ul>
-<li>1pm - 1:15pm - <a href="#introduction">Introduction to Cloud Native <abbr title="methodology that accelerates delivery and improves quality of software through automation (CI/CD) that eliminates the friction between software development and IT operations">DevOps</abbr> Pipeline Lab</a></li>
-<li>1:15pm - 4pm<ul>
+<li>1:00pm - 1:15pm - <a href="#introduction">Introduction to Cloud Native <abbr title="methodology that accelerates delivery and improves quality of software through automation (CI/CD) that eliminates the friction between software development and IT operations">DevOps</abbr> Pipeline Lab</a></li>
+<li>1:15pm - 5:00 pm<ul>
 <li><a href="#build-and-deploy-build_overview">Deploy PetClinic via <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines</a></li>
 <li><a href="#full-dev-pipeline-configure_overview">Configure PetClinic's Integration and Deployment via <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines to Meet Your Organization's Needs</a><sup id="fnref:1"><a class="footnote-ref" href="#index-fn:1">1</a></sup></li>
 <li><a href="#application-promotion-promote_overview">Extend Pipeline to Upgrade from Development to Staging</a></li>
+<li><a href="#devsecops-devsecops">Configure SonarQube code analysis in your Pipeline</a></li>
 </ul>
 </li>
-</ul>
-<h3 id="index-introduction-to-rbac-and-container-registry-qa">Introduction to RBAC and Container Registry, Q&amp;A<a class="headerlink" href="#index-introduction-to-rbac-and-container-registry-qa" title="Permanent link">&para;</a></h3>
-<ul>
-<li>4pm - 4:30pm - Introduction to RBAC and Hands-On with RBAC</li>
-</ul>
-<h3 id="index-bonus-lab-adding-code-scanning-with-sonarqube-to-your-pipeline">BONUS lab: Adding code scanning with SonarQube to your Pipeline<a class="headerlink" href="#index-bonus-lab-adding-code-scanning-with-sonarqube-to-your-pipeline" title="Permanent link">&para;</a></h3>
-<ul>
-<li>4:30pm - 5pm - <a href="#devsecops-devsecops">Configure SonarQube code analysis in your Pipeline</a></li>
 </ul>
 <h2 id="index-acknowledgements">Acknowledgements<a class="headerlink" href="#index-acknowledgements" title="Permanent link">&para;</a></h2>
 <ul>
@@ -667,7 +660,7 @@
 </ul>
 <h2 id="index-key-contributors">Key Contributors<a class="headerlink" href="#index-key-contributors" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Barry Silliman</li>
+<li><a href="mailto:silliman@us.ibm.com">Barry Silliman</a></li>
 <li>Faraz Khan</li>
 <li>Rishi Patel</li>
 <li>William Doyle</li>
@@ -675,7 +668,7 @@
 <h2 id="index-workshop-authors">Workshop authors<a class="headerlink" href="#index-workshop-authors" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="mailto:garrett.lee.woodworth@ibm.com">Garrett Woodworth</a></li>
-<li><a href="mailto:jinxiong@us.ibm.com">Jin VanStee</a></li>
+<li>Jin VanStee</li>
 </ul>
 <div class="footnote">
 <hr />
@@ -1995,7 +1988,7 @@ Paste the workspace definition under the highlighted line as shown in the image 
 <p>For Petclinic, we will be using SonarScanner for Maven. The ability to execute the SonarQube analysis via a regular Maven goal makes it available anywhere Maven is available (developer build, CI server, etc.), without the need to manually download, setup, and maintain a SonarQube Runner installation. For more information on SonarScanner for Maven, please see <a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/" rel="noopener noreferrer" target="_blank">here</a>.</p>
 <h2 id="devsecops-devsecops-accessing-the-sonarqube-server-with-your-assigned-credentials">Accessing the SonarQube server with your assigned credentials<a class="headerlink" href="#devsecops-devsecops-accessing-the-sonarqube-server-with-your-assigned-credentials" title="Permanent link">&para;</a></h2>
 <p>The lab instructors have already setup a SonarQube server within the OpenShift cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.</p>
-<p>Access the SonarQube server <a href="https://sonarqube-1637004968927.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a></p>
+<p>Access the SonarQube server <a href="https://sonarqube-1670885178028.apps.cloudnative.marist.edu/" rel="noopener noreferrer" target="_blank">here</a></p>
 <p>Select <code>Log in</code> in the upper right hand corner. And log in with your assigned credentials.</p>
 <p>If you are not successful with this step, please let the instructor know.</p>
 <h2 id="devsecops-devsecops-generate-a-security-token-for-your-sonarqube-account">Generate a security token for your SonarQube account<a class="headerlink" href="#devsecops-devsecops-generate-a-security-token-for-your-sonarqube-account" title="Permanent link">&para;</a></h2>
@@ -2074,7 +2067,7 @@ data:
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>-Dsonar.login<span class="o">=</span>&lt;use-your-token-from-previous-step&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>https://sonarqube-1637004968927.apps.cloudnative.marist.edu
+<div class="highlight"><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>https://sonarqube-1670885178028.apps.cloudnative.marist.edu
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>-Dsonar.projectName<span class="o">=</span>petclinic-&lt;your-name&gt;
 </code></pre></div>
@@ -2192,7 +2185,7 @@ data:
 <p>It fails <img alt="😞" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f61e.svg" title=":disappointed:" />. Next, we are going to see why it failed.</p>
 <h2 id="devsecops-devsecops-analyzing-the-failure-in-sonarqube">Analyzing the Failure in SonarQube<a class="headerlink" href="#devsecops-devsecops-analyzing-the-failure-in-sonarqube" title="Permanent link">&para;</a></h2>
 <h3 id="devsecops-devsecops-view-your-project">View your project<a class="headerlink" href="#devsecops-devsecops-view-your-project" title="Permanent link">&para;</a></h3>
-<p>At this point please return to the SonarQube server <a href="https://sonarqube-1637004968927.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a>, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:</p>
+<p>At this point please return to the SonarQube server <a href="https://sonarqube-1670885178028.apps.cloudnative.marist.edu/" rel="noopener noreferrer" target="_blank">here</a>, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:</p>
 <p><img alt="SonarProject View Fail" src="../images/DevSecOps/FindPetclinicSonar.png" /></p>
 <ol>
 <li>
@@ -2300,7 +2293,7 @@ data:
 </div>
 </li>
 <li>
-<p>View the <a href="https://sonarqube-1637004968927.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">SonarQube server</a> again to see the updated results for your project (based on the latest scan)</p>
+<p>View the <a href="https://sonarqube-1670885178028.apps.cloudnative.marist.edu/" rel="noopener noreferrer" target="_blank">SonarQube server</a> again to see the updated results for your project (based on the latest scan)</p>
 <ol>
 <li>
 <p>See your project passes and click on it for full results</p>
