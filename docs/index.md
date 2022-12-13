@@ -7,11 +7,11 @@ Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift
 ### Introductory Presentations
 
 * 12:00 - 12:30pm ET - [Introduction to Kubernetes and OpenShift](presentations/Kubernetes_Openshift_Introduction.pdf)
-* 12:30pm - 1:00pm - [Introduction to Cloud Native DevOps](presentations/cloud_native_devops_introduction.pdf)
+* 12:30pm - 1:00pm - Introduction to Cloud Native DevSecOps
 
 ### Lab: Build and Deploy a Cloud Native DevOps Pipeline in OpenShift on IBM Z and LinuxONE
 
-* 1:00pm - 1:15pm - [Introduction to Cloud Native DevOps Pipeline Lab](introduction.md)
+* 1:00pm - 1:15pm - [Introduction to Cloud Native DevSecOps Pipeline Lab](introduction.md)
 * 1:15pm - 5:00 pm
     * [Deploy PetClinic via OpenShift Pipelines](build-and-deploy/build_overview.md)
     * [Configure PetClinic's Integration and Deployment via OpenShift Pipelines to Meet Your Organization's Needs](full-dev-pipeline/configure_overview.md)[^1]
