@@ -10,7 +10,7 @@ For Petclinic, we will be using SonarScanner for Maven. The ability to execute t
 
 The lab instructors have already setup a SonarQube server within the OpenShift cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.
 
-Access the SonarQube server [here](https://sonarqube-1637004968927.apps.cloudnative.marist.edu){target="_blank" rel="noopener noreferrer"}
+Access the SonarQube server [here](https://sonarqube-1670885178028.apps.cloudnative.marist.edu/){target="_blank" rel="noopener noreferrer"}
 
 Select `Log in` in the upper right hand corner. And log in with your assigned credentials.
 
@@ -122,7 +122,7 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
     -Dsonar.login=<use-your-token-from-previous-step>
     ```
     ``` bash
-    -Dsonar.host.url=https://sonarqube-1637004968927.apps.cloudnative.marist.edu
+    -Dsonar.host.url=https://sonarqube-1670885178028.apps.cloudnative.marist.edu
     ``` 
     ``` bash
     -Dsonar.projectName=petclinic-<your-name>
@@ -240,7 +240,7 @@ It fails :disappointed:. Next, we are going to see why it failed.
 
 ### View your project
 
-At this point please return to the SonarQube server [here](https://sonarqube-1637004968927.apps.cloudnative.marist.edu){target="_blank" rel="noopener noreferrer"}, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:
+At this point please return to the SonarQube server [here](https://sonarqube-1670885178028.apps.cloudnative.marist.edu/){target="_blank" rel="noopener noreferrer"}, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:
 
 ![SonarProject View Fail](../images/DevSecOps/FindPetclinicSonar.png)
 
@@ -330,7 +330,7 @@ You can do this with the following actions:
     !!! note
         You can also wait to see the other tasks pass but since the main goal of this section was to focus on integrating security into DevOps and you have already gone through the pipeline without the `code-analysis` task, there is really no need to do so.
 
-3. View the [SonarQube server](https://sonarqube-1637004968927.apps.cloudnative.marist.edu){target="_blank" rel="noopener noreferrer"} again to see the updated results for your project (based on the latest scan)
+3. View the [SonarQube server](https://sonarqube-1670885178028.apps.cloudnative.marist.edu/){target="_blank" rel="noopener noreferrer"} again to see the updated results for your project (based on the latest scan)
 
     1. See your project passes and click on it for full results
 
