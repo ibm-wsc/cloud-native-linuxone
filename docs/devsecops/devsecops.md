@@ -36,9 +36,9 @@ We need to configure maven with the Sonar scanner plugin prefix. We will do that
 
 We will create a Kubernetes ConfigMap for the mavens settings file.
 
-Click on the import button at the top of the OpenShift console.
+Click on the Import Yaml button at the top of the OpenShift console (the '+' symbol).
 
-Copy and paste the entirety of the following into the editor and then hit "Save" (copy by clicking on the copy icon in the top right of the box below).
+Copy and paste the entirety of the following into the editor and then hit "Create" (copy by clicking on the copy icon in the top right of the box below).
 
 ```bash
 kind: ConfigMap

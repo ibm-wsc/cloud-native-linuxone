@@ -18,7 +18,7 @@ nav:
       - 10. Promoting Application: application-promotion/promote.md
       - 11. Integrating Git: application-promotion/git.md
       - 12. CI/CD in Action: application-promotion/action.md
-    - 13 [BONUS]. Add the "Sec" in "DevSecOps": devsecops/devsecops.md
+    - 13 Add the "Sec" in "DevSecOps": devsecops/devsecops.md
     - 14. Cleanup:
       - 14. Environment Cleanup: cleanup/full-cleanup.md
     - 15. Lab Assignments: assignment.md
