@@ -8,7 +8,7 @@
 <link href="https://ibm-wsc.github.io/cloud-native-linuxone/devsecops/devsecops/" rel="canonical"/>
 <link href="../../images/pipelines-logo.png" rel="icon"/>
 <meta content="mkdocs-1.2.1, mkdocs-material-7.1.9" name="generator"/>
-<title>13 [BONUS]. Add the "Sec" in "DevSecOps" - Cloud Native LinuxONE Workshop</title>
+<title>13 Add the "Sec" in "DevSecOps" - Cloud Native LinuxONE Workshop</title>
 <link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              13 [BONUS]. Add the "Sec" in "DevSecOps"
+              13 Add the "Sec" in "DevSecOps"
             
           </span>
 </div>
@@ -227,11 +227,11 @@
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          13 [BONUS]. Add the "Sec" in "DevSecOps"
+          13 Add the "Sec" in "DevSecOps"
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        13 [BONUS]. Add the "Sec" in "DevSecOps"
+        13 Add the "Sec" in "DevSecOps"
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -463,8 +463,8 @@
 <h2 id="configuring-maven-settings-with-the-sonar-scanner-plugin"><span class="enumerate-heading-plugin">13.3</span> Configuring maven-settings with the Sonar scanner plugin<a class="headerlink" href="#configuring-maven-settings-with-the-sonar-scanner-plugin" title="Permanent link">¶</a></h2>
 <p>We need to configure maven with the Sonar scanner plugin prefix. We will do that by including the sonar scanner plugin in the maven settings file.</p>
 <p>We will create a Kubernetes ConfigMap for the mavens settings file.</p>
-<p>Click on the import button at the top of the OpenShift console.</p>
-<p>Copy and paste the entirety of the following into the editor and then hit "Save" (copy by clicking on the copy icon in the top right of the box below).</p>
+<p>Click on the Import Yaml button at the top of the OpenShift console (the '+' symbol).</p>
+<p>Copy and paste the entirety of the following into the editor and then hit "Create" (copy by clicking on the copy icon in the top right of the box below).</p>
 <div class="highlight"><pre><span></span><code>kind: ConfigMap
 apiVersion: v1
 metadata:
