@@ -95,7 +95,15 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
     !!! tip
         Once you add a specific task (i.e. `maven`), clicking on the oval of the task will enable you to edit its default values for your needs.
 
-2. Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server, <b>be careful to substitute the `-Dsonar.login` goal with the token that you generated in the previous step. Also be mindful to put your name in the value of the `Dsonar.projectName` and ``Dsonar.projectKey` goals.</b> 
+2. Add `maven-settings` workspace to your pipeline
+
+	![Add Maven Settings Workspace](../images/DevSecOps/AddMavenSettingsWorkspace.png)
+
+	1. Click `Add workspace`
+	2. Name the workspace `maven-settings`
+	3. Click `Save`
+
+3. Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server, <b>be careful to substitute the `-Dsonar.login` goal with the token that you generated in the previous step. Also be mindful to put your name in the value of the `Dsonar.projectName` and ``Dsonar.projectKey` goals.</b> 
 
     ![codeanalysistask](../images/DevSecOps/codeanalysistask.png)
 
@@ -131,60 +139,24 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
     -Dsonar.projectKey=petclinic-<your-name>
     ```
 
+	**SOURCE**
+
+	``` bash
+	workspace
+	```
+
+	**MAVEN-SETTINGS**
+
+	``` bash
+	maven-settings
+	```
+
     !!! caution
         Remember to replace `<your-name>` with your name such as `petclinic-garrett`.
 
-3. Now you can click away to get back to the main pipeline edit panel.
+4. Now you can click away to get back to the main pipeline edit panel.
 
-4. Save the `pipeline`.
-
-5. Now we will need to add our pipeline workspaces to this task.
-
-    1. Switch to `YAML` from pipeline menu.
-
-        ![Switch to yaml](../images/Part1/SwitchYaml.png)
-
-        !!! question "Why are you editing yaml directly?"
-            `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
-
-
-
-    2. Find the `code-analysis` task and add the following workspace definition:
-
-        ```
-              workspaces:
-                - name: source
-                  workspace: workspace
-                - name: maven-settings
-                  workspace: maven-settings
-        ```
-
-        !!! question "How can you easily find the `code-analysis` task and add the workspace definition?"
-
-            1. You can click on the black yaml box and then use your find keyboard shortcut (`ctrl+f` for Windows / `command+f` for mac) to bring up the find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
-              ``` bash
-              name: code-analysis
-              ```
-            2. Paste the workspace definition under the highlighted line as shown in the image below.
-
-              ![Code Analysis Task Add Workspace](../images/DevSecOps/AddWorkspaceCodeTask.png)
-
-    3. Add `maven-settings` to the list of pipeline workspaces
-
-        1. Scroll down to the very bottom of the pipeline yaml file where you can find the workspaces for the pipeline defined.
-
-        2. Add the `maven-settings` workspace to the pipeline with the following:
-
-            ```
-                - name: maven-settings
-            ```
-
-        3. Save the pipeline
-
-            ![Add Maven Settings Workspace](../images/DevSecOps/AddMavenSettingsWorkspace.png)
-
-        !!! note
-            After the save message appears you can then proceed to `Cancel` back to the pipeline menu.
+5. Save the `pipeline`.
 
 ## Add the new `maven-settings` workspace to the TriggerTemplate
 
@@ -222,9 +194,9 @@ Go to the Actions menu of your pipeline and select Start.
 
 ![startpipeline](../images/DevSecOps/startpipelinerun.png)
 
-Hit Start after reviewing the settings panel and making sure to set the options for the `maven-settings` workspace (select `configmap` as the resource choice and `maven-settings` as the specific configmap to use as in the image below).
+Hit Start after reviewing the settings panel and making sure to set the options for the `source`(select `PersistentVolumeClaim` and your claim) and `maven-settings` ( select `configmap` as the resource choice and `maven-settings` as the specific configmap to use as in the image below) workspaces.
 
-![Choose maven-settings when starting pipeline](../images/DevSecOps/ChooseMavenSettings.png)
+![Choose workspaces when starting pipeline](../images/DevSecOps/ChooseMavenSettings.png)
 
 You can go to your pipeline logs and see the output for each of the tasks. <TO DO .. add screen shot of pipeline logs>
 

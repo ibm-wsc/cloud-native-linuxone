@@ -33,6 +33,14 @@ theme:
     scheme: preference
   favicon: images/pipelines-logo.png
   logo: images/pipelines-logo.png
+  features:
+    - content.code.copy
+    - navigation.indexes
+    - content.action.edit
+    - content.action.view
+    - navigation.footer
+    - content.tabs.link
+
 extra:
   social:
     - icon: fontawesome/brands/github

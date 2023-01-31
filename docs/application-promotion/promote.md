@@ -281,7 +281,7 @@ Your first Task will mirror the `cleanup-resources` task at the beginning of you
     and an **empty** `ARGS` value.
 
     !!! warning "No help please!"
-        Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). 
+        Make sure `help` is deleted from the `ARGS` section (click the - button to delete the default help args line). 
 
 ### Add Staging
 
@@ -313,38 +313,18 @@ You will use your existing `kustomize` task to deploy the staging configuration 
     kustomize edit set image spring-petclinic=$(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
     ```
 
+	**SOURCE**
+
+	``` bash
+	workspace
+	```
+
 3. `Save` the current pipeline edit and then switch to `YAML` from pipeline menu.
 
     ![Switch to yaml](../images/Part1/SwitchYaml.png)
 
     !!! Info "Why are you editing yaml directly?"
         `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
-
-4. Add workspace to `kustomize-staging` task 
-
-    Find the `kustomize-staging` and add the following workspace definition:
-
-    ```
-          workspaces:
-          - name: source
-            workspace: workspace
-    ```
-
-    !!! question "How can you easily find the `kustomize-staging` task and add the workspace definition?"
-        You can click on the black yaml box and then use your find keyboard shortcut (`ctrl+f` for Windows / `command+f` for mac) to bring up a find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
-        ``` bash
-        name: kustomize-staging
-        ```
-        Paste the workspace definition under the highlighted line as shown in the image below.
-
-    ![Kustomize Staging Add Workspace](../images/Part2/KustomizeStagingWorkspace.png)
-
-    `Save` the update
-
-    ![Save Pipeline Edit Yaml](../images/Part2/PipelineUpdatedYaml.png)
-
-    !!! note
-        After the save message above appears you can then proceed to `Cancel` back to the pipeline menu.
 
 ### Rollout Staging
 
@@ -371,7 +351,7 @@ You will use your existing `kustomize` task to deploy the staging configuration 
     ```
 
     !!! warning "No help please!"
-        Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). 
+        Make sure `help` is deleted from the `ARGS` section (click the - button to delete the default help args line).
 
 ### Add External Route Test Task to Pipeline
 

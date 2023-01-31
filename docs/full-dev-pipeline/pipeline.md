@@ -147,6 +147,11 @@ The `s2i-java-11` container image is very convenient for making a container imag
     --build-arg PETCLINIC_S2I_IMAGE=$(params.IMAGE_NAME)
     ```
 
+	SOURCE:
+	```
+	workspace
+	```
+
 3. Add `GIT_MESSAGE`, and `COMMIT_SHA` parameters to the pipeline
 
     Click `Add Parameter` twice ...
@@ -189,39 +194,6 @@ The `s2i-java-11` container image is very convenient for making a container imag
 
     !!! Tip
         Save the parameters when you are done with entry by clicking on blue `Save` box before moving onto step 4. If blue `Save` box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the `-`.
-
-4. Add workspace to `clean-image` task 
-
-    1. `Save` the current pipeline edit and switch to `YAML` from pipeline menu.
-
-        ![Switch to yaml](../images/Part1/SwitchYaml.png)
-
-        !!! question "Why are you editing yaml directly?"
-            `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
-
-    2. Find the `clean-image` task and add the following workspace definition:
-
-        ``` yaml
-              workspaces:
-              - name: source
-                workspace: workspace
-        ```
-
-        !!! question "How can you easily find the `clean-image` task and add the workspace definition?"
-            You can click on the black yaml box and then use your find keyboard shortcut (`ctrl+f` for Windows / `command+f` for mac) to bring up a find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
-            ``` bash
-            name: clean-image
-            ```
-            Paste the workspace definition under the highlighted line as shown in the image below.
-
-        ![Clean Image Workspace](../images/Part1/AddWorspaceProducingCleanImage.png)
-
-    3. `Save` the update
-
-        ![Save Pipeline Edit Yaml](../images/Part1/PipelineUpdatedYaml.png)
-
-        !!! note
-            After the save message above appears you can then proceed to `Cancel` back to the pipeline menu.
 
 ## Summary :waxing_crescent_moon:
 Your pipeline will now automatically check that your `MySQL` instance is configured properly and rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (`minimal`) container image to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your container image. Finally, it will tag the container image to distinguish between manual builds and those triggered by a potential git push. In the next section, you will see this automation in action for your development environment.

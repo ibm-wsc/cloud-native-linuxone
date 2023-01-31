@@ -22,17 +22,9 @@ You will start by building your PetClinic application from the source code and c
 
 ![linuxoneccactivation](upandrunningimages/linuxoneccactivation.png)
 
-**3.** After activiation, [log into your LinuxONE Community Cloud account](https://linuxone.cloud.marist.edu). 
+**3.** After activation, [log into your LinuxONE Community Cloud account](https://console-openshift-console.apps.cloudnative.marist.edu/topology/all-namespaces){target="_blank" rel="noopener"}.
 
-**4.** You should see the following in your dashboard. Select your OpenShift trial link:
-
-![linuxoneccocp](upandrunningimages/linuxonecchome.png)
-
-**5.** Log into OpenShift console with the same username and password that you used to log into your LinuxONE Community Cloud account (the same set that you registered with).
-
-![linuxoneocp](upandrunningimages/linuxoneccocplogin.png)
-
-**6.** You should see the Topology view of the OpenShift console. Click on  your project name (it will be a number randomly assigned to you that will be different than the one shown in the picture below):
+**4.** You should see the Topology view of the OpenShift console. Click on  your project name (it will be a number randomly assigned to you that will be different than the one shown in the picture below):
 
 ![linuxoneccocpfirstscreen](upandrunningimages/linuxoneccocpfirstscreen.png)
 
@@ -77,9 +69,13 @@ To make a copy of the PetClinic application into your GitHub account, [click her
 
 At this point, you might need to log into GitHub if you weren't logged in already.
 
-Next, you might be presented with a screen to ask you to select where to fork to. Select your own user account to fork to.
+Next, you will be presented with a fork menu like the following:
 
-![reposelect](upandrunningimages/forkselection.png)
+![forkselect](upandrunningimages/forkselection.png)
+
+1. Select your own user account from the `Owner` dropdown
+
+2. Uncheck the box `Copy the main branch only`
 
 Please make a note of your repo URL for later. It should be something like:
 

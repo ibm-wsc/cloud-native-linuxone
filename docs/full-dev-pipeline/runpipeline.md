@@ -116,41 +116,14 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
     ``` bash
     kustomize edit set image spring-petclinic=$(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
     ```
+
+	**SOURCE**
+
+	```
+	workspace
+	```
     
 3. `Save` the pipeline
-
-4. Add workspace to `kustomize-dev` task 
-
-    1. `Save` the current pipeline edit and switch to `YAML` from pipeline menu.
-
-    ![Switch to yaml](../images/Part1/SwitchYaml.png)
-
-    !!! question "Why are you editing yaml directly?"
-        `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
-
-    2. Find the `kustomize-dev` and add the following workspace definition:
-
-        ``` yaml
-              workspaces:
-              - name: source
-                workspace: workspace
-        ```
-
-        !!! question "How can you easily find the `kustomize-dev` task and add the workspace definition?"
-            You can click on the black yaml box and then use your find keyboard shortcut (`ctrl+f` for Windows / `command+f` for mac) to bring up a find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
-            ``` bash
-            name: kustomize-dev
-            ```
-            Paste the workspace definition under the highlighted line as shown in the image below.
-
-    ![Kustomize Dev Add Workspace](../images/Part1/AddWorkspaceKustomizeDev.png)
-
-    3. `Save` the update
-
-    ![Save Pipeline Edit Yaml](../images/Part1/PipelineUpdatedYaml.png)
-
-    !!! note
-        After the save message above appears you can then proceed to `Cancel` back to the pipeline menu.
 
 ## Clean Old PetClinic Instances at the Beginning of a Run
 
