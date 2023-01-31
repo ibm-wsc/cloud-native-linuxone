@@ -6,21 +6,29 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://ibm-wsc.github.io/cloud-native-linuxone/application-promotion/promote/" rel="canonical"/>
+<link href="../promote_overview/" rel="prev"/>
+<link href="../git/" rel="next"/>
 <link href="../../images/pipelines-logo.png" rel="icon"/>
-<meta content="mkdocs-1.2.1, mkdocs-material-7.1.9" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.8" name="generator"/>
 <title>10. Promoting Application - Cloud Native LinuxONE Workshop</title>
-<link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.0d440cfe.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../css/print-site-enum-headings1.css" rel="stylesheet"/>
+<link href="../../css/print-site-enum-headings2.css" rel="stylesheet"/>
+<link href="../../css/print-site-enum-headings3.css" rel="stylesheet"/>
+<link href="../../css/print-site-enum-headings4.css" rel="stylesheet"/>
+<link href="../../css/print-site-enum-headings5.css" rel="stylesheet"/>
+<link href="../../css/print-site-enum-headings6.css" rel="stylesheet"/>
 <link href="../../css/print-site.css" rel="stylesheet"/>
 <link href="../../css/print-site-material.css" rel="stylesheet"/>
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-174658170-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-174658170-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 </head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="preference" dir="ltr">
-<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -37,7 +45,7 @@
 <img alt="logo" src="../../images/pipelines-logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
 </label>
 <div class="md-header__title" data-md-component="header-title">
 <div class="md-header__ellipsis">
@@ -56,20 +64,22 @@
 </div>
 </div>
 <label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
 </label>
 <div class="md-search" data-md-component="search" role="dialog">
 <label class="md-search__overlay" for="__search"></label>
 <div class="md-search__inner" role="search">
 <form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
 <label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </label>
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
 </button>
+</nav>
 </form>
 <div class="md-search__output">
 <div class="md-search__scrollwrap" data-md-scrollfix="">
@@ -77,7 +87,7 @@
 <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list"></ol>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
 </div>
 </div>
@@ -86,7 +96,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ibm-wsc/cloud-native-linuxone/" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     GitHub
@@ -111,7 +121,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ibm-wsc/cloud-native-linuxone/" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     GitHub
@@ -135,12 +145,12 @@
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4">
-        4-5. Build and Deploy Pet Clinic
-        <span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          4-5. Build and Deploy Pet Clinic
+          <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="4-5. Build and Deploy Pet Clinic" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
           4-5. Build and Deploy Pet Clinic
@@ -160,12 +170,12 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5">
-        6-8. Configure PetClinic's Pipeline
-        <span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          6-8. Configure PetClinic's Pipeline
+          <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="6-8. Configure PetClinic's Pipeline" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
           6-8. Configure PetClinic's Pipeline
@@ -190,12 +200,12 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6">
-        9-12. Test and Promote Pet Clinic
-        <span class="md-nav__icon md-icon"></span>
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          9-12. Test and Promote Pet Clinic
+          <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="9-12. Test and Promote Pet Clinic" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
           9-12. Test and Promote Pet Clinic
@@ -207,7 +217,7 @@
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
           10. Promoting Application
           <span class="md-nav__icon md-icon"></span>
@@ -310,12 +320,12 @@
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
-<label class="md-nav__link" for="__nav_8">
-        14. Cleanup
-        <span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          14. Cleanup
+          <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="14. Cleanup" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
           14. Cleanup
@@ -448,11 +458,14 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/ibm-wsc/cloud-native-linuxone/edit/main/docs/application-promotion/promote.md" title="Edit this page">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="automatically-testing-and-promoting-your-application"><span class="enumerate-heading-plugin">10.</span> Automatically Testing and Promoting your Application<a class="headerlink" href="#automatically-testing-and-promoting-your-application" title="Permanent link">¶</a></h1>
+<a class="md-content__button md-icon" href="https://github.com/ibm-wsc/cloud-native-linuxone/raw/main/docs/application-promotion/promote.md" title="View source of this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
+</a>
+<h1 id="automatically-testing-and-promoting-your-application"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.</span> Automatically Testing and Promoting your Application<a class="headerlink" href="#automatically-testing-and-promoting-your-application" title="Permanent link">¶</a></h1>
 <p>Here you will edit your pipeline to test your application in development, clean up your development resources, promote your application to staging, and test it in staging.</p>
-<h2 id="testing-your-application-in-the-wild"><span class="enumerate-heading-plugin">10.1</span> Testing your Application in the Wild<a class="headerlink" href="#testing-your-application-in-the-wild" title="Permanent link">¶</a></h2>
+<h2 id="testing-your-application-in-the-wild"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.1</span> Testing your Application in the Wild<a class="headerlink" href="#testing-your-application-in-the-wild" title="Permanent link">¶</a></h2>
 <p>During the build stage of your pipeline, you tested two things:</p>
 <ol>
 <li>That the pieces of your application worked (unit testing)</li>
@@ -463,7 +476,7 @@
 <li>Internally (within <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>)</li>
 <li>Externally (the outside world)</li>
 </ol>
-<h3 id="internally-within-kubernetesopenshift"><span class="enumerate-heading-plugin">10.1.1</span> Internally (Within <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr>/<abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>)<a class="headerlink" href="#internally-within-kubernetesopenshift" title="Permanent link">¶</a></h3>
+<h3 id="internally-within-kubernetesopenshift"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.1.1</span> Internally (Within <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr>/<abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>)<a class="headerlink" href="#internally-within-kubernetesopenshift" title="Permanent link">¶</a></h3>
 <p>The first thing you need to test is that the application is alive and available from within your cluster (<abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> environment). This is important not only for when running the <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> pipeline, but also for any time your application is running  (downtime is detrimental, especially in production). </p>
 <p>This functionality is available in <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> via <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/" rel="noopener noreferrer" target="_blank">probes</a>. There are 3 different types of probes to test the different aspects of your application's availability:</p>
 <div class="admonition info">
@@ -486,11 +499,11 @@
 </ol>
 <p>Here is the <code>startupProbe</code> for the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> running the PetClinic application:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">startupProbe</span><span class="p">:</span>
-    <span class="nt">httpGet</span><span class="p">:</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/actuator/health/liveness</span>
-    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
-    <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-    <span class="nt">failureThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">    </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/actuator/health/liveness</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">    </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
 </code></pre></div>
 <p>It simply queries (via localhost) PetClinic's liveness health endpoint. Once this returns successfully, you can be confident the application has started up and can begin to monitor the liveness and readiness of each <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> of each replica (pod) of your application throughout its lifecycle.</p>
 </li>
@@ -509,11 +522,11 @@
 </ol>
 <p>Here is the <code>livenessProbe</code> for the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> running the PetClinic application:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">livenessProbe</span><span class="p">:</span>
-    <span class="nt">httpGet</span><span class="p">:</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/actuator/health/liveness</span>
-    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
-    <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-    <span class="nt">failureThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">    </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/actuator/health/liveness</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">    </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
 </code></pre></div>
 <p>This looks almost identical to the <code>startupProbe</code> above other than having a much lower <code>failureThreshold</code>. The <code>startupProbe</code> is making sure the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> of a given pod of your application's deployment is alive when it first starts up (It is allowing time for that startup to occur). On the other hand, the <code>liveness</code> probe above is making sure your application stays alive throughout its lifecycle. Therefore, it has a much lower <code>failureThreshold</code> to enable <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/" rel="noopener noreferrer" target="_blank"><abbr title='an agent that runs on each node of a Kubernetes cluster. It "manages" its node by reading the container manifests, and ensuring the defined containers are started and running.'>kubelet</abbr></a> to quickly respond (restart the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr>) when the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> becomes deadlocked.</p>
 </li>
@@ -532,113 +545,113 @@
 </ol>
 <p>Here is the <code>readinessProbe</code> for the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> running PetClinic:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">readinessProbe</span><span class="p">:</span>
-    <span class="nt">httpGet</span><span class="p">:</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/actuator/health/readiness</span>
-    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
-    <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/actuator/health/readiness</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">    </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
 </code></pre></div>
 <p>It simply queries (via localhost) PetClinic's readiness health endpoint. This probe will let <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> know when to send traffic to a PetClinic replica. When you send traffic to the application, only the available replicas will receive it. This means that replicas which aren't ready for traffic don't accidentally get it, preventing errors for the user.</p>
 </li>
 </ol>
 <p>These 3 probes serve to declare to <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> the way your application (and the replicas that make it up) should behave, enabling the system to monitor and take action on your behalf (restarting the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> or removing its pod's endpoint from service) when the current state (the status) does not meet the desired state (your specification).</p>
 <p>The rollout task you created before as <code>deploy-dev</code> will only complete once all desired replicas are ready, implying that both the <code>startup</code> (initial liveness) and <code>readiness</code> probes have successfully passed and all replicas of your application are initially alive and ready for business. </p>
-<h3 id="testing-external-connections"><span class="enumerate-heading-plugin">10.1.2</span> Testing External Connections<a class="headerlink" href="#testing-external-connections" title="Permanent link">¶</a></h3>
+<h3 id="testing-external-connections"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.1.2</span> Testing External Connections<a class="headerlink" href="#testing-external-connections" title="Permanent link">¶</a></h3>
 <p>While making sure your application is internally up and running is important, at the end of the day you want to provide access to your users externally<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
 <p>This means it is important to also test the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> route (the component providing the external connection) as part of your <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> pipeline to ensure it is correctly servicing web traffic external to your cluster<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
-<h4 id="create-external-route-test-task"><span class="enumerate-heading-plugin">10.1.2.1</span> Create External Route Test <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr><a class="headerlink" href="#create-external-route-test-task" title="Permanent link">¶</a></h4>
+<h4 id="create-external-route-test-task"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.1.2.1</span> Create External Route Test <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr><a class="headerlink" href="#create-external-route-test-task" title="Permanent link">¶</a></h4>
 <p>You will create a task to check the connection to your external route as part of your <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> pipeline.</p>
 <ol>
 <li>
 <p>Copy the <code>connection-test</code> task using the following definition (copy by clicking on the copy icon in the top right of the box below):</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tekton.dev/v1beta1</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Task</span>
+<p><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tekton.dev/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
 <span class="nt">metadata</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">connection-test</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connection-test</span>
 <span class="nt">spec</span><span class="p">:</span>
-    <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">&gt;-</span>
-      <span class="no">"This task runs a bash script to determine if a given application</span>
-      <span class="no">is accessible to the outside world via its route."</span>
-    <span class="nt">params</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ROUTE_NAME</span>
-      <span class="nt">default</span><span class="p">:</span> <span class="s">""</span>
-      <span class="nt">description</span><span class="p">:</span> <span class="s">"The</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OpenShift</span><span class="nv"> </span><span class="s">route</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">application."</span>
-      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">APP_PATH</span>
-      <span class="nt">default</span><span class="p">:</span> <span class="s">"/"</span>
-      <span class="nt">description</span><span class="p">:</span> <span class="s">"The</span><span class="nv"> </span><span class="s">path</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">reach</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">application</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">it's</span><span class="nv"> </span><span class="s">hostname"</span>
-      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EXPECTED_STATUS</span>
-      <span class="nt">default</span><span class="p">:</span> <span class="s">"200"</span>
-      <span class="nt">description</span><span class="p">:</span> <span class="s">"The</span><span class="nv"> </span><span class="s">expected</span><span class="nv"> </span><span class="s">http(s)</span><span class="nv"> </span><span class="s">status</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">querying</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">application."</span>
-      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TIMEOUT</span>
-      <span class="nt">default</span><span class="p">:</span> <span class="s">"30"</span>
-      <span class="nt">description</span><span class="p">:</span> <span class="s">"The</span><span class="nv"> </span><span class="s">number</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">seconds</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">try</span><span class="nv"> </span><span class="s">before</span><span class="nv"> </span><span class="s">giving</span><span class="nv"> </span><span class="s">up</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">successful</span><span class="nv"> </span><span class="s">connection."</span>
-      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SECURE_CONNECTION</span>
-      <span class="nt">default</span><span class="p">:</span> <span class="s">"true"</span>
-      <span class="nt">description</span><span class="p">:</span> <span class="s">"true</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">secure</span><span class="nv"> </span><span class="s">route</span><span class="nv"> </span><span class="s">(https),</span><span class="nv"> </span><span class="s">false</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">insecure</span><span class="nv"> </span><span class="s">(http)</span><span class="nv"> </span><span class="s">route."</span>
-      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
-    <span class="nt">steps</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">route-connection-test</span>
-        <span class="nt">image</span><span class="p">:</span> <span class="s">'image-registry.openshift-image-registry.svc:5000/openshift/cli:latest'</span>
-        <span class="nt">resources</span><span class="p">:</span>
-          <span class="nt">limits</span><span class="p">:</span>
-            <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
-            <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
-          <span class="nt">requests</span><span class="p">:</span>
-            <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200m</span>
-            <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200Mi</span>
-        <span class="nt">script</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-            <span class="no">#!/usr/bin/env bash</span>
-            <span class="no"># Make parameters into variables for clarity</span>
-            <span class="no">export route_name="$(params.ROUTE_NAME)"</span>
-            <span class="no">export expected_status="$(params.EXPECTED_STATUS)"</span>
-            <span class="no">export app_path="$(params.APP_PATH)"</span>
-            <span class="no">export timeout="$(params.TIMEOUT)"</span>
-            <span class="no">export secure_connection="$(params.SECURE_CONNECTION)"</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
+<span class="w">      </span><span class="no">"This task runs a bash script to determine if a given application</span>
+<span class="w">      </span><span class="no">is accessible to the outside world via its route."</span>
+<span class="w">    </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ROUTE_NAME</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">""</span>
+<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">"The</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OpenShift</span><span class="nv"> </span><span class="s">route</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">application."</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">APP_PATH</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">"/"</span>
+<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">"The</span><span class="nv"> </span><span class="s">path</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">reach</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">application</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">it's</span><span class="nv"> </span><span class="s">hostname"</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EXPECTED_STATUS</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">"200"</span>
+<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">"The</span><span class="nv"> </span><span class="s">expected</span><span class="nv"> </span><span class="s">http(s)</span><span class="nv"> </span><span class="s">status</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">querying</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">application."</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TIMEOUT</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">"30"</span>
+<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">"The</span><span class="nv"> </span><span class="s">number</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">seconds</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">try</span><span class="nv"> </span><span class="s">before</span><span class="nv"> </span><span class="s">giving</span><span class="nv"> </span><span class="s">up</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">successful</span><span class="nv"> </span><span class="s">connection."</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SECURE_CONNECTION</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">"true"</span>
+<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">"true</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">secure</span><span class="nv"> </span><span class="s">route</span><span class="nv"> </span><span class="s">(https),</span><span class="nv"> </span><span class="s">false</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">insecure</span><span class="nv"> </span><span class="s">(http)</span><span class="nv"> </span><span class="s">route."</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">route-connection-test</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">'image-registry.openshift-image-registry.svc:5000/openshift/cli:latest'</span>
+<span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200m</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200m</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200Mi</span>
+<span class="w">        </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">#!/usr/bin/env bash</span>
+<span class="w">            </span><span class="no"># Make parameters into variables for clarity</span>
+<span class="w">            </span><span class="no">export route_name="$(params.ROUTE_NAME)"</span>
+<span class="w">            </span><span class="no">export expected_status="$(params.EXPECTED_STATUS)"</span>
+<span class="w">            </span><span class="no">export app_path="$(params.APP_PATH)"</span>
+<span class="w">            </span><span class="no">export timeout="$(params.TIMEOUT)"</span>
+<span class="w">            </span><span class="no">export secure_connection="$(params.SECURE_CONNECTION)"</span>
 
-            <span class="no"># If true, http(s), if false (or otherwise) http</span>
-            <span class="no">if [ "${secure_connection}" == "true" ]</span>
-            <span class="no">then</span>
-                <span class="no">export header="https://"</span>
-                <span class="no">echo "Using secure https connection..."</span>
-            <span class="no">else</span>
-                <span class="no">export header="http://"</span>
-                <span class="no">echo "Using insecure http connection..."</span>
-            <span class="no">fi</span>
-            <span class="no"># Start timer at 0</span>
-            <span class="no">SECONDS=0</span>
-            <span class="no"># Once timeout reached, stop retrying</span>
-            <span class="no">while [ "${SECONDS}" -lt "${timeout}" ];</span>
-            <span class="no">do</span>
-                <span class="no"># Get hostname of route</span>
-                <span class="no">hostname="$(oc get route ${route_name} -o jsonpath='{.spec.host}')"</span>
-                <span class="no"># Get http(s) status of web page via external connection (route)</span>
-                <span class="no">status=$(curl -s -o /dev/null -w "%{http_code}" "${header}${hostname}${app_path}")</span>
-                <span class="no"># Print test completion message if expected status code received</span>
-                <span class="no">if [ "${status}" -eq "${expected_status}" ]</span>
-                <span class="no">then</span>
-                    <span class="no">echo "---------------------------TESTS COMPLETE---------------------------"</span>
-                    <span class="no">echo "Congratulations on a successful test!"</span>
-                    <span class="no">echo "Please visit the application at:"</span>
-                    <span class="no">echo</span>
-                    <span class="no">echo "${header}${hostname}${app_path}"</span>
-                    <span class="no">exit 0</span>
-                <span class="no"># Print failure message if incorrect status code received + retry</span>
-                <span class="no">else</span>
-                    <span class="no">echo "The application is unexpectedly returning http(s) code ${status}..."</span>
-                    <span class="no">echo "It is not available to outside traffic yet..."</span>
-                    <span class="no">echo "Retrying in 5s at:"</span>
-                    <span class="no">echo</span>
-                    <span class="no">echo "${header}${hostname}${app_path}"</span>
-                    <span class="no">sleep 5</span>
-                <span class="no">fi</span>
-            <span class="no">done</span>
-            <span class="no"># Redirect output to standard error, print message, and exit with error after timeout</span>
-            <span class="no">&gt;&amp;2 echo "Error, failed after ${timeout} seconds of trying..."</span>
-            <span class="no">&gt;&amp;2 echo "The application was never accessible to the outside world :("</span>
-            <span class="no">exit 1</span>
+<span class="w">            </span><span class="no"># If true, http(s), if false (or otherwise) http</span>
+<span class="w">            </span><span class="no">if [ "${secure_connection}" == "true" ]</span>
+<span class="w">            </span><span class="no">then</span>
+<span class="w">                </span><span class="no">export header="https://"</span>
+<span class="w">                </span><span class="no">echo "Using secure https connection..."</span>
+<span class="w">            </span><span class="no">else</span>
+<span class="w">                </span><span class="no">export header="http://"</span>
+<span class="w">                </span><span class="no">echo "Using insecure http connection..."</span>
+<span class="w">            </span><span class="no">fi</span>
+<span class="w">            </span><span class="no"># Start timer at 0</span>
+<span class="w">            </span><span class="no">SECONDS=0</span>
+<span class="w">            </span><span class="no"># Once timeout reached, stop retrying</span>
+<span class="w">            </span><span class="no">while [ "${SECONDS}" -lt "${timeout}" ];</span>
+<span class="w">            </span><span class="no">do</span>
+<span class="w">                </span><span class="no"># Get hostname of route</span>
+<span class="w">                </span><span class="no">hostname="$(oc get route ${route_name} -o jsonpath='{.spec.host}')"</span>
+<span class="w">                </span><span class="no"># Get http(s) status of web page via external connection (route)</span>
+<span class="w">                </span><span class="no">status=$(curl -s -o /dev/null -w "%{http_code}" "${header}${hostname}${app_path}")</span>
+<span class="w">                </span><span class="no"># Print test completion message if expected status code received</span>
+<span class="w">                </span><span class="no">if [ "${status}" -eq "${expected_status}" ]</span>
+<span class="w">                </span><span class="no">then</span>
+<span class="w">                    </span><span class="no">echo "---------------------------TESTS COMPLETE---------------------------"</span>
+<span class="w">                    </span><span class="no">echo "Congratulations on a successful test!"</span>
+<span class="w">                    </span><span class="no">echo "Please visit the application at:"</span>
+<span class="w">                    </span><span class="no">echo</span>
+<span class="w">                    </span><span class="no">echo "${header}${hostname}${app_path}"</span>
+<span class="w">                    </span><span class="no">exit 0</span>
+<span class="w">                </span><span class="no"># Print failure message if incorrect status code received + retry</span>
+<span class="w">                </span><span class="no">else</span>
+<span class="w">                    </span><span class="no">echo "The application is unexpectedly returning http(s) code ${status}..."</span>
+<span class="w">                    </span><span class="no">echo "It is not available to outside traffic yet..."</span>
+<span class="w">                    </span><span class="no">echo "Retrying in 5s at:"</span>
+<span class="w">                    </span><span class="no">echo</span>
+<span class="w">                    </span><span class="no">echo "${header}${hostname}${app_path}"</span>
+<span class="w">                    </span><span class="no">sleep 5</span>
+<span class="w">                </span><span class="no">fi</span>
+<span class="w">            </span><span class="no">done</span>
+<span class="w">            </span><span class="no"># Redirect output to standard error, print message, and exit with error after timeout</span>
+<span class="w">            </span><span class="no">&gt;&amp;2 echo "Error, failed after ${timeout} seconds of trying..."</span>
+<span class="w">            </span><span class="no">&gt;&amp;2 echo "The application was never accessible to the outside world :("</span>
+<span class="w">            </span><span class="no">exit 1</span>
 </code></pre></div>
 2. Create the <code>connection-test</code> <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr></p>
 <ol>
@@ -657,7 +670,7 @@
 </ol>
 <p>You should now see the created <code>connection-test</code> <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr>. Finally, navigate back to the <code>Pipelines</code> section of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr> and go back to editing your pipeline.</p>
 <p><img alt="Back to Pipelines" src="../../images/Part2/BackToPipelines.png"/></p>
-<h4 id="add-external-route-test-task-to-pipeline"><span class="enumerate-heading-plugin">10.1.2.2</span> Add External Route Test <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline" title="Permanent link">¶</a></h4>
+<h4 id="add-external-route-test-task-to-pipeline"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.1.2.2</span> Add External Route Test <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline" title="Permanent link">¶</a></h4>
 <ol>
 <li>
 <p>Add a sequential task after <code>deploy-dev</code>. When you <code>Select Task</code>, choose the <code>connection-test</code> task. </p>
@@ -679,9 +692,9 @@
 </li>
 </ol>
 <p>Your current pipeline builds and tests your application, creates a docker image for it, deploys it to the development environment, and ensures that the application is working both internally and externally. In other words, once your application successfully completes the current pipeline, you can be confident in it and be ready to move to staging<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. </p>
-<h2 id="deploy-staging"><span class="enumerate-heading-plugin">10.2</span> Deploy Staging<a class="headerlink" href="#deploy-staging" title="Permanent link">¶</a></h2>
+<h2 id="deploy-staging"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.2</span> Deploy Staging<a class="headerlink" href="#deploy-staging" title="Permanent link">¶</a></h2>
 <p>Moving to the staging environment means spinning up your application in that environment (with parameters relevant for it) and testing it there. Given that this is all using containers, you can easily free up the development resources that have successfully completed and then spin up the new resources in your staging environment.</p>
-<h3 id="remove-dev"><span class="enumerate-heading-plugin">10.2.1</span> Remove Dev<a class="headerlink" href="#remove-dev" title="Permanent link">¶</a></h3>
+<h3 id="remove-dev"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.2.1</span> Remove Dev<a class="headerlink" href="#remove-dev" title="Permanent link">¶</a></h3>
 <p>Your first <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> will mirror the <code>cleanup-resources</code> task at the beginning of your pipeline, but will just cleanup the <code>dev</code> resources using the <code>env=dev</code> <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors" rel="noopener noreferrer" target="_blank">label selector</a>.</p>
 <ol>
 <li>
@@ -699,16 +712,16 @@
 <div class="highlight"><pre><span></span><code>cleanup-dev
 </code></pre></div>
 <p><strong>SCRIPT</strong></p>
-<div class="highlight"><pre><span></span><code>oc delete deployment,cm,svc,route -l <span class="nv">app</span><span class="o">=</span>spring-petclinic,env<span class="o">=</span>dev --ignore-not-found
+<div class="highlight"><pre><span></span><code>oc<span class="w"> </span>delete<span class="w"> </span>deployment,cm,svc,route<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>spring-petclinic,env<span class="o">=</span>dev<span class="w"> </span>--ignore-not-found
 </code></pre></div>
 <p>and an <strong>empty</strong> <code>ARGS</code> value.</p>
 <div class="admonition warning">
 <p class="admonition-title">No help please!</p>
-<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
+<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (click the - button to delete the default help args line). </p>
 </div>
 </li>
 </ol>
-<h3 id="add-staging"><span class="enumerate-heading-plugin">10.2.2</span> Add Staging<a class="headerlink" href="#add-staging" title="Permanent link">¶</a></h3>
+<h3 id="add-staging"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.2.2</span> Add Staging<a class="headerlink" href="#add-staging" title="Permanent link">¶</a></h3>
 <p>You will use your existing <code>kustomize</code> task to deploy the staging configuration for your PetClinic application in a new <code>kustomize-staging</code> task. <a href="https://github.com/ibm-wsc/spring-petclinic/blob/main/ocp-files/overlay/staging/kustomization.yaml" rel="noopener noreferrer" target="_blank">Customizations for staging PetClinic</a> include adding a staging environment label, name suffix, change cause, and staging environment variables for your application. You could deploy to a separate project or cluster altogether as well as change replicas or add pod autoscalers in a similar manner (depending on your use case) for different environments. </p>
 <ol>
 <li>
@@ -725,7 +738,10 @@
 <div class="highlight"><pre><span></span><code>overlay/staging
 </code></pre></div>
 <p><strong>SCRIPT</strong></p>
-<div class="highlight"><pre><span></span><code>kustomize edit <span class="nb">set</span> image spring-petclinic<span class="o">=</span><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>-minimal:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
+<div class="highlight"><pre><span></span><code>kustomize<span class="w"> </span>edit<span class="w"> </span><span class="nb">set</span><span class="w"> </span>image<span class="w"> </span>spring-petclinic<span class="o">=</span><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>-minimal:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
+</code></pre></div>
+<p><strong>SOURCE</strong></p>
+<div class="highlight"><pre><span></span><code>workspace
 </code></pre></div>
 </li>
 <li>
@@ -736,30 +752,8 @@
 <p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder <abbr title="user interface">UI</abbr> so you have to do it directly in the yaml for now.</p>
 </div>
 </li>
-<li>
-<p>Add workspace to <code>kustomize-staging</code> task </p>
-<p>Find the <code>kustomize-staging</code> and add the following workspace definition:</p>
-<div class="highlight"><pre><span></span><code>      workspaces:
-      - name: source
-        workspace: workspace
-</code></pre></div>
-<div class="admonition question">
-<p class="admonition-title">How can you easily find the <code>kustomize-staging</code> task and add the workspace definition?</p>
-<p>You can click on the black yaml box and then use your find keyboard shortcut (<code>ctrl+f</code> for Windows / <code>command+f</code> for mac) to bring up a find textbox (labeled 1 in the image below). Then, you can search the following term by pasting it into the find textbox:
-<div class="highlight"><pre><span></span><code>name: kustomize-staging
-</code></pre></div>
-Paste the workspace definition under the highlighted line as shown in the image below.</p>
-</div>
-<p><img alt="Kustomize Staging Add Workspace" src="../../images/Part2/KustomizeStagingWorkspace.png"/></p>
-<p><code>Save</code> the update</p>
-<p><img alt="Save Pipeline Edit Yaml" src="../../images/Part2/PipelineUpdatedYaml.png"/></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>After the save message above appears you can then proceed to <code>Cancel</code> back to the pipeline menu.</p>
-</div>
-</li>
 </ol>
-<h3 id="rollout-staging"><span class="enumerate-heading-plugin">10.2.3</span> Rollout Staging<a class="headerlink" href="#rollout-staging" title="Permanent link">¶</a></h3>
+<h3 id="rollout-staging"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.2.3</span> Rollout Staging<a class="headerlink" href="#rollout-staging" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Edit the pipeline again and add a <code>deploy-staging</code> task with the <code>openshift-client</code> <abbr title="a Task scoped to the entire cluster instead of a single project.">ClusterTask</abbr></p>
@@ -772,15 +766,15 @@ Paste the workspace definition under the highlighted line as shown in the image 
 <div class="highlight"><pre><span></span><code>deploy-staging
 </code></pre></div>
 <p><strong>SCRIPT</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">"</span><span class="k">$(</span>params.GIT_MESSAGE<span class="k">)</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> oc rollout status deploy/spring-petclinic-staging
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="k">$(</span>params.GIT_MESSAGE<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>oc<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>deploy/spring-petclinic-staging
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">No help please!</p>
-<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
+<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (click the - button to delete the default help args line).</p>
 </div>
 </li>
 </ol>
-<h3 id="add-external-route-test-task-to-pipeline_1"><span class="enumerate-heading-plugin">10.2.4</span> Add External Route Test <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline_1" title="Permanent link">¶</a></h3>
+<h3 id="add-external-route-test-task-to-pipeline_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.2.4</span> Add External Route Test <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> to Pipeline<a class="headerlink" href="#add-external-route-test-task-to-pipeline_1" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Add a sequential task after <code>deploy-staging</code>. When you <code>Select Task</code>, choose the <code>connection-test</code> task. </p>
@@ -801,7 +795,7 @@ Paste the workspace definition under the highlighted line as shown in the image 
 <p><img alt="Save Pipeline" src="../../images/Part2/SavePipeline.png"/></p>
 </li>
 </ol>
-<h2 id="summary"><span class="enumerate-heading-plugin">10.3</span> Summary <img alt="🌔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f314.svg" title=":waxing_gibbous_moon:"/><a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<h2 id="summary"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.3</span> Summary <img alt="🌔" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f314.svg" title=":waxing_gibbous_moon:"/><a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
 <p>Congratulations! You have built a pipeline that tests your <code>PetClinic</code> application, creates a docker image for it, deploys it to the development environment with dev configuration, ensures that the application is working both internally and externally, cleans up the development environment, deploys it to the staging environment with staging configuration, and then makes sure it is working both internally and externally<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. </p>
 <div class="admonition summary">
 <p class="admonition-title">tl;dr</p>
@@ -832,52 +826,54 @@ Paste the workspace definition under the highlighted line as shown in the image 
 </div>
 </article>
 </div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 </div>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
 <a aria-label="Previous: 9. Test and Promote Overview" class="md-footer__link md-footer__link--prev" href="../promote_overview/" rel="prev">
 <div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
-                Previous
-              </span>
-              9. Test and Promote Overview
-            </div>
+                  Previous
+                </span>
+                9. Test and Promote Overview
+              </div>
 </div>
 </a>
 <a aria-label="Next: 11. Integrating Git" class="md-footer__link md-footer__link--next" href="../git/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
-                Next
-              </span>
-              11. Integrating Git
-            </div>
+                  Next
+                </span>
+                11. Integrating Git
+              </div>
 </div>
 <div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
 </div>
 </a>
 </nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
-<div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
-          Material for MkDocs
-        </a>
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
 </div>
-<div class="md-footer-social">
-<a class="md-footer-social__link" href="https://github.com/ibm-wsc" rel="noopener" target="_blank" title="github.com">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/ibm-wsc" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
 </a>
-<a class="md-footer-social__link" href="https://hub.docker.com/u/s390x" rel="noopener" target="_blank" title="hub.docker.com">
-<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"></path></svg>
+<a class="md-social__link" href="https://hub.docker.com/u/s390x" rel="noopener" target="_blank" title="hub.docker.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"></path></svg>
 </a>
 </div>
 </div>
@@ -887,9 +883,8 @@ Paste the workspace definition under the highlighted line as shown in the image 
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
-<script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
-<script src="../../js/print-site-instant-loading.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "content.action.edit", "content.action.view", "navigation.footer", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.a00a7c5e.min.js"></script>
 <script src="../../js/print-site.js"></script>
 </body>
 </html>
