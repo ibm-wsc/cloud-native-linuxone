@@ -227,15 +227,11 @@ You should now see the created `connection-test` Task. Finally, navigate back to
 
     ![Connection Test Configure 1](../images/Part2/ConnectionTestConfigureDev.png)
 
-    **Display Name**
-
-    ``` bash
+    ``` bash title="Display Name"
     connect-dev
     ```
 
-    **ROUTE_NAME**
-
-    ``` bash
+    ``` bash title="ROUTE_NAME"
     spring-petclinic-dev
     ```
 
@@ -266,15 +262,11 @@ Your first Task will mirror the `cleanup-resources` task at the beginning of you
 
     ![cleanup dev](../images/Part2/CleanupDevTask.png)
 
-    **Display Name**
-
-    ``` bash
+    ``` bash title="Display Name"
     cleanup-dev
     ```
 
-    **SCRIPT**
-
-    ``` bash
+    ``` bash title="SCRIPT"
     oc delete deployment,cm,svc,route -l app=spring-petclinic,env=dev --ignore-not-found
     ``` 
 
@@ -295,36 +287,21 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
     ![Kustomize Staging Task](../images/Part2/KustomizeStaging.png)
 
-    **Display Name**
-
-    ``` bash
+    ``` bash title="Display Name"
     kustomize-staging
     ```
 
-    **RELEASE_SUBDIR**
-
-    ``` bash
+    ``` bash title="RELEASE_SUBDIR"
     overlay/staging
     ```
 
-    **SCRIPT**
-
-    ``` bash
+    ``` bash title="SCRIPT"
     kustomize edit set image spring-petclinic=$(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
     ```
 
-	**SOURCE**
-
-	``` bash
+	``` bash title="SOURCE (choose from dropdown)"
 	workspace
 	```
-
-3. `Save` the current pipeline edit and then switch to `YAML` from pipeline menu.
-
-    ![Switch to yaml](../images/Part1/SwitchYaml.png)
-
-    !!! Info "Why are you editing yaml directly?"
-        `Workspaces` are more versatile than traditional `PipelineResources` which is why you are using them. However, as the transition to workspaces continues, the OpenShift Pipeline Builder doesn't support editing the `Workspace` mapping from a pipeline to a task via the Builder UI so you have to do it directly in the yaml for now.
 
 ### Rollout Staging
 
@@ -338,15 +315,11 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
     ![Staging Rollout](../images/Part2/DeployStagingParameters.png)
 
-    **Display Name**
-
-    ``` bash
+    ``` bash title="Display Name"
     deploy-staging
     ```
 
-    **SCRIPT**
-
-    ``` bash
+    ``` bash title="SCRIPT"
     echo "$(params.GIT_MESSAGE)" && oc rollout status deploy/spring-petclinic-staging
     ```
 
@@ -363,15 +336,11 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
     ![Connection Test Configure 1](../images/Part2/ConnectionTestConfigureStaging.png)
 
-    **Display Name**
-
-    ``` bash
+    ``` bash title="Display Name"
     connect-staging
     ```
 
-    **ROUTE_NAME**
-
-    ``` bash
+    ``` bash title="ROUTE_NAME"
     spring-petclinic-staging
     ```
 
@@ -391,5 +360,3 @@ Congratulations! You have built a pipeline that tests your `PetClinic` applicati
 
 [^6]: 
   You'll add the double `C`s in the next section by connecting it to GitHub.
-
---8<-- "includes/glossary.md"

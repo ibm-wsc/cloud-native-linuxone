@@ -2,12 +2,12 @@
 
 ## Sign up for necessary accounts
 
-1. Get a 2nd OpenShift cluster trial (in addition to the one you got for the regular lab, using a different email) [here](https://linuxone.cloud.marist.edu/#/register?flag=OCP){target="_blank" rel="noopener noreferrer"}.
+1. Get a 2nd OpenShift cluster trial (in addition to the one you got for the regular lab, using a different email) [here](https://linuxone.cloud.marist.edu/#/register?flag=OCP){target="_blank" rel="noopener"}.
 
     !!! note
         Within 48 hours after you register, be sure to "Activate your account or entitlement" following the instructions in the follow-on email sent to the email address you specified during registration.
 
-2. Sign up for IBM Z Container Registry trial using [this link](https://epwt-www.mybluemix.net/software/support/trial/cst/programwebsite.wss?siteId=1208&tabId=3216&p=null&h=null){target="_blank" rel="noopener noreferrer"}.
+2. Setup access to the Container Images for IBM Z and LinuxONE using [this link](https://ibm.github.io/ibm-z-oss-hub/main/main.html){target="_blank" rel="noopener"} and scrolling down to the *Getting Started* section and then following it.
 
 ## Access OpenShift Cluster
 
@@ -16,7 +16,7 @@
 
 1. Code for the project
 
-    Please fork the code to your GitHub repository by [clicking here](https://github.com/ibm-wsc/spring-petclinic/fork){target="_blank" rel="noopener noreferrer"}. If this fails, you likely already have a forked version of the repository from the lab. If so, go to your fork and use that in the next step.
+    Please fork the code to your GitHub repository by [clicking here](https://github.com/ibm-wsc/spring-petclinic/fork){target="_blank" rel="noopener"}. If this fails, you likely already have a forked version of the repository from the lab. If so, go to your fork and use that in the next step.
 
 2. Clone the git repository to your local computer 
 

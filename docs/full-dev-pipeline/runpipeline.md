@@ -104,22 +104,16 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
     Since your initial deploy will be for the `dev` environment, the only values you need to change are the `Display Name` and the `SCRIPT` (copy and paste boxes below image):
 
     ![Kustomize Configure 1](../images/Part1/KustomizeDevChoices.png)
-
-    **Display Name**
     
-    ``` bash
+    ``` bash title="Display Name"
     kustomize-dev
     ```
 
-    **SCRIPT**
-
-    ``` bash
+    ``` bash title="SCRIPT"
     kustomize edit set image spring-petclinic=$(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
     ```
 
-	**SOURCE**
-
-	```
+	``` title="SOURCE (choose from dropdown)"
 	workspace
 	```
     
@@ -139,22 +133,18 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
 
     ![cleanup resources](../images/Part1/CleanupResourcesTask.png)
 
-    **Display Name**
-
-    ``` bash
+    ``` bash title="Display Name"
     cleanup-resources
     ```
 
-    **SCRIPT**
-
-    ``` bash
+    ``` bash title="SCRIPT"
     oc delete deployment,cm,svc,route -l app=$(params.APP_NAME) --ignore-not-found
     ```
 
     and an empty `ARGS` value.
 
     !!! warning "No help please!"
-        Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). 
+        Make sure `help` is deleted from the `ARGS` section (click the - button to delete the default help args line).
 
 ## Update Deploy Task to deploy-dev
 
@@ -162,21 +152,15 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
 
     ![Deploy Dev Task Completed](../images/Part1/DeployDevCompleted.png)
 
-    **Display Name**
-    ``` bash
+    ``` bash title="Display Name"
     deploy-dev
     ```
     
-    **Script**
-    ``` bash
+    ``` bash title="SCRIPT"
     echo "$(params.GIT_MESSAGE)" && oc $@
     ```
 
-    **Last Arg**
-
-    From `deploy/$(params.APP_NAME)` to:
-
-    ``` bash
+    ``` bash title="New Last Arg"
     deploy/spring-petclinic-dev
     ```
 
@@ -218,5 +202,3 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
 Congratulations! You successfully deployed your PetClinic application to your development environment with automated checks and configuration to meet your needs. This means that whenever your pipeline is triggered it will automatically spin up resources to build, test and deploy your application according to the specification you need to meet for your organization[^1].
 
 [^1]: For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.
-
---8<-- "includes/glossary.md"

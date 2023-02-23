@@ -48,5 +48,3 @@ b. OpenShift Pipelines UI creates the resources you defined in your OpenShift pr
     The pipeline completes Steps 8-10 first for the development environment. Once they complete, the pipeline will tear down that environment and repeat steps 8-10 for the staging environment, before moving on to step 11.
 
 [^1]: For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.
-
---8<-- "includes/glossary.md"

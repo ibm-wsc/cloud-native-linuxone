@@ -178,5 +178,3 @@ Finally, you will cleanup the GitHub fork you made on your GitHub account with t
     ![Confirm Repository Delete](../images/Cleanup/ConfirmDeleteRepository.png)
     
 ## :tada: Thank You for Cleaning Up! :tada:
-
---8<-- "includes/glossary.md"

@@ -10,7 +10,7 @@ For Petclinic, we will be using SonarScanner for Maven. The ability to execute t
 
 The lab instructors have already setup a SonarQube server within the OpenShift cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.
 
-Access the SonarQube server [here](https://sonarqube-1670885178028.apps.cloudnative.marist.edu/){target="_blank" rel="noopener noreferrer"}
+Access the SonarQube server [here](https://sonarqube-1677091477712.apps.cloudnative.marist.edu){target="_blank" rel="noopener noreferrer"}
 
 Select `Log in` in the upper right hand corner. And log in with your assigned credentials.
 
@@ -80,7 +80,20 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
 
 ![presqpipeline](../images/DevSecOps/presqpipeline.png) 
 
-1. We will insert the code analysis task before the build task. The idea being we want to scan the source code for bugs and vulnerabilities, before we build a container image out of it.
+1. Add `maven-settings` workspace to your pipeline
+
+	![Add Maven Settings Workspace](../images/DevSecOps/AddMavenSettingsWorkspace.png)
+
+	1. Click `Add workspace`
+	2. Name the workspace
+
+		``` bash
+		maven-settings
+		```
+
+	3. Click `Save`
+
+2. We will insert the code analysis task before the build task. The idea being we want to scan the source code for bugs and vulnerabilities, before we build a container image out of it.
 
     a. From your pipeline screen, Go to Actions -> Edit Pipeline.
 
@@ -95,63 +108,61 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
     !!! tip
         Once you add a specific task (i.e. `maven`), clicking on the oval of the task will enable you to edit its default values for your needs.
 
-2. Add `maven-settings` workspace to your pipeline
-
-	![Add Maven Settings Workspace](../images/DevSecOps/AddMavenSettingsWorkspace.png)
-
-	1. Click `Add workspace`
-	2. Name the workspace `maven-settings`
-	3. Click `Save`
-
-3. Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server, <b>be careful to substitute the `-Dsonar.login` goal with the token that you generated in the previous step. Also be mindful to put your name in the value of the `Dsonar.projectName` and ``Dsonar.projectKey` goals.</b> 
+3. Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server.
 
     ![codeanalysistask](../images/DevSecOps/codeanalysistask.png)
 
-    **Display Name**
-
-    ``` bash
+    ``` bash title="Display Name"
     code-analysis
     ```
 
-    **MAVEN_IMAGE**
-    ``` bash
+    ``` bash title="MAVEN_IMAGE"
     maven:3.8.1-jdk-11-openj9
     ```
 
     **GOALS**
 
-    ``` bash
+    ``` bash title="GOAL 1"
     package
     ```
-    ``` bash
+
+    ``` bash title="GOAL 2"
     sonar:sonar
     ```
-    ``` bash
+
+    ``` bash title="GOAL 3"
     -Dsonar.login=<use-your-token-from-previous-step>
     ```
-    ``` bash
-    -Dsonar.host.url=https://sonarqube-1670885178028.apps.cloudnative.marist.edu
-    ``` 
-    ``` bash
+
+	!!! warning "Use your token"
+
+		You need to replace `<use-your-token-from-previous-step>` with your actual token.
+
+    ``` bash title="GOAL 4"
+    -Dsonar.host.url=https://sonarqube-1677091477712.apps.cloudnative.marist.edu
+    ```
+
+    ``` bash title="GOAL 5"
     -Dsonar.projectName=petclinic-<your-name>
     ```
-    ``` bash
+
+	!!! warning "Use your name"
+		
+		Be mindful to put your name in the value of the `Dsonar.projectName` and ``Dsonar.projectKey` goals (i.e., substitute `<your-name>` with your name such as `petclinic-garrett`).
+
+    ``` bash title="GOAL 6"
     -Dsonar.projectKey=petclinic-<your-name>
     ```
 
-	**SOURCE**
-
-	``` bash
+	``` bash title="SOURCE (choose from dropdown)"
 	workspace
 	```
 
-	**MAVEN-SETTINGS**
-
-	``` bash
+	``` bash title="MAVEN-SETTINGS (choose from dropdown)"
 	maven-settings
 	```
 
-    !!! caution
+    !!! warning
         Remember to replace `<your-name>` with your name such as `petclinic-garrett`.
 
 4. Now you can click away to get back to the main pipeline edit panel.
@@ -181,7 +192,8 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
                       name: maven-settings
         ```
         
-        !!! note
+        !!! caution "Indentation Matters!"
+
             Take care to match the indentation in the picture below
 
     2. Click `Save` to apply your changes

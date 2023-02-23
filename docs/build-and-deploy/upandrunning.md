@@ -22,7 +22,7 @@ You will start by building your PetClinic application from the source code and c
 
 ![linuxoneccactivation](upandrunningimages/linuxoneccactivation.png)
 
-**3.** After activation, [log into your LinuxONE Community Cloud account](https://console-openshift-console.apps.cloudnative.marist.edu/topology/all-namespaces){target="_blank" rel="noopener"}.
+**3.** After activation, log into your LinuxONE Community Cloud account using the [link here](https://console-openshift-console.apps.cloudnative.marist.edu/topology/all-namespaces){target="_blank" rel="noopener"}.
 
 **4.** You should see the Topology view of the OpenShift console. Click on  your project name (it will be a number randomly assigned to you that will be different than the one shown in the picture below):
 
@@ -31,35 +31,36 @@ You will start by building your PetClinic application from the source code and c
 
 ## Deploying MySQL database
 
-**1.** First, you need to setup your mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)
+1. First, you need to setup your mysql database. Luckily, this is very easy on OpenShift with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)
 
-![Add DB](upandrunningimages/devselectdatabase.png)
+	![Add DB](upandrunningimages/devselectdatabase.png)
 
-<b>Now you can start the lab!</b>
+	<b>Now you can start the lab!</b>
 
-**2.** Next, select the `MySQL (Ephemeral)` tile. 
+2. Next, select the `MySQL (Ephemeral)` tile. 
 
-!!! note 
-    You are choosing the ephemeral option because at this point you do not care to persist the database beyond the life of the container.
+	!!! question "Why Ephemeral?"
+		You are using the **Ephemeral** implementation because this a short-lived demo and you do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the container.
 
-![Select MySQL](upandrunningimages/selectmqephemeral.png)
+	![Select MySQL](upandrunningimages/selectmqephemeral.png)
 
-**3.** Click on instantiate template.
+3. Click on instantiate template.
 
-![Select DB](upandrunningimages/instantiatetemplate.png)
+	![Select DB](upandrunningimages/instantiatetemplate.png)
 
-**4.** Fill the wizard with the parameters as shown in the image below (your namespace will be different from the image below):
+4. Fill the wizard with the parameters as shown in the image below (your namespace will be different from the image below):
 
-![DB parameters](upandrunningimages/mysqlparameters.png)
+	![DB parameters](upandrunningimages/mysqlparameters.png)
 
-Click the `Create` button. 
+	``` bash
+	petclinic
+	```
 
-!!! question "Why Ephemeral?"
-    You are using the **Ephemeral** implementation because this a short-lived demo and you do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the container.
+	Click the `Create` button. 
 
-A minute or two later, in the `Topology` view of your OpenShift Console, you should see `mysql` in the `Running` state. (Click on the Topology icon for `mysql` to bring up the side panel)
+5. A minute or two later, in the `Topology` view of your OpenShift Console, you should see `mysql` in the `Running` state. (Click on the Topology icon for `mysql` to bring up the side panel)
 
-![DB running](upandrunningimages/mysqlrunning.png)
+	![DB running](upandrunningimages/mysqlrunning.png)
 
 ## Fork the PetClinic repo to your own GitHub account
 
@@ -107,7 +108,7 @@ There are multiple ways OpenShift enables cloud native application developers to
 
 ![add pipe](upandrunningimages/addpipelines.png)
 
-**6.** You are almost there! You will need to configure a couple of Advanced Options. First, click on `Routing` in the Advanced Options section to expand the Routing options.
+**6.** You are almost there! You will need to configure a couple of Advanced Options. First, click on `Show advanced Routing options` in the _Advanced Options_ section to expand the Routing options.
 
 ![open routing panel](upandrunningimages/routinglink.png)
 
@@ -202,5 +203,3 @@ Please let the instructors know, if you don't see your owner you added listed.
 ## Summary :new_moon_with_face:
 
 Congratulations, you have completed this part of the workshop! You have your virtual pet clinic up and running and have created an OpenShift Pipelines pipeline that you will build on in the next sections of the lab to achieve CI/CD. You may move on to the next part by clicking `Next` on the bottom right of the page.
-
---8<-- "includes/glossary.md"

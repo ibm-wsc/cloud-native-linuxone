@@ -10,11 +10,11 @@
 
 3. Type (or paste) the name of the following file into the search bar and select it (copy and paste box below image):
 
-    ![Choose File](../images/Part2/ChooseFile.png)
+	![Choose File](../images/Part2/ChooseFile.png)
 
-    ``` bash
-    src/main/resources/db/mysql/data.sql
-    ```
+	``` bash
+	src/main/resources/db/mysql/data.sql
+	```
 
     !!! Tip "If the file doesn't appear right away"
         Depending on your internet connection to GitHub, there may be a slight delay before the file appears for editing (your screen matches the picture above and you can click to select the file).
@@ -33,14 +33,16 @@
             The copy and paste box below can be entered on **line 24** with `enter` pressed after it to match the image above.
 
         !!! example "Turtle"
+
             ``` mysql
             INSERT IGNORE INTO types VALUES (7, 'turtle');
             ```
 
         !!! Tip "I want to add Willow, an awesome armadillo, not Yertle the turtle!"
+
             If you want to add something other than a turtle as an option, please change `turtle` to that animal (i.e. `armadillo`) in the mysql statement above. For the armadillo example, the statement becomes:
 
-            ```mysql
+            ``` mysql
             INSERT IGNORE INTO types VALUES (7, 'armadillo');
             ```
 
@@ -48,13 +50,11 @@
 
         !!! example "Yertle the turtle"
 
-            **Title**
-            ``` bash
+            ``` bash title="Title"
             Turtle Time
             ```
 
-            **Extended Description**
-            ``` bash
+            ``` bash title="Extended Description"
             I want to be able to add Yertle the turtle.
             ```
 
@@ -160,5 +160,3 @@
 ## Summary :full_moon_with_face:
 
 In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to OpenShift in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "cloud native" CI/CD for your PetClinic application on IBM Z/LinuxONE! Congratulations!!!
-
---8<-- "includes/glossary.md"

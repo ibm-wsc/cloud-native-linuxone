@@ -25,7 +25,7 @@ Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift
 
     - Chee Yee for setting up the LinuxONE Community Cloud for the OpenShift Pipelines workflow
 
-    - The `spring` developers for creating the [petclinic demo](https://projects.spring.io/spring-petclinic/){target="_blank" rel="noopener noreferrer"} and the `redhat-developer-demos` for sharing the `spring-petclinic` version of sample application we started with
+    - The `spring` developers for creating the [petclinic demo](https://projects.spring.io/spring-petclinic/){target="_blank" rel="noopener"} and the `redhat-developer-demos` for sharing the `spring-petclinic` version of sample application we started with
 
 ## Key Contributors
 * [Barry Silliman](mailto:silliman@us.ibm.com)
@@ -36,5 +36,3 @@ Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift
 ## Workshop authors
 * [Garrett Woodworth](mailto:garrett.lee.woodworth@ibm.com)
 * Jin VanStee
-
---8<-- "includes/glossary.md"

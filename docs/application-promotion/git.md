@@ -15,21 +15,18 @@ It's time to add the `C` (continuous) to your CI/CD pipeline.
     !!! note
         The `Git_Repo` parameter should have your GitHub username instead of `siler23`. This should already be correctly filled out for you, so please don't change that to `siler23`.
 
-    **Git Provider Type**:
-    ``` bash
+    ``` bash title="Git Provider Type"
     github-push
     ```
 
     !!! note
         `github-push` is in a menu you need to select from
 
-    **GIT_MESSAGE**
-    ``` bash
+    ``` bash title="GIT_MESSAGE"
     $(tt.params.git-commit-message)
     ```
 
-    **COMMIT_SHA**
-    ``` bash
+    ``` bash title="COMMIT_SHA"
     $(tt.params.git-revision)
     ```
 
@@ -71,5 +68,3 @@ Now, you need to set up a webhook from GitHub. You want this to hit your `event 
 You created a GitHub webhook for your `spring-petclinic` repository fork that will trigger a new run of your `spring-petclinic` pipeline when new code is pushed to your GitHub repo[^1]. You will trigger your pipeline via GitHub in the next section.
 
 [^1]: A more detailed explanation is that when new code is pushed to your GitHub repo, the GitHub webhook will send a payload to the event listener which then interacts with a number of OpenShift Pipelines-associated Kubernetes custom resources that you created when you used the `Add Trigger` button in the UI. Namely, the event listener will trigger a new `PipelineRun` of your `spring-petclinic` pipeline based on the `spring-petclinic` `TriggerTemplate` passing it the values for the git commit SHA hash and the commit message using the variables populated via the `github-push` `ClusterTriggerBinding`.
-
---8<-- "includes/glossary.md"

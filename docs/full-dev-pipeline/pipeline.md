@@ -42,26 +42,24 @@ This will bring you to the Pipeline Builder UI where you can edit your pipeline.
 
     ![MySQL Task](../images/Part1/MySQLTemplateTask.png)
 
-    **Display Name**
-
-    ``` bash
+    ``` bash title="Display Name"
     mysql-deploy
     ```
 
-    **SCRIPT**
-
-    ``` bash
+    ``` bash title="SCRIPT"
     oc process openshift//mysql-ephemeral -p MYSQL_USER=petclinic -p MYSQL_PASSWORD=petclinic -p MYSQL_ROOT_PASSWORD=petclinic -p MYSQL_DATABASE=petclinic | oc apply -f -
     ```
 
+    and an empty `ARGS` value.
+
+    !!! warning "No help please!"
+        Make sure `help` is deleted from the `ARGS` section (click the - button to delete the default help args line).
+
     !!! note "Simply Click Away"
-        Once you have entered the string into the `SCRIPT` section, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.
+        Once you have entered the string into the `SCRIPT` section and deleted the help arg, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.
 
     !!! question "What is `oc process` doing?"
         `oc process` is processing the [OpenShift template](https://docs.openshift.com/container-platform/4.7/openshift_images/using-templates.html#templates-overview_using-templates){target="_blank" rel="noopener noreferrer"} for the `mysql-ephemeral` database with the parameters given via a series of `-p` arguments and finally `oc apply -f -` ensures that any missing components will be recreated.
-
-    !!! warning "No help please!"
-        Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). 
 
 2. Add a `mysql-rollout-wait` task
 
@@ -73,28 +71,23 @@ This will bring you to the Pipeline Builder UI where you can edit your pipeline.
 
     ![mysql-check task](../images/Part1/MySQLRolloutWait.png)
 
-    **Display Name**
-
-    ``` bash
+    ``` bash title="Display Name"
     mysql-rollout-wait
     ```
 
     **ARGS**
 
-    ``` bash
+    ``` bash title="Arg 1"
     rollout
     ```
     
-    ``` bash
+    ``` bash title="Arg 2"
     status
     ```
 
-    ``` bash
+    ``` bash title="Arg 3"
     dc/mysql
-    ```
-
-    !!! warning "No help please!"
-        Make sure `help` is deleted from the `ARGS` section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running).
+	```
 
     !!! question "What the ARGS?"
         You may be wondering why you used the `SCRIPT` section in the `mysql-deploy` task for the entire command, but now are using the `ARGS` to individually list each argument of the command? Both work and so you are going through both methods here. On the one hand, the `SCRIPT` method is easier to copy and paste and looks the same as it would entered on the command line. On the other hand, the `ARGS` method adds readability to the task. Choose whichever method you prefer, though beware of input errors  with the `ARGS` method for long commands. _FYI: The equivalent `SCRIPT` command for the `mysql-rollout-wait` task is_:
@@ -122,33 +115,27 @@ The `s2i-java-11` container image is very convenient for making a container imag
 
     ![Buildah Task Values](../images/Part1/ProducingCleanImageBuildah2.png)
 
-    DISPLAY NAME:
-    ```
+    ``` bash title="Display Name"
     clean-image
     ```
 
-    IMAGE:
-    ```
+    ``` bash title="IMAGE"
     $(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
     ```
 
-    DOCKERFILE:
-    ```
+    ``` bash title="DOCKERFILE"
     ./final-Dockerfile
     ```
 
-    TLSVERIFY:
-    ```
+    ``` bash title="TLSVERIFY"
     false
     ```
 
-    BUILD_EXTRA_ARGS:
-    ```
+    ``` bash title="BUILD_EXTRA_ARGS"
     --build-arg PETCLINIC_S2I_IMAGE=$(params.IMAGE_NAME)
     ```
 
-	SOURCE:
-	```
+	``` bash title="SOURCE (choose from dropdown)"
 	workspace
 	```
 
@@ -164,31 +151,29 @@ The `s2i-java-11` container image is very convenient for making a container imag
 
     **GIT_MESSAGE**
 
-    `GIT_MESSAGE` Parameter Name:
-    ```
+    ``` title="Parameter Name"
     GIT_MESSAGE
     ```
-    `GIT_MESSAGE` Parameter Description:
-    ```
+
+    ``` title="Parameter Description"
     Git commit message if triggered by Git, otherwise it's a manual build
     ```
-    `GIT_MESSAGE` Parameter Default Value
-    ```
+
+    ``` title="Parameter Default Value"
     This is a manual build (not triggered by Git)
     ```
 
     **COMMIT_SHA**
 
-    `COMMIT_SHA` Parameter Name:
-    ```
+    ``` title="Parameter Name"
     COMMIT_SHA
     ```
-    `COMMIT_SHA` Parameter Description:
-    ```
+
+    ``` title="Parameter Description"
     SHA of Git commit if triggered by Git, otherwise just update manual tag
     ```
-    `COMMIT_SHA` Parameter Default Value:
-    ```
+
+    ``` title="Parameter Default Value"
     manual
     ```
 
