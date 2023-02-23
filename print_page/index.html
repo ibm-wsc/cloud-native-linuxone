@@ -13,7 +13,7 @@
       
       
       <link rel="icon" href="../images/pipelines-logo.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.8">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
     
     
       
@@ -21,10 +21,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ffa9267a.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -69,7 +69,7 @@
   <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-174658170-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 
   
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
   
 
     
@@ -86,12 +86,16 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="" data-md-color-accent="">
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -138,6 +142,26 @@
       </div>
     </div>
     
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
     
     
       <label class="md-header__button md-icon" for="__search">
@@ -153,6 +177,10 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -178,7 +206,7 @@
         <a href="https://github.com/ibm-wsc/cloud-native-linuxone/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -222,7 +250,7 @@
       <a href="https://github.com/ibm-wsc/cloud-native-linuxone/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -1127,9 +1155,6 @@
                   
 
 
-
-  <h1>Print Site</h1>
-
 <div id="print-site-page" class="print-site-enumerate-headings print-site-enumerate-figures">
         <section class="print-page">
             <div id="print-page-toc" data-toc-depth="3">
@@ -1166,7 +1191,7 @@
 <p>Chee Yee for setting up the <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud for the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines workflow</p>
 </li>
 <li>
-<p>The <code>spring</code> developers for creating the <a href="https://projects.spring.io/spring-petclinic/" rel="noopener noreferrer" target="_blank">petclinic demo</a> and the <code>redhat-developer-demos</code> for sharing the <code>spring-petclinic</code> version of sample application we started with</p>
+<p>The <code>spring</code> developers for creating the <a href="https://projects.spring.io/spring-petclinic/" rel="noopener" target="_blank">petclinic demo</a> and the <code>redhat-developer-demos</code> for sharing the <code>spring-petclinic</code> version of sample application we started with</p>
 </li>
 </ul>
 </li>
@@ -1276,30 +1301,40 @@
 <p><strong>1.</strong> Please complete the <a href="#prerequisites">Prerequisites</a> and register for a <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> trial if you have not done so already.</p>
 <p><strong>2.</strong> After you register, you should have received an email asking you to Activate your account or entitlement. Please do so now if you have not already done so. The link to activate your trial is only valid for 48 hours after your initial registration. If this time period has passed you need to re-register for the trial again.</p>
 <p><img alt="linuxoneccactivation" src="../build-and-deploy/upandrunningimages/linuxoneccactivation.png" /></p>
-<p><strong>3.</strong> After activation, <a href="https://console-openshift-console.apps.cloudnative.marist.edu/topology/all-namespaces" rel="noopener" target="_blank">log into your <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud account</a>.</p>
+<p><strong>3.</strong> After activation, log into your <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud account using the <a href="https://console-openshift-console.apps.cloudnative.marist.edu/topology/all-namespaces" rel="noopener" target="_blank">link here</a>.</p>
 <p><strong>4.</strong> You should see the Topology view of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> console. Click on  your project name (it will be a number randomly assigned to you that will be different than the one shown in the picture below):</p>
 <p><img alt="linuxoneccocpfirstscreen" src="../build-and-deploy/upandrunningimages/linuxoneccocpfirstscreen.png" /></p>
 <h2 id="build-and-deploy-upandrunning-deploying-mysql-database">Deploying MySQL database<a class="headerlink" href="#build-and-deploy-upandrunning-deploying-mysql-database" title="Permanent link">&para;</a></h2>
-<p><strong>1.</strong> First, you need to setup your mysql database. Luckily, this is very easy on <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)</p>
+<ol>
+<li>
+<p>First, you need to setup your mysql database. Luckily, this is very easy on <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> with the mysql template available from the main developer topology window. Follow the steps in the diagram below to bring up the available database options. (Note your project name will be different than the picture below)</p>
 <p><img alt="Add DB" src="../build-and-deploy/upandrunningimages/devselectdatabase.png" /></p>
 <p><b>Now you can start the lab!</b></p>
-<p><strong>2.</strong> Next, select the <code>MySQL (Ephemeral)</code> tile. </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You are choosing the ephemeral option because at this point you do not care to persist the database beyond the life of the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr>.</p>
-</div>
-<p><img alt="Select MySQL" src="../build-and-deploy/upandrunningimages/selectmqephemeral.png" /></p>
-<p><strong>3.</strong> Click on instantiate template.</p>
-<p><img alt="Select DB" src="../build-and-deploy/upandrunningimages/instantiatetemplate.png" /></p>
-<p><strong>4.</strong> Fill the wizard with the parameters as shown in the image below (your namespace will be different from the image below):</p>
-<p><img alt="DB parameters" src="../build-and-deploy/upandrunningimages/mysqlparameters.png" /></p>
-<p>Click the <code>Create</code> button. </p>
+</li>
+<li>
+<p>Next, select the <code>MySQL (Ephemeral)</code> tile. </p>
 <div class="admonition question">
 <p class="admonition-title">Why Ephemeral?</p>
 <p>You are using the <strong>Ephemeral</strong> implementation because this a short-lived demo and you do not need to retain the data.  In a staging or production environment, you will most likely be using a MySQL deployment backed by a Persistent Volume Claim. This stores the data in a Persistent Volume (basically a virtual hard drive), and the data will persist beyond the life of the <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr>.</p>
 </div>
+<p><img alt="Select MySQL" src="../build-and-deploy/upandrunningimages/selectmqephemeral.png" /></p>
+</li>
+<li>
+<p>Click on instantiate template.</p>
+<p><img alt="Select DB" src="../build-and-deploy/upandrunningimages/instantiatetemplate.png" /></p>
+</li>
+<li>
+<p>Fill the wizard with the parameters as shown in the image below (your namespace will be different from the image below):</p>
+<p><img alt="DB parameters" src="../build-and-deploy/upandrunningimages/mysqlparameters.png" /></p>
+<div class="highlight"><pre><span></span><code>petclinic
+</code></pre></div>
+<p>Click the <code>Create</code> button. </p>
+</li>
+<li>
 <p>A minute or two later, in the <code>Topology</code> view of your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Console, you should see <code>mysql</code> in the <code>Running</code> state. (Click on the Topology icon for <code>mysql</code> to bring up the side panel)</p>
 <p><img alt="DB running" src="../build-and-deploy/upandrunningimages/mysqlrunning.png" /></p>
+</li>
+</ol>
 <h2 id="build-and-deploy-upandrunning-fork-the-petclinic-repo-to-your-own-github-account">Fork the PetClinic <abbr title="repository">repo</abbr> to your own GitHub account<a class="headerlink" href="#build-and-deploy-upandrunning-fork-the-petclinic-repo-to-your-own-github-account" title="Permanent link">&para;</a></h2>
 <p>For this workshop, you will be using the PetClinic application from your own GitHub account so that you can enable integrations with it later.</p>
 <p>To make a copy of the PetClinic application into your GitHub account, <a href="https://github.com/ibm-wsc/spring-petclinic/fork" rel="noopener noreferrer" target="_blank">click here</a></p>
@@ -1329,7 +1364,7 @@
 <p><img alt="app name" src="../build-and-deploy/upandrunningimages/applicationname.png" /></p>
 <p><strong>5.</strong> Scroll down to the  Pipelines section, select the checkbox next to <code>Add pipeline</code>. You can also expand the <code>Show pipeline visualization</code> section to see a visual of the build pipeline.</p>
 <p><img alt="add pipe" src="../build-and-deploy/upandrunningimages/addpipelines.png" /></p>
-<p><strong>6.</strong> You are almost there! You will need to configure a couple of Advanced Options. First, click on <code>Routing</code> in the Advanced Options section to expand the Routing options.</p>
+<p><strong>6.</strong> You are almost there! You will need to configure a couple of Advanced Options. First, click on <code>Show advanced Routing options</code> in the <em>Advanced Options</em> section to expand the Routing options.</p>
 <p><img alt="open routing panel" src="../build-and-deploy/upandrunningimages/routinglink.png" /></p>
 <p><strong>7.</strong> In the Routing options section, only fill out the Security options as follows. You can leave the rest alone. These options will enable only TLS access to your PetClinic application.</p>
 <p><img alt="routing options" src="../build-and-deploy/upandrunningimages/routingpanel.png" /></p>
@@ -1458,23 +1493,22 @@
 </div>
 <p>Give the task the following parameters to ensure the MySQL database is available with the necessary configuration:</p>
 <p><img alt="MySQL Task" src="../images/Part1/MySQLTemplateTask.png" /></p>
-<p><strong>Display Name</strong></p>
-<div class="highlight"><pre><span></span><code>mysql-deploy
+<div class="highlight"><span class="filename">Display Name</span><pre><span></span><code>mysql-deploy
 </code></pre></div>
-<p><strong>SCRIPT</strong></p>
-<div class="highlight"><pre><span></span><code>oc<span class="w"> </span>process<span class="w"> </span>openshift//mysql-ephemeral<span class="w"> </span>-p<span class="w"> </span><span class="nv">MYSQL_USER</span><span class="o">=</span>petclinic<span class="w"> </span>-p<span class="w"> </span><span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>petclinic<span class="w"> </span>-p<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>petclinic<span class="w"> </span>-p<span class="w"> </span><span class="nv">MYSQL_DATABASE</span><span class="o">=</span>petclinic<span class="w"> </span><span class="p">|</span><span class="w"> </span>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-
+<div class="highlight"><span class="filename">SCRIPT</span><pre><span></span><code>oc<span class="w"> </span>process<span class="w"> </span>openshift//mysql-ephemeral<span class="w"> </span>-p<span class="w"> </span><span class="nv">MYSQL_USER</span><span class="o">=</span>petclinic<span class="w"> </span>-p<span class="w"> </span><span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>petclinic<span class="w"> </span>-p<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>petclinic<span class="w"> </span>-p<span class="w"> </span><span class="nv">MYSQL_DATABASE</span><span class="o">=</span>petclinic<span class="w"> </span><span class="p">|</span><span class="w"> </span>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-
 </code></pre></div>
+<p>and an empty <code>ARGS</code> value.</p>
+<div class="admonition warning">
+<p class="admonition-title">No help please!</p>
+<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (click the - button to delete the default help args line).</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Simply Click Away</p>
-<p>Once you have entered the string into the <code>SCRIPT</code> section, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.</p>
+<p>Once you have entered the string into the <code>SCRIPT</code> section and deleted the help arg, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.</p>
 </div>
 <div class="admonition question">
 <p class="admonition-title">What is <code>oc process</code> doing?</p>
 <p><code>oc process</code> is processing the <a href="https://docs.openshift.com/container-platform/4.7/openshift_images/using-templates.html#templates-overview_using-templates" rel="noopener noreferrer" target="_blank"><abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> template</a> for the <code>mysql-ephemeral</code> database with the parameters given via a series of <code>-p</code> arguments and finally <code>oc apply -f -</code> ensures that any missing components will be recreated.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">No help please!</p>
-<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
 </div>
 </li>
 <li>
@@ -1483,20 +1517,15 @@
 <p><img alt="mysql sequential task" src="../images/Part1/mySQL_SequentialTask.png" /></p>
 <p><code>Select Task</code> as <code>openshift-client</code> like before and then fill out the task with the following parameters (copy and paste boxes below image for changes):</p>
 <p><img alt="mysql-check task" src="../images/Part1/MySQLRolloutWait.png" /></p>
-<p><strong>Display Name</strong></p>
-<div class="highlight"><pre><span></span><code>mysql-rollout-wait
+<div class="highlight"><span class="filename">Display Name</span><pre><span></span><code>mysql-rollout-wait
 </code></pre></div>
 <p><strong>ARGS</strong></p>
-<div class="highlight"><pre><span></span><code>rollout
+<div class="highlight"><span class="filename">Arg 1</span><pre><span></span><code>rollout
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>status
+<div class="highlight"><span class="filename">Arg 2</span><pre><span></span><code>status
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>dc/mysql
+<div class="highlight"><span class="filename">Arg 3</span><pre><span></span><code>dc/mysql
 </code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">No help please!</p>
-<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running).</p>
-</div>
 <div class="admonition question">
 <p class="admonition-title">What the ARGS?</p>
 <p>You may be wondering why you used the <code>SCRIPT</code> section in the <code>mysql-deploy</code> task for the entire command, but now are using the <code>ARGS</code> to individually list each argument of the command? Both work and so you are going through both methods here. On the one hand, the <code>SCRIPT</code> method is easier to copy and paste and looks the same as it would entered on the command line. On the other hand, the <code>ARGS</code> method adds readability to the task. Choose whichever method you prefer, though beware of input errors  with the <code>ARGS</code> method for long commands. <em>FYI: The equivalent <code>SCRIPT</code> command for the <code>mysql-rollout-wait</code> task is</em>:</p>
@@ -1521,24 +1550,18 @@
 <p>Each value that you need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match the image)</p>
 </div>
 <p><img alt="Buildah Task Values" src="../images/Part1/ProducingCleanImageBuildah2.png" /></p>
-<p>DISPLAY NAME:
-<div class="highlight"><pre><span></span><code>clean-image
-</code></pre></div></p>
-<p>IMAGE:
-<div class="highlight"><pre><span></span><code>$(params.IMAGE_NAME)-minimal:$(params.COMMIT_SHA)
-</code></pre></div></p>
-<p>DOCKERFILE:
-<div class="highlight"><pre><span></span><code>./final-Dockerfile
-</code></pre></div></p>
-<p>TLSVERIFY:
-<div class="highlight"><pre><span></span><code>false
-</code></pre></div></p>
-<p>BUILD_EXTRA_ARGS:
-<div class="highlight"><pre><span></span><code>--build-arg PETCLINIC_S2I_IMAGE=$(params.IMAGE_NAME)
-</code></pre></div></p>
-<p>SOURCE:
-<div class="highlight"><pre><span></span><code>workspace
-</code></pre></div></p>
+<div class="highlight"><span class="filename">Display Name</span><pre><span></span><code>clean-image
+</code></pre></div>
+<div class="highlight"><span class="filename">IMAGE</span><pre><span></span><code><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>-minimal:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">DOCKERFILE</span><pre><span></span><code>./final-Dockerfile
+</code></pre></div>
+<div class="highlight"><span class="filename">TLSVERIFY</span><pre><span></span><code><span class="nb">false</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">BUILD_EXTRA_ARGS</span><pre><span></span><code>--build-arg<span class="w"> </span><span class="nv">PETCLINIC_S2I_IMAGE</span><span class="o">=</span><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">SOURCE (choose from dropdown)</span><pre><span></span><code>workspace
+</code></pre></div>
 </li>
 <li>
 <p>Add <code>GIT_MESSAGE</code>, and <code>COMMIT_SHA</code> parameters to the pipeline</p>
@@ -1547,25 +1570,19 @@
 <p>and then fill in the parameter details for <code>GIT_MESSAGE</code> and <code>COMMIT_SHA</code> (copy and paste boxes below image)</p>
 <p><img alt="Add Image and Git Parameters" src="../images/Part1/AddParameters.png" /></p>
 <p><strong>GIT_MESSAGE</strong></p>
-<p><code>GIT_MESSAGE</code> Parameter Name:
-<div class="highlight"><pre><span></span><code>GIT_MESSAGE
+<div class="highlight"><span class="filename">Parameter Name</span><pre><span></span><code>GIT_MESSAGE
 </code></pre></div>
-<code>GIT_MESSAGE</code> Parameter Description:
-<div class="highlight"><pre><span></span><code>Git commit message if triggered by Git, otherwise it&#39;s a manual build
+<div class="highlight"><span class="filename">Parameter Description</span><pre><span></span><code>Git commit message if triggered by Git, otherwise it&#39;s a manual build
 </code></pre></div>
-<code>GIT_MESSAGE</code> Parameter Default Value
-<div class="highlight"><pre><span></span><code>This is a manual build (not triggered by Git)
-</code></pre></div></p>
+<div class="highlight"><span class="filename">Parameter Default Value</span><pre><span></span><code>This is a manual build (not triggered by Git)
+</code></pre></div>
 <p><strong>COMMIT_SHA</strong></p>
-<p><code>COMMIT_SHA</code> Parameter Name:
-<div class="highlight"><pre><span></span><code>COMMIT_SHA
+<div class="highlight"><span class="filename">Parameter Name</span><pre><span></span><code>COMMIT_SHA
 </code></pre></div>
-<code>COMMIT_SHA</code> Parameter Description:
-<div class="highlight"><pre><span></span><code>SHA of Git commit if triggered by Git, otherwise just update manual tag
+<div class="highlight"><span class="filename">Parameter Description</span><pre><span></span><code>SHA of Git commit if triggered by Git, otherwise just update manual tag
 </code></pre></div>
-<code>COMMIT_SHA</code> Parameter Default Value:
-<div class="highlight"><pre><span></span><code>manual
-</code></pre></div></p>
+<div class="highlight"><span class="filename">Parameter Default Value</span><pre><span></span><code>manual
+</code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Save the parameters when you are done with entry by clicking on blue <code>Save</code> box before moving onto step 4. If blue <code>Save</code> box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the <code>-</code>.</p>
@@ -1674,14 +1691,11 @@
 <p>Configure <code>kustomize</code> task</p>
 <p>Since your initial deploy will be for the <code>dev</code> environment, the only values you need to change are the <code>Display Name</code> and the <code>SCRIPT</code> (copy and paste boxes below image):</p>
 <p><img alt="Kustomize Configure 1" src="../images/Part1/KustomizeDevChoices.png" /></p>
-<p><strong>Display Name</strong></p>
-<div class="highlight"><pre><span></span><code>kustomize-dev
+<div class="highlight"><span class="filename">Display Name</span><pre><span></span><code>kustomize-dev
 </code></pre></div>
-<p><strong>SCRIPT</strong></p>
-<div class="highlight"><pre><span></span><code>kustomize<span class="w"> </span>edit<span class="w"> </span><span class="nb">set</span><span class="w"> </span>image<span class="w"> </span>spring-petclinic<span class="o">=</span><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>-minimal:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
+<div class="highlight"><span class="filename">SCRIPT</span><pre><span></span><code>kustomize<span class="w"> </span>edit<span class="w"> </span><span class="nb">set</span><span class="w"> </span>image<span class="w"> </span>spring-petclinic<span class="o">=</span><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>-minimal:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
 </code></pre></div>
-<p><strong>SOURCE</strong></p>
-<div class="highlight"><pre><span></span><code>workspace
+<div class="highlight"><span class="filename">SOURCE (choose from dropdown)</span><pre><span></span><code>workspace
 </code></pre></div>
 </li>
 <li>
@@ -1701,16 +1715,14 @@
 <li>
 <p>Configure the task with the following parameters (copy and paste boxes below image for changes):</p>
 <p><img alt="cleanup resources" src="../images/Part1/CleanupResourcesTask.png" /></p>
-<p><strong>Display Name</strong></p>
-<div class="highlight"><pre><span></span><code>cleanup-resources
+<div class="highlight"><span class="filename">Display Name</span><pre><span></span><code>cleanup-resources
 </code></pre></div>
-<p><strong>SCRIPT</strong></p>
-<div class="highlight"><pre><span></span><code>oc<span class="w"> </span>delete<span class="w"> </span>deployment,cm,svc,route<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span><span class="k">$(</span>params.APP_NAME<span class="k">)</span><span class="w"> </span>--ignore-not-found
+<div class="highlight"><span class="filename">SCRIPT</span><pre><span></span><code>oc<span class="w"> </span>delete<span class="w"> </span>deployment,cm,svc,route<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span><span class="k">$(</span>params.APP_NAME<span class="k">)</span><span class="w"> </span>--ignore-not-found
 </code></pre></div>
 <p>and an empty <code>ARGS</code> value.</p>
 <div class="admonition warning">
 <p class="admonition-title">No help please!</p>
-<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (it will be greyed out once deleted) or bad things will happen (i.e. the help screen will come up instead of the proper command running). </p>
+<p>Make sure <code>help</code> is deleted from the <code>ARGS</code> section (click the - button to delete the default help args line).</p>
 </div>
 </li>
 </ol>
@@ -1719,15 +1731,11 @@
 <li>
 <p>Click on the <code>deploy</code> <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> at the end of the pipeline and change the following parameters to the corresponding values (copy and paste boxes below image):</p>
 <p><img alt="Deploy Dev Task Completed" src="../images/Part1/DeployDevCompleted.png" /></p>
-<p><strong>Display Name</strong>
-<div class="highlight"><pre><span></span><code>deploy-dev
-</code></pre></div></p>
-<p><strong>Script</strong>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>params.GIT_MESSAGE<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>oc<span class="w"> </span><span class="nv">$@</span>
-</code></pre></div></p>
-<p><strong>Last Arg</strong></p>
-<p>From <code>deploy/$(params.APP_NAME)</code> to:</p>
-<div class="highlight"><pre><span></span><code>deploy/spring-petclinic-dev
+<div class="highlight"><span class="filename">Display Name</span><pre><span></span><code>deploy-dev
+</code></pre></div>
+<div class="highlight"><span class="filename">SCRIPT</span><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>params.GIT_MESSAGE<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>oc<span class="w"> </span><span class="nv">$@</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">New Last Arg</span><pre><span></span><code>deploy/spring-petclinic-dev
 </code></pre></div>
 </li>
 <li>
@@ -2027,11 +2035,9 @@
 <p>Configure <code>connection-test</code> task</p>
 <p>The only values you need to change are the <code>Display Name</code> and the <code>ROUTE_NAME</code> (copy and paste boxes below image):</p>
 <p><img alt="Connection Test Configure 1" src="../images/Part2/ConnectionTestConfigureDev.png" /></p>
-<p><strong>Display Name</strong></p>
-<div class="highlight"><pre><span></span><code>connect-dev
+<div class="highlight"><span class="filename">Display Name</span><pre><span></span><code>connect-dev
 </code></pre></div>
-<p><strong>ROUTE_NAME</strong></p>
-<div class="highlight"><pre><span></span><code>spring-petclinic-dev
+<div class="highlight"><span class="filename">ROUTE_NAME</span><pre><span></span><code>spring-petclinic-dev
 </code></pre></div>
 </li>
 <li>
@@ -2055,11 +2061,9 @@
 <li>
 <p>Configure the <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> with the following values (copy and paste boxes below image):</p>
 <p><img alt="cleanup dev" src="../images/Part2/CleanupDevTask.png" /></p>
-<p><strong>Display Name</strong></p>
-<div class="highlight"><pre><span></span><code>cleanup-dev
+<div class="highlight"><span class="filename">Display Name</span><pre><span></span><code>cleanup-dev
 </code></pre></div>
-<p><strong>SCRIPT</strong></p>
-<div class="highlight"><pre><span></span><code>oc<span class="w"> </span>delete<span class="w"> </span>deployment,cm,svc,route<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>spring-petclinic,env<span class="o">=</span>dev<span class="w"> </span>--ignore-not-found
+<div class="highlight"><span class="filename">SCRIPT</span><pre><span></span><code>oc<span class="w"> </span>delete<span class="w"> </span>deployment,cm,svc,route<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>spring-petclinic,env<span class="o">=</span>dev<span class="w"> </span>--ignore-not-found
 </code></pre></div>
 <p>and an <strong>empty</strong> <code>ARGS</code> value.</p>
 <div class="admonition warning">
@@ -2078,26 +2082,14 @@
 <li>
 <p>Configure the <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr> with the following values (copy and paste boxes below image):</p>
 <p><img alt="Kustomize Staging Task" src="../images/Part2/KustomizeStaging.png" /></p>
-<p><strong>Display Name</strong></p>
-<div class="highlight"><pre><span></span><code>kustomize-staging
+<div class="highlight"><span class="filename">Display Name</span><pre><span></span><code>kustomize-staging
 </code></pre></div>
-<p><strong>RELEASE_SUBDIR</strong></p>
-<div class="highlight"><pre><span></span><code>overlay/staging
+<div class="highlight"><span class="filename">RELEASE_SUBDIR</span><pre><span></span><code>overlay/staging
 </code></pre></div>
-<p><strong>SCRIPT</strong></p>
-<div class="highlight"><pre><span></span><code>kustomize<span class="w"> </span>edit<span class="w"> </span><span class="nb">set</span><span class="w"> </span>image<span class="w"> </span>spring-petclinic<span class="o">=</span><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>-minimal:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
+<div class="highlight"><span class="filename">SCRIPT</span><pre><span></span><code>kustomize<span class="w"> </span>edit<span class="w"> </span><span class="nb">set</span><span class="w"> </span>image<span class="w"> </span>spring-petclinic<span class="o">=</span><span class="k">$(</span>params.IMAGE_NAME<span class="k">)</span>-minimal:<span class="k">$(</span>params.COMMIT_SHA<span class="k">)</span>
 </code></pre></div>
-<p><strong>SOURCE</strong></p>
-<div class="highlight"><pre><span></span><code>workspace
+<div class="highlight"><span class="filename">SOURCE (choose from dropdown)</span><pre><span></span><code>workspace
 </code></pre></div>
-</li>
-<li>
-<p><code>Save</code> the current pipeline edit and then switch to <code>YAML</code> from pipeline menu.</p>
-<p><img alt="Switch to yaml" src="../images/Part1/SwitchYaml.png" /></p>
-<div class="admonition info">
-<p class="admonition-title">Why are you editing yaml directly?</p>
-<p><code>Workspaces</code> are more versatile than traditional <code>PipelineResources</code> which is why you are using them. However, as the transition to workspaces continues, the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipeline Builder doesn't support editing the <code>Workspace</code> mapping from a pipeline to a task via the Builder <abbr title="user interface">UI</abbr> so you have to do it directly in the yaml for now.</p>
-</div>
 </li>
 </ol>
 <h3 id="application-promotion-promote-rollout-staging">Rollout Staging<a class="headerlink" href="#application-promotion-promote-rollout-staging" title="Permanent link">&para;</a></h3>
@@ -2109,11 +2101,9 @@
 <li>
 <p>Configure the task with the following parameters<sup id="fnref:4"><a class="footnote-ref" href="#application-promotion-promote-fn:4">4</a></sup> (copy and paste boxes below image):</p>
 <p><img alt="Staging Rollout" src="../images/Part2/DeployStagingParameters.png" /></p>
-<p><strong>Display Name</strong></p>
-<div class="highlight"><pre><span></span><code>deploy-staging
+<div class="highlight"><span class="filename">Display Name</span><pre><span></span><code>deploy-staging
 </code></pre></div>
-<p><strong>SCRIPT</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>params.GIT_MESSAGE<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>oc<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>deploy/spring-petclinic-staging
+<div class="highlight"><span class="filename">SCRIPT</span><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>params.GIT_MESSAGE<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>oc<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>deploy/spring-petclinic-staging
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">No help please!</p>
@@ -2130,11 +2120,9 @@
 <li>
 <p>Configure <code>connection-test</code> task with the following parameters (copy and paste boxes below image):</p>
 <p><img alt="Connection Test Configure 1" src="../images/Part2/ConnectionTestConfigureStaging.png" /></p>
-<p><strong>Display Name</strong></p>
-<div class="highlight"><pre><span></span><code>connect-staging
+<div class="highlight"><span class="filename">Display Name</span><pre><span></span><code>connect-staging
 </code></pre></div>
-<p><strong>ROUTE_NAME</strong></p>
-<div class="highlight"><pre><span></span><code>spring-petclinic-staging
+<div class="highlight"><span class="filename">ROUTE_NAME</span><pre><span></span><code>spring-petclinic-staging
 </code></pre></div>
 </li>
 <li>
@@ -2185,19 +2173,16 @@
 <p class="admonition-title">Note</p>
 <p>The <code>Git_Repo</code> parameter should have your GitHub username instead of <code>siler23</code>. This should already be correctly filled out for you, so please don't change that to <code>siler23</code>.</p>
 </div>
-<p><strong>Git Provider Type</strong>:
-<div class="highlight"><pre><span></span><code>github-push
-</code></pre></div></p>
+<div class="highlight"><span class="filename">Git Provider Type</span><pre><span></span><code>github-push
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>github-push</code> is in a menu you need to select from</p>
 </div>
-<p><strong>GIT_MESSAGE</strong>
-<div class="highlight"><pre><span></span><code><span class="k">$(</span>tt.params.git-commit-message<span class="k">)</span>
-</code></pre></div></p>
-<p><strong>COMMIT_SHA</strong>
-<div class="highlight"><pre><span></span><code><span class="k">$(</span>tt.params.git-revision<span class="k">)</span>
-</code></pre></div></p>
+<div class="highlight"><span class="filename">GIT_MESSAGE</span><pre><span></span><code><span class="k">$(</span>tt.params.git-commit-message<span class="k">)</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">COMMIT_SHA</span><pre><span></span><code><span class="k">$(</span>tt.params.git-revision<span class="k">)</span>
+</code></pre></div>
 </li>
 </ol>
 <p>You are choosing the <code>github-push</code> cluster <abbr title="captures and processes events from an external source (webhook) and maps the incoming data to a set of predefined parameters via a TriggerTemplate to create a new PipelineRun.">trigger</abbr> binding, which is defined out of the box for <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines. This passes information into a number of different variables which you can list by clicking the expand arrow seen in the picture (It will initially say <code>Show Variables</code> and then switch to <code>Hide Variables</code> when expanded as shown in the picture). You will be using the variables in green boxes in the picture to pass the git commit message (<code>git-commit-message</code>) as well as the SHA of the git commit (<code>git-revision</code>) to the build pipeline from the GitHub <abbr title="sends a payload to the specified URL when a specific event occurs (such as a GitHub push)">webhook</abbr> that triggers the build.</p>
@@ -2298,12 +2283,10 @@
 <p>Type in a commit message (you can make this whatever you want) and commit the change (example copy and paste boxes from image above)</p>
 <div class="admonition example">
 <p class="admonition-title">Yertle the turtle</p>
-<p><strong>Title</strong>
-<div class="highlight"><pre><span></span><code>Turtle<span class="w"> </span>Time
-</code></pre></div></p>
-<p><strong>Extended Description</strong>
-<div class="highlight"><pre><span></span><code>I<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>able<span class="w"> </span>to<span class="w"> </span>add<span class="w"> </span>Yertle<span class="w"> </span>the<span class="w"> </span>turtle.
-</code></pre></div></p>
+<div class="highlight"><span class="filename">Title</span><pre><span></span><code>Turtle<span class="w"> </span>Time
+</code></pre></div>
+<div class="highlight"><span class="filename">Extended Description</span><pre><span></span><code>I<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>able<span class="w"> </span>to<span class="w"> </span>add<span class="w"> </span>Yertle<span class="w"> </span>the<span class="w"> </span>turtle.
+</code></pre></div>
 </div>
 </li>
 </ol>
@@ -2339,7 +2322,9 @@
 <p class="admonition-title">What should you do if your pipeline run ends in failure</p>
 <p>If your pipeline run ends in failure, please look at the <code>Failure</code> tab (immediately below this message) to get back on track (instead of the default <code>Success</code> tab).</p>
 </div>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="application-promotion-action-__tabbed_1_1" name="application-promotion-action-__tabbed_1" type="radio" /><label for="application-promotion-action-__tabbed_1_1">Success</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="application-promotion-action-__tabbed_1_1" name="application-promotion-action-__tabbed_1" type="radio" /><input id="application-promotion-action-__tabbed_1_2" name="application-promotion-action-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="application-promotion-action-__tabbed_1_1">Success</label><label for="application-promotion-action-__tabbed_1_2">Failure</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><strong>Pipeline Run Success View Perspective:</strong></p>
 <p><img alt="Successful PipelineRun Details View" src="../images/Part2/PipelineSucceeded.png" /></p>
 <div class="admonition success">
@@ -2358,7 +2343,7 @@
 <p>When you switch to the <code>deploy-staging</code> task logs, by clicking on the <code>task</code> on the left hand side of the <code>Logs</code> view of the pipeline run, you see this was an automated build from git since the task prints out the <code>GIT_MESSAGE</code> that you typed in your commit word for word. (<em>Note: If you chose a different commit message that will show instead of the one displayed in the image above.</em>).</p>
 </div>
 </div>
-<input id="application-promotion-action-__tabbed_1_2" name="application-promotion-action-__tabbed_1" type="radio" /><label for="application-promotion-action-__tabbed_1_2">Failure</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="admonition failure">
 <p class="admonition-title">Your pipeline failed, here is how to get back on the happy path</p>
 <ol>
@@ -2389,6 +2374,7 @@
 </ol>
 </li>
 </ol>
+</div>
 </div>
 </div>
 </div>
@@ -2427,12 +2413,12 @@
 </ol>
 <h2 id="application-promotion-action-summary">Summary <img alt="🌝" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f31d.svg" title=":full_moon_with_face:" /><a class="headerlink" href="#application-promotion-action-summary" title="Permanent link">&para;</a></h2>
 <p>In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "<abbr title="an application that takes full advantage of cloud capabilities due to a microservices based architecture that can be scaled up and down independently.">cloud native</abbr>" <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> for your PetClinic application on IBM Z/<abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr>! Congratulations!!!</p></section><h1 class='nav-section-title-end'>Ended: 9-12. Test and Promote Pet Clinic</h1><section class="print-page" id="devsecops-devsecops"><h1 id="devsecops-devsecops-configure-sonarqube-code-analysis-in-your-pipeline">Configure SonarQube code analysis in your Pipeline<a class="headerlink" href="#devsecops-devsecops-configure-sonarqube-code-analysis-in-your-pipeline" title="Permanent link">&para;</a></h1>
-<p>As a bonus lab, you will now configure an extra task in your existing Pipeline to conduct code scanning on your petclinic source code. This exercise is to show you one way of incorporating security code scanning as part of your automated CI/CD pipeline.</p>
+<p>As a bonus lab, you will now configure an extra task in your existing Pipeline to conduct code scanning on your petclinic source code. This exercise is to show you one way of incorporating security code scanning as part of your automated <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> pipeline.</p>
 <p>We will use the popular open source package SonarQube to do the code scanning. According to Wikipedia, "SonarQube is an open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities on 20+ programming languages."</p>
 <p>For Petclinic, we will be using SonarScanner for Maven. The ability to execute the SonarQube analysis via a regular Maven goal makes it available anywhere Maven is available (developer build, CI server, etc.), without the need to manually download, setup, and maintain a SonarQube Runner installation. For more information on SonarScanner for Maven, please see <a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/" rel="noopener noreferrer" target="_blank">here</a>.</p>
 <h2 id="devsecops-devsecops-accessing-the-sonarqube-server-with-your-assigned-credentials">Accessing the SonarQube server with your assigned credentials<a class="headerlink" href="#devsecops-devsecops-accessing-the-sonarqube-server-with-your-assigned-credentials" title="Permanent link">&para;</a></h2>
-<p>The lab instructors have already setup a SonarQube server within the OpenShift cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.</p>
-<p>Access the SonarQube server <a href="https://sonarqube-1670885178028.apps.cloudnative.marist.edu/" rel="noopener noreferrer" target="_blank">here</a></p>
+<p>The lab instructors have already setup a SonarQube server within the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.</p>
+<p>Access the SonarQube server <a href="https://sonarqube-1677091477712.apps.cloudnative.marist.edu" rel="noopener noreferrer" target="_blank">here</a></p>
 <p>Select <code>Log in</code> in the upper right hand corner. And log in with your assigned credentials.</p>
 <p>If you are not successful with this step, please let the instructor know.</p>
 <h2 id="devsecops-devsecops-generate-a-security-token-for-your-sonarqube-account">Generate a security token for your SonarQube account<a class="headerlink" href="#devsecops-devsecops-generate-a-security-token-for-your-sonarqube-account" title="Permanent link">&para;</a></h2>
@@ -2444,8 +2430,8 @@
 <p><img alt="sonarqubetoken" src="../images/DevSecOps/sonarqubetoken.png" /> </p>
 <h2 id="devsecops-devsecops-configuring-maven-settings-with-the-sonar-scanner-plugin">Configuring maven-settings with the Sonar scanner plugin<a class="headerlink" href="#devsecops-devsecops-configuring-maven-settings-with-the-sonar-scanner-plugin" title="Permanent link">&para;</a></h2>
 <p>We need to configure maven with the Sonar scanner plugin prefix. We will do that by including the sonar scanner plugin in the maven settings file.</p>
-<p>We will create a Kubernetes ConfigMap for the mavens settings file.</p>
-<p>Click on the Import Yaml button at the top of the OpenShift console (the '+' symbol).</p>
+<p>We will create a <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> ConfigMap for the mavens settings file.</p>
+<p>Click on the Import Yaml button at the top of the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> console (the '+' symbol).</p>
 <p>Copy and paste the entirety of the following into the editor and then hit "Create" (copy by clicking on the copy icon in the top right of the box below).</p>
 <div class="highlight"><pre><span></span><code>kind:<span class="w"> </span>ConfigMap
 apiVersion:<span class="w"> </span>v1
@@ -2480,11 +2466,26 @@ data:
 <span class="w">    </span>&lt;/settings&gt;
 </code></pre></div>
 <h2 id="devsecops-devsecops-configuring-maven-task-into-pipeline-to-do-code-analysis">Configuring maven task into Pipeline to do code analysis<a class="headerlink" href="#devsecops-devsecops-configuring-maven-task-into-pipeline-to-do-code-analysis" title="Permanent link">&para;</a></h2>
-<p>Go back to your OpenShift console and go to your pipeline. Your pipeline should look like the picture below, at this point of the workshop.</p>
+<p>Go back to your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> console and go to your pipeline. Your pipeline should look like the picture below, at this point of the workshop.</p>
 <p><img alt="presqpipeline" src="../images/DevSecOps/presqpipeline.png" /> </p>
 <ol>
 <li>
-<p>We will insert the code analysis task before the build task. The idea being we want to scan the source code for bugs and vulnerabilities, before we build a container image out of it.</p>
+<p>Add <code>maven-settings</code> workspace to your pipeline</p>
+<p><img alt="Add Maven Settings Workspace" src="../images/DevSecOps/AddMavenSettingsWorkspace.png" /></p>
+<ol>
+<li>Click <code>Add workspace</code></li>
+<li>
+<p>Name the workspace</p>
+<div class="highlight"><pre><span></span><code>maven-settings
+</code></pre></div>
+</li>
+<li>
+<p>Click <code>Save</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p>We will insert the code analysis task before the build task. The idea being we want to scan the source code for bugs and vulnerabilities, before we build a <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> out of it.</p>
 <p>a. From your pipeline screen, Go to Actions -&gt; Edit Pipeline.</p>
 <p>b. Select the plus sign before the build task, as in the picture below.</p>
 <p><img alt="addsqtask" src="../images/DevSecOps/addsqtask.png" /></p>
@@ -2496,44 +2497,39 @@ data:
 </div>
 </li>
 <li>
-<p>Add <code>maven-settings</code> workspace to your pipeline</p>
-<p><img alt="Add Maven Settings Workspace" src="../images/DevSecOps/AddMavenSettingsWorkspace.png" /></p>
-<ol>
-<li>Click <code>Add workspace</code></li>
-<li>Name the workspace <code>maven-settings</code></li>
-<li>Click <code>Save</code></li>
-</ol>
-</li>
-<li>
-<p>Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server, <b>be careful to substitute the <code>-Dsonar.login</code> goal with the token that you generated in the previous step. Also be mindful to put your name in the value of the <code>Dsonar.projectName</code> and <code>`Dsonar.projectKey</code> goals.</b> </p>
+<p>Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server.</p>
 <p><img alt="codeanalysistask" src="../images/DevSecOps/codeanalysistask.png" /></p>
-<p><strong>Display Name</strong></p>
-<div class="highlight"><pre><span></span><code>code-analysis
+<div class="highlight"><span class="filename">Display Name</span><pre><span></span><code>code-analysis
 </code></pre></div>
-<p><strong>MAVEN_IMAGE</strong>
-<div class="highlight"><pre><span></span><code>maven:3.8.1-jdk-11-openj9
-</code></pre></div></p>
+<div class="highlight"><span class="filename">MAVEN_IMAGE</span><pre><span></span><code>maven:3.8.1-jdk-11-openj9
+</code></pre></div>
 <p><strong>GOALS</strong></p>
-<p><div class="highlight"><pre><span></span><code>package
+<div class="highlight"><span class="filename">GOAL 1</span><pre><span></span><code>package
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>sonar:sonar
+<div class="highlight"><span class="filename">GOAL 2</span><pre><span></span><code>sonar:sonar
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>-Dsonar.login<span class="o">=</span>&lt;use-your-token-from-previous-step&gt;
+<div class="highlight"><span class="filename">GOAL 3</span><pre><span></span><code>-Dsonar.login<span class="o">=</span>&lt;use-your-token-from-previous-step&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>https://sonarqube-1670885178028.apps.cloudnative.marist.edu
+<div class="admonition warning">
+<p class="admonition-title">Use your token</p>
+<p>You need to replace <code>&lt;use-your-token-from-previous-step&gt;</code> with your actual token.</p>
+</div>
+<div class="highlight"><span class="filename">GOAL 4</span><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>https://sonarqube-1677091477712.apps.cloudnative.marist.edu
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>-Dsonar.projectName<span class="o">=</span>petclinic-&lt;your-name&gt;
+<div class="highlight"><span class="filename">GOAL 5</span><pre><span></span><code>-Dsonar.projectName<span class="o">=</span>petclinic-&lt;your-name&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>-Dsonar.projectKey<span class="o">=</span>petclinic-&lt;your-name&gt;
-</code></pre></div></p>
-<p><strong>SOURCE</strong></p>
-<div class="highlight"><pre><span></span><code>workspace
+<div class="admonition warning">
+<p class="admonition-title">Use your name</p>
+<p>Be mindful to put your name in the value of the <code>Dsonar.projectName</code> and <code>`Dsonar.projectKey</code> goals (i.e., substitute <code>&lt;your-name&gt;</code> with your name such as <code>petclinic-garrett</code>).</p>
+</div>
+<div class="highlight"><span class="filename">GOAL 6</span><pre><span></span><code>-Dsonar.projectKey<span class="o">=</span>petclinic-&lt;your-name&gt;
 </code></pre></div>
-<p><strong>MAVEN-SETTINGS</strong></p>
-<div class="highlight"><pre><span></span><code>maven-settings
+<div class="highlight"><span class="filename">SOURCE (choose from dropdown)</span><pre><span></span><code>workspace
 </code></pre></div>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
+<div class="highlight"><span class="filename">MAVEN-SETTINGS (choose from dropdown)</span><pre><span></span><code>maven-settings
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Remember to replace <code>&lt;your-name&gt;</code> with your name such as <code>petclinic-garrett</code>.</p>
 </div>
 </li>
@@ -2567,8 +2563,8 @@ data:
             configMap:
               name: maven-settings
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition caution">
+<p class="admonition-title">Indentation Matters!</p>
 <p>Take care to match the indentation in the picture below</p>
 </div>
 </li>
@@ -2687,7 +2683,7 @@ data:
 <h2 id="devsecops-devsecops-verify-that-vulnerabilities-in-petclinic-have-been-patched">Verify that vulnerabilities in petclinic have been patched<a class="headerlink" href="#devsecops-devsecops-verify-that-vulnerabilities-in-petclinic-have-been-patched" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>See a new pipeline triggered back in the <code>Pipelines</code> view of your OpenShift namespace.</p>
+<p>See a new pipeline triggered back in the <code>Pipelines</code> view of your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> namespace.</p>
 <p><img alt="New pipeline running" src="../images/DevSecOps/PipelineRunning.png" /></p>
 </li>
 <li>
@@ -2695,7 +2691,7 @@ data:
 <p><img alt="Security Success" src="../images/DevSecOps/CodeAnalysisPasses.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can also wait to see the other tasks pass but since the main goal of this section was to focus on integrating security into DevOps and you have already gone through the pipeline without the <code>code-analysis</code> task, there is really no need to do so.</p>
+<p>You can also wait to see the other tasks pass but since the main goal of this section was to focus on integrating security into <abbr title="methodology that accelerates delivery and improves quality of software through automation (CI/CD) that eliminates the friction between software development and IT operations">DevOps</abbr> and you have already gone through the pipeline without the <code>code-analysis</code> task, there is really no need to do so.</p>
 </div>
 </li>
 <li>
@@ -2718,7 +2714,7 @@ data:
 </li>
 </ol>
 <h2 id="devsecops-devsecops-summary">Summary <img alt="🔭" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f52d.svg" title=":telescope:" /><a class="headerlink" href="#devsecops-devsecops-summary" title="Permanent link">&para;</a></h2>
-<p>In this section, you started on your DevSecOps journey by integrating SonarQube security scanning into your DevOps pipeline. Initially, the scan flagged several security vulnerabilities, causing the pipeline to fail before the vulnerable code could get packaged into a container. Next, you were able to dig into the vulnerabilities and figure out what needed to be changed with the SonarQube report. Then, you applied a security patch, eliminating the flagged security vulnerabilities in the PetClinic application. With these changes, your pipeline succeeded having containerized and deployed secure code. Finally, you are left with a pipeline set up to catch any new security vulnerabilities as soon as they appear. Congratulations!</p></section>
+<p>In this section, you started on your DevSecOps journey by integrating SonarQube security scanning into your <abbr title="methodology that accelerates delivery and improves quality of software through automation (CI/CD) that eliminates the friction between software development and IT operations">DevOps</abbr> pipeline. Initially, the scan flagged several security vulnerabilities, causing the pipeline to fail before the vulnerable code could get packaged into a <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr>. Next, you were able to dig into the vulnerabilities and figure out what needed to be changed with the SonarQube report. Then, you applied a security patch, eliminating the flagged security vulnerabilities in the PetClinic application. With these changes, your pipeline succeeded having containerized and deployed secure code. Finally, you are left with a pipeline set up to catch any new security vulnerabilities as soon as they appear. Congratulations!</p></section>
                         <h1 class='nav-section-title' id='section-14-cleanup'>
                             14. Cleanup <a class='headerlink' href='#section-14-cleanup' title='Permanent link'>↵</a>
                         </h1>
@@ -2918,7 +2914,7 @@ data:
 <h2 id="cleanup-full-cleanup-thank-you-for-cleaning-up"><img alt="🎉" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f389.svg" title=":tada:" /> Thank You for Cleaning Up! <img alt="🎉" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f389.svg" title=":tada:" /><a class="headerlink" href="#cleanup-full-cleanup-thank-you-for-cleaning-up" title="Permanent link">&para;</a></h2></section><h1 class='nav-section-title-end'>Ended: 14. Cleanup</h1><section class="print-page" id="assignment"><h1 id="assignment-lab-assignments">Lab Assignments<a class="headerlink" href="#assignment-lab-assignments" title="Permanent link">&para;</a></h1>
 <p>You will need to enter the "Skytap Password" one time only (assuming you don't switch browsers or clear cache).</p>
 <p>If your Red Hat Enterprise Linux desktop asks for a login password for userid <em>workshop user</em>, the password, for all teams, will be provided by an instructor in the WebEx meeting chat. Your desktop will lock and ask for this password if your session is idle for one hour.</p>
-<p><strong>You only need to use this instance for the RBAC lab, and only if you do not have the OpenShift CLI (oc) installed on your local workstation.</strong></p>
+<p><strong>You only need to use this instance for the RBAC lab, and only if you do not have the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> CLI (oc) installed on your local workstation.</strong></p>
 <table>
 <thead>
 <tr>
@@ -3050,49 +3046,49 @@ data:
 <td align="center">kpzpphp2</td>
 </tr>
 </tbody>
-</table></section><section class="print-page" id="devsecops-sonarqube"><h1 id="devsecops-sonarqube-setting-up-sonarqube-server-in-openshift">Setting up SonarQube server in OpenShift<a class="headerlink" href="#devsecops-sonarqube-setting-up-sonarqube-server-in-openshift" title="Permanent link">&para;</a></h1>
+</table></section><section class="print-page" id="devsecops-sonarqube"><h1 id="devsecops-sonarqube-setting-up-sonarqube-server-in-openshift">Setting up SonarQube server in <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr><a class="headerlink" href="#devsecops-sonarqube-setting-up-sonarqube-server-in-openshift" title="Permanent link">&para;</a></h1>
 <h2 id="devsecops-sonarqube-sign-up-for-necessary-accounts">Sign up for necessary accounts<a class="headerlink" href="#devsecops-sonarqube-sign-up-for-necessary-accounts" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Get a 2<sup>nd</sup> OpenShift cluster trial (in addition to the one you got for the regular lab, using a different email) <a href="https://linuxone.cloud.marist.edu/#/register?flag=OCP" rel="noopener noreferrer" target="_blank">here</a>.</p>
+<p>Get a 2<sup>nd</sup> <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> cluster trial (in addition to the one you got for the regular lab, using a different email) <a href="https://linuxone.cloud.marist.edu/#/register?flag=OCP" rel="noopener" target="_blank">here</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Within 48 hours after you register, be sure to "Activate your account or entitlement" following the instructions in the follow-on email sent to the email address you specified during registration.</p>
 </div>
 </li>
 <li>
-<p>Sign up for IBM Z Container Registry trial using <a href="https://epwt-www.mybluemix.net/software/support/trial/cst/programwebsite.wss?siteId=1208&amp;tabId=3216&amp;p=null&amp;h=null" rel="noopener noreferrer" target="_blank">this link</a>.</p>
+<p>Setup access to the Container Images for IBM Z and <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> using <a href="https://ibm.github.io/ibm-z-oss-hub/main/main.html" rel="noopener" target="_blank">this link</a> and scrolling down to the <em>Getting Started</em> section and then following it.</p>
 </li>
 </ol>
-<h2 id="devsecops-sonarqube-access-openshift-cluster">Access OpenShift Cluster<a class="headerlink" href="#devsecops-sonarqube-access-openshift-cluster" title="Permanent link">&para;</a></h2>
+<h2 id="devsecops-sonarqube-access-openshift-cluster">Access <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Cluster<a class="headerlink" href="#devsecops-sonarqube-access-openshift-cluster" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This should be a different OpenShift cluster than the one used for the main lab sections due to resource constraints.</p>
+<p>This should be a different <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> cluster than the one used for the main lab sections due to resource constraints.</p>
 </div>
 <ol>
 <li>
 <p>Code for the project</p>
-<p>Please fork the code to your GitHub repository by <a href="https://github.com/ibm-wsc/spring-petclinic/fork" rel="noopener noreferrer" target="_blank">clicking here</a>. If this fails, you likely already have a forked version of the repository from the lab. If so, go to your fork and use that in the next step.</p>
+<p>Please fork the code to your GitHub repository by <a href="https://github.com/ibm-wsc/spring-petclinic/fork" rel="noopener" target="_blank">clicking here</a>. If this fails, you likely already have a forked version of the repository from the lab. If so, go to your fork and use that in the next step.</p>
 </li>
 <li>
 <p>Clone the git repository to your local computer </p>
 <p>a. Get the link from GitHub using the <code>Code</code> button on your forked repository and the <code>HTTPS</code> tab. <img alt="Clone PetClinic example" src="../images/YamlSetup/ClonePetclinic.png" /></p>
-<p>b. Perform the clone locally in a terminal window using git clone + the link you copied such as <code>git clone https://github.com/siler23/spring-petclinic.git</code> for the example in <code>a.</code> above.</p>
+<p>b. Perform the clone locally in a terminal window using <abbr title="clones a repository into a newly created directory, creates remote-tracking branches for each branch in the cloned repository (visible using git branch --remotes), and creates and checks out an initial branch that is forked from the cloned repository’s currently active branch.">git clone</abbr> + the link you copied such as <code>git clone https://github.com/siler23/spring-petclinic.git</code> for the example in <code>a.</code> above.</p>
 </li>
 <li>
-<p>Log into OpenShift in a terminal window locally.</p>
-<p>a. Click on your username in the upper right hand of the LinuxONE Community Cloud OpenShift UI.</p>
+<p>Log into <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> in a terminal window locally.</p>
+<p>a. Click on your username in the upper right hand of the <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr>.</p>
 <p>b. Click <code>Copy Login command</code></p>
 <p><img alt="Copy Login Command" src="../images/YamlSetup/CopyLoginCommand.png" /></p>
 <p>c. In the new window that opens click <code>Display Token</code> to generate a login token.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You may be prompted to enter your LinuxONE Community Cloud username and password again.</p>
+<p>You may be prompted to enter your <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud username and password again.</p>
 </div>
 <p><img alt="Display Token Prompt" src="../images/YamlSetup/DisplayTokenPrompt.png" /></p>
 <p>d. Copy the login command.</p>
 <p><img alt="Oc Login Command Copy " src="../images/YamlSetup/OcLoginCommand.png" /></p>
-<p>e. Use the login command in your terminal to login to your OpenShift project.</p>
+<p>e. Use the login command in your terminal to login to your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> project.</p>
 <p><img alt="Terminal oc Login" src="../images/YamlSetup/TerminalLogin.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3100,20 +3096,20 @@ data:
 </div>
 </li>
 </ol>
-<h2 id="devsecops-sonarqube-create-openshift-resources-for-sonarqube-server">Create OpenShift resources for SonarQube server<a class="headerlink" href="#devsecops-sonarqube-create-openshift-resources-for-sonarqube-server" title="Permanent link">&para;</a></h2>
+<h2 id="devsecops-sonarqube-create-openshift-resources-for-sonarqube-server">Create <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> resources for SonarQube server<a class="headerlink" href="#devsecops-sonarqube-create-openshift-resources-for-sonarqube-server" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Create a Kubernetes (OpenShift) secret for the IBM Z Container Registry using your API Key</p>
+<p>Create a <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> (<abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr>) secret for the IBM Z Container Registry using your API Key</p>
 <div class="highlight"><pre><span></span><code>oc<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>docker-registry<span class="w"> </span>z-container-registry<span class="w"> </span>--docker-username<span class="o">=</span>iamapikey<span class="w"> </span>--docker-server<span class="o">=</span><span class="s1">&#39;icr.io&#39;</span><span class="w"> </span>--docker-password<span class="o">=</span><span class="s1">&#39;YOUR_API_KEY&#39;</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please replace <code>YOUR_API_KEY</code> with your API Key for the IBM Z container registry.</p>
+<p>Please replace <code>YOUR_API_KEY</code> with your API Key for the IBM Z <abbr title="a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another">container</abbr> registry.</p>
 </div>
 </li>
 <li>
-<p>Create OpenShift resources from PetClinic git repo you cloned.</p>
-<p>a. Change into the directory where you cloned your petclinic repo in step 2b of <a href="#devsecops-sonarqube-access-openshift-cluster">Access OpenShift Cluster</a>.</p>
+<p>Create <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> resources from PetClinic git <abbr title="repository">repo</abbr> you cloned.</p>
+<p>a. Change into the directory where you cloned your petclinic <abbr title="repository">repo</abbr> in step 2b of <a href="#devsecops-sonarqube-access-openshift-cluster">Access <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Cluster</a>.</p>
 <p>b. Apply the SonarQube server files to your project from the main directory of the cloned GitHub fork using the following command:</p>
 <div class="highlight"><pre><span></span><code>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>ocp-files/sonarqube-server
 </code></pre></div>
@@ -3135,7 +3131,7 @@ persistentvolumeclaim/sonarqube-data created
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can also use the user interface (UI) of your project.</p>
+<p>You can also use the user interface (<abbr title="user interface">UI</abbr>) of your project.</p>
 </div>
 </li>
 <li>
@@ -3213,7 +3209,7 @@ persistentvolumeclaim/sonarqube-data created
 <p class="admonition-title">Note</p>
 <p>Use the URL you used to access the SonarQube server as your SonarQube url in the <a href="#devsecops-devsecops">SonarQube section</a>.</p>
 </div></section><section class="print-page" id="yamlsetup"><h1 id="yamlsetup-quick-start-petclinic-pipeline-with-yaml-files">Quick Start PetClinic pipeline with Yaml files<a class="headerlink" href="#yamlsetup-quick-start-petclinic-pipeline-with-yaml-files" title="Permanent link">&para;</a></h1>
-<p>This section is for users that want to quickly bring up the pipeline and resources of the lab from yaml. This is good for users that have gone through the lab and want to learn how to quickly bring up the resources in a different cluster. This is what users will eventually want to do with pipelines they create (use yaml files to portably bring pipelines to different OpenShift clusters).</p>
+<p>This section is for users that want to quickly bring up the pipeline and resources of the lab from yaml. This is good for users that have gone through the lab and want to learn how to quickly bring up the resources in a different cluster. This is what users will eventually want to do with pipelines they create (use yaml files to portably bring pipelines to different <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> clusters).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you already have resources created from the lab, please do the <a href="#cleanup-full-cleanup">cleanup section here</a>.</p>
@@ -3227,22 +3223,22 @@ persistentvolumeclaim/sonarqube-data created
 <li>
 <p>Clone the git repository to your local computer </p>
 <p>a. Get the link from GitHub using the <code>Code</code> button on your forked repository and the <code>HTTPS</code> tab. <img alt="Clone PetClinic example" src="../images/YamlSetup/ClonePetclinic.png" /></p>
-<p>b. Perform the clone locally in a terminal window using git clone + the link you copied such as <code>git clone https://github.com/siler23/spring-petclinic.git</code> for the example in <code>a.</code> above.</p>
+<p>b. Perform the clone locally in a terminal window using <abbr title="clones a repository into a newly created directory, creates remote-tracking branches for each branch in the cloned repository (visible using git branch --remotes), and creates and checks out an initial branch that is forked from the cloned repository’s currently active branch.">git clone</abbr> + the link you copied such as <code>git clone https://github.com/siler23/spring-petclinic.git</code> for the example in <code>a.</code> above.</p>
 </li>
 <li>
-<p>Log into OpenShift in a terminal window locally.</p>
-<p>a. Click on your username in the upper right hand of the LinuxONE Community Cloud OpenShift UI.</p>
+<p>Log into <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> in a terminal window locally.</p>
+<p>a. Click on your username in the upper right hand of the <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> <abbr title="user interface">UI</abbr>.</p>
 <p>b. Click <code>Copy Login command</code></p>
 <p><img alt="Copy Login Command" src="../images/YamlSetup/CopyLoginCommand.png" /></p>
 <p>c. In the new window that opens click <code>Display Token</code> to generate a login token.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You may be prompted to enter your LinuxONE Community Cloud username and password again.</p>
+<p>You may be prompted to enter your <abbr title="IBM LinuxONE is a family of servers built to host enterprise Linux applications using the s390x architecture that it shares with the IBM Z family of servers.">LinuxONE</abbr> Community Cloud username and password again.</p>
 </div>
 <p><img alt="Display Token Prompt" src="../images/YamlSetup/DisplayTokenPrompt.png" /></p>
 <p>d. Copy the login command.</p>
 <p><img alt="Oc Login Command Copy " src="../images/YamlSetup/OcLoginCommand.png" /></p>
-<p>e. Use the login command in your terminal to login to your OpenShift project.</p>
+<p>e. Use the login command in your terminal to login to your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> project.</p>
 <p><img alt="Terminal oc Login" src="../images/YamlSetup/TerminalLogin.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3250,9 +3246,9 @@ persistentvolumeclaim/sonarqube-data created
 </div>
 </li>
 <li>
-<p>Create OpenShift resources from PetClinic git repo you cloned.</p>
-<p>a. Change into the directory where you cloned your petclinic repo in step 2.</p>
-<p>b. Create the necessary project files in OpenShift from the main directory of the cloned GitHub fork using the following command:</p>
+<p>Create <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> resources from PetClinic git <abbr title="repository">repo</abbr> you cloned.</p>
+<p>a. Change into the directory where you cloned your petclinic <abbr title="repository">repo</abbr> in step 2.</p>
+<p>b. Create the necessary project files in <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> from the main directory of the cloned GitHub fork using the following command:</p>
 <div class="highlight"><pre><span></span><code>oc apply -f ocp-files/pipelines/final-yaml
 </code></pre></div>
 <div class="admonition example">
@@ -3269,13 +3265,13 @@ persistentvolumeclaim/petclinic-pipeline-pvc created
 <p><img alt="Start New Pipeline" src="../images/YamlSetup/StartPipelineSelect.png" /></p>
 </li>
 <li>
-<p>Replace the YOUR_REPO with your git base repository (Git Hub username) and YOUR_PROJECT with the your OpenShift Project (the one you have in community cloud or otherwise) and choose to back the workspace with a PVC (namely the petlcinic-pipeline-pvc) you created in step 4. </p>
+<p>Replace the YOUR_REPO with your git base repository (Git Hub username) and YOUR_PROJECT with the your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Project (the one you have in community cloud or otherwise) and choose to back the workspace with a PVC (namely the petlcinic-pipeline-pvc) you created in step 4. </p>
 <p>a. Initial Parameters</p>
 <p><img alt="Pipeline Initial Look Start Screen" src="../images/YamlSetup/PipelineInitialWindow.png" /></p>
 <p>b. Change Parameters and start pipeline</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Your project and repo should be different from mine.</p>
+<p>Your project and <abbr title="repository">repo</abbr> should be different from mine.</p>
 </div>
 <p><img alt="Pipeline Final Start Screen" src="../images/YamlSetup/StartPipelineWithChanges.png" /></p>
 </li>
@@ -3283,12 +3279,12 @@ persistentvolumeclaim/petclinic-pipeline-pvc created
 <p>Your pipeline is back in action! <img alt="🎉" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f389.svg" title=":tada:" /></p>
 </li>
 </ol></section><section class="print-page" id="resources"><h1 id="resources-other-resources">Other Resources<a class="headerlink" href="#resources-other-resources" title="Permanent link">&para;</a></h1>
-<h2 id="resources-openshift-pipelines-resources">OpenShift Pipelines Resources<a class="headerlink" href="#resources-openshift-pipelines-resources" title="Permanent link">&para;</a></h2>
+<h2 id="resources-openshift-pipelines-resources"><abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> Pipelines Resources<a class="headerlink" href="#resources-openshift-pipelines-resources" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://www.openshift.com/learn/topics/pipelines">Information Page</a></li>
-<li><a href="https://www.openshift.com/blog/guide-to-openshift-pipelines-part-1-introducing-openshift-pipelines">Intro Series on OpenShift blog</a></li>
+<li><a href="https://www.openshift.com/learn/topics/pipelines" rel="noopener" target="_blank">Information Page</a></li>
+<li><a href="https://www.openshift.com/blog/guide-to-openshift-pipelines-part-1-introducing-openshift-pipelines" rel="noopener" target="_blank">Intro Series on <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> blog</a></li>
 </ul></section><section class="print-page" id="proposechange"><h1 id="proposechange-how-to-propose-a-change">How to propose a change<a class="headerlink" href="#proposechange-how-to-propose-a-change" title="Permanent link">&para;</a></h1>
-<p>On the page you want to make a change to, click on the pencil icon next to the page's title. This will take you to edit the page in Github.</p>
+<p>On the page you want to make a change to, click on the paper with pencil icon next to the page's title. This will take you to edit the page in Github.</p>
 <p>You will see a message similar to the following: "You’re editing a file in a project you don’t have write access to. Submitting a change to this file will write it to a new branch in your fork, so you can send a pull request."</p>
 <p>Make your changes in Markdown. And submit for review.</p>
 <p>The owners of this <abbr title="repository">repo</abbr> will review your pull request and accept or deny your change proposal.</p>
@@ -3298,6 +3294,46 @@ persistentvolumeclaim/petclinic-pipeline-pvc created
   
 
 
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 21.35-1.45-1.32C5.4 15.36 2 12.27 2 8.5 2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 21.35-1.45-1.32C5.4 15.36 2 12.27 2 8.5 2 5.41 4.42 3 7.5 3c.67 0 1.32.12 1.94.33L13 9.35l-4 5 3 7M16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35l-1-7 4.5-5-2.65-5.08C13.87 3.47 15.17 3 16.5 3Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help me improve this page by using my <a href="https://github.com/ibm-wsc/cloud-native-linuxone/issues/new/?title=[Feedback]+Print%20Site+-+/print_page/" target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
 
 
                 
@@ -3319,6 +3355,11 @@ persistentvolumeclaim/petclinic-pipeline-pvc created
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 IBM – <a href="#__consent">Change cookie settings</a>
+
+    </div>
+  
   
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
@@ -3331,20 +3372,24 @@ persistentvolumeclaim/petclinic-pipeline-pvc created
   
     
     
+    
+    
       
       
     
     <a href="https://github.com/ibm-wsc" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
+    
+    
     
     
       
       
     
     <a href="https://hub.docker.com/u/s390x" target="_blank" rel="noopener" title="hub.docker.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg>
     </a>
   
 </div>
@@ -3358,10 +3403,84 @@ persistentvolumeclaim/petclinic-pipeline-pvc created
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/cloud-native-linuxone/", "features": ["content.code.copy", "navigation.indexes", "content.action.edit", "content.action.view", "navigation.footer", "content.tabs.link"], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make the documentation as good as possible.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
     
     
-      <script src="../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "/cloud-native-linuxone/", "features": ["content.code.copy", "navigation.indexes", "navigation.tracking", "content.action.edit", "content.action.view", "navigation.footer", "content.tabs.link", "search.share"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.2a6f1dda.min.js"></script>
       
         <script src="../js/print-site.js"></script>
       
