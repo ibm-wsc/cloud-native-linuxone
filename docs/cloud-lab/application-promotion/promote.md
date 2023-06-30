@@ -209,23 +209,23 @@ You will create a task to check the connection to your external route as part of
     
     3. Scroll down and click create to create the `connection-test` Task 
 
-    ![Create connection-test Task](../images/Part2/CreateTestRouteTask.png)
+    ![Create connection-test Task](../../images/Part2/CreateTestRouteTask.png)
 
 You should now see the created `connection-test` Task. Finally, navigate back to the `Pipelines` section of the OpenShift UI and go back to editing your pipeline.
 
-![Back to Pipelines](../images/Part2/BackToPipelines.png)
+![Back to Pipelines](../../images/Part2/BackToPipelines.png)
 
 #### Add External Route Test Task to Pipeline
 
 1. Add a sequential task after `deploy-dev`. When you `Select Task`, choose the `connection-test` task. 
 
-    ![Add Connection Test task to Pipeline Dev](../images/Part2/ChooseConnectionTest.png)
+    ![Add Connection Test task to Pipeline Dev](../../images/Part2/ChooseConnectionTest.png)
 
 2. Configure `connection-test` task
 
     The only values you need to change are the `Display Name` and the `ROUTE_NAME` (copy and paste boxes below image):
 
-    ![Connection Test Configure 1](../images/Part2/ConnectionTestConfigureDev.png)
+    ![Connection Test Configure 1](../../images/Part2/ConnectionTestConfigureDev.png)
 
     ``` bash title="Display Name"
     connect-dev
@@ -252,15 +252,15 @@ Your first Task will mirror the `cleanup-resources` task at the beginning of you
 
 1. Go back to editing your pipeline via `Actions -> Edit Pipeline`
 
-    ![Actions Edit Pipeline](../images/Part1/ActionsEditPipeline.png)
+    ![Actions Edit Pipeline](../../images/Part1/ActionsEditPipeline.png)
 
 2. Add a Task sequentially at the end of the pipeline (after `connect-dev`) using the `openshift-client` ClusterTask.  
 
-    ![add cleanup sequential](../images/Part2/AddSequentialCleanup.png)
+    ![add cleanup sequential](../../images/Part2/AddSequentialCleanup.png)
 
 3. Configure the Task with the following values (copy and paste boxes below image):
 
-    ![cleanup dev](../images/Part2/CleanupDevTask.png)
+    ![cleanup dev](../../images/Part2/CleanupDevTask.png)
 
     ``` bash title="Display Name"
     cleanup-dev
@@ -281,11 +281,11 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
 1. Add a `kustomize` task sequentially to the end of your current pipeline (after `cleanup-dev`)
 
-    ![StagingAdd](../images/Part2/AddStaging.png) 
+    ![StagingAdd](../../images/Part2/AddStaging.png) 
     
 2. Configure the Task with the following values (copy and paste boxes below image):
 
-    ![Kustomize Staging Task](../images/Part2/KustomizeStaging.png)
+    ![Kustomize Staging Task](../../images/Part2/KustomizeStaging.png)
 
     ``` bash title="Display Name"
     kustomize-staging
@@ -307,13 +307,13 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
 1. Edit the pipeline again and add a `deploy-staging` task with the `openshift-client` ClusterTask
 
-    ![Deploy Staging Task](../images/Part2/DeployStagingTask.png)
+    ![Deploy Staging Task](../../images/Part2/DeployStagingTask.png)
 
 2. Configure the task with the following parameters[^4] (copy and paste boxes below image):
   
     [^4]: This mirrors the `dev-deploy` task which waits for the dev release to rollout but uses the `SCRIPT` field for everything vs. `ARGS`.
 
-    ![Staging Rollout](../images/Part2/DeployStagingParameters.png)
+    ![Staging Rollout](../../images/Part2/DeployStagingParameters.png)
 
     ``` bash title="Display Name"
     deploy-staging
@@ -330,11 +330,11 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
 1. Add a sequential task after `deploy-staging`. When you `Select Task`, choose the `connection-test` task. 
 
-    ![Add Connection Test task to Pipeline Dev](../images/Part2/ChooseCTestStaging.png)
+    ![Add Connection Test task to Pipeline Dev](../../images/Part2/ChooseCTestStaging.png)
 
 2. Configure `connection-test` task with the following parameters (copy and paste boxes below image):
 
-    ![Connection Test Configure 1](../images/Part2/ConnectionTestConfigureStaging.png)
+    ![Connection Test Configure 1](../../images/Part2/ConnectionTestConfigureStaging.png)
 
     ``` bash title="Display Name"
     connect-staging
@@ -346,7 +346,7 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
 3. `Save` the pipeline
 
-    ![Save Pipeline](../images/Part2/SavePipeline.png)
+    ![Save Pipeline](../../images/Part2/SavePipeline.png)
 
 ## Summary :waxing_gibbous_moon:
 

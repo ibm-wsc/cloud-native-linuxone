@@ -13,10 +13,10 @@ Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift
 
 * 1:00pm - 1:15pm - [Introduction to Cloud Native DevSecOps Pipeline Lab](introduction.md)
 * 1:15pm - 5:00 pm
-    * [Deploy PetClinic via OpenShift Pipelines](build-and-deploy/build_overview.md)
-    * [Configure PetClinic's Integration and Deployment via OpenShift Pipelines to Meet Your Organization's Needs](full-dev-pipeline/configure_overview.md)[^1]
-    * [Extend Pipeline to Upgrade from Development to Staging](application-promotion/promote_overview.md)
-    * [Configure SonarQube code analysis in your Pipeline](devsecops/devsecops.md)
+    * [Deploy PetClinic via OpenShift Pipelines](on-premises-lab/build-and-deploy/index.md)
+    * [Configure PetClinic's Integration and Deployment via OpenShift Pipelines to Meet Your Organization's Needs](on-premises-lab/full-dev-pipeline/index.md)[^1]
+    * [Extend Pipeline to Upgrade from Development to Staging](on-premises-lab/application-promotion/index.md)
+    * [Configure SonarQube code analysis in your Pipeline](on-premises-lab/devsecops/devsecops.md)
 
 [^1]: For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.
 

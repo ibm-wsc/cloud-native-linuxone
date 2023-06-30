@@ -6,11 +6,11 @@ It's time to add the `C` (continuous) to your CI/CD pipeline.
 
 1. Choose `Add Trigger` from the pipeline menu
 
-    ![Select GitHub Trigger](../images/Part2/GitHubAddTrigger.png)
+    ![Select GitHub Trigger](../../images/Part2/GitHubAddTrigger.png)
 
 2. Configure the trigger as follows (copy and paste boxes below image) and click `Add` to add the trigger to your pipeline:
 
-    ![GitHub Trigger Parameters](../images/Part2/WebhookTriggerParameters.png)
+    ![GitHub Trigger Parameters](../../images/Part2/WebhookTriggerParameters.png)
 
     !!! note
         The `Git_Repo` parameter should have your GitHub username instead of `siler23`. This should already be correctly filled out for you, so please don't change that to `siler23`.
@@ -38,7 +38,7 @@ Now, you need to set up a webhook from GitHub. You want this to hit your `event 
 
 1. Get the event listener url from the `Details` view of your pipeline
 
-    ![Find Event Listener](../images/Part2/FindEventListener.png)
+    ![Find Event Listener](../../images/Part2/FindEventListener.png)
 
     Find the value listed for **your** pipeline and copy that value.
 
@@ -57,11 +57,11 @@ Now, you need to set up a webhook from GitHub. You want this to hit your `event 
     
     3. `Just the push event` selected for `Which events would you like to trigger this webhook?`.
 
-    ![Add Webhook](../images/Part2/AddGithubWebhook.png)
+    ![Add Webhook](../../images/Part2/AddGithubWebhook.png)
 
 5. See the successfully created webhook now listed
 
-    ![Webhook Listed](../images/Part2/WebhookListed.png)
+    ![Webhook Listed](../../images/Part2/WebhookListed.png)
 
 ## Summary :full_moon:
 

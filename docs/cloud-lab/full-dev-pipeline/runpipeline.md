@@ -85,11 +85,11 @@ Since there is no ClusterTask defined for Kustomize, you will create a custom ta
     
     c. Scroll down and click `Create` to create the `kustomize` Task 
 
-    ![Create Kustomize Task](../images/Part1/CreateKustomizeTask.png)
+    ![Create Kustomize Task](../../images/Part1/CreateKustomizeTask.png)
 
 You should now see the created `kustomize` Task.
 
-![Back to Pipelines](../images/Part1/BackToPipelines.png)
+![Back to Pipelines](../../images/Part1/BackToPipelines.png)
 
 Finally, navigate back to the `Pipelines` section of the OpenShift UI and go back to editing your pipeline.
 
@@ -97,13 +97,13 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
 
 1. Add a sequential task after `clean-image` and when you `Select Task` choose the `kustomize` task. 
 
-    ![Add Kustomize task to Pipeline Dev](../images/Part1/AddKustomizeTaskPipeline.png)
+    ![Add Kustomize task to Pipeline Dev](../../images/Part1/AddKustomizeTaskPipeline.png)
 
 2. Configure `kustomize` task
 
     Since your initial deploy will be for the `dev` environment, the only values you need to change are the `Display Name` and the `SCRIPT` (copy and paste boxes below image):
 
-    ![Kustomize Configure 1](../images/Part1/KustomizeDevChoices.png)
+    ![Kustomize Configure 1](../../images/Part1/KustomizeDevChoices.png)
     
     ``` bash title="Display Name"
     kustomize-dev
@@ -123,15 +123,15 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
 
 1. Go back to editing your pipeline via `Actions -> Edit Pipeline`
 
-    ![Actions Edit Pipeline](../images/Part1/ActionsEditPipeline.png)
+    ![Actions Edit Pipeline](../../images/Part1/ActionsEditPipeline.png)
 
 2. Add a Task named `cleanup-resources` sequentially at the beginning of the pipeline before `fetch-repository` (using the `openshift-client` ClusterTask).
 
-    ![add cleanup sequential](../images/Part1/AddSequentialTask.png)
+    ![add cleanup sequential](../../images/Part1/AddSequentialTask.png)
 
 3. Configure the task with the following parameters (copy and paste boxes below image for changes):
 
-    ![cleanup resources](../images/Part1/CleanupResourcesTask.png)
+    ![cleanup resources](../../images/Part1/CleanupResourcesTask.png)
 
     ``` bash title="Display Name"
     cleanup-resources
@@ -150,7 +150,7 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
 
 1. Click on the `deploy` Task at the end of the pipeline and change the following parameters to the corresponding values (copy and paste boxes below image):
 
-    ![Deploy Dev Task Completed](../images/Part1/DeployDevCompleted.png)
+    ![Deploy Dev Task Completed](../../images/Part1/DeployDevCompleted.png)
 
     ``` bash title="Display Name"
     deploy-dev
@@ -170,14 +170,14 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
 
 1. Go to `Actions` -> `Start` in the right hand corner of the pipeline menu
 
-    ![Actions Start Pipeline](../images/Part1/StartPipelineManually.png)
+    ![Actions Start Pipeline](../../images/Part1/StartPipelineManually.png)
 
 2. Manually trigger a `PipelineRun` by accepting the default values and clicking on `Start`.
 
     !!! Note "Persistent Volume Claim Note"
         Please select a `PersistentVolumeClaim` if it is not already filled out for you to complete your pipeline. If it is already filled out for you then jump right to starting the pipeline.
 
-    ![Trigger Pipeline Manual](../images/Part1/PipelineExampleManualParameters.png)
+    ![Trigger Pipeline Manual](../../images/Part1/PipelineExampleManualParameters.png)
 
 3. Watch the results of your build pipeline run. It should complete successfully as in the pictures below.
 
@@ -186,14 +186,14 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
 
     **Pipeline Run Success View Perspective:**
 
-    ![Pipeline Run View](../images/Part1/PipelineRolloutRunView.png)
+    ![Pipeline Run View](../../images/Part1/PipelineRolloutRunView.png)
 
     !!! Success "Pipeline Run Details View"
         In the pipeline run `Details` view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the above screenshot was `Triggered By` a user versus an automated source such as an event listener watching for a GitHub push...
 
     **Pipeline Run Success Logs Perspective:**
 
-    ![Pipeline Run Logs](../images/Part1/PipelineRolloutLogsView.png)
+    ![Pipeline Run Logs](../../images/Part1/PipelineRolloutLogsView.png)
 
     !!! Success "Pipeline Run Logs View"
         From the pipeline run `Logs` view you can see that the pipeline run tasks all have green check marks and that this was a manual build (from the message in the log output of the final [`deploy-dev`] task).

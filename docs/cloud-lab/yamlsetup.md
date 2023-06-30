@@ -13,7 +13,7 @@ This section is for users that want to quickly bring up the pipeline and resourc
 
 2. Clone the git repository to your local computer 
 
-    a. Get the link from GitHub using the `Code` button on your forked repository and the `HTTPS` tab. ![Clone PetClinic example](images/YamlSetup/ClonePetclinic.png)
+    a. Get the link from GitHub using the `Code` button on your forked repository and the `HTTPS` tab. ![Clone PetClinic example](../images/YamlSetup/ClonePetclinic.png)
 
     b. Perform the clone locally in a terminal window using git clone + the link you copied such as `git clone https://github.com/siler23/spring-petclinic.git` for the example in `a.` above.
 
@@ -23,22 +23,22 @@ This section is for users that want to quickly bring up the pipeline and resourc
 
     b. Click `Copy Login command`
 
-    ![Copy Login Command](images/YamlSetup/CopyLoginCommand.png)
+    ![Copy Login Command](../images/YamlSetup/CopyLoginCommand.png)
 
     c. In the new window that opens click `Display Token` to generate a login token.
 
     !!! note
         You may be prompted to enter your LinuxONE Community Cloud username and password again.
         
-    ![Display Token Prompt](images/YamlSetup/DisplayTokenPrompt.png)
+    ![Display Token Prompt](../images/YamlSetup/DisplayTokenPrompt.png)
 
     d. Copy the login command.
 
-    ![Oc Login Command Copy ](images/YamlSetup/OcLoginCommand.png)
+    ![Oc Login Command Copy ](../images/YamlSetup/OcLoginCommand.png)
 
     e. Use the login command in your terminal to login to your OpenShift project.
 
-    ![Terminal oc Login](images/YamlSetup/TerminalLogin.png)
+    ![Terminal oc Login](../images/YamlSetup/TerminalLogin.png)
 
     !!! note
         Login token has been blurred in image for security purposes.
@@ -63,19 +63,19 @@ This section is for users that want to quickly bring up the pipeline and resourc
 
 5. Go to your newly created spring-petclinic pipeline via the `Pipelines UI` and start a new pipeline.
 
-    ![Start New Pipeline](images/YamlSetup/StartPipelineSelect.png)
+    ![Start New Pipeline](../images/YamlSetup/StartPipelineSelect.png)
 
 6. Replace the YOUR_REPO with your git base repository (Git Hub username) and YOUR_PROJECT with the your OpenShift Project (the one you have in community cloud or otherwise) and choose to back the workspace with a PVC (namely the petlcinic-pipeline-pvc) you created in step 4. 
 
     a. Initial Parameters
 
-    ![Pipeline Initial Look Start Screen](images/YamlSetup/PipelineInitialWindow.png)
+    ![Pipeline Initial Look Start Screen](../images/YamlSetup/PipelineInitialWindow.png)
 
     b. Change Parameters and start pipeline
 
     !!! Note
         Your project and repo should be different from mine.
 
-    ![Pipeline Final Start Screen](images/YamlSetup/StartPipelineWithChanges.png)
+    ![Pipeline Final Start Screen](../images/YamlSetup/StartPipelineWithChanges.png)
 
 7. Your pipeline is back in action! :tada:

@@ -20,7 +20,7 @@
 
 2. Clone the git repository to your local computer 
 
-    a. Get the link from GitHub using the `Code` button on your forked repository and the `HTTPS` tab. ![Clone PetClinic example](../images/YamlSetup/ClonePetclinic.png)
+    a. Get the link from GitHub using the `Code` button on your forked repository and the `HTTPS` tab. ![Clone PetClinic example](../../images/YamlSetup/ClonePetclinic.png)
 
     b. Perform the clone locally in a terminal window using git clone + the link you copied such as `git clone https://github.com/siler23/spring-petclinic.git` for the example in `a.` above.
 
@@ -30,22 +30,22 @@
 
     b. Click `Copy Login command`
 
-    ![Copy Login Command](../images/YamlSetup/CopyLoginCommand.png)
+    ![Copy Login Command](../../images/YamlSetup/CopyLoginCommand.png)
 
     c. In the new window that opens click `Display Token` to generate a login token.
 
     !!! note
         You may be prompted to enter your LinuxONE Community Cloud username and password again.
         
-    ![Display Token Prompt](../images/YamlSetup/DisplayTokenPrompt.png)
+    ![Display Token Prompt](../../images/YamlSetup/DisplayTokenPrompt.png)
 
     d. Copy the login command.
 
-    ![Oc Login Command Copy ](../images/YamlSetup/OcLoginCommand.png)
+    ![Oc Login Command Copy ](../../images/YamlSetup/OcLoginCommand.png)
 
     e. Use the login command in your terminal to login to your OpenShift project.
 
-    ![Terminal oc Login](../images/YamlSetup/TerminalLogin.png)
+    ![Terminal oc Login](../../images/YamlSetup/TerminalLogin.png)
 
     !!! note
         Login token has been blurred in image for security purposes.
@@ -96,7 +96,7 @@
 
 1. Access your account settings
 
-    ![Go to account settings](../images/DevSecOps/GoToAccount.png)
+    ![Go to account settings](../../images/DevSecOps/GoToAccount.png)
 
     1. Click the `A` icon in the upper right hand corner
 
@@ -104,7 +104,7 @@
 
 2. Change admin password 
 
-    ![Change Admin Password](../images/DevSecOps/ChangePasswordAdmin.png)
+    ![Change Admin Password](../../images/DevSecOps/ChangePasswordAdmin.png)
 
     1. Choose the `Security` tab at the top of the page
 
@@ -116,19 +116,19 @@
 
 1. Go to the `Quality Gates` tab.
 
-    ![Quality Gates Tab](../images/DevSecOps/ChooseQualityGatesTab.png)
+    ![Quality Gates Tab](../../images/DevSecOps/ChooseQualityGatesTab.png)
 
 2. Copy BUILT-IN Sonar way quality gate
 
     1. Choose to copy the gate 
-        ![Quality Gate Sonar Way Copy](../images/DevSecOps/CopySonarWayQualityGate.png)
+        ![Quality Gate Sonar Way Copy](../../images/DevSecOps/CopySonarWayQualityGate.png)
 
     2. Choose a name for your new gate
-        ![Name Quality Gate](../images/DevSecOps/ConfirmCopyQualityGate.png)
+        ![Name Quality Gate](../../images/DevSecOps/ConfirmCopyQualityGate.png)
 
 3. Add conditions for `Overall Code`
 
-    ![Name Quality Gate](../images/DevSecOps/QualityGateOverallCode.png)
+    ![Name Quality Gate](../../images/DevSecOps/QualityGateOverallCode.png)
 
     1. Click `Add Condition` for each Condition in the image above (the same ones used for `New Code`).
 

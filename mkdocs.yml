@@ -3,29 +3,43 @@ repo_url: https://github.com/ibm-wsc/cloud-native-linuxone/
 site_url: https://ibm-wsc.github.io/cloud-native-linuxone/
 edit_uri: edit/main/docs
 nav:
-    - 1. Home: index.md
-    - 2. Introduction: introduction.md
-    - 3. Prerequisites: prerequisites.md
-    - 4-5. Build and Deploy Pet Clinic:
-      - 4. Build and Deploy Overview: build-and-deploy/build_overview.md
-      - 5. PetClinic Up and Running: build-and-deploy/upandrunning.md
-    - 6-8. Configure PetClinic's Pipeline:
-      - 6. Configure Pipeline Overview: full-dev-pipeline/configure_overview.md
-      - 7. Configure Build and Test: full-dev-pipeline/pipeline.md
-      - 8. Configure Development Deployment: full-dev-pipeline/runpipeline.md
-    - 9-12. Test and Promote Pet Clinic:
-      - 9. Test and Promote Overview: application-promotion/promote_overview.md
-      - 10. Promoting Application: application-promotion/promote.md
-      - 11. Integrating Git: application-promotion/git.md
-      - 12. CI/CD in Action: application-promotion/action.md
-    - 13 Add the "Sec" in "DevSecOps": devsecops/devsecops.md
-    - 14. Cleanup:
-      - 14. Environment Cleanup: cleanup/full-cleanup.md
-    - 15. Lab Assignments: assignment.md
-    - REFERENCE 1. Setting up SonarQube Server in OpenShift: devsecops/sonarqube.md
-    - REFERENCE 2. Setting up PetClinic OpenShift Pipeline using yaml files: yamlsetup.md 
-    - Other resources: resources.md
-    - Propose a change: proposechange.md
+  - Home: index.md
+  - Introduction: introduction.md
+  - Cloud Lab:
+    -  Prerequisites: cloud-lab/prerequisites.md
+    -  Build and Deploy Pet Clinic:
+        - cloud-lab/build-and-deploy/index.md
+        - PetClinic Up and Running: cloud-lab/build-and-deploy/upandrunning.md
+    - Configure PetClinic's Pipeline:
+        - cloud-lab/full-dev-pipeline/index.md
+        - Configure Build and Test: cloud-lab/full-dev-pipeline/pipeline.md
+        - Configure Development Deployment: cloud-lab/full-dev-pipeline/runpipeline.md
+    - Test and Promote Pet Clinic:
+        - cloud-lab/application-promotion/index.md
+        - Promoting Application: cloud-lab/application-promotion/promote.md
+        - Integrating Git: cloud-lab/application-promotion/git.md
+        - CI/CD in Action: cloud-lab/application-promotion/action.md
+    - Add the "Sec" in "DevSecOps": cloud-lab/devsecops/devsecops.md
+    - Cleanup: cloud-lab/cleanup/full-cleanup.md
+    - REFERENCE 1. Setting up SonarQube Server in OpenShift: cloud-lab/devsecops/sonarqube.md
+    - REFERENCE 2. Setting up PetClinic OpenShift Pipeline using yaml files: cloud-lab/yamlsetup.md
+  - On-premises Lab:
+    -  Build and Deploy Pet Clinic:
+        - on-premises-lab/build-and-deploy/index.md
+        - PetClinic Up and Running: on-premises-lab/build-and-deploy/upandrunning.md
+    - Configure PetClinic's Pipeline:
+        - on-premises-lab/full-dev-pipeline/index.md
+        - Configure Build and Test: on-premises-lab/full-dev-pipeline/pipeline.md
+        - Configure Development Deployment: on-premises-lab/full-dev-pipeline/runpipeline.md
+    - Test and Promote Pet Clinic:
+        - on-premises-lab/application-promotion/index.md
+        - Promoting Application: on-premises-lab/application-promotion/promote.md
+        - Integrating Git: on-premises-lab/application-promotion/git.md
+        - CI/CD in Action: on-premises-lab/application-promotion/action.md
+    - Add the "Sec" in "DevSecOps": on-premises-lab/devsecops/devsecops.md
+  - Lab Assignments: assignment.md 
+  - Other resources: resources.md
+  - Propose a change: proposechange.md
 
 theme:
   name: material

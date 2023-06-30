@@ -15,32 +15,32 @@ Now that PetClinic is up and running on your OpenShift cluster, it's time to add
 
 When you deployed the PetClinic application using the `From Git` option in the [PetClinic Up and Running](../build-and-deploy/upandrunning.md) section, you chose to create a basic pipeline. You'll start with this pipeline and edit it to add new functionality for your use case. 
 
-Navigate to the `Pipelines` tab in the `Developer` perspective on the left and then click the three dots to the right of the pipeline name (`spring-petclinic`) and choose `Edit Pipeline`. ![Pipeline Image](../images/Part1/EditNewPipeline.png) 
+Navigate to the `Pipelines` tab in the `Developer` perspective on the left and then click the three dots to the right of the pipeline name (`spring-petclinic`) and choose `Edit Pipeline`. ![Pipeline Image](../../images/Part1/EditNewPipeline.png) 
 
 ## Ensure MySQL Database Deployed for each Run
 
 This will bring you to the Pipeline Builder UI where you can edit your pipeline. Here you will make sure the MySQL database is configured according to your specification before the `build` task.
 
 1. Add a `mysql-deploy` task in parallel to the `git-fetch` task. 
-    ![Add Parallel MySQL](../images/Part1/mySQL_ParallelTask.png) 
+    ![Add Parallel MySQL](../../images/Part1/mySQL_ParallelTask.png) 
 
     !!! question "Why is `mysql-deploy` in Parallel?"
         This ensures MySQL is in place for each `PetClinic` application build (which would fail without it).  
 
     Click `Select Task` in the middle of the rectangle of the new task and choose the `openshift-client` task from the dropdown menu. 
 
-    ![ChooseOpenShift Client](../images/Part1/Choose_OpenShiftClientTask.png)
+    ![ChooseOpenShift Client](../../images/Part1/Choose_OpenShiftClientTask.png)
 
     Click on the middle of the oval of the `openshift-client` task to enter values for it (copy and paste boxes below image).
 
-    ![Click OpenShift Client](../images/Part1/OpenShiftClientOval.png)
+    ![Click OpenShift Client](../../images/Part1/OpenShiftClientOval.png)
 
     !!! Tip
         Once you add a specific task (i.e. `openshift-client`), clicking on the oval of the task will enable you to edit its default values for your needs.
 
     Give the task the following parameters to ensure the MySQL database is available with the necessary configuration:
 
-    ![MySQL Task](../images/Part1/MySQLTemplateTask.png)
+    ![MySQL Task](../../images/Part1/MySQLTemplateTask.png)
 
     ``` bash title="Display Name"
     mysql-deploy
@@ -65,11 +65,11 @@ This will bring you to the Pipeline Builder UI where you can edit your pipeline.
 
     You need to make sure that `mysql` is fully deployed before your `build` task begins. In order to achieve this, you will use the OpenShift Client again and wait for the `rollout` of the `mysql` `deploymentConfig` to complete after the `mysql-deploy` task. Add a sequential task after `mysql-deploy`:
 
-    ![mysql sequential task](../images/Part1/mySQL_SequentialTask.png)
+    ![mysql sequential task](../../images/Part1/mySQL_SequentialTask.png)
 
     `Select Task` as `openshift-client` like before and then fill out the task with the following parameters (copy and paste boxes below image for changes):
 
-    ![mysql-check task](../images/Part1/MySQLRolloutWait.png)
+    ![mysql-check task](../../images/Part1/MySQLRolloutWait.png)
 
     ``` bash title="Display Name"
     mysql-rollout-wait
@@ -106,14 +106,14 @@ The `s2i-java-11` container image is very convenient for making a container imag
 
     Add the `buildah` task as a sequential task after the `build` task.
 
-    ![Add Buildah Task](../images/Part1/AddBuildahTask.png)
+    ![Add Buildah Task](../../images/Part1/AddBuildahTask.png)
 
 2. Configure `buildah` task
 
     !!! Tip
         Each value that you need to configure is listed below with the value in a click-to-copy window (other values can be left alone to match the image)
 
-    ![Buildah Task Values](../images/Part1/ProducingCleanImageBuildah2.png)
+    ![Buildah Task Values](../../images/Part1/ProducingCleanImageBuildah2.png)
 
     ``` bash title="Display Name"
     clean-image
@@ -143,11 +143,11 @@ The `s2i-java-11` container image is very convenient for making a container imag
 
     Click `Add Parameter` twice ...
 
-    ![Add Parameter](../images/Part1/AddParameter.png)
+    ![Add Parameter](../../images/Part1/AddParameter.png)
 
     and then fill in the parameter details for `GIT_MESSAGE` and `COMMIT_SHA` (copy and paste boxes below image)
 
-    ![Add Image and Git Parameters](../images/Part1/AddParameters.png)
+    ![Add Image and Git Parameters](../../images/Part1/AddParameters.png)
 
     **GIT_MESSAGE**
 

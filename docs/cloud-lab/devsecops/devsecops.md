@@ -24,11 +24,11 @@ Let's use the access token method.
 
 Now that you've logged in, select your account in the upper right hand corner of the SonarQube server page.
 
-![sonarqubeaccount](../images/DevSecOps/sonarqubeaccount.png) 
+![sonarqubeaccount](../../images/DevSecOps/sonarqubeaccount.png) 
 
 In the account panel, go to the security tab, and type in the name `petclinic` to help identify your token, and then select `Generate`. Now copy and save this token to be used in the next step.
 
-![sonarqubetoken](../images/DevSecOps/sonarqubetoken.png) 
+![sonarqubetoken](../../images/DevSecOps/sonarqubetoken.png) 
 
 ## Configuring maven-settings with the Sonar scanner plugin
 
@@ -78,11 +78,11 @@ data:
 
 Go back to your OpenShift console and go to your pipeline. Your pipeline should look like the picture below, at this point of the workshop.
 
-![presqpipeline](../images/DevSecOps/presqpipeline.png) 
+![presqpipeline](../../images/DevSecOps/presqpipeline.png) 
 
 1. Add `maven-settings` workspace to your pipeline
 
-	![Add Maven Settings Workspace](../images/DevSecOps/AddMavenSettingsWorkspace.png)
+	![Add Maven Settings Workspace](../../images/DevSecOps/AddMavenSettingsWorkspace.png)
 
 	1. Click `Add workspace`
 	2. Name the workspace
@@ -99,18 +99,18 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
 
     b. Select the plus sign before the build task, as in the picture below.
 
-      ![addsqtask](../images/DevSecOps/addsqtask.png)
+      ![addsqtask](../../images/DevSecOps/addsqtask.png)
 
     c. Then select the task `maven` from the drop down list.
 
-      ![maventask](../images/DevSecOps/maventask.png)
+      ![maventask](../../images/DevSecOps/maventask.png)
 
     !!! tip
         Once you add a specific task (i.e. `maven`), clicking on the oval of the task will enable you to edit its default values for your needs.
 
 3. Give the task the following parameters to do the code analysis with the proper maven goals set to do code scanning against our SonarQube server.
 
-    ![codeanalysistask](../images/DevSecOps/codeanalysistask.png)
+    ![codeanalysistask](../../images/DevSecOps/codeanalysistask.png)
 
     ``` bash title="Display Name"
     code-analysis
@@ -173,14 +173,14 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
 
 1. Go to the **TriggerTemplates** section of your pipeline and click the link to take you to your pipeline's `TriggerTemplate`
 
-    ![Click on TriggerTemplate](../images/DevSecOps/ClickTriggerTemplate.png)
+    ![Click on TriggerTemplate](../../images/DevSecOps/ClickTriggerTemplate.png)
 
 2. Edit the `TriggerTemplate`
 
     1. Click Actions
     2. Choose `Edit TriggerTemplate` from the dropdown menu
 
-    ![Edit Trigger Template](../images/DevSecOps/EditTriggerTemplate.png)
+    ![Edit Trigger Template](../../images/DevSecOps/EditTriggerTemplate.png)
 
 3. Add the workspace to the `workspaces` section of the TriggerTemplate.
 
@@ -198,17 +198,17 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
 
     2. Click `Save` to apply your changes
 
-    ![Add Workspace to triggertemplate](../images/DevSecOps/AddWorkspaceToTriggerTemplate.png)
+    ![Add Workspace to triggertemplate](../../images/DevSecOps/AddWorkspaceToTriggerTemplate.png)
 
 ## Run the pipeline
 
 Go to the Actions menu of your pipeline and select Start.
 
-![startpipeline](../images/DevSecOps/startpipelinerun.png)
+![startpipeline](../../images/DevSecOps/startpipelinerun.png)
 
 Hit Start after reviewing the settings panel and making sure to set the options for the `source`(select `PersistentVolumeClaim` and your claim) and `maven-settings` ( select `configmap` as the resource choice and `maven-settings` as the specific configmap to use as in the image below) workspaces.
 
-![Choose workspaces when starting pipeline](../images/DevSecOps/ChooseMavenSettings.png)
+![Choose workspaces when starting pipeline](../../images/DevSecOps/ChooseMavenSettings.png)
 
 You can go to your pipeline logs and see the output for each of the tasks. <TO DO .. add screen shot of pipeline logs>
 
@@ -216,7 +216,7 @@ It will take 15-20 minutes for the code analysis to run completely through. This
 
 Let's see if our code passes the code analysis...
 
-![codeanalysisfail](../images/DevSecOps/codeanalysisfail.png)
+![codeanalysisfail](../../images/DevSecOps/codeanalysisfail.png)
 
 It fails :disappointed:. Next, we are going to see why it failed.
 
@@ -226,7 +226,7 @@ It fails :disappointed:. Next, we are going to see why it failed.
 
 At this point please return to the SonarQube server [here](https://sonarqube-1670885178028.apps.cloudnative.marist.edu/){target="_blank" rel="noopener noreferrer"}, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:
 
-![SonarProject View Fail](../images/DevSecOps/FindPetclinicSonar.png)
+![SonarProject View Fail](../../images/DevSecOps/FindPetclinicSonar.png)
 
 1. Type your name in the project search bar to bring up your project
 
@@ -234,11 +234,11 @@ At this point please return to the SonarQube server [here](https://sonarqube-167
 
 ### Check what caused the failure
 
-![Failure Check](../images/DevSecOps/CheckFailureReason.png)
+![Failure Check](../../images/DevSecOps/CheckFailureReason.png)
 
 You can see that the overall code check failed due to a security rating worse than A. You should see 9 vulnerabilities that caused this failure. In order to check what these are, please click on the vulnerabilities link as shown in the image.
 
-![Vulnerabilities](../images/DevSecOps/VulnerabilityOverview.png)
+![Vulnerabilities](../../images/DevSecOps/VulnerabilityOverview.png)
 
 1. See individual vulnerabilities and click on `Why is this an issue?`
 
@@ -252,7 +252,7 @@ You can do this with the following actions:
 
 1. Go to your fork of the petclinic repository in GitHub and choose to create a new pull request
 
-      ![Create new pull request](../images/DevSecOps/OpenNewPullRequest.png)
+      ![Create new pull request](../../images/DevSecOps/OpenNewPullRequest.png)
 
       1. Click on the `Pull Requests` tab
 
@@ -261,7 +261,7 @@ You can do this with the following actions:
 
 2. Change your base repository from the main repository to your fork.
 
-    ![Choose your repository](../images/DevSecOps/ChooseYourBranch.png)
+    ![Choose your repository](../../images/DevSecOps/ChooseYourBranch.png)
 
     1. Click on base repository default of `ibm-wsc/spring-petclinic`
 
@@ -269,14 +269,14 @@ You can do this with the following actions:
 
 3. Choose the `security-fixes` branch to merge into the `main` branch and create your pull request
 
-    ![Choose security-fixes branch](../images/DevSecOps/CreatePullRequestFromSecurityFixes.png)
+    ![Choose security-fixes branch](../../images/DevSecOps/CreatePullRequestFromSecurityFixes.png)
 
     1. Choose `security-fixes` branch to compare to `main`
     2. Click `Create pull request`
 
 4. Write a justification for your pull request and confirm again that you want to create it
 
-    ![Create pull request for real](../images/DevSecOps/CreatePullRequestForReal.png)
+    ![Create pull request for real](../../images/DevSecOps/CreatePullRequestForReal.png)
 
     1. Write a justification such as 
       ``` bash
@@ -287,15 +287,15 @@ You can do this with the following actions:
 
 5. Merge your pull request, merging the `security-fixes` branch with all of the security fixes into the `main` branch.
 
-    ![Merge pull request](../images/DevSecOps/MergePullRequest.png)
+    ![Merge pull request](../../images/DevSecOps/MergePullRequest.png)
 
 6. Confirm the merge 
 
-    ![Confirm merge](../images/DevSecOps/ConfirmMergeRequest.png)
+    ![Confirm merge](../../images/DevSecOps/ConfirmMergeRequest.png)
 
 7. Delete the `security-fixes` branch now that it's been successfully merged into the `main` branch of your petclinic repository fork.
 
-    ![Delete security-fixes branch](../images/DevSecOps/SuccessfullyMerged.png)
+    ![Delete security-fixes branch](../../images/DevSecOps/SuccessfullyMerged.png)
 
     1. See that the `security-fixes` branch was successfully merged!
 
@@ -305,11 +305,11 @@ You can do this with the following actions:
 
 1. See a new pipeline triggered back in the `Pipelines` view of your OpenShift namespace.
 
-    ![New pipeline running](../images/DevSecOps/PipelineRunning.png)
+    ![New pipeline running](../../images/DevSecOps/PipelineRunning.png)
 
 2. View the pipeline run and watch it successfully complete the `code-analysis` task.
 
-    ![Security Success](../images/DevSecOps/CodeAnalysisPasses.png)
+    ![Security Success](../../images/DevSecOps/CodeAnalysisPasses.png)
 
     !!! note
         You can also wait to see the other tasks pass but since the main goal of this section was to focus on integrating security into DevOps and you have already gone through the pipeline without the `code-analysis` task, there is really no need to do so.
@@ -321,11 +321,11 @@ You can do this with the following actions:
         !!! tip
             Search for your project with your name like before.
 
-        ![See your project passes](../images/DevSecOps/SeeYourProjectPasses.png)
+        ![See your project passes](../../images/DevSecOps/SeeYourProjectPasses.png)
 
     2. View the final results of the scan.
 
-        ![See Passed Full Results](../images/DevSecOps/PassedFullPage.png)
+        ![See Passed Full Results](../../images/DevSecOps/PassedFullPage.png)
 
         Those pesky vulnerabilities have been squashed! :tada:
 
