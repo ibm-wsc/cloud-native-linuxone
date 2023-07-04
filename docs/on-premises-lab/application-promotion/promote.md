@@ -176,7 +176,7 @@ You will create a task to check the connection to your external route as part of
                     # Get hostname of route
                     hostname="$(oc get route ${route_name} -o jsonpath='{.spec.host}')"
                     # Get http(s) status of web page via external connection (route)
-                    status=$(curl -s -o /dev/null -w "%{http_code}" "${header}${hostname}${app_path}")
+                    status=$(curl -sk -o /dev/null -w "%{http_code}" "${header}${hostname}${app_path}")
                     # Print test completion message if expected status code received
                     if [ "${status}" -eq "${expected_status}" ]
                     then

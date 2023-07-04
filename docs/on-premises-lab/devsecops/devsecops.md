@@ -139,7 +139,7 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
 		You need to replace `<use-your-token-from-previous-step>` with your actual token.
 
     ``` bash title="GOAL 4"
-    -Dsonar.host.url=https://sonarqube-1677091477712.apps.cloudnative.marist.edu
+    -Dsonar.host.url=http://sonarqube.sonarqube:9000
     ```
 
     ``` bash title="GOAL 5"

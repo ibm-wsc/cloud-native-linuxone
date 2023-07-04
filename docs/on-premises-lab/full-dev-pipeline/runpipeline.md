@@ -97,7 +97,7 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
 
 1. Add a sequential task after `clean-image` and when you `Select Task` choose the `kustomize` task. 
 
-    ![Add Kustomize task to Pipeline Dev](../../images/Part1/AddKustomizeTaskPipeline.png)
+    ![Add Kustomize task to Pipeline Dev](../../images/Part1/AddKustomizeTaskPipelineOp.png)
 
 2. Configure `kustomize` task
 
@@ -127,11 +127,11 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
 
 2. Add a Task named `cleanup-resources` sequentially at the beginning of the pipeline before `fetch-repository` (using the `openshift-client` ClusterTask).
 
-    ![add cleanup sequential](../../images/Part1/AddSequentialTask.png)
+    ![add cleanup sequential](../../images/Part1/SequentialCleanupStartOp.png)
 
 3. Configure the task with the following parameters (copy and paste boxes below image for changes):
 
-    ![cleanup resources](../../images/Part1/CleanupResourcesTask.png)
+    ![cleanup resources](../../images/Part1/CleanupResourcesTaskOp.png)
 
     ``` bash title="Display Name"
     cleanup-resources
@@ -141,27 +141,18 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
     oc delete deployment,cm,svc,route -l app=$(params.APP_NAME) --ignore-not-found
     ```
 
-    and an empty `ARGS` value.
-
-    !!! warning "No help please!"
-        Make sure `help` is deleted from the `ARGS` section (click the - button to delete the default help args line).
-
 ## Update Deploy Task to deploy-dev
 
 1. Click on the `deploy` Task at the end of the pipeline and change the following parameters to the corresponding values (copy and paste boxes below image):
 
-    ![Deploy Dev Task Completed](../../images/Part1/DeployDevCompleted.png)
+    ![Deploy Dev Task Completed](../../images/Part1/DeployDevCompletedOp.png)
 
     ``` bash title="Display Name"
     deploy-dev
     ```
     
     ``` bash title="SCRIPT"
-    echo "$(params.GIT_MESSAGE)" && oc $@
-    ```
-
-    ``` bash title="New Last Arg"
-    deploy/spring-petclinic-dev
+    echo "$(params.GIT_MESSAGE)" && oc rollout status deploy/spring-petclinic-dev
     ```
 
 2. `Save` your pipeline!
@@ -170,14 +161,14 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
 
 1. Go to `Actions` -> `Start` in the right hand corner of the pipeline menu
 
-    ![Actions Start Pipeline](../../images/Part1/StartPipelineManually.png)
+    ![Actions Start Pipeline](../../images/Part1/StartPipelineManuallyOp.png)
 
 2. Manually trigger a `PipelineRun` by accepting the default values and clicking on `Start`.
 
     !!! Note "Persistent Volume Claim Note"
         Please select a `PersistentVolumeClaim` if it is not already filled out for you to complete your pipeline. If it is already filled out for you then jump right to starting the pipeline.
 
-    ![Trigger Pipeline Manual](../../images/Part1/PipelineExampleManualParameters.png)
+    ![Trigger Pipeline Manual](../../images/Part1/PipelineExampleManualParametersOp.png)
 
 3. Watch the results of your build pipeline run. It should complete successfully as in the pictures below.
 
@@ -186,14 +177,14 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
 
     **Pipeline Run Success View Perspective:**
 
-    ![Pipeline Run View](../../images/Part1/PipelineRolloutRunView.png)
+    ![Pipeline Run View](../../images/Part1/PipelineRolloutRunViewOp.png)
 
     !!! Success "Pipeline Run Details View"
         In the pipeline run `Details` view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the above screenshot was `Triggered By` a user versus an automated source such as an event listener watching for a GitHub push...
 
     **Pipeline Run Success Logs Perspective:**
 
-    ![Pipeline Run Logs](../../images/Part1/PipelineRolloutLogsView.png)
+    ![Pipeline Run Logs](../../images/Part1/PipelineRolloutLogsViewOp.png)
 
     !!! Success "Pipeline Run Logs View"
         From the pipeline run `Logs` view you can see that the pipeline run tasks all have green check marks and that this was a manual build (from the message in the log output of the final [`deploy-dev`] task).

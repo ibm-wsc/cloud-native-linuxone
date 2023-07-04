@@ -27,7 +27,7 @@ It's time to add the `C` (continuous) to your CI/CD pipeline.
     ```
 
     ``` bash title="COMMIT_SHA"
-    $(tt.params.git-revision)
+    $(tt.params.git-commit-id)
     ```
 
 You are choosing the `github-push` cluster trigger binding, which is defined out of the box for OpenShift Pipelines. This passes information into a number of different variables which you can list by clicking the expand arrow seen in the picture (It will initially say `Show Variables` and then switch to `Hide Variables` when expanded as shown in the picture). You will be using the variables in green boxes in the picture to pass the git commit message (`git-commit-message`) as well as the SHA of the git commit (`git-revision`) to the build pipeline from the GitHub webhook that triggers the build.

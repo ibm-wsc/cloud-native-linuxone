@@ -143,8 +143,5 @@ plugins:
   - search
   - git-revision-date-localized:
       enable_creation_date: true
-  - enumerate-headings:
-      toc_depth: 6
-      strict: true
   - print-site:
       add_to_navigation: true

@@ -15,21 +15,21 @@ Now that PetClinic is up and running on your OpenShift cluster, it's time to add
 
 When you deployed the PetClinic application using the `From Git` option in the [PetClinic Up and Running](../build-and-deploy/upandrunning.md) section, you chose to create a basic pipeline. You'll start with this pipeline and edit it to add new functionality for your use case. 
 
-Navigate to the `Pipelines` tab in the `Developer` perspective on the left and then click the three dots to the right of the pipeline name (`spring-petclinic`) and choose `Edit Pipeline`. ![Pipeline Image](../../images/Part1/EditNewPipeline.png) 
+Navigate to the `Pipelines` tab in the `Developer` perspective on the left and then click the three dots to the right of the pipeline name (`spring-petclinic`) and choose `Edit Pipeline`. ![Pipeline Image](../../images/Part1/EditNewPipelineOp.png) 
 
 ## Ensure MySQL Database Deployed for each Run
 
 This will bring you to the Pipeline Builder UI where you can edit your pipeline. Here you will make sure the MySQL database is configured according to your specification before the `build` task.
 
-1. Add a `mysql-deploy` task in parallel to the `git-fetch` task. 
+1. Add a `mysql-rollout-wait` task in parallel to the `git-fetch` task. 
     ![Add Parallel MySQL](../../images/Part1/mySQL_ParallelTask.png) 
 
-    !!! question "Why is `mysql-deploy` in Parallel?"
+    !!! question "Why is `mysql-rollout-wait` in Parallel?"
         This ensures MySQL is in place for each `PetClinic` application build (which would fail without it).  
 
-    Click `Select Task` in the middle of the rectangle of the new task and choose the `openshift-client` task from the dropdown menu. 
+    Click `Add Task` in the middle of the rectangle of the new task and search `openshift-client` and choose it from the menu clicking on `Add` to choose it. 
 
-    ![ChooseOpenShift Client](../../images/Part1/Choose_OpenShiftClientTask.png)
+    ![ChooseOpenShift Client](../../images/Part1/Choose_OpenShiftClientTaskOp.png)
 
     Click on the middle of the oval of the `openshift-client` task to enter values for it (copy and paste boxes below image).
 
@@ -38,65 +38,21 @@ This will bring you to the Pipeline Builder UI where you can edit your pipeline.
     !!! Tip
         Once you add a specific task (i.e. `openshift-client`), clicking on the oval of the task will enable you to edit its default values for your needs.
 
-    Give the task the following parameters to ensure the MySQL database is available with the necessary configuration:
+    Give the task the following parameters to ensure the MySQL database is fully rolled out:
 
-    ![MySQL Task](../../images/Part1/MySQLTemplateTask.png)
-
-    ``` bash title="Display Name"
-    mysql-deploy
-    ```
-
-    ``` bash title="SCRIPT"
-    oc process openshift//mysql-ephemeral -p MYSQL_USER=petclinic -p MYSQL_PASSWORD=petclinic -p MYSQL_ROOT_PASSWORD=petclinic -p MYSQL_DATABASE=petclinic | oc apply -f -
-    ```
-
-    and an empty `ARGS` value.
-
-    !!! warning "No help please!"
-        Make sure `help` is deleted from the `ARGS` section (click the - button to delete the default help args line).
-
-    !!! note "Simply Click Away"
-        Once you have entered the string into the `SCRIPT` section and deleted the help arg, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.
-
-    !!! question "What is `oc process` doing?"
-        `oc process` is processing the [OpenShift template](https://docs.openshift.com/container-platform/4.7/openshift_images/using-templates.html#templates-overview_using-templates){target="_blank" rel="noopener noreferrer"} for the `mysql-ephemeral` database with the parameters given via a series of `-p` arguments and finally `oc apply -f -` ensures that any missing components will be recreated.
-
-2. Add a `mysql-rollout-wait` task
-
-    You need to make sure that `mysql` is fully deployed before your `build` task begins. In order to achieve this, you will use the OpenShift Client again and wait for the `rollout` of the `mysql` `deploymentConfig` to complete after the `mysql-deploy` task. Add a sequential task after `mysql-deploy`:
-
-    ![mysql sequential task](../../images/Part1/mySQL_SequentialTask.png)
-
-    `Select Task` as `openshift-client` like before and then fill out the task with the following parameters (copy and paste boxes below image for changes):
-
-    ![mysql-check task](../../images/Part1/MySQLRolloutWait.png)
-
+	![MYsql Rollout wait](../../images/Part1/RolloutWaitOp.png)
     ``` bash title="Display Name"
     mysql-rollout-wait
     ```
 
-    **ARGS**
-
-    ``` bash title="Arg 1"
-    rollout
-    ```
-    
-    ``` bash title="Arg 2"
-    status
+    ``` bash title="SCRIPT"
+    oc rollout status dc/mysql
     ```
 
-    ``` bash title="Arg 3"
-    dc/mysql
-	```
+    !!! note "Simply Click Away"
+        Once you have entered the string into the `SCRIPT` section and deleted the help arg, just click away (i.e. on a regular section of the page) to get the configuration menu to go away and keep the new value(s) you just entered for the task.
 
-    !!! question "What the ARGS?"
-        You may be wondering why you used the `SCRIPT` section in the `mysql-deploy` task for the entire command, but now are using the `ARGS` to individually list each argument of the command? Both work and so you are going through both methods here. On the one hand, the `SCRIPT` method is easier to copy and paste and looks the same as it would entered on the command line. On the other hand, the `ARGS` method adds readability to the task. Choose whichever method you prefer, though beware of input errors  with the `ARGS` method for long commands. _FYI: The equivalent `SCRIPT` command for the `mysql-rollout-wait` task is_:
-
-        ``` bash
-        oc rollout status dc/mysql
-        ```
-
-:tada: Now your `mysql-deploy` and `mysql-rollout` tasks will have `MySQL` alive and well for the `build` task!
+:tada: Now your `mysql-rollout` task will make sure `MySQL` is rolled out for the `build` task!
 
 ## Make Clean Image from S2I build
 

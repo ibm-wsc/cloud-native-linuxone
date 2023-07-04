@@ -1,6 +1,6 @@
 # Getting Your PetClinic Application Up and Running
 
-For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. [The official version of PetClinic](https://github.com/spring-projects/spring-petclinic){target="_blank" rel="noopener noreferrer"} demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. 
+For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. [The official version of PetClinic](https://github.com/spring-projects/spring-petclinic){target="_blank" rel="noopener"} demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. 
 
 You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud native application and a DevSecOps pipeline for the application.
 
@@ -11,20 +11,14 @@ You will start by building your PetClinic application from the source code and c
     - the <span style="color:green">green</span> arrows or boxes denote something to look at or reference 
     - the <span style="color:red">red</span> arrows or boxes denote something to click on or type.
 
-!!! info "Using LinuxONE Community Cloud"
-    Because you are using the LinuxONE Community Cloud OpenShift trial, your project name will be different from the project name depicted in the diagrams below. You will be operating in your assigned project for the entirety of the lab.
+!!! info "OpenShift Cluster"
+    You will be logging into our on-premises s390x architecture (IBM Z / IBM LinuxONE) OpenShift cluster for this lab. You will each be given a student user and your project name will be studentxx where xx is your student number. The project name depicted in the diagrams below is student00. You will be operating in your assigned project for the entirety of the lab.
 
-## Logging into your LinuxONE Community Cloud OpenShift environment
+## Logging into the on-premises WSC OpenShift Cluster
 
-1. hello
+1. You will login with your assigned user and password using the [link here](https://console-openshift-console.apps.atsocpd3.dmz/add/all-namespaces){target="_blank" rel="noopener"}.
 
-**2.** After you register, you should have received an email asking you to Activate your account or entitlement. Please do so now if you have not already done so. The link to activate your trial is only valid for 48 hours after your initial registration. If this time period has passed you need to re-register for the trial again.
-
-![linuxoneccactivation](upandrunningimages/linuxoneccactivation.png)
-
-**3.** After activation, log into your LinuxONE Community Cloud account using the [link here](https://console-openshift-console.apps.cloudnative.marist.edu/topology/all-namespaces){target="_blank" rel="noopener"}.
-
-**4.** You should see the Topology view of the OpenShift console. Click on  your project name (it will be a number randomly assigned to you that will be different than the one shown in the picture below):
+2. Navigate to the project of your assigned user (it will be studentxx where xx is your number for the lab):
 
 ![linuxoneccocpfirstscreen](upandrunningimages/linuxoneccocpfirstscreen.png)
 
@@ -62,25 +56,17 @@ You will start by building your PetClinic application from the source code and c
 
 	![DB running](upandrunningimages/mysqlrunning.png)
 
-## Fork the PetClinic repo to your own GitHub account
+## Find the Repo in your gogs account
 
-For this workshop, you will be using the PetClinic application from your own GitHub account so that you can enable integrations with it later.
+1. Log into the locally hosted gogs git server [here](https://gogs-ui-gogs.apps.atsocpd3.dmz/user/login?redirect_to=){target="_blank" rel="noopener"} (if not already logged in) using your username and password.
 
-To make a copy of the PetClinic application into your GitHub account, [click here](https://github.com/ibm-wsc/spring-petclinic/fork){target="_blank" rel="noopener noreferrer"}
+2. Navigate to the spring-petclinic repo by clicking on it on the right side of the login page.
 
-At this point, you might need to log into GitHub if you weren't logged in already.
+	![Navigate to repo](upandrunningimages/choosegogsrepo.png)
 
-Next, you will be presented with a fork menu like the following:
+3. Copy your repo URL using the copy button for the next section.
 
-![forkselect](upandrunningimages/forkselection.png)
-
-1. Select your own user account from the `Owner` dropdown
-
-2. Uncheck the box `Copy the main branch only`
-
-Please make a note of your repo URL for later. It should be something like:
-
-```https://github.com/<your-github-username>/spring-petclinic```
+  ![Copy repo url](upandrunningimages/copyrepourl.png)
 
 That's it! You are ready to move on to the next section.
 
@@ -88,62 +74,59 @@ That's it! You are ready to move on to the next section.
 
 There are multiple ways OpenShift enables cloud native application developers to package up their applications and deploy them. For PetClinic, you will be building your container image from source, leveraging OpenShift's S2I (Source to Image) capability. This allows you to quickly test the building, packaging, and deployment of your application, and gives you the option to create and use a DevSecOps pipeline from this workflow. It's a good way to start to understand how OpenShift Pipelines work.
 
-**1.** Start with choosing Add From Git:
+1. Start with choosing Add From Git:
 
-![from git](upandrunningimages/fromgit.png)
+	![from git](upandrunningimages/fromgit.png)
 
-**2.** Enter `https://github.com/<your-github-ID>/spring-petclinic` in the `Git Repo URL` field. Expand the `Show Advanced Git Options` section, and type in `main` for the `Git Reference`. This tells OpenShift which GitHub repo and branch to pull the source code from.
+2. Enter the repo URL you copied before in the `Git Repo URL` field. Expand the `Show Advanced Git Options` section, and type in `main` for the `Git Reference`. This tells OpenShift which GitHub repo and branch to pull the source code from.
 
-![git url](upandrunningimages/giturl.png)
+	![git url](upandrunningimages/giturl.png)
 
-**3.** Scroll down to the `Builder` section. Select the `OpenJ9` tile and select `openj9-11-el8` as the builder container image version. As you can see OpenShift offers many different builder container images to help you build container images from a variety of programming languages. Your list of builder container images might differ from the screen shot. For Java on Z, the recommended JVM is `OpenJ9` because it has built-in s390x optimizations as well as container optimizations.
+3. Scroll down to the `Builder` section. Select the `Java` tile and select `openj9-11-el8` as the builder container image version. As you can see OpenShift offers many different builder container images to help you build container images from a variety of programming languages. Your list of builder container images might differ from the screen shot. For Java on Z, the recommended JVM is `OpenJ9` because it has built-in s390x optimizations as well as container optimizations.
 
-![builder image](upandrunningimages/builderimage.png)
+	![builder image](upandrunningimages/builderimage.png)
 
-**4.** In the General section, put in the following entries for Application Name and Name. 
+4. In the General section, put in the following entries for Application Name and Name. 
 
-![app name](upandrunningimages/applicationname.png)
+	![app name](upandrunningimages/applicationname.png)
 
-**5.** Scroll down to the  Pipelines section, select the checkbox next to `Add pipeline`. You can also expand the `Show pipeline visualization` section to see a visual of the build pipeline.
+5. Scroll down to the  Pipelines section, select the checkbox next to `Add pipeline`. You can also expand the `Show pipeline visualization` section to see a visual of the build pipeline.
 
-![add pipe](upandrunningimages/addpipelines.png)
+	![add pipe](upandrunningimages/addpipelines.png)
 
-**6.** You are almost there! You will need to configure a couple of Advanced Options. First, click on `Show advanced Routing options` in the _Advanced Options_ section to expand the Routing options.
+6. You are almost there! You will need to configure a couple of Advanced Options. First, click on `Show advanced Routing options` in the _Advanced Options_ section to expand the Routing options.
 
-![open routing panel](upandrunningimages/routinglink.png)
+	![open routing panel](upandrunningimages/routinglink.png)
 
-**7.** In the Routing options section, only fill out the Security options as follows. You can leave the rest alone. These options will enable only TLS access to your PetClinic application.
+7. In the Routing options section, only fill out the Security options as follows. You can leave the rest alone. These options will enable only TLS access to your PetClinic application.
 
-![routing options](upandrunningimages/routingpanel.png)
+	![routing options](upandrunningimages/routingpanel.png)
 
-**8.** You are done with configurations of this panel. Scroll all the way down and hit the `Create` button which will kick off the pipeline build of your PetClinic application. In a few seconds you will see your Topology with the new application icon. Hit the little pipeline icon in the diagram below to view the build logs. <b> You might see errors associated with ImageStream not being able to pull the application image during the build process. This does not mean that the build has failed. The pipeline creates the ImageStream first and then goes through the actual build process, and since the build process takes 10-15 minutes to complete, this error will be there until then. </b>
+8. You are done with configurations of this panel. Scroll all the way down and hit the `Create` button which will kick off the pipeline build of your PetClinic application. In a few seconds you will see your Topology with the new application icon. Hit the little pipeline icon in the diagram below to view the build logs. <b> You might see errors associated with ImageStream not being able to pull the application image during the build process. This does not mean that the build has failed. The pipeline creates the ImageStream first and then goes through the actual build process, and since the build process takes 10-15 minutes to complete, this error will be there until then. </b>
 
-![pipeline icon](upandrunningimages/pipelineicon.png)
+	![pipeline icon](upandrunningimages/pipelineicon.png)
 
-!!! warning "Log Streaming Gotcha in the LinuxONE CC"
-    **PLEASE BEWARE** that if you are using the LinuxONE Community Cloud OpenShift Trial you might see lag with the log streaming. If it stops streaming, you might want to go back out to the `Topology` view. You can always return to the logs view, once the pipeline completes, to see the logs.
-
-**9.** The pipeline will go through three tasks:
+9. The pipeline will go through three tasks:
     
-&nbsp;&nbsp;&nbsp; 1. <b>fetch-repository</b> - this Pipeline task will git clone your PetClinic repo for the build task.
+	&nbsp;&nbsp;&nbsp; 1. <b>fetch-repository</b> - this Pipeline task will git clone your PetClinic repo for the build task.
 
-&nbsp;&nbsp;&nbsp; 2. <b>build</b> - this Pipeline task is the build process which itself is broken down into a few sub-steps. This is the longest task in the pipeline, and can take up to 15 minutes. The steps that it goes through are as follows:
+	&nbsp;&nbsp;&nbsp; 2. <b>build</b> - this Pipeline task is the build process which itself is broken down into a few sub-steps. This is the longest task in the pipeline, and can take up to 15 minutes. The steps that it goes through are as follows:
 
-!!! info "build steps"
-    - STEP-GEN-ENV-FILE: this step generates the environment file to be used during the build process
-    - STEP-GENERATE: this step generates the Dockerfile that will be used to create the OCI container image later on during the build step
-    - STEP-BUILD: this is the multi-step build process of creating an OCI container image out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the OCI container image. If the tests fail, this step will not complete.
-    - STEP-PUSH: this final step pushes the built OCI container image to the OpenShift image registry.
+	!!! info "build steps"
+		- STEP-GEN-ENV-FILE: this step generates the environment file to be used during the build process
+		- STEP-GENERATE: this step generates the Dockerfile that will be used to create the OCI container image later on during the build step
+		- STEP-BUILD: this is the multi-step build process of creating an OCI container image out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the OCI container image. If the tests fail, this step will not complete.
+		- STEP-PUSH: this final step pushes the built OCI container image to the OpenShift image registry.
 
-&nbsp;&nbsp;&nbsp; 3. <b>deploy</b> - this Pipeline task will deploy the newly built container image as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.
+	&nbsp;&nbsp;&nbsp; 3. <b>deploy</b> - this Pipeline task will deploy the newly built container image as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.
 
-Below is an image of the log of a successful build task: 
+	Below is an image of the log of a successful build task: 
 
-![build output](upandrunningimages/buildlog.png)
+	![build output](upandrunningimages/buildlog.png)
 
-**10.** Now if you go back to the Topology view, you should see the application has been successfully deployed to OpenShift as well. From here you can click on the `open URL` circle, and a new browser tab should open to lead you to your PetClinic's front page. <b> It can take a couple of minutes before the application is accessible through its URL so if it doesn't come up right away wait a few minutes and try again. </b>
+10. Now if you go back to the Topology view, you should see the application has been successfully deployed to OpenShift as well. From here you can click on the `open URL` circle, and a new browser tab should open to lead you to your PetClinic's front page. <b> It can take a couple of minutes before the application is accessible through its URL so if it doesn't come up right away wait a few minutes and try again. </b>
 
-![open URL](upandrunningimages/openurl.png)
+	![open URL](upandrunningimages/openurl.png)
 
 ## Interacting with Your PetClinic Application and MySQL database
 
