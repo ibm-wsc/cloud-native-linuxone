@@ -1,31 +1,25 @@
 # CI/CD in Action
 
-## Make a change in GitHub
+## Make a change in Gogs
 
-1. Navigate to your GitHub fork's main page (this is the `Code` tab if you are on a different tab such as settings)
+1. Navigate to your `spring-petclinic` repository's main page (this is the `Files` tab if you are on a different tab such as settings)
 
-2. Choose to `Go to file`
+2. Click on the following sections in order to navigate to the correct file
 
-    ![Go to file](../../images/Part2/GoToFile.png)
+	1. src
+	2. main
+	3. resources
+	4. db
+	5. mysql
+	6. data.sql
 
-3. Type (or paste) the name of the following file into the search bar and select it (copy and paste box below image):
+3. Edit the file by clicking on the pencil icon
 
-	![Choose File](../../images/Part2/ChooseFile.png)
+    ![Edit File](../../images/Part2/EditGitFileOp.png)
 
-	``` bash
-	src/main/resources/db/mysql/data.sql
-	```
+4. Change the file to add the pet field of your choice and commit it to your Gogs repository (description and copy and paste box are below image)
 
-    !!! Tip "If the file doesn't appear right away"
-        Depending on your internet connection to GitHub, there may be a slight delay before the file appears for editing (your screen matches the picture above and you can click to select the file).
-
-4. Select to edit the file
-
-    ![Edit File](../../images/Part2/EditGitFile.png)
-
-5. Change the file to add the pet field of your choice and commit it to your GitHub fork (description and copy and paste box are below image)
-
-    ![Change File](../../images/Part2/ChangeFile.png)
+    ![Change File](../../images/Part2/ChangeFileOp.png)
 
     1. Make a change using the pet type you want to add (example is a turtle) 
 
@@ -58,26 +52,30 @@
             I want to be able to add Yertle the turtle.
             ```
 
-6. Take note of the git commit message and hash
+5. Take note of the git commit message and hash
 
-    ![Github Hash and Message](../../images/Part2/SeeCommitHash.png)
+	1. Click on the `Files` tab to go back to the main repository page
+
+	2. Look at the git commit hash (id)
+
+    	![Gogs Hash and Message](../../images/Part2/SeeCommitHashOp.png)
 
 ## Continuous Integration via OpenShift Pipelines
 
-### Successfully Run Pipeline via GitHub
+### Successfully Run Pipeline via Gogs
 1. Visit the newly triggered pipeline run in the `Pipelines` menu in the OpenShift UI
 
-    ![Newly Triggered PipelineRun](../../images/Part2/ViewGitPipelineRun.png)
+    ![Newly Triggered PipelineRun](../../images/Part2/ViewGitPipelineRunOp.png)
 
 2. View the pipeline run from the `Details` view
 
-    ![PipelineRun Triggered](../../images/Part2/PipelineTriggered.png)
+    ![PipelineRun Triggered](../../images/Part2/PipelineTriggeredOp.png)
 
-    You can see the event listener has triggered the `PipelineRun` instead of a user this time.
+    You can see your user has triggered the `PipelineRun` via your event listener.
 
-3. You can see the variables populated with the correct values from Github in the `YAML` view of the pipeline run.
+3. You can see the variables populated with the correct values from Gogs in the `YAML` view of the pipeline run.
 
-    ![Git Variables Populated](../../images/Part2/GitVariablesExist.png)
+    ![Git Variables Populated](../../images/Part2/GitVariablesExistOp.png)
 
 4. Watch the results of your build pipeline run. It should complete successfully as in the pictures below. 
 
@@ -90,19 +88,19 @@
     === "Success"
         **Pipeline Run Success View Perspective:**
 
-        ![Successful PipelineRun Details View](../../images/Part2/PipelineSucceeded.png)
+        ![Successful PipelineRun Details View](../../images/Part2/PipelineSucceededOp.png)
 
         !!! Success "Pipeline Run Details View"
             In the pipeline run `Details` view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, observe that the event listener has triggered the `PipelineRun` instead of a user this time.
 
         **Pipeline Run Success Logs Perspective:**
 
-        ![Successful PipelineRun Logs View 1](../../images/Part2/PipelineRunLogsSucceeded.png)
+        ![Successful PipelineRun Logs View 1](../../images/Part2/PipelineRunLogsSucceededOp.png)
 
         !!! Success "Pipeline Run Logs View 1"
             In the pipeline run `Logs` view, you can also see that the pipeline run tasks all have green check marks. Looking at the last task, you can see that the that the external connection check worked and the PetClinic application is available at the route printed in the logs. Additionally, you can see via the series of tasks marked with green checks that the dev deployment ran successfully and the system cleaned it up and ran the staging deployment successfully to complete the pipeline.
             
-        ![Successful PipelineRun Logs View 2](../../images/Part2/PipelineRunCommitLogs.png)
+        ![Successful PipelineRun Logs View 2](../../images/Part2/PipelineRunCommitLogsOp.png)
 
         !!! Success "Pipeline Run Logs View 2"
             When you switch to the `deploy-staging` task logs, by clicking on the `task` on the left hand side of the `Logs` view of the pipeline run, you see this was an automated build from git since the task prints out the `GIT_MESSAGE` that you typed in your commit word for word. (_Note: If you chose a different commit message that will show instead of the one displayed in the image above._).
@@ -113,25 +111,23 @@
 
             2. Make changes to fix the error. (If it's unclear what is causing the error / how to fix it, please ask the instructors for help) 
 
-            3. Resend the webhook from GitHub to trigger a new `pipelineRun` with the same values as before (see images below for help)
+            3. Resend the webhook from Gogs to trigger a new `pipelineRun` with the same values as before (see images below for help)
 
-                1. Click on your webhook from the `Webhooks` section of the repository settings for your GitHub repository fork of the `spring-petclinic` repository
+                1. Click on your webhook from the `Webhooks` section of the repository settings for your Gogs repository fork of the `spring-petclinic` repository
                 
-                    ![GitHub Webhook View for Retry](../../images/Part2/ClickWebhookForRetry.png)
+                    ![Gogs Webhook View for Retry](../../images/Part2/ClickWebhookForRetryOp.png)
 
-                2. Click on the 3 dots for the most recent delivery
-                3. Click `Redeliver`
+                2. Scroll down to `Recent Deliveries`
+				3. Click on the most recent delivery
+                4. Click `Redelivery`
 
-                    ![GitHub Webhook Send for Retry](../../images/Part2/RestartFailedPipelineRun.png)
-                4. Confirm Redelivery
-
-                    ![GitHub Webhook Confirm Redelivery](../../images/Part2/ConfirmRedelivery.png)
+                    ![Gogs Webhook Send for Retry](../../images/Part2/RestartFailedPipelineRunOp.png)
 
 ### See Changes in Application
 
 1. Navigate to the `Topology` view and open a new tab with your recently deployed `staging` version of the PetClinic application by clicking `Open URL`.
 
-    ![PetClinic Visit Time](../../images/Part2/PetclinicTimeAgain.png)
+    ![PetClinic Visit Time](../../images/Part2/PetclinicTimeAgainOp.png)
 
 2. Navigate to the `Find Owners` tab
 
@@ -159,4 +155,4 @@
 
 ## Summary :full_moon_with_face:
 
-In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to GitHub. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to OpenShift in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "cloud native" CI/CD for your PetClinic application on IBM Z/LinuxONE! Congratulations!!!
+In this section, you made a change to your PetClinic application to add a new pet type of your choice and pushed the change to Gogs. This triggered a new pipeline run which built a new image for the application tagged with the git commit hash and displayed the commit message explaining the change the build was implementing. Next, your pipeline deployed this change to OpenShift in development, tested it internally and externally and then rolled it out to staging (where it was also tested automatically). Finally, you visited the application and used the new feature (new type of pet) by adding a pet of that type to a new owner successfully. In other words, you are off the ground and running with "cloud native" CI/CD for your PetClinic application on IBM Z/LinuxONE! Congratulations!!!

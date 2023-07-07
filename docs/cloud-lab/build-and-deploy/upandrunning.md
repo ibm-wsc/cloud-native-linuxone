@@ -1,6 +1,6 @@
 # Getting Your PetClinic Application Up and Running
 
-For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. [The official version of PetClinic](https://github.com/spring-projects/spring-petclinic){target="_blank" rel="noopener noreferrer"} demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. 
+For this workshop you will be using the iconic Spring PetClinic application. The Spring PetClinic is a sample application designed to show how the Spring stack can be used to build simple, but powerful database-oriented applications. [The official version of PetClinic](https://github.com/spring-projects/spring-petclinic){target="_blank" rel="noopener"} demonstrates the use of Spring Boot with Spring MVC and Spring Data JPA. 
 
 You will not be focusing on the ins and outs of the PetClinic application itself, but rather on leveraging OpenShift tooling to build a PetClinic cloud native application and a DevSecOps pipeline for the application.
 
@@ -66,7 +66,7 @@ You will start by building your PetClinic application from the source code and c
 
 For this workshop, you will be using the PetClinic application from your own GitHub account so that you can enable integrations with it later.
 
-To make a copy of the PetClinic application into your GitHub account, [click here](https://github.com/ibm-wsc/spring-petclinic/fork){target="_blank" rel="noopener noreferrer"}
+To make a copy of the PetClinic application into your GitHub account, [click here](https://github.com/ibm-wsc/spring-petclinic/fork){target="_blank" rel="noopener"}
 
 At this point, you might need to log into GitHub if you weren't logged in already.
 

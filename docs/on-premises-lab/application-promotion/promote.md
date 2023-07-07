@@ -18,10 +18,10 @@ Now, it's time to go a step further and automate testing that your application i
 
 The first thing you need to test is that the application is alive and available from within your cluster (Kubernetes environment). This is important not only for when running the CI/CD pipeline, but also for any time your application is running  (downtime is detrimental, especially in production). 
 
-This functionality is available in Kubernetes via [probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/){target="_blank" rel="noopener noreferrer"}. There are 3 different types of probes to test the different aspects of your application's availability:
+This functionality is available in Kubernetes via [probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/){target="_blank" rel="noopener"}. There are 3 different types of probes to test the different aspects of your application's availability:
 
 !!! info "Kubernetes Probes in Spring"
-    In Spring there are built-in endpoints for Kubernetes probes. If you are interested in learning how to program these into a Spring application of yours in the future, please take a look at [Spring's official blog](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot){target="_blank" rel="noopener noreferrer"}.
+    In Spring there are built-in endpoints for Kubernetes probes. If you are interested in learning how to program these into a Spring application of yours in the future, please take a look at [Spring's official blog](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot){target="_blank" rel="noopener"}.
 
 1. Startup probes:
 
@@ -48,7 +48,7 @@ This functionality is available in Kubernetes via [probes](https://kubernetes.io
 
     1. Make sure an application is actually running and not caught in a deadlock (it's alive)
 
-    2. Restart "dead" containers automatically with [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/){target="_blank" rel="noopener noreferrer"}
+    2. Restart "dead" containers automatically with [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/){target="_blank" rel="noopener"}
     
     3. Fix problems that may arise in long-running containers via the aforementioned restart
     
@@ -63,7 +63,7 @@ This functionality is available in Kubernetes via [probes](https://kubernetes.io
           failureThreshold: 3
       ```
 
-      This looks almost identical to the `startupProbe` above other than having a much lower `failureThreshold`. The `startupProbe` is making sure the container of a given pod of your application's deployment is alive when it first starts up (It is allowing time for that startup to occur). On the other hand, the `liveness` probe above is making sure your application stays alive throughout its lifecycle. Therefore, it has a much lower `failureThreshold` to enable [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/){target="_blank" rel="noopener noreferrer"} to quickly respond (restart the container) when the container becomes deadlocked.
+      This looks almost identical to the `startupProbe` above other than having a much lower `failureThreshold`. The `startupProbe` is making sure the container of a given pod of your application's deployment is alive when it first starts up (It is allowing time for that startup to occur). On the other hand, the `liveness` probe above is making sure your application stays alive throughout its lifecycle. Therefore, it has a much lower `failureThreshold` to enable [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/){target="_blank" rel="noopener"} to quickly respond (restart the container) when the container becomes deadlocked.
 
 
 3. Readiness probes:
@@ -217,9 +217,9 @@ You should now see the created `connection-test` Task. Finally, navigate back to
 
 #### Add External Route Test Task to Pipeline
 
-1. Add a sequential task after `deploy-dev`. When you `Select Task`, choose the `connection-test` task. 
+1. Add a sequential task after `deploy-dev`. When you `Add Task`, choose the `connection-test` task. 
 
-    ![Add Connection Test task to Pipeline Dev](../../images/Part2/ChooseConnectionTest.png)
+    ![Add Connection Test task to Pipeline Dev](../../images/Part2/ChooseConnectionTestOp.png)
 
 2. Configure `connection-test` task
 
@@ -248,7 +248,7 @@ Moving to the staging environment means spinning up your application in that env
 
 ### Remove Dev
 
-Your first Task will mirror the `cleanup-resources` task at the beginning of your pipeline, but will just cleanup the `dev` resources using the `env=dev` [label selector](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors){target="_blank" rel="noopener noreferrer"}.
+Your first Task will mirror the `cleanup-resources` task at the beginning of your pipeline, but will just cleanup the `dev` resources using the `env=dev` [label selector](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors){target="_blank" rel="noopener"}.
 
 1. Go back to editing your pipeline via `Actions -> Edit Pipeline`
 
@@ -256,11 +256,11 @@ Your first Task will mirror the `cleanup-resources` task at the beginning of you
 
 2. Add a Task sequentially at the end of the pipeline (after `connect-dev`) using the `openshift-client` ClusterTask.  
 
-    ![add cleanup sequential](../../images/Part2/AddSequentialCleanup.png)
+    ![add cleanup sequential](../../images/Part2/AddSequentialCleanupOp.png)
 
 3. Configure the Task with the following values (copy and paste boxes below image):
 
-    ![cleanup dev](../../images/Part2/CleanupDevTask.png)
+    ![cleanup dev](../../images/Part2/CleanupDevTaskOp.png)
 
     ``` bash title="Display Name"
     cleanup-dev
@@ -270,18 +270,13 @@ Your first Task will mirror the `cleanup-resources` task at the beginning of you
     oc delete deployment,cm,svc,route -l app=spring-petclinic,env=dev --ignore-not-found
     ``` 
 
-    and an **empty** `ARGS` value.
-
-    !!! warning "No help please!"
-        Make sure `help` is deleted from the `ARGS` section (click the - button to delete the default help args line). 
-
 ### Add Staging
 
-You will use your existing `kustomize` task to deploy the staging configuration for your PetClinic application in a new `kustomize-staging` task. [Customizations for staging PetClinic](https://github.com/ibm-wsc/spring-petclinic/blob/main/ocp-files/overlay/staging/kustomization.yaml){target="_blank" rel="noopener noreferrer"} include adding a staging environment label, name suffix, change cause, and staging environment variables for your application. You could deploy to a separate project or cluster altogether as well as change replicas or add pod autoscalers in a similar manner (depending on your use case) for different environments. 
+You will use your existing `kustomize` task to deploy the staging configuration for your PetClinic application in a new `kustomize-staging` task. [Customizations for staging PetClinic](https://github.com/ibm-wsc/spring-petclinic/blob/main/ocp-files/overlay/staging/kustomization.yaml){target="_blank" rel="noopener"} include adding a staging environment label, name suffix, change cause, and staging environment variables for your application. You could deploy to a separate project or cluster altogether as well as change replicas or add pod autoscalers in a similar manner (depending on your use case) for different environments. 
 
 1. Add a `kustomize` task sequentially to the end of your current pipeline (after `cleanup-dev`)
 
-    ![StagingAdd](../../images/Part2/AddStaging.png) 
+    ![StagingAdd](../../images/Part2/AddStagingOp.png) 
     
 2. Configure the Task with the following values (copy and paste boxes below image):
 
@@ -307,13 +302,13 @@ You will use your existing `kustomize` task to deploy the staging configuration 
 
 1. Edit the pipeline again and add a `deploy-staging` task with the `openshift-client` ClusterTask
 
-    ![Deploy Staging Task](../../images/Part2/DeployStagingTask.png)
+    ![Deploy Staging Task](../../images/Part2/DeployStagingTaskOp.png)
 
 2. Configure the task with the following parameters[^4] (copy and paste boxes below image):
   
     [^4]: This mirrors the `dev-deploy` task which waits for the dev release to rollout but uses the `SCRIPT` field for everything vs. `ARGS`.
 
-    ![Staging Rollout](../../images/Part2/DeployStagingParameters.png)
+    ![Staging Rollout](../../images/Part2/DeployStagingParametersOp.png)
 
     ``` bash title="Display Name"
     deploy-staging
@@ -323,14 +318,11 @@ You will use your existing `kustomize` task to deploy the staging configuration 
     echo "$(params.GIT_MESSAGE)" && oc rollout status deploy/spring-petclinic-staging
     ```
 
-    !!! warning "No help please!"
-        Make sure `help` is deleted from the `ARGS` section (click the - button to delete the default help args line).
-
 ### Add External Route Test Task to Pipeline
 
 1. Add a sequential task after `deploy-staging`. When you `Select Task`, choose the `connection-test` task. 
 
-    ![Add Connection Test task to Pipeline Dev](../../images/Part2/ChooseCTestStaging.png)
+    ![Add Connection Test task to Pipeline Dev](../../images/Part2/ChooseCTestStagingOp.png)
 
 2. Configure `connection-test` task with the following parameters (copy and paste boxes below image):
 
@@ -359,4 +351,4 @@ Congratulations! You have built a pipeline that tests your `PetClinic` applicati
   You could clean up the staging environment at the end of the run but choose not to so that the user can interact with it between runs. You could also clean up or use a separate MySQL instance for staging but due to limited resources in your environment you have chosen not to add this extra component.
 
 [^6]: 
-  You'll add the double `C`s in the next section by connecting it to GitHub.
+  You'll add the double `C`s in the next section by connecting it to Gogs.

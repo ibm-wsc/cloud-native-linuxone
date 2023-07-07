@@ -4,13 +4,13 @@ As a bonus lab, you will now configure an extra task in your existing Pipeline t
 
 We will use the popular open source package SonarQube to do the code scanning. According to Wikipedia, "SonarQube is an open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities on 20+ programming languages."
 
-For Petclinic, we will be using SonarScanner for Maven. The ability to execute the SonarQube analysis via a regular Maven goal makes it available anywhere Maven is available (developer build, CI server, etc.), without the need to manually download, setup, and maintain a SonarQube Runner installation. For more information on SonarScanner for Maven, please see [here](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/){target="_blank" rel="noopener noreferrer"}.
+For Petclinic, we will be using SonarScanner for Maven. The ability to execute the SonarQube analysis via a regular Maven goal makes it available anywhere Maven is available (developer build, CI server, etc.), without the need to manually download, setup, and maintain a SonarQube Runner installation. For more information on SonarScanner for Maven, please see [here](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/){target="_blank" rel="noopener"}.
 
 ## Accessing the SonarQube server with your assigned credentials
 
 The lab instructors have already setup a SonarQube server within the OpenShift cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.
 
-Access the SonarQube server [here](https://sonarqube-1677091477712.apps.cloudnative.marist.edu){target="_blank" rel="noopener noreferrer"}
+Access the SonarQube server [here](https://sonarqube-sonarqube.apps.atsocpd3.dmz){target="_blank" rel="noopener"}
 
 Select `Log in` in the upper right hand corner. And log in with your assigned credentials.
 
@@ -78,13 +78,14 @@ data:
 
 Go back to your OpenShift console and go to your pipeline. Your pipeline should look like the picture below, at this point of the workshop.
 
-![presqpipeline](../../images/DevSecOps/presqpipeline.png) 
+![presqpipeline](../../images/DevSecOps/presqpipelineop.png)
 
 1. Add `maven-settings` workspace to your pipeline
 
 	![Add Maven Settings Workspace](../../images/DevSecOps/AddMavenSettingsWorkspace.png)
 
 	1. Click `Add workspace`
+
 	2. Name the workspace
 
 		``` bash
@@ -99,11 +100,11 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
 
     b. Select the plus sign before the build task, as in the picture below.
 
-      ![addsqtask](../../images/DevSecOps/addsqtask.png)
+      ![addsqtask](../../images/DevSecOps/addsqtaskop.png)
 
-    c. Then select the task `maven` from the drop down list.
+    c. Then search for and select the `maven` task.
 
-      ![maventask](../../images/DevSecOps/maventask.png)
+      ![maventask](../../images/DevSecOps/maventaskop.png)
 
     !!! tip
         Once you add a specific task (i.e. `maven`), clicking on the oval of the task will enable you to edit its default values for your needs.
@@ -173,7 +174,7 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
 
 1. Go to the **TriggerTemplates** section of your pipeline and click the link to take you to your pipeline's `TriggerTemplate`
 
-    ![Click on TriggerTemplate](../../images/DevSecOps/ClickTriggerTemplate.png)
+    ![Click on TriggerTemplate](../../images/DevSecOps/ClickTriggerTemplateOp.png)
 
 2. Edit the `TriggerTemplate`
 
@@ -204,7 +205,7 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
 
 Go to the Actions menu of your pipeline and select Start.
 
-![startpipeline](../../images/DevSecOps/startpipelinerun.png)
+![startpipeline](../../images/DevSecOps/startpipelinerunop.png)
 
 Hit Start after reviewing the settings panel and making sure to set the options for the `source`(select `PersistentVolumeClaim` and your claim) and `maven-settings` ( select `configmap` as the resource choice and `maven-settings` as the specific configmap to use as in the image below) workspaces.
 
@@ -216,7 +217,7 @@ It will take 15-20 minutes for the code analysis to run completely through. This
 
 Let's see if our code passes the code analysis...
 
-![codeanalysisfail](../../images/DevSecOps/codeanalysisfail.png)
+![codeanalysisfail](../../images/DevSecOps/codeanalysisfailop.png)
 
 It fails :disappointed:. Next, we are going to see why it failed.
 
@@ -224,7 +225,7 @@ It fails :disappointed:. Next, we are going to see why it failed.
 
 ### View your project
 
-At this point please return to the SonarQube server [here](https://sonarqube-1670885178028.apps.cloudnative.marist.edu/){target="_blank" rel="noopener noreferrer"}, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:
+At this point please return to the SonarQube server [here](https://sonarqube-sonarqube.apps.atsocpd3.dmz){target="_blank" rel="noopener"}, and view the code scan report to see what caused the quality check to fail. After logging in, please do the following:
 
 ![SonarProject View Fail](../../images/DevSecOps/FindPetclinicSonar.png)
 
@@ -250,52 +251,43 @@ In the scan, there were various security issues related to the use of entity obj
 
 You can do this with the following actions:
 
-1. Go to your fork of the petclinic repository in GitHub and choose to create a new pull request
+1. Go to your petclinic repository in Gogs and create a new pull request
 
-      ![Create new pull request](../../images/DevSecOps/OpenNewPullRequest.png)
+      ![Create new pull request](../../images/DevSecOps/OpenNewPullRequestOp.png)
 
-      1. Click on the `Pull Requests` tab
+      1. Navigate to the `Files` tab of your repository
 
-      2. Click on `New pull request`
+      2. Click on the green pull request button to the left of the branch
 
+2. Choose the `security-fixes` branch to merge into the `main` branch
 
-2. Change your base repository from the main repository to your fork.
+    ![Select security fixes](../../images/DevSecOps/SelectSecurityFixes.png)
 
-    ![Choose your repository](../../images/DevSecOps/ChooseYourBranch.png)
+3. Write a justification for your pull request and create it
 
-    1. Click on base repository default of `ibm-wsc/spring-petclinic`
+    ![Create pull request](../../images/DevSecOps/CreatePullRequestOp.png)
 
-    2. Change to your petclinic fork (in my case this is `siler23/petclinic` but yours will be different)
+	1. Give your pull request a title such as:
 
-3. Choose the `security-fixes` branch to merge into the `main` branch and create your pull request
+		``` bash
+		Security Fixes
+		```
 
-    ![Choose security-fixes branch](../../images/DevSecOps/CreatePullRequestFromSecurityFixes.png)
+    2. Write a justification such as 
+	
+		``` bash
+		Create fixes for all of the security vulnerabilities that showed up in the SonarQube scan.
+		```
 
-    1. Choose `security-fixes` branch to compare to `main`
-    2. Click `Create pull request`
-
-4. Write a justification for your pull request and confirm again that you want to create it
-
-    ![Create pull request for real](../../images/DevSecOps/CreatePullRequestForReal.png)
-
-    1. Write a justification such as 
-      ``` bash
-      Create fixes for all of the security vulnerabilities that showed up in the SonarQube scan.
-      ```
-
-    2. Click `Create pull request`
+    3. Click `Create Pull Request`
 
 5. Merge your pull request, merging the `security-fixes` branch with all of the security fixes into the `main` branch.
 
-    ![Merge pull request](../../images/DevSecOps/MergePullRequest.png)
+    ![Merge pull request](../../images/DevSecOps/MergePullRequestOp.png)
 
-6. Confirm the merge 
+6. Delete the `security-fixes` branch now that it's been successfully merged into the `main` branch of your petclinic repository fork.
 
-    ![Confirm merge](../../images/DevSecOps/ConfirmMergeRequest.png)
-
-7. Delete the `security-fixes` branch now that it's been successfully merged into the `main` branch of your petclinic repository fork.
-
-    ![Delete security-fixes branch](../../images/DevSecOps/SuccessfullyMerged.png)
+    ![Delete security-fixes branch](../../images/DevSecOps/SuccessfullyMergedOp.png)
 
     1. See that the `security-fixes` branch was successfully merged!
 
@@ -309,12 +301,12 @@ You can do this with the following actions:
 
 2. View the pipeline run and watch it successfully complete the `code-analysis` task.
 
-    ![Security Success](../../images/DevSecOps/CodeAnalysisPasses.png)
+    ![Security Success](../../images/DevSecOps/CodeAnalysisPassesOp.png)
 
     !!! note
         You can also wait to see the other tasks pass but since the main goal of this section was to focus on integrating security into DevOps and you have already gone through the pipeline without the `code-analysis` task, there is really no need to do so.
 
-3. View the [SonarQube server](https://sonarqube-1670885178028.apps.cloudnative.marist.edu/){target="_blank" rel="noopener noreferrer"} again to see the updated results for your project (based on the latest scan)
+3. View the [SonarQube server](https://sonarqube-1670885178028.apps.cloudnative.marist.edu/){target="_blank" rel="noopener"} again to see the updated results for your project (based on the latest scan)
 
     1. See your project passes and click on it for full results
 

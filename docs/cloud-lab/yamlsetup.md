@@ -9,7 +9,7 @@ This section is for users that want to quickly bring up the pipeline and resourc
 
 1. Code for the project
 
-    Please fork the code to your GitHub repository by [clicking here](https://github.com/ibm-wsc/spring-petclinic/fork){target="_blank" rel="noopener noreferrer"}. If this fails, you likely already have a forked version of the repository from the lab. Please make sure you have done the [cleanup section here](cleanup/full-cleanup.md) and then come back to this section.
+    Please fork the code to your GitHub repository by [clicking here](https://github.com/ibm-wsc/spring-petclinic/fork){target="_blank" rel="noopener"}. If this fails, you likely already have a forked version of the repository from the lab. Please make sure you have done the [cleanup section here](cleanup/full-cleanup.md) and then come back to this section.
 
 2. Clone the git repository to your local computer 
 

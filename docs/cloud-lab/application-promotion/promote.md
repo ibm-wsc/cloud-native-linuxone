@@ -18,10 +18,10 @@ Now, it's time to go a step further and automate testing that your application i
 
 The first thing you need to test is that the application is alive and available from within your cluster (Kubernetes environment). This is important not only for when running the CI/CD pipeline, but also for any time your application is running  (downtime is detrimental, especially in production). 
 
-This functionality is available in Kubernetes via [probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/){target="_blank" rel="noopener noreferrer"}. There are 3 different types of probes to test the different aspects of your application's availability:
+This functionality is available in Kubernetes via [probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/){target="_blank" rel="noopener"}. There are 3 different types of probes to test the different aspects of your application's availability:
 
 !!! info "Kubernetes Probes in Spring"
-    In Spring there are built-in endpoints for Kubernetes probes. If you are interested in learning how to program these into a Spring application of yours in the future, please take a look at [Spring's official blog](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot){target="_blank" rel="noopener noreferrer"}.
+    In Spring there are built-in endpoints for Kubernetes probes. If you are interested in learning how to program these into a Spring application of yours in the future, please take a look at [Spring's official blog](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot){target="_blank" rel="noopener"}.
 
 1. Startup probes:
 
@@ -48,7 +48,7 @@ This functionality is available in Kubernetes via [probes](https://kubernetes.io
 
     1. Make sure an application is actually running and not caught in a deadlock (it's alive)
 
-    2. Restart "dead" containers automatically with [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/){target="_blank" rel="noopener noreferrer"}
+    2. Restart "dead" containers automatically with [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/){target="_blank" rel="noopener"}
     
     3. Fix problems that may arise in long-running containers via the aforementioned restart
     
@@ -63,7 +63,7 @@ This functionality is available in Kubernetes via [probes](https://kubernetes.io
           failureThreshold: 3
       ```
 
-      This looks almost identical to the `startupProbe` above other than having a much lower `failureThreshold`. The `startupProbe` is making sure the container of a given pod of your application's deployment is alive when it first starts up (It is allowing time for that startup to occur). On the other hand, the `liveness` probe above is making sure your application stays alive throughout its lifecycle. Therefore, it has a much lower `failureThreshold` to enable [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/){target="_blank" rel="noopener noreferrer"} to quickly respond (restart the container) when the container becomes deadlocked.
+      This looks almost identical to the `startupProbe` above other than having a much lower `failureThreshold`. The `startupProbe` is making sure the container of a given pod of your application's deployment is alive when it first starts up (It is allowing time for that startup to occur). On the other hand, the `liveness` probe above is making sure your application stays alive throughout its lifecycle. Therefore, it has a much lower `failureThreshold` to enable [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/){target="_blank" rel="noopener"} to quickly respond (restart the container) when the container becomes deadlocked.
 
 
 3. Readiness probes:
@@ -248,7 +248,7 @@ Moving to the staging environment means spinning up your application in that env
 
 ### Remove Dev
 
-Your first Task will mirror the `cleanup-resources` task at the beginning of your pipeline, but will just cleanup the `dev` resources using the `env=dev` [label selector](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors){target="_blank" rel="noopener noreferrer"}.
+Your first Task will mirror the `cleanup-resources` task at the beginning of your pipeline, but will just cleanup the `dev` resources using the `env=dev` [label selector](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors){target="_blank" rel="noopener"}.
 
 1. Go back to editing your pipeline via `Actions -> Edit Pipeline`
 
@@ -277,7 +277,7 @@ Your first Task will mirror the `cleanup-resources` task at the beginning of you
 
 ### Add Staging
 
-You will use your existing `kustomize` task to deploy the staging configuration for your PetClinic application in a new `kustomize-staging` task. [Customizations for staging PetClinic](https://github.com/ibm-wsc/spring-petclinic/blob/main/ocp-files/overlay/staging/kustomization.yaml){target="_blank" rel="noopener noreferrer"} include adding a staging environment label, name suffix, change cause, and staging environment variables for your application. You could deploy to a separate project or cluster altogether as well as change replicas or add pod autoscalers in a similar manner (depending on your use case) for different environments. 
+You will use your existing `kustomize` task to deploy the staging configuration for your PetClinic application in a new `kustomize-staging` task. [Customizations for staging PetClinic](https://github.com/ibm-wsc/spring-petclinic/blob/main/ocp-files/overlay/staging/kustomization.yaml){target="_blank" rel="noopener"} include adding a staging environment label, name suffix, change cause, and staging environment variables for your application. You could deploy to a separate project or cluster altogether as well as change replicas or add pod autoscalers in a similar manner (depending on your use case) for different environments. 
 
 1. Add a `kustomize` task sequentially to the end of your current pipeline (after `cleanup-dev`)
 

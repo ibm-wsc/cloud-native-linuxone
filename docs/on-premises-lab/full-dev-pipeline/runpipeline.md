@@ -2,16 +2,16 @@
 
 ## Manage resource across environments with Kustomize
 
-[Kustomize](https://kustomize.io){target="_blank" rel="noopener noreferrer"} is a tool for customizing Kubernetes resource configuration.
+[Kustomize](https://kustomize.io){target="_blank" rel="noopener"} is a tool for customizing Kubernetes resource configuration.
 
 !!! note "From the documentation overview"
-    Kustomize traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the [Introducing Kustomize Kubernetes Blog Post](https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/){target="_blank" rel="noopener noreferrer"} for a more in-depth overview of Kustomize and its purpose.
+    Kustomize traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of kubectl. See the [Introducing Kustomize Kubernetes Blog Post](https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/){target="_blank" rel="noopener"} for a more in-depth overview of Kustomize and its purpose.
 
 As part of doing things the "cloud native" way you will be using Kustomize to manage resource changes across your `dev` and `staging` environments as well as injecting information from your pipeline (such as newly created container image information with git commits) into your Kubernetes (OpenShift) resources. 
 
-To see how you use Kustomize, see the Kustomize configuration in your GitHub code in the subdirectories of the [ocp-files directory](https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files){target="_blank" rel="noopener noreferrer"}.
+To see how you use Kustomize, see the Kustomize configuration in your `spring-petclinic` code in the subdirectories of the [ocp-files directory](https://github.com/ibm-wsc/spring-petclinic/tree/main/ocp-files){target="_blank" rel="noopener"}.
 
-For more information on how kubectl (and oc through kubectl) integrates Kustomize, see the [kubectl documentation](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/){target="_blank" rel="noopener noreferrer"}.
+For more information on how kubectl (and oc through kubectl) integrates Kustomize, see the [kubectl documentation](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/){target="_blank" rel="noopener"}.
 
 ### Creating Custom Task for Kustomize
 
@@ -180,7 +180,7 @@ Finally, navigate back to the `Pipelines` section of the OpenShift UI and go bac
     ![Pipeline Run View](../../images/Part1/PipelineRolloutRunViewOp.png)
 
     !!! Success "Pipeline Run Details View"
-        In the pipeline run `Details` view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the above screenshot was `Triggered By` a user versus an automated source such as an event listener watching for a GitHub push...
+        In the pipeline run `Details` view, you can see the pipeline run succeeded with all tasks having a green check mark. Additionally, the pipeline run in the above screenshot was `Triggered By` a user versus an automated source such as an event listener watching for a Gogs push...
 
     **Pipeline Run Success Logs Perspective:**
 

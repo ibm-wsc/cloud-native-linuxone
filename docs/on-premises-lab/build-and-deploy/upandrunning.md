@@ -78,7 +78,7 @@ There are multiple ways OpenShift enables cloud native application developers to
 
 	![from git](upandrunningimages/fromgit.png)
 
-2. Enter the repo URL you copied before in the `Git Repo URL` field. Expand the `Show Advanced Git Options` section, and type in `main` for the `Git Reference`. This tells OpenShift which GitHub repo and branch to pull the source code from.
+2. Enter the repo URL you copied before in the `Git Repo URL` field. Expand the `Show Advanced Git Options` section, and type in `main` for the `Git Reference`. This tells OpenShift which git repo and branch to pull the source code from.
 
 	![git url](upandrunningimages/giturl.png)
 
