@@ -14,6 +14,10 @@ You will start by building your PetClinic application from the source code and c
 !!! info "OpenShift Cluster"
     You will be logging into our on-premises s390x architecture (IBM Z / IBM LinuxONE) OpenShift cluster for this lab. You will each be given a student user and your project name will be studentxx where xx is your student number. The project name depicted in the diagrams below is student00. You will be operating in your assigned project for the entirety of the lab.
 
+!!! Warning "Eliminate Extra Newlines"
+
+	There are copy and paste boxes throughout the lab. When using these boxes, sometimes a newline will be added to the pasted result (you will know it when you see it as your cursor will be moved to the next line with whitespace shown). Please delete these newlines to stay on the happy path :sunny:.
+
 ## Logging into the on-premises WSC OpenShift Cluster
 
 1. You will login with your assigned user and password using the [link here](https://console-openshift-console.apps.atsocpd3.dmz/add/all-namespaces){target="_blank" rel="noopener"}.

@@ -6,30 +6,6 @@ We will use the popular open source package SonarQube to do the code scanning. A
 
 For Petclinic, we will be using SonarScanner for Maven. The ability to execute the SonarQube analysis via a regular Maven goal makes it available anywhere Maven is available (developer build, CI server, etc.), without the need to manually download, setup, and maintain a SonarQube Runner installation. For more information on SonarScanner for Maven, please see [here](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/){target="_blank" rel="noopener"}.
 
-## Accessing the SonarQube server with your assigned credentials
-
-The lab instructors have already setup a SonarQube server within the OpenShift cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.
-
-Access the SonarQube server [here](https://sonarqube-sonarqube.apps.atsocpd3.dmz){target="_blank" rel="noopener"}
-
-Select `Log in` in the upper right hand corner. And log in with your assigned credentials.
-
-If you are not successful with this step, please let the instructor know.
-
-## Generate a security token for your SonarQube account
-
-You'll need either your credentials, or an access token associated with your account, in order to access the server for code scanning. 
-
-Let's use the access token method.
-
-Now that you've logged in, select your account in the upper right hand corner of the SonarQube server page.
-
-![sonarqubeaccount](../../images/DevSecOps/sonarqubeaccount.png) 
-
-In the account panel, go to the security tab, and type in the name `petclinic` to help identify your token, and then select `Generate`. Now copy and save this token to be used in the next step.
-
-![sonarqubetoken](../../images/DevSecOps/sonarqubetoken.png) 
-
 ## Configuring maven-settings with the Sonar scanner plugin
 
 We need to configure maven with the Sonar scanner plugin prefix. We will do that by including the sonar scanner plugin in the maven settings file.
@@ -73,6 +49,32 @@ data:
       </profiles>
     </settings>
 ```
+
+## Accessing the SonarQube server with your assigned credentials
+
+The lab instructors have already setup a SonarQube server within the OpenShift cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.
+
+1. Access the SonarQube server [here](https://sonarqube-sonarqube.apps.atsocpd3.dmz){target="_blank" rel="noopener"}
+
+2. Select `Log in` in the upper right hand corner. And log in with your assigned credentials.
+
+	!!! Failure "If you are not successful with this step"
+
+		Please let an instructor know.
+
+## Generate a security token for your SonarQube account
+
+You'll need either your credentials, or an access token associated with your account, in order to access the server for code scanning. 
+
+Let's use the access token method.
+
+Now that you've logged in, select your account in the upper right hand corner of the SonarQube server page.
+
+![sonarqubeaccount](../../images/DevSecOps/sonarqubeaccount.png) 
+
+In the account panel, go to the security tab, and type in the name `petclinic` to help identify your token, and then select `Generate`. Now copy and save this token or leave the page/tab open to copy it when you need it in the next subsection.
+
+![sonarqubetoken](../../images/DevSecOps/sonarqubetoken.png) 
 
 ## Configuring maven task into Pipeline to do code analysis
 
@@ -144,16 +146,20 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
     ```
 
     ``` bash title="GOAL 5"
-    -Dsonar.projectName=petclinic-<your-name>
+    -Dsonar.projectName=petclinic-<your-student>
     ```
 
-	!!! warning "Use your name"
+	!!! warning "Use your student..."
 		
-		Be mindful to put your name in the value of the `Dsonar.projectName` and ``Dsonar.projectKey` goals (i.e., substitute `<your-name>` with your name such as `petclinic-garrett`).
+		Be mindful to put your student in the value of the `Dsonar.projectName` and ``Dsonar.projectKey` goals (i.e., substitute `<your-student>` with your student such as `petclinic-student00`).
 
     ``` bash title="GOAL 6"
-    -Dsonar.projectKey=petclinic-<your-name>
+    -Dsonar.projectKey=petclinic-<your-student>
     ```
+
+    !!! warning "...Please use your student"
+
+        Remember to replace `<your-student>` with your student such as `petclinic-student00`.
 
 	``` bash title="SOURCE (choose from dropdown)"
 	workspace
@@ -162,9 +168,6 @@ Go back to your OpenShift console and go to your pipeline. Your pipeline should 
 	``` bash title="MAVEN-SETTINGS (choose from dropdown)"
 	maven-settings
 	```
-
-    !!! warning
-        Remember to replace `<your-name>` with your name such as `petclinic-garrett`.
 
 4. Now you can click away to get back to the main pipeline edit panel.
 
@@ -229,7 +232,7 @@ At this point please return to the SonarQube server [here](https://sonarqube-son
 
 ![SonarProject View Fail](../../images/DevSecOps/FindPetclinicSonar.png)
 
-1. Type your name in the project search bar to bring up your project
+1. Type your student in the project search bar to bring up your project
 
 2. Click on your project (which should have a `Failed` label)
 
@@ -311,7 +314,7 @@ You can do this with the following actions:
     1. See your project passes and click on it for full results
 
         !!! tip
-            Search for your project with your name like before.
+            Search for your project with your student like before.
 
         ![See your project passes](../../images/DevSecOps/SeeYourProjectPasses.png)
 

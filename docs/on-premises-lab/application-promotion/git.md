@@ -45,7 +45,8 @@ Now, you need to set up a webhook from Gogs. You want this to hit your `event li
 2. Navigate to **your** git repository of the `spring-petclinic` application.
 
     !!! Tip
-        Your git repository should be in the form `https://gogs-ui-gogs.apps.atsocpd3.dmz/`**yourstudent**`/spring-petclinic` where **yourstudent** is **your** lab student such as `https://gogs-ui-gogs.apps.atsocpd3.dmz/student00/spring-petclinic` for **student00**.
+
+        Your git repository should be in the form `https://gogs-ui-gogs.apps.atsocpd3.dmz/`**yourstudent**`/spring-petclinic` where **yourstudent** is **your** lab student such as `https://gogs-ui-gogs.apps.atsocpd3.dmz/student00/spring-petclinic` for **student00**. You can also navigate to your repository in gogs [here](https://gogs-ui-gogs.apps.atsocpd3.dmz/user/login?redirect_to=){target="_blank" rel="noopener"} by logging in (if not logged in already) and then clicking on the `spring-petclinic` repository from your repositories like you did in the first section of the lab.
 
 3. Go to the `settings` page of the repository and add a `Gogs` webhook
 

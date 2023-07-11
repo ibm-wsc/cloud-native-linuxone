@@ -9,13 +9,19 @@ Now that PetClinic is up and running on your OpenShift cluster, it's time to add
 
     - Configurable: Can tailor overall pipeline and individual tasks to needs of your enterprise/organization 
     
-    - Ease of Use: Pipeline Builder UI and built-in cluster resources (i.e. `ClusterTasks`, `ClusterTriggerBindings`, etc.) enable you to easily create a pipeline and export the yaml files with minimal knowledge
+    - Ease of Use: Pipeline Builder UI and built-in cluster resources (i.e. `ClusterTasks`, `ClusterTriggerBindings`, etc.) enable you to easily create a pipeline and export the yaml files with minimal knowledge.
 
 ## PetClinic Pipeline
 
-When you deployed the PetClinic application using the `From Git` option in the [PetClinic Up and Running](../build-and-deploy/upandrunning.md) section, you chose to create a basic pipeline. You'll start with this pipeline and edit it to add new functionality for your use case. 
+When you deployed the PetClinic application using the `From Git` option in the [PetClinic Up and Running](../build-and-deploy/upandrunning.md) section, you chose to create a basic pipeline. You'll start with this pipeline and edit it to add new functionality for your use case. Start editing by doing the following:
 
-Navigate to the `Pipelines` tab in the `Developer` perspective on the left and then click the three dots to the right of the pipeline name (`spring-petclinic`) and choose `Edit Pipeline`. ![Pipeline Image](../../images/Part1/EditNewPipelineOp.png) 
+1. Navigate to the `Pipelines` tab in the `Developer` perspective on the left and then click on the `spring-petclinic` pipeline.
+
+	![select spring-petclinic pipeline](../../images/Part1/SelectSpringPetclinicPipeline.png)
+
+2. Click on the Actions dropdown on the far right and select `Edit Pipeline` 
+
+	![Pipeline Image](../../images/Part1/EditPipelineFromView.png) 
 
 ## Ensure MySQL Database Deployed for each Run
 
@@ -63,6 +69,12 @@ The `s2i-java-11` container image is very convenient for making a container imag
     Add the `buildah` task as a sequential task after the `build` task.
 
     ![Add Buildah Task](../../images/Part1/AddBuildahTask.png)
+
+	!!! Warning "Choose Red Hat tasks"
+
+		There are various points throughout the lab (such as this one) where you have a choice when adding a task to select either the `Red Hat` or `Community` version of a Task. Please choose the `Red Hat` version in these instances.
+
+		![Choose Red Hat Example](../../images/Part1/ChooseRedHat.png)
 
 2. Configure `buildah` task
 
@@ -137,7 +149,7 @@ The `s2i-java-11` container image is very convenient for making a container imag
         Save the parameters when you are done with entry by clicking on blue `Save` box before moving onto step 4. If blue `Save` box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the `-`.
 
 ## Summary :waxing_crescent_moon:
-Your pipeline will now automatically check that your `MySQL` instance is configured properly and rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (`minimal`) container image to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your container image. Finally, it will tag the container image to distinguish between manual builds and those triggered by a potential git push. In the next section, you will see this automation in action for your development environment.
+Your pipeline will now automatically check that your `MySQL` instance is rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (`minimal`) container image to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your container image. Finally, it will tag the container image to distinguish between manual builds and those triggered by a potential git push. In the next section, you will see this automation in action for your development environment.
 
 [^1]: For the purposes of this lab, you are fulfilling the requirements of a fictional organization. These requirements could change for your specific organization but would follow a similar pattern with different specifics.
 
