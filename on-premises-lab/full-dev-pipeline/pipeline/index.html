@@ -1184,13 +1184,22 @@
 <p>Configurable: Can tailor overall pipeline and individual tasks to needs of your enterprise/organization </p>
 </li>
 <li>
-<p>Ease of Use: Pipeline Builder <abbr title="user interface">UI</abbr> and built-in cluster resources (i.e. <code>ClusterTasks</code>, <code>ClusterTriggerBindings</code>, etc.) enable you to easily create a pipeline and export the yaml files with minimal knowledge</p>
+<p>Ease of Use: Pipeline Builder <abbr title="user interface">UI</abbr> and built-in cluster resources (i.e. <code>ClusterTasks</code>, <code>ClusterTriggerBindings</code>, etc.) enable you to easily create a pipeline and export the yaml files with minimal knowledge.</p>
 </li>
 </ul>
 </div>
 <h2 id="petclinic-pipeline">PetClinic Pipeline<a class="headerlink" href="#petclinic-pipeline" title="Permanent link">&para;</a></h2>
-<p>When you deployed the PetClinic application using the <code>From Git</code> option in the <a href="../../build-and-deploy/upandrunning/">PetClinic Up and Running</a> section, you chose to create a basic pipeline. You'll start with this pipeline and edit it to add new functionality for your use case. </p>
-<p>Navigate to the <code>Pipelines</code> tab in the <code>Developer</code> perspective on the left and then click the three dots to the right of the pipeline name (<code>spring-petclinic</code>) and choose <code>Edit Pipeline</code>. <img alt="Pipeline Image" src="../../../images/Part1/EditNewPipelineOp.png" /> </p>
+<p>When you deployed the PetClinic application using the <code>From Git</code> option in the <a href="../../build-and-deploy/upandrunning/">PetClinic Up and Running</a> section, you chose to create a basic pipeline. You'll start with this pipeline and edit it to add new functionality for your use case. Start editing by doing the following:</p>
+<ol>
+<li>
+<p>Navigate to the <code>Pipelines</code> tab in the <code>Developer</code> perspective on the left and then click on the <code>spring-petclinic</code> pipeline.</p>
+<p><img alt="select spring-petclinic pipeline" src="../../../images/Part1/SelectSpringPetclinicPipeline.png" /></p>
+</li>
+<li>
+<p>Click on the Actions dropdown on the far right and select <code>Edit Pipeline</code> </p>
+<p><img alt="Pipeline Image" src="../../../images/Part1/EditPipelineFromView.png" /> </p>
+</li>
+</ol>
 <h2 id="ensure-mysql-database-deployed-for-each-run">Ensure MySQL Database Deployed for each Run<a class="headerlink" href="#ensure-mysql-database-deployed-for-each-run" title="Permanent link">&para;</a></h2>
 <p>This will bring you to the Pipeline Builder <abbr title="user interface">UI</abbr> where you can edit your pipeline. Here you will make sure the MySQL database is configured according to your specification before the <code>build</code> task.</p>
 <ol>
@@ -1229,6 +1238,11 @@
 <p>Add <code>Buildah</code> task</p>
 <p>Add the <code>buildah</code> task as a sequential task after the <code>build</code> task.</p>
 <p><img alt="Add Buildah Task" src="../../../images/Part1/AddBuildahTask.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Choose Red Hat tasks</p>
+<p>There are various points throughout the lab (such as this one) where you have a choice when adding a task to select either the <code>Red Hat</code> or <code>Community</code> version of a <abbr title="collection of Steps that you define and arrange in a specific order of execution to build a Pipeline. It executes as a Pod on your Kubernetes cluster.">Task</abbr>. Please choose the <code>Red Hat</code> version in these instances.</p>
+<p><img alt="Choose Red Hat Example" src="../../../images/Part1/ChooseRedHat.png" /></p>
+</div>
 </li>
 <li>
 <p>Configure <code>buildah</code> task</p>
@@ -1277,7 +1291,7 @@
 </li>
 </ol>
 <h2 id="summary">Summary <img alt="🌒" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f312.svg" title=":waxing_crescent_moon:" /><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>Your pipeline will now automatically check that your <code>MySQL</code> instance is configured properly and rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (<code>minimal</code>) <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr>. Finally, it will tag the <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to distinguish between manual builds and those triggered by a potential <abbr title="updates the remote branch with local commits. You can also think of git push as update or publish.">git push</abbr>. In the next section, you will see this automation in action for your development environment.</p>
+<p>Your pipeline will now automatically check that your <code>MySQL</code> instance is rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (<code>minimal</code>) <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr>. Finally, it will tag the <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to distinguish between manual builds and those triggered by a potential <abbr title="updates the remote branch with local commits. You can also think of git push as update or publish.">git push</abbr>. In the next section, you will see this automation in action for your development environment.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -1292,7 +1306,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 11, 2023</span>
       
         <br>
         Created:

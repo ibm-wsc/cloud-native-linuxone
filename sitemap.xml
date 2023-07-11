@@ -2,147 +2,147 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/assignment/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/introduction/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/proposechange/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/resources/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/prerequisites/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/yamlsetup/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/application-promotion/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/application-promotion/action/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/application-promotion/git/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/application-promotion/promote/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/build-and-deploy/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/build-and-deploy/upandrunning/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/cleanup/full-cleanup/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/devsecops/devsecops/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/devsecops/sonarqube/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/full-dev-pipeline/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/full-dev-pipeline/pipeline/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/cloud-lab/full-dev-pipeline/runpipeline/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/on-premises-lab/application-promotion/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/on-premises-lab/application-promotion/action/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/on-premises-lab/application-promotion/git/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/on-premises-lab/application-promotion/promote/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/on-premises-lab/build-and-deploy/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/on-premises-lab/build-and-deploy/upandrunning/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/on-premises-lab/devsecops/devsecops/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/on-premises-lab/full-dev-pipeline/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/on-premises-lab/full-dev-pipeline/pipeline/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ibm-wsc.github.io/cloud-native-linuxone/on-premises-lab/full-dev-pipeline/runpipeline/</loc>
-         <lastmod>2023-07-07</lastmod>
+         <lastmod>2023-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

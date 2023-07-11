@@ -980,6 +980,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#configuring-maven-settings-with-the-sonar-scanner-plugin" class="md-nav__link">
+    Configuring maven-settings with the Sonar scanner plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#accessing-the-sonarqube-server-with-your-assigned-credentials" class="md-nav__link">
     Accessing the SonarQube server with your assigned credentials
   </a>
@@ -989,13 +996,6 @@
         <li class="md-nav__item">
   <a href="#generate-a-security-token-for-your-sonarqube-account" class="md-nav__link">
     Generate a security token for your SonarQube account
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-maven-settings-with-the-sonar-scanner-plugin" class="md-nav__link">
-    Configuring maven-settings with the Sonar scanner plugin
   </a>
   
 </li>
@@ -1171,6 +1171,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#configuring-maven-settings-with-the-sonar-scanner-plugin" class="md-nav__link">
+    Configuring maven-settings with the Sonar scanner plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#accessing-the-sonarqube-server-with-your-assigned-credentials" class="md-nav__link">
     Accessing the SonarQube server with your assigned credentials
   </a>
@@ -1180,13 +1187,6 @@
         <li class="md-nav__item">
   <a href="#generate-a-security-token-for-your-sonarqube-account" class="md-nav__link">
     Generate a security token for your SonarQube account
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-maven-settings-with-the-sonar-scanner-plugin" class="md-nav__link">
-    Configuring maven-settings with the Sonar scanner plugin
   </a>
   
 </li>
@@ -1295,18 +1295,6 @@
 <p>As a bonus lab, you will now configure an extra task in your existing Pipeline to conduct code scanning on your petclinic source code. This exercise is to show you one way of incorporating security code scanning as part of your automated <abbr title="(Continuous Integration / Continuous Deployment): CI = Automate the building and testing of new code to integrate it into the codebase. CD = Automate releasing (deploying the build) into different environments. Together, your application is seamlessly updated, tested and deployed into your environments when new code is published (via Source Code Management software such as Git Hub).">CI/CD</abbr> pipeline.</p>
 <p>We will use the popular open source package SonarQube to do the code scanning. According to Wikipedia, "SonarQube is an open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities on 20+ programming languages."</p>
 <p>For Petclinic, we will be using SonarScanner for Maven. The ability to execute the SonarQube analysis via a regular Maven goal makes it available anywhere Maven is available (developer build, CI server, etc.), without the need to manually download, setup, and maintain a SonarQube Runner installation. For more information on SonarScanner for Maven, please see <a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/" rel="noopener" target="_blank">here</a>.</p>
-<h2 id="accessing-the-sonarqube-server-with-your-assigned-credentials">Accessing the SonarQube server with your assigned credentials<a class="headerlink" href="#accessing-the-sonarqube-server-with-your-assigned-credentials" title="Permanent link">&para;</a></h2>
-<p>The lab instructors have already setup a SonarQube server within the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.</p>
-<p>Access the SonarQube server <a href="https://sonarqube-sonarqube.apps.atsocpd3.dmz" rel="noopener" target="_blank">here</a></p>
-<p>Select <code>Log in</code> in the upper right hand corner. And log in with your assigned credentials.</p>
-<p>If you are not successful with this step, please let the instructor know.</p>
-<h2 id="generate-a-security-token-for-your-sonarqube-account">Generate a security token for your SonarQube account<a class="headerlink" href="#generate-a-security-token-for-your-sonarqube-account" title="Permanent link">&para;</a></h2>
-<p>You'll need either your credentials, or an access token associated with your account, in order to access the server for code scanning. </p>
-<p>Let's use the access token method.</p>
-<p>Now that you've logged in, select your account in the upper right hand corner of the SonarQube server page.</p>
-<p><img alt="sonarqubeaccount" src="../../../images/DevSecOps/sonarqubeaccount.png" /> </p>
-<p>In the account panel, go to the security tab, and type in the name <code>petclinic</code> to help identify your token, and then select <code>Generate</code>. Now copy and save this token to be used in the next step.</p>
-<p><img alt="sonarqubetoken" src="../../../images/DevSecOps/sonarqubetoken.png" /> </p>
 <h2 id="configuring-maven-settings-with-the-sonar-scanner-plugin">Configuring maven-settings with the Sonar scanner plugin<a class="headerlink" href="#configuring-maven-settings-with-the-sonar-scanner-plugin" title="Permanent link">&para;</a></h2>
 <p>We need to configure maven with the Sonar scanner plugin prefix. We will do that by including the sonar scanner plugin in the maven settings file.</p>
 <p>We will create a <abbr title="(k8s): an open-source system for automating deployment, scaling, and management of containerized applications.">Kubernetes</abbr> ConfigMap for the mavens settings file.</p>
@@ -1344,6 +1332,27 @@ data:
 <span class="w">      </span>&lt;/profiles&gt;
 <span class="w">    </span>&lt;/settings&gt;
 </code></pre></div>
+<h2 id="accessing-the-sonarqube-server-with-your-assigned-credentials">Accessing the SonarQube server with your assigned credentials<a class="headerlink" href="#accessing-the-sonarqube-server-with-your-assigned-credentials" title="Permanent link">&para;</a></h2>
+<p>The lab instructors have already setup a SonarQube server within the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> cluster for you to access for code scanning. Credentials have also been setup for you. Please use your assigned credentials to test access to the SonarQube Server.</p>
+<ol>
+<li>
+<p>Access the SonarQube server <a href="https://sonarqube-sonarqube.apps.atsocpd3.dmz" rel="noopener" target="_blank">here</a></p>
+</li>
+<li>
+<p>Select <code>Log in</code> in the upper right hand corner. And log in with your assigned credentials.</p>
+<div class="admonition failure">
+<p class="admonition-title">If you are not successful with this step</p>
+<p>Please let an instructor know.</p>
+</div>
+</li>
+</ol>
+<h2 id="generate-a-security-token-for-your-sonarqube-account">Generate a security token for your SonarQube account<a class="headerlink" href="#generate-a-security-token-for-your-sonarqube-account" title="Permanent link">&para;</a></h2>
+<p>You'll need either your credentials, or an access token associated with your account, in order to access the server for code scanning. </p>
+<p>Let's use the access token method.</p>
+<p>Now that you've logged in, select your account in the upper right hand corner of the SonarQube server page.</p>
+<p><img alt="sonarqubeaccount" src="../../../images/DevSecOps/sonarqubeaccount.png" /> </p>
+<p>In the account panel, go to the security tab, and type in the name <code>petclinic</code> to help identify your token, and then select <code>Generate</code>. Now copy and save this token or leave the page/tab open to copy it when you need it in the next subsection.</p>
+<p><img alt="sonarqubetoken" src="../../../images/DevSecOps/sonarqubetoken.png" /> </p>
 <h2 id="configuring-maven-task-into-pipeline-to-do-code-analysis">Configuring maven task into Pipeline to do code analysis<a class="headerlink" href="#configuring-maven-task-into-pipeline-to-do-code-analysis" title="Permanent link">&para;</a></h2>
 <p>Go back to your <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> console and go to your pipeline. Your pipeline should look like the picture below, at this point of the workshop.</p>
 <p><img alt="presqpipeline" src="../../../images/DevSecOps/presqpipelineop.png" /></p>
@@ -1397,22 +1406,22 @@ data:
 </div>
 <div class="highlight"><span class="filename">GOAL 4</span><pre><span></span><code>-Dsonar.host.url<span class="o">=</span>http://sonarqube.sonarqube:9000
 </code></pre></div>
-<div class="highlight"><span class="filename">GOAL 5</span><pre><span></span><code>-Dsonar.projectName<span class="o">=</span>petclinic-&lt;your-name&gt;
+<div class="highlight"><span class="filename">GOAL 5</span><pre><span></span><code>-Dsonar.projectName<span class="o">=</span>petclinic-&lt;your-student&gt;
 </code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title">Use your name</p>
-<p>Be mindful to put your name in the value of the <code>Dsonar.projectName</code> and <code>`Dsonar.projectKey</code> goals (i.e., substitute <code>&lt;your-name&gt;</code> with your name such as <code>petclinic-garrett</code>).</p>
+<p class="admonition-title">Use your student...</p>
+<p>Be mindful to put your student in the value of the <code>Dsonar.projectName</code> and <code>`Dsonar.projectKey</code> goals (i.e., substitute <code>&lt;your-student&gt;</code> with your student such as <code>petclinic-student00</code>).</p>
 </div>
-<div class="highlight"><span class="filename">GOAL 6</span><pre><span></span><code>-Dsonar.projectKey<span class="o">=</span>petclinic-&lt;your-name&gt;
+<div class="highlight"><span class="filename">GOAL 6</span><pre><span></span><code>-Dsonar.projectKey<span class="o">=</span>petclinic-&lt;your-student&gt;
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">...Please use your student</p>
+<p>Remember to replace <code>&lt;your-student&gt;</code> with your student such as <code>petclinic-student00</code>.</p>
+</div>
 <div class="highlight"><span class="filename">SOURCE (choose from dropdown)</span><pre><span></span><code>workspace
 </code></pre></div>
 <div class="highlight"><span class="filename">MAVEN-SETTINGS (choose from dropdown)</span><pre><span></span><code>maven-settings
 </code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Remember to replace <code>&lt;your-name&gt;</code> with your name such as <code>petclinic-garrett</code>.</p>
-</div>
 </li>
 <li>
 <p>Now you can click away to get back to the main pipeline edit panel.</p>
@@ -1472,7 +1481,7 @@ data:
 <p><img alt="SonarProject View Fail" src="../../../images/DevSecOps/FindPetclinicSonar.png" /></p>
 <ol>
 <li>
-<p>Type your name in the project search bar to bring up your project</p>
+<p>Type your student in the project search bar to bring up your project</p>
 </li>
 <li>
 <p>Click on your project (which should have a <code>Failed</code> label)</p>
@@ -1567,7 +1576,7 @@ data:
 <p>See your project passes and click on it for full results</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Search for your project with your name like before.</p>
+<p>Search for your project with your student like before.</p>
 </div>
 <p><img alt="See your project passes" src="../../../images/DevSecOps/SeeYourProjectPasses.png" /></p>
 </li>
@@ -1587,7 +1596,7 @@ data:
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 11, 2023</span>
       
         <br>
         Created:
