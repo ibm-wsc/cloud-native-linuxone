@@ -37,7 +37,7 @@ nav:
         - Integrating Git: on-premises-lab/application-promotion/git.md
         - CI/CD in Action: on-premises-lab/application-promotion/action.md
     - Add the "Sec" in "DevSecOps": on-premises-lab/devsecops/devsecops.md
-  - Lab Assignments: assignment.md 
+  - Lab Logistics: logistics.md 
   - Other resources: resources.md
   - Propose a change: proposechange.md
 
