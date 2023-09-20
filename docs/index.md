@@ -6,8 +6,8 @@ Welcome to our Cloud Native LinuxONE workshop. Developers can leverage OpenShift
 
 ### Introductory Presentations
 
-* 12:00 - 12:30pm ET - [Introduction to Kubernetes and OpenShift](presentations/Kubernetes_Openshift_Introduction.pdf)
-* 12:30pm - 1:00pm - [Introduction to Cloud Native DevSecOps](presentations/CloudNativeWorkshopDevSecOps.pdf)
+* 12:00 - 12:30pm ET - Introduction to Kubernetes and OpenShift
+* 12:30pm - 1:00pm - Introduction to Cloud Native DevSecOps
 
 ### Lab: Build and Deploy a Cloud Native DevOps Pipeline in OpenShift on IBM Z and LinuxONE
 
