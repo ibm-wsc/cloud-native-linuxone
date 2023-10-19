@@ -13,7 +13,7 @@
       
       
       <link rel="icon" href="../images/pipelines-logo.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
@@ -21,10 +21,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -3413,10 +3413,8 @@ persistentvolumeclaim/petclinic-pipeline-pvc created
 <div class="admonition info">
 <p class="admonition-title">build steps</p>
 <ul>
-<li>STEP-GEN-ENV-FILE: this step generates the environment file to be used during the build process</li>
-<li>STEP-GENERATE: this step generates the Dockerfile that will be used to create the <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> later on during the build step</li>
-<li>STEP-BUILD: this is the multi-step build process of creating an <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr>. If the tests fail, this step will not complete.</li>
-<li>STEP-PUSH: this final step pushes the built <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> image registry.</li>
+<li>STEP-GENERATE: this step generates the environment and Dockerfiles that will be used to create the <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> later on during the build and push step</li>
+<li>STEP-BUILD-AND_PUSH: this is the multi-step build process of creating an <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> out of your Java application PetClinic followed by a push. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr>. If the tests fail, this step will not complete. Finally, this step pushes the built <abbr title="(Open Container Initiative): an open governance structure for the express purpose of creating open industry standards around container formats and runtimes">OCI</abbr> <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> to the <abbr title="(OpenShift Container Platform / OCP): an open source container application platform based on the Kubernetes container orchestrator for enterprise application development and deployment">OpenShift</abbr> image registry.</li>
 </ul>
 </div>
 <p>&nbsp;&nbsp;&nbsp; 3. <b>deploy</b> - this Pipeline task will deploy the newly built <abbr title="application and all of its software dependencies packaged into a tarball that runs as a container using a runtime engine such as Docker or Podman.">container image</abbr> as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.</p>
@@ -3605,7 +3603,7 @@ persistentvolumeclaim/petclinic-pipeline-pvc created
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Save the parameters when you are done with entry by clicking on blue <code>Save</code> box before moving onto step 4. If blue <code>Save</code> box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the <code>-</code>.</p>
+<p>Save the parameters when you are done with entry by clicking on blue <code>Save</code> box before continuing. If a blue <code>Save</code> box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the <code>-</code>.</p>
 </div>
 </li>
 </ol>
@@ -4930,7 +4928,7 @@ The instructors have already logged each student enivornment into the VPN.</p>
     <script id="__config" type="application/json">{"base": "/cloud-native-linuxone/", "features": ["content.code.copy", "navigation.indexes", "navigation.tracking", "content.action.edit", "content.action.view", "navigation.footer", "content.tabs.link", "search.share"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.fac441b0.min.js"></script>
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="../js/print-site.js"></script>
       
