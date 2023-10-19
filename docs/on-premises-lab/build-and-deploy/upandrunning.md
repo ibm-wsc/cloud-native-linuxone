@@ -117,10 +117,8 @@ There are multiple ways OpenShift enables cloud native application developers to
 	&nbsp;&nbsp;&nbsp; 2. <b>build</b> - this Pipeline task is the build process which itself is broken down into a few sub-steps. This is the longest task in the pipeline, and can take up to 15 minutes. The steps that it goes through are as follows:
 
 	!!! info "build steps"
-		- STEP-GEN-ENV-FILE: this step generates the environment file to be used during the build process
-		- STEP-GENERATE: this step generates the Dockerfile that will be used to create the OCI container image later on during the build step
-		- STEP-BUILD: this is the multi-step build process of creating an OCI container image out of your Java application PetClinic. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the OCI container image. If the tests fail, this step will not complete.
-		- STEP-PUSH: this final step pushes the built OCI container image to the OpenShift image registry.
+		- STEP-GENERATE: this step generates the environment and Dockerfiles that will be used to create the OCI container image later on during the build and push step
+		- STEP-BUILD-AND_PUSH: this is the multi-step build process of creating an OCI container image out of your Java application PetClinic followed by a push. It will download the required Maven Java packages, compile the Java application, run through a set of 39 unit tests on the application, and finally build the application jar file and the OCI container image. If the tests fail, this step will not complete. Finally, this step pushes the built OCI container image to the OpenShift image registry.
 
 	&nbsp;&nbsp;&nbsp; 3. <b>deploy</b> - this Pipeline task will deploy the newly built container image as a running deployment in your project. After this, your application will be running in a pod and be accessible via a route.
 

@@ -146,7 +146,7 @@ The `s2i-java-11` container image is very convenient for making a container imag
     ```
 
     !!! Tip
-        Save the parameters when you are done with entry by clicking on blue `Save` box before moving onto step 4. If blue `Save` box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the `-`.
+        Save the parameters when you are done with entry by clicking on blue `Save` box before continuing. If a blue `Save` box doesn't appear (is greyed out) delete extra blank parameters you may have accidentally added with the `-`.
 
 ## Summary :waxing_crescent_moon:
 Your pipeline will now automatically check that your `MySQL` instance is rolled out before moving on to the build stage (instead of doing this as a manual task like in the previous section of the lab). Moreover, it will curate the final PetClinic (`minimal`) container image to only have the necessary components instead of a bunch of extra packages (required only for the build itself) that add bloat and potential security vulnerabilities to your container image. Finally, it will tag the container image to distinguish between manual builds and those triggered by a potential git push. In the next section, you will see this automation in action for your development environment.
